@@ -29,6 +29,9 @@ function LoginPage (){
                 }
             }
         }
+        function handleSignUp(){
+            navigate('/signuppage')
+        }
     return (
         <div>
             <h2>Welcome to CareCalories</h2>
@@ -39,7 +42,8 @@ function LoginPage (){
                 <input type="test" id="username" name="username" required onChange={(e)=> setUsername(e.target.value)}></input><br></br>
                 <label htmlFor="password">Password</label><br></br>
                 <input type="password" id="password" name="password" required onChange={(e)=> setPassword(e.target.value)}></input><br></br><br></br>
-                <button onClick={handleLogin}>Submit</button>
+                <button onClick={handleLogin}>Login</button>
+                <button onClick={handleSignUp}>Sign up!</button>
             </form> 
         </div>
         );

@@ -14,6 +14,7 @@ import Recipe from './pages/Recipe'
 import HealthTips from './pages/HealthTips'
 import MealRecord from './pages/MealRecord'
 import LoginPage from './pages/LoginPage'
+import SignUp from './pages/SignUp'
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <div className="links"> 
             <Routes>
               <Route path="/" element={<LoginPage />} />
+              <Route path="/signuppage" element={<SignUp/>}/>
               <Route path="/createpost" element={<CreatePost />} />
               <Route path="/updatepost/:id" element={<UpdatePost />} />
               <Route path="/readpost/:id" element={<Read />} />
