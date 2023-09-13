@@ -50,6 +50,7 @@ input[type=submit]:hover {
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
+  padding-top: 65px
 }
 
 .col-25 {
@@ -121,4 +122,10 @@ input[type=submit]:hover {
 .DataInProfile3{
   float:left;
   width: 20%;
+}
+.recipeh1{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 20px;
+  margin-right: 50px;
 }
