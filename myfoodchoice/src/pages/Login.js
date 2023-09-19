@@ -21,7 +21,7 @@ const Login = () => {
     },[]) 
 
     function Signup(){
-        navigate('/signuppage')
+        navigate('/signup')
     }
 
     function ToHome(){

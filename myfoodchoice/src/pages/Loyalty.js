@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import '../css/loyalty.css';
+import FP10 from "../pics/FP10.jpg";
+import FP20 from "../pics/Fairprice20.jpg";
+import Fitbit from "../pics/Fitbit.jpg";
 
 const Loyalty = () => {
   // Static array of loyalty items (IMG not working)
@@ -10,21 +13,21 @@ const Loyalty = () => {
       name: 'FP 10',
       description: 'This is a $10 FP voucher',
       points: 500,
-      image: 'loyaltyimg/FP10.jpg',
+      image: FP10,
     },
     {
       id: 2,
       name: 'FP 20',
       description: 'This is a $20 FP Voucher',
       points: 1000,
-      image: 'loyaltyimg/Fairprice20.jpg',
+      image: FP20,
     },
     {
       id: 3,
       name: 'FitBit Watch',
       description: 'This is a fitness tracking watch made by qwer company',
       points: 10000,
-      image: 'loyaltyimg/Fitbit.jpg',
+      image: Fitbit,
     },
   ];
 
@@ -68,7 +71,7 @@ const Loyalty = () => {
           {loyaltyItems.map((item) => (
         <li key={item.id} className="loyalty-item">
           <h3>{item.name}</h3>
-          {item.image && <img src={process.env.PUBLIC_URL + '/' + item.image} alt={item.name} />}
+          {item.image && <img src={item.image} alt={item.name} />}
           <p>Description: {item.description}</p>
           <p>Points required: {item.points}</p>
           <button onClick={() => handleItemClick(item)}>Redeem</button>
