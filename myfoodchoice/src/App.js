@@ -12,6 +12,7 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Onboarding from './pages/Onboarding'
 import NotFound from './pages/NotFound'
+import Partnership from './pages/Partnership'
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
                     <Route path="/transaction" element={<Transaction />}></Route>
                     <Route path="/feedback" element={<Feedback />}></Route>
                     <Route path="/loyalty" element={<Loyalty />}></Route>
+                    <Route path="/partnership" element={<Partnership />}></Route>
                     <Route path="*" element={<NotFound />}></Route>
             </Routes>
           </div>

@@ -12,7 +12,8 @@ function Navbar() {
                     <Link to="/account">Account</Link>
                     <Link to="/transaction">Transaction</Link>
                     <Link to="/feedback">Feedback</Link>
-                    <Link to="/loyalty">Loyalty</Link>                 
+                    <Link to="/loyalty">Loyalty</Link>
+                    <Link to="/partnership">Partnership</Link>                  
                     <Link to="/">Logout</Link>
                 </div>
             </div>
