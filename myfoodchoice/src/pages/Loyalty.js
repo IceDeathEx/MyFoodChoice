@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
-import '../loyalty.css';
+import '../css/loyalty.css';
 
 const Loyalty = () => {
   // Static array of loyalty items (IMG not working)

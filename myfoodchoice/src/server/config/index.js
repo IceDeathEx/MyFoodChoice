@@ -9,7 +9,7 @@ app.use(express.json())
 
 // Route to get all rows (WORKING)
 app.get("/api/get", (req,res)=>{
-db.query("SELECT * FROM systemadmin;", (err,result)=>{
+db.query("SELECT * FROM user;", (err,result)=>{
     if(err) {
     console.log(err)
     } 
@@ -20,14 +20,14 @@ res.send(result)
 app.get('/api/read/:id', (req,res)=>{
 
 const id = req.params.id;
- db.query("SELECT * FROM systemadmin WHERE id = ?;",id, (err,result)=>{
+ db.query("SELECT * FROM user WHERE id = ?;",id, (err,result)=>{
     if(err) {
     console.log(err)
     } 
     res.send(result)
     });   });
 
-// Route for creating a row (WORKING)
+// Route for creating a new user row into the table 'user' (WORKING)
 app.post('/api/create', (req,res)=> {
 
 const email = req.body.email;
@@ -35,8 +35,14 @@ const name = req.body.name;
 const password = req.body.password;
 const gender = req.body.gender;
 const accounttype = req.body.accounttype;
+const country = req.body.country;
+const height = req.body.height;
+const weight = req.body.weight;
+const lifestyle = req.body.lifestyle;
+const conditions = req.body.conditions;
+const dob = req.body.dob;
 
-db.query("INSERT INTO systemadmin (email, name, password, gender, accountType) VALUES (?,?,?,?,?)",[email, name, password, gender, accounttype], (err,result)=>{
+db.query("INSERT INTO user (email, name, password, gender, accountType, country, height, weight, lifestyle, conditions, dob) VALUES (?,?,?,?,?,?,?,?,?,?,?)",[email, name, password, gender, accounttype, country, height, weight, lifestyle, conditions, dob], (err,result)=>{
    if(err) {
    console.log(err)
    } 
@@ -49,7 +55,7 @@ app.put('/api/update/:id', (req,res)=>{
 const id = req.params.id;
 const name = req.body.name;
 const password = req.body.password;
-db.query("UPDATE systemadmin SET name = ?, password = ? WHERE id = ?;",[name, password, id], (err,result)=>{
+db.query("UPDATE user SET name = ?, password = ? WHERE id = ?;",[name, password, id], (err,result)=>{
     if(err) {
    console.log(err)   } 
    console.log(result)
@@ -61,7 +67,7 @@ db.query("UPDATE systemadmin SET name = ?, password = ? WHERE id = ?;",[name, pa
 app.delete('/api/delete/:id',(req,res)=>{
 const id = req.params.id;
 
-db.query("DELETE FROM systemadmin WHERE id= ?;", id, (err,result)=>{
+db.query("DELETE FROM user WHERE id= ?;", id, (err,result)=>{
     if(err) {
     console.log(err)
          } 
@@ -76,13 +82,19 @@ app.post('/api/signup', (req,res)=> {
     const password = req.body.password;
     const gender = req.body.gender;
     const accounttype = req.body.accounttype;
-    
-    db.query("INSERT INTO systemadmin (email, name, password, gender, accountType) VALUES (?,?,?,?,?)",[email, name, password, gender, accounttype], (err,result)=>{
-       if(err) {
-       console.log(err)
-       }
-       console.log(result)
-    });   })
+    const country = req.body.country;
+    const height = req.body.height;
+    const weight = req.body.weight;
+    const lifestyle = req.body.lifestyle;
+    const conditions = req.body.conditions;
+    const dob = req.body.dob;
+  
+  db.query("INSERT INTO user (email, name, password, gender, accountType, country, height, weight, lifestyle, conditions, dob) VALUES (?,?,?,?,?,?,?,?,?,?,?)",[email, name, password, gender, accounttype, country, height, weight, lifestyle, conditions, dob], (err,result)=>{
+     if(err) {
+     console.log(err)
+     } 
+     console.log(result)
+  });   })
     
     // Route to check for duplicate user and email
     
@@ -90,7 +102,7 @@ app.post('/api/signup', (req,res)=> {
       const { email } = req.body;
     
       // Query to check if the email exists in the database
-      const queryEmail = 'SELECT * FROM systemadmin WHERE email = ?';
+      const queryEmail = 'SELECT * FROM user WHERE email = ?';
     
       db.query(queryEmail, [email], (error, results) => {
         if (error) {

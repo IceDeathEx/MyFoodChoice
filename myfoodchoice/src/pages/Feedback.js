@@ -5,7 +5,9 @@ const Feedback = () => {
   return (
     <div>
       <Navbar />
-      <h2 className="recipeh1">Feedback page</h2>
+      <div className="divcss">
+        <h2>Feedback Page</h2>
+      </div>
       <form>
         <div className="container">
           <label htmlFor="lname">Title</label>

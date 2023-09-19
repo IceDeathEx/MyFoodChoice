@@ -1,10 +1,5 @@
 import React from 'react'
-import './App.css'
-import { Link, Route, Routes} from 'react-router-dom'
-import MainPage from './pages/MainPage.js'
-import CreatePost from './pages/CreatePost.js'
-import UpdatePost from './pages/UpdatePost.js'
-import Read from './pages/Read.js'
+import {Route, Routes} from 'react-router-dom'
 import Homepage from './pages/Homepage'
 import Loyalty from './pages/Loyalty'
 import Feedback from './pages/Feedback'
@@ -13,8 +8,9 @@ import Account from './pages/Account'
 import Recipe from './pages/Recipe'
 import HealthTips from './pages/HealthTips'
 import MealRecord from './pages/MealRecord'
-import LoginPage from './pages/LoginPage'
+import Login from './pages/Login'
 import SignUp from './pages/SignUp'
+import Onboarding from './pages/Onboarding'
 
 const App = () => {
   return (
@@ -22,11 +18,9 @@ const App = () => {
       <div>
           <div className="links"> 
             <Routes>
-              <Route path="/" element={<LoginPage />} />
-              <Route path="/signuppage" element={<SignUp/>}/>
-              <Route path="/createpost" element={<CreatePost />} />
-              <Route path="/updatepost/:id" element={<UpdatePost />} />
-              <Route path="/readpost/:id" element={<Read />} />
+              <Route path="/" element={<Onboarding />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<SignUp/>}/>
               
                     <Route path="/homepage" element={<Homepage />}/>
                     <Route path="/mealrecord" element={<MealRecord />}></Route>

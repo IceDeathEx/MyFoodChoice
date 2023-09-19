@@ -58,9 +58,11 @@ const Recipe = () => {
         }
     return (
         <div >
-            <Navbar />
+            <Navbar />  
             <div className="trackcalories">
-                <h2 className="recipeh1">Track Calories</h2>
+                <div className="divcss">
+                    <h2>Recipe page</h2>
+                </div>
                 <div className="bgroup">
                 
                     <h3>Breakfast</h3>
