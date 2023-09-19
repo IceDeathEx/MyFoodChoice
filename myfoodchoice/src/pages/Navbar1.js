@@ -1,6 +1,7 @@
 import React from "react";
 import "../css/styleNavbar1.css";
 import { useNavigate } from 'react-router';
+import { Link } from "react-router-dom";
 
 export const Navbar1 = () => {
   const navigate = useNavigate()
@@ -8,9 +9,6 @@ export const Navbar1 = () => {
     function Signup(){
         navigate('/signup')
     }
-    function UserLogin(){
-      navigate('/login')
-  }
   return (
     <nav className="navbar">
       <div className="frame">
@@ -22,11 +20,10 @@ export const Navbar1 = () => {
           </div>
         </button>
         
-        <a href="">
-            <button onClick={UserLogin}><div className="div">Sign In</div></button>
-        </a>
+        <Link to ='/login'><div className="div">Sign In</div></Link>
+
         <div className="main">
-          <a href=""><div className="text-wrapper-2">Home</div></a>
+          <Link to='/'><div className="text-wrapper-2">Home</div></Link>
           <a href=""><div className="text-wrapper-3">Health Tips</div></a>
           <a href=""><div className="text-wrapper-4">Partnership</div></a>
           <a href=""><div className="text-wrapper-5">Feedback</div></a>
