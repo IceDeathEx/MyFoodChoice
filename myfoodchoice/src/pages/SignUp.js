@@ -4,6 +4,7 @@ import image1 from '../pics/image-1.png';
 import image2 from '../pics/image-2.png';
 import vector from '../pics/Vector.png';
 
+import { Link } from "react-router-dom";
 import React, { useState } from 'react';
 import Axios from 'axios';
 import { useNavigate } from 'react-router';
@@ -14,46 +15,64 @@ const SignUp = () => {
     const [password, setPassword] = useState('');
     const [password2, setPassword2] = useState('');
     const [gender, setGender] = useState('Male');
-    const [accounttype, setAccountType] = useState('1');
-    const [accounttype2, setAccountType2] = useState('');
+    const [accounttype] = useState('1');
     const [country, setCountry] = useState('Singapore');
     const [lifestyle, setlifestyle] = useState('Not Active');
     const [height, setHeight] = useState('');
     const [weight, setWeight] = useState('');
     const [conditions, setConditions] = useState('Normal');
     const [dob, setdob] = useState('');
-    const [bmi, setbmi] = useState('');
 
     const [emailExists, setEmailExists] = useState(false); // State to track if email exists
+    const [emailExistsMessage, setEmailExistsMessage] = useState(''); // State to store the email error message
+    const [passwordMatchError, setPasswordMatchError] = useState(false); // State to track password match error
     const navigate = useNavigate();
 
-    const checkEmailExists = async () => {
-        try {
-          const response = await Axios.post('http://localhost:3002/api/check-email-exists', {
-            email: email,
-          });
-    
-          // If the response indicates that the email exists
+      const checkEmailAndPassword = async () => {
+      let isEmailValid = true;
+      let isPasswordValid = true;
+
+      // Check if the email exists
+      try {
+        const response = await Axios.post('http://localhost:3002/api/check-email-exists', {
+          email: email,
+        });
+
+
+           // If the response indicates that the email exists
           if (response.data.emailExists) {
+            isEmailValid = false;
             setEmailExists(true);
+            setEmailExistsMessage('Email already exists. Please use a different email.');
           } else {
             setEmailExists(false);
-            // If the email doesn't exist, proceed with registration
-            submitPost();
+            setEmailExistsMessage('');
           }
         } catch (error) {
           console.error('Error checking email existence:', error);
           // Handle the error appropriately
+          isEmailValid = false;
+        }
+
+        // Check if passwords match
+        if (password !== password2) {
+          isPasswordValid = false;
+          setPasswordMatchError(true);
+        } else {
+          setPasswordMatchError(false);
+        }
+
+        // If both email and password are valid, proceed with registration
+        if (isEmailValid && isPasswordValid) {
+          submitPost();
         }
       };
-    
       // Function to submit user registration data
       const submitPost = () => {
-        var value = weight / (height/100 * height/100);
-        // bmi = weight(kg) / (Height(m) * Height(m))
-        setbmi(value)
-
-        Axios.post('http://localhost:3002/api/signup', {
+        // Calculate BMI
+          const bmi = ((weight)/ ((height/100) *(height/100)))
+          console.log(bmi)
+          Axios.post('http://localhost:3002/api/signup', {
           email: email,
           name: name,
           password: password,
@@ -64,20 +83,19 @@ const SignUp = () => {
           weight: weight,
           lifestyle: lifestyle,
           conditions: conditions,
-          dob: dob  
+          dob: dob,
+          bmi: bmi
         });
-        navigate('/');
-      };
-      function ToHome(){
         navigate('/')
-      }
+      };
 
-    return ( 
+    return (
         <div className="sign-up-pop-up">
     <div className="div">
+      <form>
       <div className="text-wrapper">CareCalories.</div>
 
-      <button className="frame" onClick={submitPost}><div className="text-wrapper-2">Sign Up</div></button>
+      <button className="frame" onClick={checkEmailAndPassword}><div className="text-wrapper-2">Sign Up</div></button>
 
       <div className="frame-2">
         <div className="text-wrapper-3">Create your account</div>
@@ -88,11 +106,11 @@ const SignUp = () => {
         <label className="text-wrapper-5">Name*</label>
       </div>
       <div className="frame-4">
-        <input className="overlap-group" placeholder="***********" onChange={(e)=> setPassword(e.target.value)}></input>
+        <input className="overlap-group" type="password" placeholder="***********" autoComplete='off' onChange={(e)=> setPassword(e.target.value)}></input>
         <label className="text-wrapper-7">Password*</label>
       </div>
       <div className="frame-5">
-        <input className="overlap-group" placeholder="***********" onChange={(e)=> setPassword2(e.target.value)}></input>
+        <input className="overlap-group" type="password" placeholder="***********" autoComplete='off' onChange={(e)=> setPassword2(e.target.value)}></input>
         <label className="text-wrapper-8">Re-Type Password*</label>
       </div>
       <div className="frame-6">
@@ -150,16 +168,28 @@ const SignUp = () => {
           <label className="text-wrapper-24">Lifestyle*</label>
         </div>
       </div>
-      <a href="">
-      <img className="icon-circle-x" onClick={ToHome} alt="Icon circle x" src={imagex} />
-      </a>
+      {/* Password Match Error Message */}
+        {passwordMatchError && (
+          <div className="password-match-error">
+            Passwords do not match. Please retype your password.
+          </div>
+        )}
+        {/* Email Error Message */}
+        {emailExistsMessage && (
+              <div className="email-exists-prompt">
+                {emailExistsMessage}
+              </div>
+            )}
+      <Link to='/'><img className="icon-circle-x" alt="Icon circle x" src={imagex} /></Link>
+
       <div className="overlap-6">
         <img className="image" alt="Image" src={image1} />
         <img className="image-2" alt="Image" src={image2} />
       </div>
+      </form>
     </div>
   </div>
      );
 }
- 
+
 export default SignUp;

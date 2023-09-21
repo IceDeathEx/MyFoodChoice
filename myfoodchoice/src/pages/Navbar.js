@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link, Routes} from 'react-router-dom'
 import '../css/styleHomePageNavbar.css'
+import { useAuth } from '../Utility/Auth';
 function Navbar() {
+    const Auth = useAuth()
+    function handleLogout(){
+        Auth.logout()
+    }
+    //For karen to visualize
+    console.log(Auth.user)
         return (
             <div>
                 <div className='navbar2'>
@@ -14,7 +21,7 @@ function Navbar() {
                     <Link to="/feedback">Feedback</Link>
                     <Link to="/loyalty">Loyalty</Link>
                     <Link to="/partnership">Partnership</Link>                  
-                    <Link to="/">Logout</Link>
+                    <Link to="/" onClick={handleLogout}>Logout</Link>
                 </div>
             </div>
         );

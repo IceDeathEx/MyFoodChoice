@@ -1,46 +1,31 @@
-import React from "react";
+import {React, useState} from "react";
 import "../css/styleLogin.css";
 import imagex from "../pics/icon__circlex_.png";
 import image2 from "../pics/image-2.png";
 import image1 from "../pics/image-1.png";
 import { useNavigate } from "react-router";
-import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Axios from 'axios';
+import { useAuth } from "../Utility/Auth";
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [postList,setPostList]=useState([]);
     const navigate = useNavigate()
-    const [loginSuccess, setSuccess] = useState(true);
-
-    useEffect(()=>{
-        Axios.get("http://localhost:3002/api/get").then((data)=>
-        {
-            setPostList(data.data)
-        });
-    },[]) 
-
-    function Signup(){
-        navigate('/signup')
-    }
-
-    function ToHome(){
-      navigate('/')
-    }
+    const auth = useAuth();
 
     function handleLogin(e){
-        e.preventDefault()
-        for(var i = 0; i< postList.length; i++){
-            if(postList[i].email === username && postList[i].password === password){
-                console.log('Login successful');
-                navigate('/homepage');
-                break;
-            }
-            else{
-                console.log('Login failure. Please try again');
-                setSuccess(false);
-            }
-        }
+      e.preventDefault()
+      Axios.post("http://localhost:3002/api/validateLoginCreds", {username: username, password: password})
+      .then((res)=>{
+          if(res.data.loginCredsExists){
+            console.log('Login successful');
+            auth.login(username)
+            navigate('/homepage', {replace: true})
+          }
+          else{
+            console.log('Invalid Login Credentials. Please try again!')
+          }
+      })
     }
 
     return (
@@ -53,7 +38,7 @@ const Login = () => {
             <div className="text-wrapper">CareCalories.</div>
             <div className="frame-2">
               <div className="text-wrapper-2">Not Registered Yet?</div>
-              <a href="" className="text-wrapper-3" onClick={Signup}>Create an account</a>
+              <Link to='/signup' className="text-wrapper-3">Create an account</Link>
             </div>
             <div className="frame-wrapper">
               <div className="frame-3">
@@ -77,7 +62,7 @@ const Login = () => {
                 <div className="frame-7">
                   <div className="frame-6">
                     <label className="text-wrapper-6">Password</label>
-                    <input className="frame-8" type="password" placeholder="*****************" onChange={(e)=> setPassword(e.target.value)}>
+                    <input className="frame-8" type="password" placeholder="*****************" autoComplete='off' onChange={(e)=> setPassword(e.target.value)}>
               
                     </input>
                   </div>
@@ -91,12 +76,10 @@ const Login = () => {
           </div>
         </div>
 
-        <a href="">
-        <img className="icon-circle-x" onClick={ToHome} alt="Icon circle x" src={imagex}/>
-        </a>
+        <Link to ='/'><img className="icon-circle-x" alt="Icon circle x" src={imagex}/></Link>
         <div className="overlap-group">
-          <img className="image" alt="Image" src={image1}/>
-          <img className="img" alt="Image" src={image2}/>
+          <img className="image" alt="pic" src={image1}/>
+          <img className="img" alt="pic" src={image2}/>
         </div>
       </div>
     </div>

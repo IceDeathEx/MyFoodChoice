@@ -88,8 +88,9 @@ app.post('/api/signup', (req,res)=> {
     const lifestyle = req.body.lifestyle;
     const conditions = req.body.conditions;
     const dob = req.body.dob;
+    const bmi = req.body.bmi;
   
-  db.query("INSERT INTO user (email, name, password, gender, accountType, country, height, weight, lifestyle, conditions, dob) VALUES (?,?,?,?,?,?,?,?,?,?,?)",[email, name, password, gender, accounttype, country, height, weight, lifestyle, conditions, dob], (err,result)=>{
+  db.query("INSERT INTO user (email, name, password, gender, accountType, country, height, weight, lifestyle, conditions, dob, bmi) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",[email, name, password, gender, accounttype, country, height, weight, lifestyle, conditions, dob, bmi], (err,result)=>{
      if(err) {
      console.log(err)
      } 
@@ -115,6 +116,29 @@ app.post('/api/signup', (req,res)=> {
           return res.status(200).json({ emailExists: true });
         } else {
           return res.status(200).json({ emailExists: false });
+        }
+      });
+    });
+     // Route to check for duplicate user and email
+    
+     app.post('/api/validateLoginCreds', (req, res) => {
+      const email = req.body.username;
+      const password = req.body.password;
+    
+      // Query to check if the email exists in the database
+      const queryLoginCreds = 'SELECT * FROM user WHERE email = ? AND password = ?';
+    
+      db.query(queryLoginCreds, [email, password], (error, results) => {
+        if (error) {
+          console.error('Error querying MySQL:', error);
+          return res.status(500).json({ error: 'Internal server error' });
+        }
+    
+        // If results have length > 0, the email already exists
+        if (results.length > 0) {
+          return res.status(200).json({ loginCredsExists: true });
+        } else {
+          return res.status(200).json({ loginCredsExists: false });
         }
       });
     });
