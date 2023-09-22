@@ -7,8 +7,6 @@ function Navbar() {
     function handleLogout(){
         Auth.logout()
     }
-    //For karen to visualize
-    console.log(Auth.user)
         return (
             <div>
                 <div className='navbar2'>

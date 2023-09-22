@@ -2,7 +2,6 @@ import '../css/styleSignUp.css';
 import imagex from '../pics/icon__circlex_.png';
 import image1 from '../pics/image-1.png';
 import image2 from '../pics/image-2.png';
-import vector from '../pics/Vector.png';
 
 import { Link } from "react-router-dom";
 import React, { useState } from 'react';
@@ -37,8 +36,6 @@ const SignUp = () => {
         const response = await Axios.post('http://localhost:3002/api/check-email-exists', {
           email: email,
         });
-
-
            // If the response indicates that the email exists
           if (response.data.emailExists) {
             isEmailValid = false;
@@ -61,7 +58,6 @@ const SignUp = () => {
         } else {
           setPasswordMatchError(false);
         }
-
         // If both email and password are valid, proceed with registration
         if (isEmailValid && isPasswordValid) {
           submitPost();
@@ -71,7 +67,6 @@ const SignUp = () => {
       const submitPost = () => {
         // Calculate BMI
           const bmi = ((weight)/ ((height/100) *(height/100)))
-          console.log(bmi)
           Axios.post('http://localhost:3002/api/signup', {
           email: email,
           name: name,
@@ -136,7 +131,6 @@ const SignUp = () => {
           <option>Singapore</option>
           <option>Malaysia</option>
           <option>Indonesia</option>
-          <img className="vector" alt="Vector" src={vector} />
         </select>
         <label className="text-wrapper-18">Country*</label>
       </div>
@@ -153,7 +147,6 @@ const SignUp = () => {
           <option>Male</option>
           <option>Female</option>
           <option>Prefer Not to Say</option>
-          <img className="ph-caret-down-fill" alt="Ph caret down fill" src={vector} />
         </select>
         <label className="text-wrapper-16">Gender*</label>
       </div>
@@ -162,7 +155,6 @@ const SignUp = () => {
           <option>Not Active(0-1 times a week)</option>
           <option>Active(1-2 times a week)</option>
           <option>Very Active(More than 3 times a week)</option>
-          <img className="img" alt="Vector" src={vector} />
         </select>
         <div className="overlap-5">
           <label className="text-wrapper-24">Lifestyle*</label>
@@ -170,15 +162,11 @@ const SignUp = () => {
       </div>
       {/* Password Match Error Message */}
         {passwordMatchError && (
-          <div className="password-match-error">
-            Passwords do not match. Please retype your password.
-          </div>
+          <div className="password-match-error">Passwords do not match. Please retype your password.</div>
         )}
         {/* Email Error Message */}
         {emailExistsMessage && (
-              <div className="email-exists-prompt">
-                {emailExistsMessage}
-              </div>
+              <div className="email-exists-prompt">{emailExistsMessage}</div>
             )}
       <Link to='/'><img className="icon-circle-x" alt="Icon circle x" src={imagex} /></Link>
 

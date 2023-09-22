@@ -15,26 +15,28 @@ import NotFound from './pages/NotFound'
 import Partnership from './pages/Partnership'
 import { AuthProvider } from './Utility/Auth'
 import { RequireAuth } from './Utility/ReqAuth'
+import TakePhoto from './pages/TakePhoto'
 
 const App = () => {
   return (
           <AuthProvider>
             <Routes>
-              <Route path="/" element={<Onboarding />} />
+              {<Route path="/" element={<Onboarding />} />}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp/>}/>
               
+
               <Route path="/homepage" element={<RequireAuth><Homepage /></RequireAuth>}/>
-              <Route path="/mealrecord" element={<RequireAuth><MealRecord /></RequireAuth>}></Route>
-              <Route path="/healthtips" element={<RequireAuth><HealthTips /></RequireAuth>}></Route>
-              <Route path="/recipe" element={<RequireAuth><Recipe /></RequireAuth>}></Route>
-              <Route path="/account" element={<RequireAuth><Account /></RequireAuth>}></Route>
-              <Route path="/transaction" element={<RequireAuth><Transaction /></RequireAuth>}></Route>
-              <Route path="/feedback" element={<RequireAuth><Feedback /></RequireAuth>}></Route>
-              <Route path="/loyalty" element={<RequireAuth><Loyalty /></RequireAuth>}></Route>
-              <Route path="/partnership" element={<RequireAuth><Partnership /></RequireAuth>}></Route>
+              <Route path="/mealrecord" element={<RequireAuth><MealRecord /></RequireAuth>}/>
+              <Route path="/healthtips" element={<RequireAuth><HealthTips /></RequireAuth>}/>
+              <Route path="/recipe" element={<RequireAuth><Recipe /></RequireAuth>}/>
+              <Route path="/account" element={<RequireAuth><Account /></RequireAuth>}/>
+              <Route path="/transaction" element={<RequireAuth><Transaction /></RequireAuth>}/>
+              <Route path="/feedback" element={<RequireAuth><Feedback /></RequireAuth>}/>
+              <Route path="/loyalty" element={<RequireAuth><Loyalty /></RequireAuth>}/>
+              <Route path="/partnership" element={<RequireAuth><Partnership /></RequireAuth>}/>
               
-              <Route path="*" element={<NotFound />}></Route>
+              <Route path="*" element={<NotFound />}/>
             </Routes>
           </AuthProvider>
   )}
