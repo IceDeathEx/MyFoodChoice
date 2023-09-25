@@ -16,12 +16,13 @@ import Partnership from './pages/Partnership'
 import { AuthProvider } from './Utility/Auth'
 import { RequireAuth } from './Utility/ReqAuth'
 import TakePhoto from './pages/TakePhoto'
+import MainScript from './MLtesting/Mainscript'
 
 const App = () => {
   return (
           <AuthProvider>
             <Routes>
-              {<Route path="/" element={<Onboarding />} />}
+              {<Route path="/" element={<MainScript />} />}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp/>}/>
               
