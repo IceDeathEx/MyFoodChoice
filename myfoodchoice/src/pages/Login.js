@@ -7,13 +7,16 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import Axios from 'axios';
 import { useAuth } from "../Utility/Auth";
+import { PopUpModalLogin2 } from "./PopUpModalLogin2";
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate()
     const auth = useAuth();
+    const [invalidMsg, setInvalidMsg] = useState(false);
 
     function handleLogin(e){
+      setInvalidMsg(false)
       e.preventDefault()
       Axios.post("http://localhost:3002/api/validateLoginCreds", {username: username, password: password})
       .then((res)=>{
@@ -23,6 +26,7 @@ const Login = () => {
             navigate('/homepage', {replace: true})
           }
           else{
+            setInvalidMsg(true)
             console.log('Invalid Login Credentials. Please try again!')
           }
       })
@@ -30,7 +34,7 @@ const Login = () => {
 
     return (
         <div className="App">
-
+        {invalidMsg && <PopUpModalLogin2/>}
     <div className="login-pop-up">
       <div className="div">
         <div className="group">
@@ -50,9 +54,11 @@ const Login = () => {
               <span className="span">-------------</span>
               <span className="text-wrapper-5"> Sign in with Email </span>
               <span className="span">------------- </span>
+              
             </p>
             <form>
             <div className="frame-4">
+            
               <div className="frame-5">
                 <div className="frame-6">
                   <label className="text-wrapper-6">Email</label>
@@ -63,8 +69,9 @@ const Login = () => {
                   <div className="frame-6">
                     <label className="text-wrapper-6">Password</label>
                     <input className="frame-8" type="password" placeholder="*****************" autoComplete='off' onChange={(e)=> setPassword(e.target.value)}>
-              
+                
                     </input>
+                    
                   </div>
                 </div>
               </div>
@@ -72,6 +79,7 @@ const Login = () => {
                 <div className="text-wrapper-9">Login</div>
               </button>
             </div>
+            
             </form>
           </div>
         </div>

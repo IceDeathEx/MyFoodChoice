@@ -1,0 +1,37 @@
+.popup-modal {
+    align-items: center;
+    background-color: #ffffff;
+    border-radius: 30px;
+    display: inline-flex;
+    padding: 15px 30px;
+    position: relative;
+  }
+  
+  .popup-modal .frame {
+    flex: 0 0 auto;
+    position: relative;
+  }
+  
+  .popup-modal .div-wrapper {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+    position: relative;
+    width: 399px;
+  }
+  
+  .popup-modal .text-wrapper {
+    color: #000000;
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.22px;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    width: 372px;
+  }
+  
