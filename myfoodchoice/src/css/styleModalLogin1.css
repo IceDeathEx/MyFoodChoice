@@ -5,6 +5,7 @@
     display: inline-flex;
     padding: 15px 30px;
     position: relative;
+    z-index: 99;
   }
   
   .popup-modal .frame {

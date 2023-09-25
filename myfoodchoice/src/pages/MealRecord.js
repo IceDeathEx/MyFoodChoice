@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from './Navbar';
 import { useState } from 'react';
+import { NavBarUser } from './NavBarUser';
 
 const MealRecord = () => {
         const [toggle, setToggle] = useState(false)
@@ -15,7 +15,7 @@ const MealRecord = () => {
     }
     return (
         <div>
-            <Navbar/>
+            <NavBarUser/>
             <div className="divcss">
                 <h2>Meal Record page</h2>
                 <form>

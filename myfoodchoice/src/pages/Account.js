@@ -1,10 +1,11 @@
 import React from 'react';
-import Navbar from './Navbar';
+import { NavBarUser } from './NavBarUser';
+import '../css/styleHomePageNavbar.css'
 
 const Account = () => {
     return (
         <div>
-            <Navbar/>
+            <NavBarUser/>
            
             <div className="divcss">
                 <h2>Account Page</h2>

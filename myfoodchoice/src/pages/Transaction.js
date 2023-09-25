@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from './Navbar';
+import { NavBarUser } from './NavBarUser';
 
 const Transaction = () => {
     return (
         <div>
-            <Navbar/>
+            <NavBarUser/>
             <div className="divcss">
               <h2>Transaction page</h2>
               <thead>

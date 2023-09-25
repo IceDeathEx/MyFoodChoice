@@ -1,52 +1,107 @@
-import React from 'react';
-import Navbar from './Navbar';
+import React from "react";
+import "../css/styleHT.css";
+import { NavBarUser } from "./NavBarUser";
 
-const HealthTips = () => {
-    return (
-        <div>
-            <Navbar/>
-            <div className="divcss">
-                <h2>Health Tips page</h2>
-                <h3>Choose Your Health Tips Preference</h3>
-            </div>  
-
-        <div>
-            <h4>DIABETIC</h4>
-                
-           <ul>
-                
-                <li>
-                    <a href="#" title="Buy this Diet Tips" target="">Keto Diet</a>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                 </li>
-                 <li>
-                    <a href="#" title="Buy this Diet Tips" target="">Bulking</a>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                 </li>
-                 <li>
-                    <a href="#" title="Buy this Diet Tips" target="">Cutting</a>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                 </li>
-        </ul>
-        <h4>Golden Age</h4>
-        <ul>
+export const HealthTips = () => {
+  return (
+    <div>
+        <NavBarUser/>
+    
+    <div className="healthtips-on-login">
         
-                 <li>
-                    <a href="#" title="Buy this Diet Tips" target="">Vegan Diet</a>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                 </li>
-                 <li>
-                    <a href="#" title="Buy this Diet Tips" target="">Halal Diet</a>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                 </li>
-                 <li>
-                    <a href="#" title="Buy this Diet Tips" target="">Kosher Diet</a>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
-                 </li>
-            </ul>
-        </div>   
+      <div className="div">
+        
+        <div className="frame">
+          <div className="text-wrapper">May 21, 2022</div>
+          <a href="" className="text-wrapper-2">What is heart attack?</a>
+          <div className="overlap-group">
+            <a href="" className="text-wrapper-3">See more...</a>
+            <p className="p">
+              A heart attack occurs when the flow of blood to the heart is severely reduced or blocked. The blockage is
+              usually due to a buildup of fat, cholesterol and other substances in the heart (coronary) arteries. The
+              fatty, cholesterol-containing deposits are called plaques. The process of plaque buildup is called
+              atherosclerosis.......
+            </p>
+          </div>
         </div>
-    );
+        <div className="frame-2">
+          <div className="text-wrapper">May 21, 2022</div>
+          <a href="" className="text-wrapper-2">What is heart attack?</a>
+          <div className="overlap-group">
+            <a href="" className="text-wrapper-3">See more...</a>
+            <p className="p">
+              A heart attack occurs when the flow of blood to the heart is severely reduced or blocked. The blockage is
+              usually due to a buildup of fat, cholesterol and other substances in the heart (coronary) arteries. The
+              fatty, cholesterol-containing deposits are called plaques. The process of plaque buildup is called
+              atherosclerosis.......
+            </p>
+          </div>
+        </div>
+        <div className="frame-3">
+          <div className="text-wrapper">May 21, 2022</div>
+          <a href="" className="text-wrapper-2">What is heart attack?</a>
+          <div className="overlap-group">
+            <a href="" className="text-wrapper-3">See more...</a>
+            <p className="p">
+              A heart attack occurs when the flow of blood to the heart is severely reduced or blocked. The blockage is
+              usually due to a buildup of fat, cholesterol and other substances in the heart (coronary) arteries. The
+              fatty, cholesterol-containing deposits are called plaques. The process of plaque buildup is called
+              atherosclerosis.......
+            </p>
+          </div>
+        </div>
+        <div className="frame-4">
+          <div className="text-wrapper">May 21, 2022</div>
+          <a href="" className="text-wrapper-2">What is heart attack?</a>
+          <div className="overlap-group">
+            <a href="" className="text-wrapper-3">See more...</a>
+            <p className="p">
+              A heart attack occurs when the flow of blood to the heart is severely reduced or blocked. The blockage is
+              usually due to a buildup of fat, cholesterol and other substances in the heart (coronary) arteries. The
+              fatty, cholesterol-containing deposits are called plaques. The process of plaque buildup is called
+              atherosclerosis.......
+            </p>
+          </div>
+        </div>
+        <div className="frame-5">
+          <div className="text-wrapper">May 21, 2022</div>
+          <a href="" className="text-wrapper-2">What is heart attack?</a>
+          <div className="overlap-group">
+            <a href="" className="text-wrapper-3">See more...</a>
+            <p className="p">
+              A heart attack occurs when the flow of blood to the heart is severely reduced or blocked. The blockage is
+              usually due to a buildup of fat, cholesterol and other substances in the heart (coronary) arteries. The
+              fatty, cholesterol-containing deposits are called plaques. The process of plaque buildup is called
+              atherosclerosis.......
+            </p>
+          </div>
+        </div> <div className="frame-6">
+          <div className="text-wrapper">May 21, 2022</div>
+          <a href="" className="text-wrapper-2">What is heart attack?</a>
+          <div className="overlap-group">
+            <a href="" className="text-wrapper-3">See more...</a>
+            <p className="p">
+              A heart attack occurs when the flow of blood to the heart is severely reduced or blocked. The blockage is
+              usually due to a buildup of fat, cholesterol and other substances in the heart (coronary) arteries. The
+              fatty, cholesterol-containing deposits are called plaques. The process of plaque buildup is called
+              atherosclerosis.......
+            </p>
+          </div>
+        </div>
+        <div className="navbar">
+            <div className="text-wrapper-4"><input type="checkbox"/><label>   Sports</label></div>
+            <div className="text-wrapper-5"><input type="checkbox"/><label>   Weight-Loss</label></div>
+            <div className="text-wrapper-6"><input type="checkbox"/><label>   Lifestyle</label></div>
+            <div className="text-wrapper-7"><input type="checkbox"/><label>   Food</label></div>
+        </div>
+        <div className="searchbar">
+          <input type="text" className="overlap" placeholder="what you looking for?">
+          </input>
+        </div>
+      </div>
+    </div>
+    </div>
+  );
 };
 
 export default HealthTips;

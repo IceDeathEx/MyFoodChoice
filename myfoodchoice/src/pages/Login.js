@@ -36,7 +36,7 @@ const Login = () => {
         <div className="App">
         {invalidMsg && <PopUpModalLogin2/>}
     <div className="login-pop-up">
-      <div className="div">
+      <div className="div"> 
         <div className="group">
           <div className="frame">
             <div className="text-wrapper">CareCalories.</div>

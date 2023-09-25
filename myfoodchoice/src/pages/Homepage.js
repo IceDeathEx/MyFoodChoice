@@ -1,12 +1,13 @@
 import React from 'react';
-import Navbar from './Navbar';
 import { PopUpModalLogin1 } from './PopUpModalLogin1';
+import { NavBarUser } from './NavBarUser';
+import '../css/styleHomePageNavbar.css'
 
 
 function Homepage() {
         return (
             <div>
-                <Navbar />
+                <NavBarUser />
                 <div className="divcss">
                     <PopUpModalLogin1/>
                     <h2>Home Page</h2>

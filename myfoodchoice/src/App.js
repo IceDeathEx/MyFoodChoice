@@ -22,7 +22,7 @@ const App = () => {
   return (
           <AuthProvider>
             <Routes>
-              {<Route path="/" element={<MainScript />} />}
+              {<Route path="/" element={<Onboarding />} />}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp/>}/>
               
@@ -35,7 +35,7 @@ const App = () => {
               <Route path="/transaction" element={<RequireAuth><Transaction /></RequireAuth>}/>
               <Route path="/feedback" element={<RequireAuth><Feedback /></RequireAuth>}/>
               <Route path="/loyalty" element={<RequireAuth><Loyalty /></RequireAuth>}/>
-              <Route path="/partnership" element={<RequireAuth><Partnership /></RequireAuth>}/>
+              <Route path="/orderfood" element={<RequireAuth><Partnership /></RequireAuth>}/>
               
               <Route path="*" element={<NotFound />}/>
             </Routes>

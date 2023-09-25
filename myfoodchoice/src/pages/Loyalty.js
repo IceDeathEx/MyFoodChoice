@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from './Navbar';
 import '../css/loyalty.css';
 import FP10 from "../pics/FP10.jpg";
 import FP20 from "../pics/Fairprice20.jpg";
 import Fitbit from "../pics/Fitbit.jpg";
+import { NavBarUser } from './NavBarUser';
+import '../css/styleHomePageNavbar.css'
 
 const Loyalty = () => {
   // Static array of loyalty items (IMG not working)
@@ -62,7 +63,7 @@ const Loyalty = () => {
 
   return (
     <div>
-      <Navbar />
+      <NavBarUser />
       <div className="divcss">
         <h2>Loyalty Reward Page</h2>
         <p>Select items to redeem using your loyalty points.</p>

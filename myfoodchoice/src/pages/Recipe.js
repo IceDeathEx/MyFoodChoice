@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import Navbar from './Navbar';
 import Breakfast from './Breakfast';
 import Lunch from './Lunch';
 import Dinner from './Dinner'
 import SnacksAndOthers from './SnacksAndOthers';
 import Exercises from './Exercises';
+import { NavBarUser } from './NavBarUser';
 const Recipe = () => {
         const [showbf, setShowBf] = useState(false);
         const [hidebf, setHideBf] = useState(true);
@@ -58,7 +58,7 @@ const Recipe = () => {
         }
     return (
         <div >
-            <Navbar />  
+            <NavBarUser />  
             <div className="trackcalories">
                 <div className="divcss">
                     <h2>Recipe page</h2>

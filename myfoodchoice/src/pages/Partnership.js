@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from './Navbar';
-
+import { NavBarUser } from './NavBarUser';
+import '../css/styleHomePageNavbar.css'
 const Partnership = () => {
     return ( 
         <div>
-                <Navbar />
+                <NavBarUser />
                 <div className="divcss">
                     <h2>Partnership Page</h2>
                     
