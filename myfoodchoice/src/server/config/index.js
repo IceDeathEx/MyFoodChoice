@@ -119,13 +119,13 @@ app.post('/api/signup', (req,res)=> {
         }
       });
     });
-     // Route to check for duplicate user and email
+     // Route to check for duplicate loginCreds
     
      app.post('/api/validateLoginCreds', (req, res) => {
       const email = req.body.username;
       const password = req.body.password;
     
-      // Query to check if the email exists in the database
+      // Query to check if the creds exists in the database
       const queryLoginCreds = 'SELECT * FROM user WHERE email = ? AND password = ?';
     
       db.query(queryLoginCreds, [email, password], (error, results) => {
@@ -133,12 +133,11 @@ app.post('/api/signup', (req,res)=> {
           console.error('Error querying MySQL:', error);
           return res.status(500).json({ error: 'Internal server error' });
         }
-    
-        // If results have length > 0, the email already exists
+        // If results have length > 0, the creds already exists
         if (results.length > 0) {
-          return res.status(200).json({ loginCredsExists: true });
+          return res.status(200).json({ accountType: results[0].accountType });
         } else {
-          return res.status(200).json({ loginCredsExists: false });
+          return res.status(200).json({ accountType: results[0].accountType });
         }
       });
     });
@@ -146,10 +145,8 @@ app.post('/api/signup', (req,res)=> {
 // Getting HealthTips db data (WORKING)
 app.get("/api/getHealthTips", (req,res)=>{
   db.query("SELECT * FROM healthtips;", (err,result)=>{
-      if(err) {
-      console.log(err)
-      } 
-  res.send(result)
+      if(err) { console.log(err)}
+      res.send(result)
   });   });
 
 //Listening to PORT 3002

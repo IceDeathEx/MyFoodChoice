@@ -1,15 +1,26 @@
-import React from 'react';
+import React, {useState, useEffect } from 'react';
 import { PopUpModalLogin1 } from './PopUpModalLogin1';
 import { NavBarUser } from './NavBarUser';
 import '../css/styleHomePageNavbar.css'
 
-
 function Homepage() {
+    const [once, setOnce] = useState(false)
+    const path = JSON.parse(window.localStorage.getItem('path'));
+    useEffect(()=>{
+        if(path){
+            setOnce(true)
+            window.localStorage.setItem('path', JSON.stringify(null))
+        }
+        else{
+            setOnce(false)
+        }
+    },[])
+    
         return (
             <div>
                 <NavBarUser />
                 <div className="divcss">
-                    <PopUpModalLogin1/>
+                    {once && <PopUpModalLogin1/>}
                     <h2>Home Page</h2>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                     <h2>What is CareCalories?</h2>

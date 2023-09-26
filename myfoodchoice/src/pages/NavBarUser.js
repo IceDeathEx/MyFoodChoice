@@ -9,9 +9,11 @@ import { useSignOut } from 'react-auth-kit'
 export const NavBarUser = () => {
     const signOut = useSignOut()
     // const Auth = useAuth()
-    // function handleLogout(){
-    //   Auth.logout()
-    // }
+    function handleLogout(){
+      //Auth.logout()
+      window.localStorage.removeItem('path')
+      signOut()
+    }
   return (
     <div className="element">
       <div className="care-calories">CARECALORIES.</div>
@@ -23,8 +25,8 @@ export const NavBarUser = () => {
         <Link to='/feedback'><div className="company"><div className="text-wrapper-3">Feedback</div></div></Link>
         <Link to='/orderfood'><div className="order-food"><div className="text-wrapper-4">Order Food</div></div></Link>
       </div>
-      <Link to="/" onClick={()=> signOut()}><img className="cart" alt="Cart" src={image2} /></Link>
-      <Link to="/" onClick={()=> signOut()}><img className="ellipse" alt="Ellipse" src={image} /></Link>
+      <Link to="/" onClick={handleLogout}><img className="cart" alt="Cart" src={image2} /></Link>
+      <Link to="/" onClick={handleLogout}><img className="ellipse" alt="Ellipse" src={image} /></Link>
     </div>
   );
 };

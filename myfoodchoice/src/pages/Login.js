@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import Axios from 'axios';
 import { PopUpModalLogin2 } from "./PopUpModalLogin2";
 import { useSignIn } from 'react-auth-kit'
+import { useLocation } from "react-router-dom";
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -15,13 +16,16 @@ const Login = () => {
     const navigate = useNavigate()
     const [invalidMsg, setInvalidMsg] = useState(false);
     const signIn = useSignIn()
+    const location = useLocation()
+    window.localStorage.setItem('path', JSON.stringify(location))
 
     function handleLogin(e){
       setInvalidMsg(false)
       e.preventDefault()
       Axios.post("http://localhost:3002/api/validateLoginCreds", {username: username, password: password})
       .then((res)=>{
-          if(res.data.loginCredsExists){
+          if(res.status === 200){
+            console.log(res.data)
             console.log('Login successful');
             if(signIn(
               {
@@ -31,8 +35,17 @@ const Login = () => {
                   authState: {username: username},
               }
           ))
-            navigate('/homepage', {replace: true})
+          //Checking if its a user.
+          if(res.data.accountType === '1'){
+              navigate('/homepage', {replace: true})
           }
+          else{
+            //Later will be changed to system admin's page.
+            navigate('/healthtips', {replace: true})
+          }
+            
+          }
+          //If failure to login, error message is prompted.
           else{
             setInvalidMsg(true)
             console.log('Invalid Login Credentials. Please try again!')
