@@ -6,14 +6,15 @@ import image1 from "../pics/image-1.png";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import Axios from 'axios';
-import { useAuth } from "../Utility/Auth";
 import { PopUpModalLogin2 } from "./PopUpModalLogin2";
+import { useSignIn } from 'react-auth-kit'
+
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate()
-    const auth = useAuth();
     const [invalidMsg, setInvalidMsg] = useState(false);
+    const signIn = useSignIn()
 
     function handleLogin(e){
       setInvalidMsg(false)
@@ -22,7 +23,14 @@ const Login = () => {
       .then((res)=>{
           if(res.data.loginCredsExists){
             console.log('Login successful');
-            auth.login(username)
+            if(signIn(
+              {
+                  token: res.data.token,
+                  expiresIn: 3600,
+                  tokenType: "Bearer",
+                  authState: {username: username},
+              }
+          ))
             navigate('/homepage', {replace: true})
           }
           else{

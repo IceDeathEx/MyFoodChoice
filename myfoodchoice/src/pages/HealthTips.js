@@ -72,6 +72,7 @@ function handleChange(e){
               <div className="text-wrapper-2">{i}. {res.title}</div>
               <div className="overlap-group">
                 <button onClick={openModal} className="text-wrapper-3 btn" value={res.id}>See more...</button>
+                <p className="p">{res.shortmsg}{res.shortmsg}{res.shortmsg}{res.shortmsg}{res.shortmsg}{res.shortmsg}</p>
               </div>
             </div>
           })}

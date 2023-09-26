@@ -3,13 +3,15 @@ import "../css/NavBarUser.css";
 import image from '../pics/Ellipse_1.png'
 import image2 from '../pics/icon-cart.svg'
 import { Link } from "react-router-dom";
-import { useAuth } from '../Utility/Auth';
+//import { useAuth } from '../Utility/Auth';
+import { useSignOut } from 'react-auth-kit'
 
 export const NavBarUser = () => {
-    const Auth = useAuth()
-    function handleLogout(){
-      Auth.logout()
-    }
+    const signOut = useSignOut()
+    // const Auth = useAuth()
+    // function handleLogout(){
+    //   Auth.logout()
+    // }
   return (
     <div className="element">
       <div className="care-calories">CARECALORIES.</div>
@@ -21,8 +23,8 @@ export const NavBarUser = () => {
         <Link to='/feedback'><div className="company"><div className="text-wrapper-3">Feedback</div></div></Link>
         <Link to='/orderfood'><div className="order-food"><div className="text-wrapper-4">Order Food</div></div></Link>
       </div>
-      <Link to="/" onClick={handleLogout}><img className="cart" alt="Cart" src={image2} /></Link>
-      <Link to="/" onClick={handleLogout}><img className="ellipse" alt="Ellipse" src={image} /></Link>
+      <Link to="/" onClick={()=> signOut()}><img className="cart" alt="Cart" src={image2} /></Link>
+      <Link to="/" onClick={()=> signOut()}><img className="ellipse" alt="Ellipse" src={image} /></Link>
     </div>
   );
 };
