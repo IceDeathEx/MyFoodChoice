@@ -13,7 +13,7 @@
     width: 1543px;
   }
   
-  .healthtips-on-login .frame {
+  .healthtips-on-login .frame-0 {
     height: 198px;
     left: 78px;
     position: absolute;
@@ -84,7 +84,7 @@
     width: 1290px;
   }
   
-  .healthtips-on-login .frame-2 {
+  .healthtips-on-login .frame-1 {
     height: 198px;
     left: 78px;
     position: absolute;
@@ -92,7 +92,7 @@
     width: 1394px;
   }
   
-  .healthtips-on-login .frame-3 {
+  .healthtips-on-login .frame-2 {
     height: 198px;
     left: 78px;
     position: absolute;
@@ -100,7 +100,7 @@
     width: 1394px;
   }
   
-  .healthtips-on-login .frame-4 {
+  .healthtips-on-login .frame-3 {
     height: 198px;
     left: 72px;
     position: absolute;
@@ -108,19 +108,117 @@
     width: 1394px;
   }
   
-  .healthtips-on-login .frame-5 {
+  .healthtips-on-login .frame-4 {
     height: 198px;
     left: 72px;
     position: absolute;
     top: 1248px;
     width: 1394px;
   }
-  
-  .healthtips-on-login .frame-6 {
+  .healthtips-on-login .frame-5 {
     height: 198px;
     left: 72px;
     position: absolute;
     top: 1476px;
+    width: 1394px;
+  }
+  .healthtips-on-login .frame-6 {
+    height: 198px;
+    left: 72px;
+    position: absolute;
+    top: 1704px;
+    width: 1394px;
+  }
+  .healthtips-on-login .frame-7 {
+    height: 198px;
+    left: 72px;
+    position: absolute;
+    top: 1932px;
+    width: 1394px;
+  }
+  .healthtips-on-login .frame-8 {
+    height: 198px;
+    left: 72px;
+    position: absolute;
+    top: 2160px;
+    width: 1394px;
+  }
+  .healthtips-on-login .frame-9 {
+    height: 198px;
+    left: 72px;
+    position: absolute;
+    top: 2388px;
+    width: 1394px;
+  }
+  .healthtips-on-login .frame-10 {
+    height: 198px;
+    left: 72px;
+    position: absolute;
+    top: 2616px;
+    width: 1394px;
+  }
+  .healthtips-on-login .frame-11 {
+    height: 198px;
+    left: 72px;
+    position: absolute;
+    top: 2844px;
+    width: 1394px;
+  }
+  .healthtips-on-login .frame-12 {
+    height: 198px;
+    left: 72px;
+    position: absolute;
+    top: 3072px;
+    width: 1394px;
+  }
+  .healthtips-on-login .frame-13 {
+    height: 198px;
+    left: 72px;
+    position: absolute;
+    top: 3300px;
+    width: 1394px;
+  }
+  .healthtips-on-login .frame-14 {
+    height: 198px;
+    left: 72px;
+    position: absolute;
+    top: 3528px;
+    width: 1394px;
+  }
+  .healthtips-on-login .frame-15 {
+    height: 198px;
+    left: 72px;
+    position: absolute;
+    top: 3756px;
+    width: 1394px;
+  }
+  .healthtips-on-login .frame-16 {
+    height: 198px;
+    left: 72px;
+    position: absolute;
+    top: 3984px;
+    width: 1394px;
+  }
+  
+  .healthtips-on-login .frame-17 {
+    height: 198px;
+    left: 72px;
+    position: absolute;
+    top: 4212px;
+    width: 1394px;
+  }
+  .healthtips-on-login .frame-18 {
+    height: 198px;
+    left: 72px;
+    position: absolute;
+    top: 4440px;
+    width: 1394px;
+  }
+  .healthtips-on-login .frame-19 {
+    height: 198px;
+    left: 72px;
+    position: absolute;
+    top: 4668px;
     width: 1394px;
   }
   
@@ -218,5 +316,16 @@
     top: 10px;
     white-space: nowrap;
     width: 482px;
+  }
+  .btn {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    /*optional*/
+    font-family: arial, sans-serif;
+    /*input has OS specific font-family*/
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
   }
   

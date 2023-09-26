@@ -143,6 +143,15 @@ app.post('/api/signup', (req,res)=> {
       });
     });
 
+// Getting HealthTips db data (WORKING)
+app.get("/api/getHealthTips", (req,res)=>{
+  db.query("SELECT * FROM healthtips;", (err,result)=>{
+      if(err) {
+      console.log(err)
+      } 
+  res.send(result)
+  });   });
+
 //Listening to PORT 3002
 app.listen(PORT, ()=>{
     console.log(`Server is running on ${PORT}`)
