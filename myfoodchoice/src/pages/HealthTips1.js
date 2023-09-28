@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../css/styleHT.css";
-import { NavBarUser } from "./NavBarUser";
 import Axios from "axios";
 import dateFormat from 'dateformat';
 import Modal from 'react-modal';
+import Navbar1 from "./Navbar1";
 
 // Styling of the Modal
 const customStyles = {
@@ -18,7 +18,7 @@ const customStyles = {
 };
 
 //Actual Component
-const HealthTips = () => {
+const HealthTips1 = () => {
   //Declaration of variables 
   const [htData, sethtdata] = useState([]);
   const [filtered, setFiltered] = useState('');
@@ -63,7 +63,7 @@ function handleChange(e){
 
   return (
     <div>
-      <NavBarUser />
+      <Navbar1 />
       <div className="healthtips-on-login">
         <div className="div">
           {htData2.map((res, i) => {
@@ -106,4 +106,4 @@ function handleChange(e){
   );
 };
 
-export default HealthTips;
+export default HealthTips1;

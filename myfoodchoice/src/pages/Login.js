@@ -4,11 +4,10 @@ import imagex from "../pics/icon__circlex_.png";
 import image2 from "../pics/image-2.png";
 import image1 from "../pics/image-1.png";
 import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Axios from 'axios';
 import { PopUpModalLogin2 } from "./PopUpModalLogin2";
 import { useSignIn } from 'react-auth-kit'
-import { useLocation } from "react-router-dom";
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -17,16 +16,22 @@ const Login = () => {
     const [invalidMsg, setInvalidMsg] = useState(false);
     const signIn = useSignIn()
     const location = useLocation()
-    window.localStorage.setItem('path', JSON.stringify(location))
+    
 
     function handleLogin(e){
+      //Setting error message to false to prevent it from showing.
       setInvalidMsg(false)
+      //Stop the page from refreshing
       e.preventDefault()
+      //Storing the path in local Storage for access once login
+      window.localStorage.setItem('path', JSON.stringify(location))
+      //Using axios to check for login Creds.
       Axios.post("http://localhost:3002/api/validateLoginCreds", {username: username, password: password})
       .then((res)=>{
           if(res.status === 200){
-            console.log(res.data)
+            //Can use res.data.user[0].columnName to get the user details from here.
             console.log('Login successful');
+            window.localStorage.setItem('account', JSON.stringify(res.data.user[0]))
             if(signIn(
               {
                   token: res.data.token,
@@ -36,7 +41,7 @@ const Login = () => {
               }
           ))
           //Checking if its a user.
-          if(res.data.accountType === '1'){
+          if(res.data.user[0].accountType.toString() === '1'){
               navigate('/homepage', {replace: true})
           }
           else{

@@ -11,7 +11,7 @@ export const Navbar1 = () => {
     }
   return (
     <nav className="navbar">
-      <div className="frame">
+      <div className="frame-ob">
         <div className="logo">CARECALORIES.</div>
         
         <button className="sign-up-button" onClick={Signup}>
@@ -24,9 +24,9 @@ export const Navbar1 = () => {
 
         <div className="main">
           <Link to='/'><div className="text-wrapper-2">Home</div></Link>
-          <a href=""><div className="text-wrapper-3">Health Tips</div></a>
-          <a href=""><div className="text-wrapper-4">Partnership</div></a>
-          <a href=""><div className="text-wrapper-5">Feedback</div></a>
+          <Link to='/healthtips1'><div className="text-wrapper-3">Health Tips</div></Link>
+          <Link to='/'><div className="text-wrapper-4">Partnership</div></Link>
+          <Link to='/'><div className="text-wrapper-5">Feedback</div></Link>
         </div>
       </div>
     </nav>

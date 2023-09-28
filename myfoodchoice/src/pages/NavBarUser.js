@@ -26,7 +26,7 @@ export const NavBarUser = () => {
         <Link to='/orderfood'><div className="order-food"><div className="text-wrapper-4">Order Food</div></div></Link>
       </div>
       <Link to="/" onClick={handleLogout}><img className="cart" alt="Cart" src={image2} /></Link>
-      <Link to="/" onClick={handleLogout}><img className="ellipse" alt="Ellipse" src={image} /></Link>
+      <Link to="/account"><img className="ellipse" alt="Ellipse" src={image} /></Link>
     </div>
   );
 };

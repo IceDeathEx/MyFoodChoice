@@ -62,7 +62,7 @@
     font-family: "Montserrat-Bold", Helvetica;
     font-size: 16px;
     font-weight: 700;
-    left: 1184px;
+    left: 1100px;
     letter-spacing: -0.24px;
     line-height: 36px;
     position: absolute;
@@ -327,5 +327,10 @@
     color: #069;
     text-decoration: underline;
     cursor: pointer;
+  }
+  .drp-list{
+    border-color:#000000;
+    border: 2.5px solid;
+    border-radius: 20px;
   }
   

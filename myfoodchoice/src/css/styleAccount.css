@@ -1,0 +1,448 @@
+.account {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .account .div {
+    background-color: #ffffff;
+    height: 1079px;
+    position: relative;
+    width: 1510px;
+  }
+  
+  .account .text-wrapper {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    left: 573px;
+    letter-spacing: -0.36px;
+    line-height: 36px;
+    position: absolute;
+    top: 186px;
+    width: 254px;
+  }
+  
+  .account .overlap {
+    height: 39px;
+    left: 1024px;
+    position: absolute;
+    top: 680px;
+    width: 138px;
+  }
+  
+  .account .rectangle {
+    background-color: #000000;
+    border-radius: 12px;
+    height: 38px;
+    left: 0;
+    position: absolute;
+    top: 1px;
+    width: 138px;
+  }
+  
+  .account .text-wrapper-2 {
+    color: #ffffff;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 12px;
+    font-weight: 700;
+    left: 32px;
+    letter-spacing: -0.18px;
+    line-height: 36px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 72px;
+  }
+  
+  .account .overlap-group {
+    height: 39px;
+    left: 874px;
+    position: absolute;
+    top: 683px;
+    width: 138px;
+  }
+  
+  .account .rectangle-2 {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 12px;
+    height: 38px;
+    left: 0;
+    position: absolute;
+    top: 1px;
+    width: 138px;
+  }
+  
+  .account .text-wrapper-3 {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 12px;
+    font-weight: 700;
+    left: 30px;
+    letter-spacing: -0.18px;
+    line-height: 36px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 72px;
+  }
+  
+  .account .frame {
+    height: 66px;
+    left: 489px;
+    position: absolute;
+    top: 336px;
+    width: 167px;
+  }
+  
+  .account .text-wrapper-4 {
+    color: #000000;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-size: 15px;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: 0.15px;
+    line-height: normal;
+    opacity: 0.5;
+    position: absolute;
+    top: -1px;
+  }
+  
+  .account .text-wrapper-5 {
+    color: #000000;
+    font-family: "Poppins-Medium", Helvetica;
+    font-size: 18px;
+    font-weight: 500;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 29px;
+  }
+  
+  .account .frame-2 {
+    height: 57px;
+    left: 264px;
+    position: absolute;
+    top: 336px;
+    width: 86px;
+  }
+  
+  .account .frame-3 {
+    height: 57px;
+    left: 264px;
+    position: absolute;
+    top: 413px;
+    width: 57px;
+  }
+  
+  .account .frame-4 {
+    height: 57px;
+    left: 264px;
+    position: absolute;
+    top: 490px;
+    width: 102px;
+  }
+  
+  .account .frame-5 {
+    height: 57px;
+    left: 264px;
+    position: absolute;
+    top: 567px;
+    width: 118px;
+  }
+  
+  .account .frame-6 {
+    height: 93px;
+    left: 489px;
+    position: absolute;
+    top: 497px;
+    width: 150px;
+  }
+  
+  .account .frame-7 {
+    height: 23px;
+    left: 1px;
+    position: absolute;
+    top: 0;
+    width: 51px;
+  }
+  
+  .account .text-wrapper-6 {
+    color: #000000;
+    font-family: "Montserrat-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 92px;
+    letter-spacing: -0.3px;
+    line-height: 36px;
+    position: absolute;
+    top: 43px;
+    width: 766px;
+  }
+  
+  .account .group {
+    height: 48px;
+    left: 0;
+    position: absolute;
+    top: 36px;
+    width: 70px;
+  }
+  
+  .account .div-wrapper {
+    border: 1px solid;
+    border-color: gray;
+    border-radius: 7px;
+    height: 48px;
+    position: relative;
+    width: 68px;
+  }
+  
+  .account .text-wrapper-7 {
+    color: #000000;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 7px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 14px;
+    width: 51px;
+  }
+  
+  .account .frame-8 {
+    height: 115px;
+    left: 488px;
+    position: absolute;
+    top: 604px;
+    width: 151px;
+  }
+  
+  .account .name-wrapper {
+    height: 23px;
+    left: 1px;
+    position: absolute;
+    top: 0;
+    width: 56px;
+  }
+  
+  .account .overlap-wrapper {
+    height: 84px;
+    left: 489px;
+    position: absolute;
+    top: 409px;
+    width: 267px;
+  }
+  
+  .account .overlap-2 {
+    height: 84px;
+    position: relative;
+  }
+  
+  .account .frame-9 {
+    height: 23px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 64px;
+  }
+  
+  .account .group-wrapper {
+    height: 77px;
+    left: 0;
+    position: absolute;
+    top: 7px;
+    width: 267px;
+  }
+  
+  .account .overlap-group-wrapper {
+    height: 48px;
+    position: relative;
+    top: 23px;
+    width: 226px;
+  }
+  
+  .account .overlap-group-2 {
+    border: 1px solid;
+    border-color: gray;
+    border-radius: 7px;
+    height: 48px;
+    position: relative;
+    width: 224px;
+  }
+  
+  .account .text-wrapper-8 {
+    color: #000000;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: -1px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 16px;
+    width: 193px;
+  }
+  
+  .account .frame-10 {
+    height: 76px;
+    left: 777px;
+    position: absolute;
+    top: 338px;
+    width: 227px;
+  }
+  
+  .account .group-2 {
+    height: 48px;
+    left: 0;
+    position: absolute;
+    top: 28px;
+    width: 229px;
+  }
+  
+  .account .overlap-group-3 {
+    border: 1px solid;
+    border-color: gray;
+    border-radius: 7px;
+    height: 48px;
+    position: relative;
+    width: 227px;
+  }
+  
+  .account .text-wrapper-9 {
+    color: #000000;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: -1px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 16px;
+    width: 196px;
+  }
+  
+  .account .frame-11 {
+    height: 79px;
+    left: 779px;
+    position: absolute;
+    top: 476px;
+    width: 328px;
+  }
+  
+  .account .overlap-3 {
+    height: 79px;
+    position: relative;
+  }
+  
+  .account .frame-wrapper {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 23px;
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
+  
+  .account .frame-12 {
+    height: 57px;
+    margin-bottom: -34px;
+    position: relative;
+    width: 108px;
+  }
+  
+  .account .frame-13 {
+    height: 71px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 8px;
+    width: 328px;
+  }
+  
+  .account .group-3 {
+    height: 48px;
+    position: relative;
+    top: 23px;
+    width: 330px;
+  }
+  
+  .account .overlap-group-4 {
+    border: 1px solid;
+    border-color: gray;
+    border-radius: 7px;
+    height: 48px;
+    position: relative;
+    width: 328px;
+  }
+  
+  .account .text-wrapper-10 {
+    color: #000000;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: 13px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: center;
+    top: 14px;
+    white-space: nowrap;
+  }
+  
+  .account .frame-14 {
+    height: 67px;
+    left: 838px;
+    position: absolute;
+    top: 195px;
+    width: 158px;
+  }
+  
+  .account .frame-15 {
+    height: 90px;
+    left: 573px;
+    position: absolute;
+    top: 239px;
+    width: 234px;
+  }
+  
+  .account .frame-16 {
+    height: 57px;
+    position: relative;
+    width: 219px;
+  }
+  
+  .account .text-wrapper-11 {
+    color: #000000;
+    font-family: "Poppins-SemiBold", Helvetica;
+    font-size: 15px;
+    font-weight: 600;
+    left: 146px;
+    letter-spacing: 0.15px;
+    line-height: normal;
+    position: absolute;
+    text-decoration: underline;
+    top: -1px;
+    width: 73px;
+  }
+  
+  .account .ellipse {
+    height: 198px;
+    left: 288px;
+    object-fit: cover;
+    position: absolute;
+    top: 84px;
+    width: 206px;
+  }
+  
