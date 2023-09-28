@@ -12,6 +12,7 @@ export const NavBarUser = () => {
     function handleLogout(){
       //Auth.logout()
       window.localStorage.removeItem('path')
+      window.localStorage.removeItem('account')
       signOut()
     }
   return (

@@ -31,7 +31,7 @@ const Login = () => {
           if(res.status === 200){
             //Can use res.data.user[0].columnName to get the user details from here.
             console.log('Login successful');
-            window.localStorage.setItem('account', JSON.stringify(res.data.user[0]))
+            window.localStorage.setItem('account', JSON.stringify(res.data.user[0].id))
             if(signIn(
               {
                   token: res.data.token,
@@ -41,7 +41,7 @@ const Login = () => {
               }
           ))
           //Checking if its a user.
-          if(res.data.user[0].accountType.toString() === '1'){
+          if(res.data.user[0].accountType.toString() === 'user'){
               navigate('/homepage', {replace: true})
           }
           else{

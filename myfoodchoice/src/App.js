@@ -40,7 +40,7 @@ const App = () => {
                     <Route path="/transaction" element={<RequireAuth loginPath={'/login'}><Transaction /></RequireAuth>}/>
                     <Route path="/feedback" element={<RequireAuth loginPath={'/login'}><Feedback /></RequireAuth>}/>
                     <Route path="/loyalty" element={<RequireAuth loginPath={'/login'}><Loyalty /></RequireAuth>}/>
-                    <Route path="/orderfood" element={<RequireAuth loginPath={'/login'}><Partnership /></RequireAuth>}/>
+                    <Route path="/orderfood" element={<RequireAuth loginPath={'/login'}><Loyalty /></RequireAuth>}/>
 
               <Route path="*" element={<NotFound />}/>
             </Routes>

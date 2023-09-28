@@ -599,6 +599,7 @@
   position: absolute;
   top: 0;
   width: 377px;
+  z-index: 1;
 }
 
 .sign-up-pop-up .image-2 {
@@ -610,3 +611,20 @@
   top: 370px;
   width: 639px;
 }
+
+.error-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px; /* Adjust the spacing as needed */
+}
+
+.error-icon {
+  height: 20px; /* Adjust the size as needed */
+  margin-right: 10px; /* Adjust the spacing between icon and message */
+}
+
+.password-match-error,
+.email-exists-prompt {
+  font-size: 14px; /* Adjust the font size as needed */
+}
+

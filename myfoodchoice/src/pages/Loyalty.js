@@ -1,41 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import '../css/loyalty.css';
-import FP10 from "../pics/FP10.jpg";
-import FP20 from "../pics/Fairprice20.jpg";
-import Fitbit from "../pics/Fitbit.jpg";
+import Axios from 'axios'; // Make sure Axios is installed in your project
+import '../css/loyalty.css'; // Import your CSS stylesheet
 import { NavBarUser } from './NavBarUser';
-import '../css/styleHomePageNavbar.css'
 
 const Loyalty = () => {
-  // Static array of loyalty items (IMG not working)
-  const loyaltyItems = [
-    {
-      id: 1,
-      name: 'FP 10',
-      description: 'This is a $10 FP voucher',
-      points: 500,
-      image: FP10,
-    },
-    {
-      id: 2,
-      name: 'FP 20',
-      description: 'This is a $20 FP Voucher',
-      points: 1000,
-      image: FP20,
-    },
-    {
-      id: 3,
-      name: 'FitBit Watch',
-      description: 'This is a fitness tracking watch made by qwer company',
-      points: 10000,
-      image: Fitbit,
-    },
-  ];
-
-  // State to track selected items
+  // State to store loyalty items from the database
+  const [loyaltyItems, setLoyaltyItems] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
-  // State to track if the checkout is completed
   const [checkoutCompleted, setCheckoutCompleted] = useState(false);
+
+  // Function to fetch loyalty items from the server when the component mounts
+  useEffect(() => {
+    Axios.get('http://localhost:3002/api/loyaltyitem') // Replace with your API endpoint
+      .then((response) => setLoyaltyItems(response.data))
+      .catch((error) => console.error('Error fetching data:', error));
+  }, []);
 
   // Function to handle item selection
   const handleItemClick = (item) => {
@@ -43,9 +22,9 @@ const Loyalty = () => {
   };
 
   // Function to handle item removal
-  const handleItemRemoval = (item) => {
+  const handleItemRemoval = (itemToRemove) => {
     setSelectedItems((prevSelectedItems) =>
-      prevSelectedItems.filter((selectedItem) => selectedItem.id !== item.id)
+      prevSelectedItems.filter((selectedItem) => selectedItem.id !== itemToRemove.id)
     );
   };
 
@@ -56,37 +35,37 @@ const Loyalty = () => {
 
   // Function to complete the checkout
   const handleCheckout = () => {
-    // Perform checkout logic here, such as updating user's points, etc.
+    // Implement your checkout logic here
+    // Send selected items to the server for processing, update user's points, etc.
     // After successful checkout, set checkoutCompleted to true.
     setCheckoutCompleted(true);
   };
 
   return (
     <div>
-      <NavBarUser />
+      <NavBarUser /> {/* Assuming you have a Navbar component */}
       <div className="divcss">
         <h2>Loyalty Reward Page</h2>
         <p>Select items to redeem using your loyalty points.</p>
 
-        <ul className="loyalty-items-list">
+        <div className="loyalty-items-wrapper">
           {loyaltyItems.map((item) => (
-        <li key={item.id} className="loyalty-item">
-          <h3>{item.name}</h3>
-          {item.image && <img src={item.image} alt={item.name} />}
-          <p>Description: {item.description}</p>
-          <p>Points required: {item.points}</p>
-          <button onClick={() => handleItemClick(item)}>Redeem</button>
-        </li>
-))}
-
-        </ul>
+            <div key={item.id} className="loyalty-item">
+              <h3>{item.l_name}</h3>
+              {item.l_image && <img src={item.l_image} alt={item.l_image} />}
+              <p>Description: {item.desc}</p>
+              <p>Points required: {item.points}</p>
+              <button onClick={() => handleItemClick(item)}>Redeem</button>
+            </div>
+          ))}
+        </div>
 
         <div className="loyalty-summary">
           <h3>Selected Items:</h3>
           <ul>
             {selectedItems.map((item) => (
               <li key={item.id}>
-                {item.name}{' '}
+                {item.l_name}{' '}
                 <button onClick={() => handleItemRemoval(item)}>Remove</button>
               </li>
             ))}

@@ -149,6 +149,25 @@ app.get("/api/getHealthTips", (req,res)=>{
       res.send(result)
   });   });
 
+// Route to get unique Id for AccountDetails page(WORKING)
+app.get("/api/getUser/:id", (req,res)=>{
+  const id = req.params.id;
+  db.query("SELECT * FROM user WHERE id = ?", id, (err,result)=>{
+      if(err) {
+      console.log(err)
+      } 
+  res.send(result)
+  });   });
+
+// Route to get user loyalty item information from database
+app.get("/api/loyaltyitem", (req,res)=>{
+  db.query("SELECT * FROM loyaltyitem;", (err,result)=>{
+      if(err) {
+      console.log(err)
+      }
+  res.send(result)
+  });   });
+
 //Listening to PORT 3002
 app.listen(PORT, ()=>{
     console.log(`Server is running on ${PORT}`)

@@ -3,49 +3,57 @@ import "../css/styleAccount.css";
 import image from '../pics/ellipse-2.png'
 import { NavBarUser } from "./NavBarUser";
 import { Link } from "react-router-dom";
+import Axios from "axios";
+import dateFormat from 'dateformat';
 
 const AccountDetails = () => {
   const [user, setUser] = useState(null)
+  const [isLoading, setisLoading] = useState(true)
+  const id = JSON.parse(window.localStorage.getItem('account'))
   
-  useEffect = () =>{
-    const user = JSON.parse(window.localStorage.getItem("account"))
-    console.log(user)
-  }
+  useEffect (()=>{
+    Axios.get(`http://localhost:3002/api/getUser/${id}`).then((res)=>{  
+    setUser(res.data)
+    setisLoading(false)
+    })
+  },[])
+
   function handleUpgrade(){
     console.log(user)
   }
-
-  
   return (
     <div>
       <NavBarUser/>
-
+      {isLoading ? (
+        <p>Still loading</p>
+      ):(
+    
     <div className="account">
       <div className="div">
-        <div className="text-wrapper">Hi, JOHN DOE !!</div>
+        <div className="text-wrapper">Hi, {user[0].name} !!</div>
         <div className="overlap">
           <div className="rectangle" />
           <Link to='/editprofile'><div className="text-wrapper-2">Edit profile</div></Link>
         </div>
         <div className="frame">
           <div className="text-wrapper-4">Email</div>
-          <div className="text-wrapper-5">johndoe@xyz.com</div>
+          <div className="text-wrapper-5">{user[0].email}</div>
         </div>
         <div className="frame-2">
           <div className="text-wrapper-4">Name</div>
-          <div className="text-wrapper-5">John Doe</div>
+          <div className="text-wrapper-5">{user[0].name}</div>
         </div>
         <div className="frame-3">
           <div className="text-wrapper-4">Gender</div>
-          <div className="text-wrapper-5">Male</div>
+          <div className="text-wrapper-5">{user[0].gender}</div>
         </div>
         <div className="frame-4">
           <div className="text-wrapper-4">Date of Birth</div>
-          <div className="text-wrapper-5">23/12/2005</div>
+          <div className="text-wrapper-5">{dateFormat(user[0].dob, "mmmm dS, yyyy")}</div>
         </div>
         <div className="frame-5">
           <div className="text-wrapper-4">Country</div>
-          <div className="text-wrapper-5">Singaporean</div>
+          <div className="text-wrapper-5">{user[0].country}</div>
         </div>
         <div className="frame-6">
           <div className="frame-7">
@@ -54,7 +62,7 @@ const AccountDetails = () => {
           <div className="text-wrapper-6">cm</div>
           <div className="group">
             <div className="div-wrapper">
-              <div className="text-wrapper-7">171</div>
+              <div className="text-wrapper-7">{user[0].height}</div>
             </div>
           </div>
         </div>
@@ -65,7 +73,7 @@ const AccountDetails = () => {
           <div className="text-wrapper-6">kgs</div>
           <div className="group">
             <div className="div-wrapper">
-              <div className="text-wrapper-7">100</div>
+              <div className="text-wrapper-7">{user[0].weight}</div>
             </div>
           </div>
         </div>
@@ -77,7 +85,7 @@ const AccountDetails = () => {
             <div className="group-wrapper">
               <div className="overlap-group-wrapper">
                 <div className="overlap-group-2">
-                  <div className="text-wrapper-8">Active(1-2 times a week)</div>
+                  <div className="text-wrapper-8">{user[0].lifestyle}</div>
                 </div>
               </div>
             </div>
@@ -87,7 +95,7 @@ const AccountDetails = () => {
           <div className="text-wrapper-4">Health Condition</div>
           <div className="group-2">
             <div className="overlap-group-3">
-              <div className="text-wrapper-9">Active(1-2 times a week)</div>
+              <div className="text-wrapper-9">{user[0].conditions}</div>
             </div>
           </div>
         </div>
@@ -109,7 +117,7 @@ const AccountDetails = () => {
         </div>
         <div className="frame-14">
           <div className="text-wrapper-4">YOUR CURRENT BMI</div>
-          <div className="text-wrapper-5">19.1</div>
+          <div className="text-wrapper-5">{user[0].bmi}</div>
         </div>
         <div className="frame-15">
           <div className="frame-16">
@@ -121,6 +129,7 @@ const AccountDetails = () => {
         <img className="ellipse" alt="Ellipse" src={image} />
       </div>
     </div>
+    )}
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import '../css/styleSignUp.css';
 import imagex from '../pics/icon__circlex_.png';
+import redX from '../pics/icon_circleX.png';
 import image1 from '../pics/image-1.png';
 import image2 from '../pics/image-2.png';
 
@@ -27,7 +28,9 @@ const SignUp = () => {
     const [passwordMatchError, setPasswordMatchError] = useState(false); // State to track password match error
     const navigate = useNavigate();
 
-      const checkEmailAndPassword = async () => {
+    const checkEmailAndPassword = async (e) => {
+      e.preventDefault(); // Prevent the default form submission behavior
+
       let isEmailValid = true;
       let isPasswordValid = true;
 
@@ -65,6 +68,10 @@ const SignUp = () => {
       };
       // Function to submit user registration data
       const submitPost = () => {
+         // Calculate age
+         const birthDate = new Date(dob);
+         const currentDate = new Date();
+         const age = currentDate.getFullYear() - birthDate.getFullYear();
         // Calculate BMI
           const bmi = ((weight)/ ((height/100) *(height/100)))
           Axios.post('http://localhost:3002/api/signup', {
@@ -79,10 +86,12 @@ const SignUp = () => {
           lifestyle: lifestyle,
           conditions: conditions,
           dob: dob,
-          bmi: bmi
+          bmi: bmi,
+          age: age
         });
         navigate('/')
       };
+
 
     return (
         <div className="sign-up-pop-up">
@@ -162,12 +171,21 @@ const SignUp = () => {
       </div>
       {/* Password Match Error Message */}
         {passwordMatchError && (
-          <div className="password-match-error">Passwords do not match. Please retype your password.</div>
+          <div className="error-container">
+            <img src={redX} alt="Error Icon" className="error-icon" />
+            <div className="password-match-error">
+              Passwords do not match. Please retype your password.
+            </div>
+          </div>
         )}
+
         {/* Email Error Message */}
         {emailExistsMessage && (
-              <div className="email-exists-prompt">{emailExistsMessage}</div>
-            )}
+          <div className="error-container">
+            <img src={redX} alt="Error Icon" className="error-icon" />
+            <div className="email-exists-prompt">{emailExistsMessage}</div>
+          </div>
+        )}
       <Link to='/'><img className="icon-circle-x" alt="Icon circle x" src={imagex} /></Link>
 
       <div className="overlap-6">
