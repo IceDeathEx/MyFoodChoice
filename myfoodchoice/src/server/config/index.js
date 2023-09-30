@@ -168,6 +168,23 @@ app.get("/api/loyaltyitem", (req,res)=>{
   res.send(result)
   });   });
 
+  // Route to update user information based on ID
+app.put('/api/accupdate/:id', (req,res)=>{
+  const id = req.params.id;
+  const password = req.body.password;
+  const height = req.body.height;
+  const weight = req.body.weight;
+  const lifestyle = req.body.lifestyle;
+  const conditions = req.body.conditions;
+  const bmi = req.body.bmi;
+
+
+db.query("UPDATE user SET password = ?, height = ?, weight = ?, lifestyle = ?, conditions = ?, bmi = ?  WHERE id = ?;",[password, height, weight, lifestyle, conditions, bmi, id], (err,result)=>{
+  if(err) {
+ console.log(err)   }
+ console.log(result)
+  });
+});
 //Listening to PORT 3002
 app.listen(PORT, ()=>{
     console.log(`Server is running on ${PORT}`)

@@ -36,11 +36,12 @@
   display: flex;
   gap: 13px;
   justify-content: center;
-  left: 939px;
+  left: 790px;
   padding: 13px 10px 12px;
   position: absolute;
   top: 857px;
-  width: 420px;
+  width: 680px;
+  height: 50px;
 }
 
 .sign-up-pop-up .text-wrapper-2 {

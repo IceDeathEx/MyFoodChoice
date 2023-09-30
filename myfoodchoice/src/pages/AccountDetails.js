@@ -55,62 +55,38 @@ const AccountDetails = () => {
           <div className="text-wrapper-4">Country</div>
           <div className="text-wrapper-5">{user[0].country}</div>
         </div>
-        <div className="frame-6">
+        <div className="frame-6b">
           <div className="frame-7">
             <div className="text-wrapper-4">Height</div>
-          </div>
-          <div className="text-wrapper-6">cm</div>
-          <div className="group">
-            <div className="div-wrapper">
-              <div className="text-wrapper-7">{user[0].height}</div>
-            </div>
+            <div className="text-wrapper-5">{user[0].height}</div>
+            <div className="text-wrapper-6b">cm</div>
           </div>
         </div>
-        <div className="frame-8">
+        <div className="frame-8b">
           <div className="name-wrapper">
             <div className="text-wrapper-4">Weight</div>
-          </div>
-          <div className="text-wrapper-6">kgs</div>
-          <div className="group">
-            <div className="div-wrapper">
-              <div className="text-wrapper-7">{user[0].weight}</div>
-            </div>
+            <div className="text-wrapper-5">{user[0].weight}</div>
+            <div className="text-wrapper-6b">kgs</div>
           </div>
         </div>
         <div className="overlap-wrapper">
           <div className="overlap-2">
             <div className="frame-9">
               <div className="text-wrapper-4">Lifestyle</div>
-            </div>
-            <div className="group-wrapper">
-              <div className="overlap-group-wrapper">
-                <div className="overlap-group-2">
-                  <div className="text-wrapper-8">{user[0].lifestyle}</div>
-                </div>
-              </div>
+              <div className="text-wrapper-5b">{user[0].lifestyle}</div>
             </div>
           </div>
         </div>
         <div className="frame-10">
           <div className="text-wrapper-4">Health Condition</div>
-          <div className="group-2">
-            <div className="overlap-group-3">
-              <div className="text-wrapper-9">{user[0].conditions}</div>
-            </div>
-          </div>
+          <div className="text-wrapper-5">{user[0].conditions}</div>
         </div>
         <div className="frame-11">
           <div className="overlap-3">
             <div className="frame-wrapper">
               <div className="frame-12">
                 <div className="text-wrapper-4">Password Edit</div>
-              </div>
-            </div>
-            <div className="frame-13">
-              <div className="group-3">
-                <div className="overlap-group-4">
-                  <div className="text-wrapper-10">************</div>
-                </div>
+                <div className="text-wrapper-5">************</div>
               </div>
             </div>
           </div>

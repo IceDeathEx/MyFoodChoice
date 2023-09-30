@@ -124,6 +124,30 @@
     position: absolute;
     top: 29px;
   }
+  .account .text-wrapper-5b {
+    color: #000000;
+    font-family: "Poppins-Medium", Helvetica;
+    font-size: 18px;
+    font-weight: 500;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 29px;
+    width: 224px;
+  }
+  .account .text-wrapper-5c {
+    color: #000000;
+    font-family: "Poppins-Medium", Helvetica;
+    font-size: 18px;
+    font-weight: 500;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 40px;
+    width: 224px;
+  }
   
   .account .frame-2 {
     height: 57px;
@@ -164,6 +188,13 @@
     top: 497px;
     width: 150px;
   }
+  .account .frame-6b {
+    height: 93px;
+    left: 489px;
+    position: absolute;
+    top: 490px;
+    width: 150px;
+  }
   
   .account .frame-7 {
     height: 23px;
@@ -178,11 +209,35 @@
     font-family: "Montserrat-Regular", Helvetica;
     font-size: 20px;
     font-weight: 400;
-    left: 92px;
+    left: 60px;
     letter-spacing: -0.3px;
     line-height: 36px;
     position: absolute;
     top: 43px;
+    width: 766px;
+  }
+  .account .text-wrapper-6b {
+    color: #000000;
+    font-family: "Montserrat-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 45px;
+    letter-spacing: -0.3px;
+    line-height: 36px;
+    position: absolute;
+    top: 20px;
+    width: 766px;
+  }
+  .account .text-wrapper-6b {
+    color: #000000;
+    font-family: "Montserrat-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 45px;
+    letter-spacing: -0.3px;
+    line-height: 36px;
+    position: absolute;
+    top: 20px;
     width: 766px;
   }
   
@@ -198,9 +253,10 @@
     border: 1px solid;
     border-color: gray;
     border-radius: 7px;
-    height: 48px;
+    height: 40px;
     position: relative;
-    width: 68px;
+    width: 50px;
+
   }
   
   .account .text-wrapper-7 {
@@ -222,6 +278,13 @@
     left: 488px;
     position: absolute;
     top: 604px;
+    width: 151px;
+  }
+  .account .frame-8b {
+    height: 115px;
+    left: 488px;
+    position: absolute;
+    top: 570px;
     width: 151px;
   }
   
@@ -327,6 +390,20 @@
     line-height: normal;
     position: absolute;
     text-align: center;
+    top: 16px;
+    width: 196px;
+  }
+
+  .account .text-wrapper-9b {
+    color: #000000;
+    font-family: "Inter-Regular", Helvetica;
+    font-size: 15px;
+    font-weight: 400;
+    left: -1px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: left;
     top: 16px;
     width: 196px;
   }
