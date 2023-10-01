@@ -45,12 +45,11 @@
   width: 56px;
 }
 
-.users-HP .div {
+.users-HP .div-user {
   color: black;
   font-family: "Montserrat-Regular", Helvetica;
   font-size: 20px;
   font-weight: 400;
-  left: 0;
   letter-spacing: -0.3px;
   line-height: 36px;
   position: absolute;

@@ -37,19 +37,19 @@ const TodayHp = () => {
                     </div>
                     <div className="frame-2">
                         <div className="frame-3">
-                            <div className="text-wrapper-4">breakfast.</div>
+                            <div className="text-wrapper-4">Breakfast.</div>
                             <div className="text-wrapper-5">500 cal</div>
                         </div>
                         <div className="frame-4">
-                            <div className="text-wrapper-6">lunch.</div>
+                            <div className="text-wrapper-6">Lunch.</div>
                             <div className="text-wrapper-7">500 cal</div>
                         </div>
                         <div className="frame-5">
-                            <div className="text-wrapper-8">dinner.</div>
+                            <div className="text-wrapper-8">Dinner.</div>
                             <div className="text-wrapper-9">600 cal</div>
                         </div>
                         <div className="frame-6">
-                            <div className="text-wrapper-10">exercise.</div>
+                            <div className="text-wrapper-10">Snacks.</div>
                             <div className="text-wrapper-11">600 cal</div>
                         </div>
                     </div>

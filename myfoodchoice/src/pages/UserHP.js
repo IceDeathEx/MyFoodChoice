@@ -15,7 +15,7 @@ if (prevStyle.color === 'black') {
   };
 } else {
   return{
-    color: 'black', fontWeight: '400',
+    color: 'black', fontWeight: '600',
   };
 }
 });
@@ -28,24 +28,14 @@ if (prevStyle.color === 'black') {
                     <div className="group">
                         <img id="profile" className="ellipse" alt="Ellipse" src={a} onClick={toggleNameStyle
                     } />
-                        <div id="name" className="div" style={nameStyle}>John</div>
+                        <div id="name" className="div-user" style={nameStyle}>Nicholas</div>
                     </div>
                     <div className="group">
-                        <img id="profile" className="ellipse" alt="Ellipse" src={a} />
-                        <div id="name1" className="text-wrapper-2">John</div>
+                        <img id="profile" className="ellipse" alt="Ellipse" src={a} onClick={toggleNameStyle
+                    } />
+                        <div id="name" className="div-user" style={nameStyle}>Nicholas</div>
                     </div>
-                    <div className="group">
-                        <img id="profile" className="ellipse" alt="Ellipse" src={a} />
-                        <div id="name2" className="text-wrapper-2">John</div>
-                    </div>
-                    <div className="group">
-                        <img id="profile" className="ellipse" alt="Ellipse" src={a} />
-                        <div id="name" className="text-wrapper-2">John</div>
-                    </div>
-                    <div className="group">
-                        <img id="profile" className="ellipse" alt="Ellipse" src={a} />
-                        <div id="name" className="text-wrapper-2">John</div>
-                    </div>
+                   
                     <div className="frame-wrapper">
                         <div id="add" className="div-wrapper">
                             <div className="vector-wrapper">
@@ -59,7 +49,9 @@ if (prevStyle.color === 'black') {
                         <div className="text-wrapper-3">Your Weight Progress</div>
                     </div>
                 </div>
-                <div className="data-vi" />
+                <div className="data-vi">
+                    {/*Karen adds the chart in here!*/}
+                </div>
                 
             </div>
             
