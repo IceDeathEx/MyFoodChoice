@@ -7,11 +7,11 @@ const AchievementHP = () => {
   return (
     <div className="group">
       <div className="flexcontainer">
-        <p className="text"><span className="text-wrapper">your<br /></span></p>
+        <p className="text"><span className="text-wrapper">Your<br /></span></p>
         <p className="text"><span className="text-wrapper">Achievement.</span></p>
       </div>
-      <div className="rectangle" />
-      <div className="element">
+      <div className="rectangle10"><div className="text-wrapper-3">daily streak.</div></div>
+      <div className="element10">
         <img className="img" alt="Icon circle check" src={imageCheck} />
         <div className="div">DAY 1</div>
       </div>
@@ -23,7 +23,7 @@ const AchievementHP = () => {
         <img className="img" alt="Icon circle x" src={imageX} />
         <div className="text-wrapper-2">DAY 2</div>
       </div>
-      <div className="text-wrapper-3">daily streak.</div>
+      
     </div>
   );
 };

@@ -1,12 +1,64 @@
-.group {
+
+  
+
+.homepage-sign-up {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .homepage-sign-up .div-2 {
+    background-color: #ffffff;
+    height: 2004px;
+    position: relative;
+    width: 1553px;
+  }
+  
+  .homepage-sign-up .frame-14 {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 100px;
+    height: 57px;
+    left: 450px;
+    position: absolute;
+    top: 72px;
+    width: 618px;
+  }
+  
+  .homepage-sign-up .text-wrapper-21 {
+    color: #0000004c;
+    font-family: "Montserrat-Medium", Helvetica;
+    font-size: 20px;
+    font-weight: 500;
+    left: 45px;
+    letter-spacing: -0.3px;
+    line-height: 36px;
+    position: absolute;
+    top: 9px;
+    white-space: nowrap;
+    width: 482px;
+  }
+  
+  .homepage-sign-up .users-HP-instance {
+    left: 803px !important;
+    position: absolute !important;
+    top: 176px !important;
+  }
+  
+  .homepage-sign-up .your-achievement {
     align-items: flex-end;
     display: inline-flex;
     flex-direction: column;
     gap: 39px;
-    position: relative;
+    left: 107px;
+    position: absolute;
+    top: 1247px;
   }
   
-  .group .flexcontainer {
+  .homepage-sign-up .flexcontainer {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
@@ -14,7 +66,7 @@
     width: 655px;
   }
   
-  .group .text {
+  .homepage-sign-up .span-wrapper {
     align-self: stretch;
     color: #000000;
     font-family: "Montserrat-Bold", Helvetica;
@@ -25,7 +77,7 @@
     position: relative;
   }
   
-  .group .text-wrapper {
+  .homepage-sign-up .span {
     color: #000000;
     font-family: "Montserrat-Bold", Helvetica;
     font-size: 48px;
@@ -34,35 +86,43 @@
     line-height: 36px;
   }
   
-  .group .rectangle10 {
+  .homepage-sign-up .rectangle-3 {
     background-color: #ffffff;
     border: 1px solid;
     border-color: #000000;
     border-radius: 11px;
     box-shadow: 0px 4px 4px #00000040, 0px 4px 4px #00000040, 0px 4px 4px #00000040;
-    height: 293px;
+    height: 286px;
     position: relative;
     width: 652px;
   }
   
-  .group .element10 {
+  .homepage-sign-up .frame-15 {
+    height: 221px;
+    left: 45px;
+    position: absolute;
+    top: 161px;
+    width: 542px;
+  }
+  
+  .homepage-sign-up .element-5 {
     align-items: center;
     display: inline-flex;
     flex-direction: column;
     gap: 31px;
     justify-content: center;
-    left: 76px;
+    left: 44px;
     position: absolute;
-    top: 259px;
+    top: 72px;
   }
   
-  .group .img {
+  .homepage-sign-up .img-2 {
     height: 82.28px;
     position: relative;
     width: 78.09px;
   }
   
-  .group .div {
+  .homepage-sign-up .text-wrapper-22 {
     color: #000000;
     font-family: "Montserrat-ExtraBold", Helvetica;
     font-size: 20px;
@@ -74,28 +134,28 @@
     width: 75px;
   }
   
-  .group .element-2 {
+  .homepage-sign-up .element-6 {
     align-items: center;
     display: inline-flex;
     flex-direction: column;
     gap: 31px;
     justify-content: center;
-    left: 496px;
+    left: 464px;
     position: absolute;
-    top: 259px;
+    top: 71px;
   }
   
-  .group .element-3 {
+  .homepage-sign-up .element-7 {
     align-items: flex-start;
     display: inline-flex;
     flex-direction: column;
     gap: 31px;
-    left: 286px;
+    left: 254px;
     position: absolute;
-    top: 259px;
+    top: 72px;
   }
   
-  .group .text-wrapper-2 {
+  .homepage-sign-up .text-wrapper-23 {
     color: #000000;
     font-family: "Montserrat-ExtraBold", Helvetica;
     font-size: 20px;
@@ -109,16 +169,29 @@
     width: 77px;
   }
   
-  .group .text-wrapper-3 {
+  .homepage-sign-up .text-wrapper-24 {
     color: #000000;
     font-family: "Montserrat-Medium", Helvetica;
     font-size: 32px;
     font-weight: 500;
-    left: 32px;
+    left: 0;
     letter-spacing: -0.48px;
     line-height: 36px;
     position: absolute;
-    top: 20px;
-    width: 218px;
+    top: -1px;
+    width: 199px;
   }
+  
+  .homepage-sign-up .buy-food-instance {
+    left: 803px !important;
+    position: absolute !important;
+    top: 727px !important;
+  }
+  
+  .homepage-sign-up .today-component-instance {
+    left: 105px !important;
+    position: absolute !important;
+    top: 184px !important;
+  }
+
   

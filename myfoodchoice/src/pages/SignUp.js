@@ -155,32 +155,32 @@ const SignUp = () => {
         <p className="p">Your healthy life starts here</p>
       </div>
       <div className="frame-3">
-        <input className="overlap-group" placeholder="Full Name" onChange={(e)=> setName(e.target.value)}></input>
+        <input className="overlap-group" placeholder="&nbsp;&nbsp;Full Name" onChange={(e)=> setName(e.target.value)}></input>
         <label className="text-wrapper-5">Name*</label>
       </div>
       <div className="frame-4">
-        <input className="overlap-group" type="password" placeholder="***********" autoComplete='off' onChange={(e)=> setPassword(e.target.value)}></input>
+        <input className="overlap-group" type="password" placeholder="&nbsp;&nbsp;***********" autoComplete='off' onChange={(e)=> setPassword(e.target.value)}></input>
         <label className="text-wrapper-7">Password*</label>
       </div>
       <div className="frame-5">
-        <input className="overlap-group" type="password" placeholder="***********" autoComplete='off' onChange={(e)=> setPassword2(e.target.value)}></input>
+        <input className="overlap-group" type="password" placeholder="&nbsp;&nbsp;***********" autoComplete='off' onChange={(e)=> setPassword2(e.target.value)}></input>
         <label className="text-wrapper-8">Re-Type Password*</label>
       </div>
       <div className="frame-6">
-        <input className="overlap-group" placeholder="YYYY-MM-DD" type="date" onChange={(e)=> setdob(e.target.value)}></input>
+        <input className="overlap-group change100" placeholder="&nbsp;&nbsp;" type="date" onChange={(e)=> setdob(e.target.value)}></input>
         <label className="text-wrapper-10">Date of Birth*</label>
       </div>
       <div className="overlap">
         <div className="frame-7">
           <div className="overlap-2">
-            <input type="number" className="rectangle" placeholder="70" onChange={(e)=> setWeight(e.target.value)}></input>
+            <input type="number" className="rectangle" placeholder="&nbsp;&nbsp; 70" onChange={(e)=> setWeight(e.target.value)}></input>
             <div className="text-wrapper-12">Kgs</div>
           </div>
           <label className="text-wrapper-13">Weight*</label>
         </div>
         <div className="text-wrapper-14">cm</div>
         <div className="frame-8">
-          <input className="div-wrapper" placeholder="171" type="number" onChange={(e)=> setHeight(e.target.value)}></input>
+          <input className="div-wrapper" placeholder="&nbsp;&nbsp; 171" type="number" onChange={(e)=> setHeight(e.target.value)}></input>
           <label className="text-wrapper-16">Height*</label>
         </div>
       </div>
@@ -203,7 +203,7 @@ const SignUp = () => {
         <label className="text-wrapper-19">Medical Condition*</label>
       </div>
       <div className="frame-11">
-        <input className="overlap-group" placeholder="name@example.com" onChange={(e)=> setEmail(e.target.value)}></input>
+        <input className="overlap-group" placeholder="&nbsp;&nbsp; name@example.com" onChange={(e)=> setEmail(e.target.value)}></input>
         <label className="text-wrapper-21">Email*</label>
       </div>
       <div className="frame-12">

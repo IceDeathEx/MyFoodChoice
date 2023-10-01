@@ -1,0 +1,142 @@
+.users-HP {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 531px;
+  position: relative;
+  width: 648px;
+}
+
+.users-HP .text-wrapper {
+  color: black;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 48px;
+  font-weight: 700;
+  height: 35px;
+  letter-spacing: -0.72px;
+  line-height: 36px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: 274px;
+}
+
+.users-HP .frameUser {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 3px;
+  position: relative;
+}
+
+.users-HP .group {
+  height: 91px;
+  position: relative;
+  width: 71px;
+}
+
+.users-HP .ellipse {
+  height: 57px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 56px;
+}
+
+.users-HP .div {
+  color: black;
+  font-family: "Montserrat-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: -0.3px;
+  line-height: 36px;
+  position: absolute;
+  top: 63px;
+  white-space: nowrap;
+  width: 69px;
+}
+
+.users-HP .text-wrapper-2 {
+  color: black;
+  font-family: "Montserrat-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: -0.3px;
+  line-height: 36px;
+  position: absolute;
+  top: 63px;
+  white-space: nowrap;
+  width: 69px;
+}
+
+.users-HP .frame-wrapper {
+  height: 56px;
+  position: relative;
+  width: 56px;
+}
+
+.users-HP .div-wrapper {
+  height: 56px;
+}
+
+.users-HP .vector-wrapper {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: black;
+  border-radius: 28px;
+  height: 56px;
+  position: relative;
+  width: 56px;
+}
+
+.users-HP .vector {
+  height: 27px;
+  left: 13px;
+  object-fit: cover;
+  position: absolute;
+  top: 13px;
+  width: 28px;
+}
+
+.users-HP .overlap-group-wrapper {
+  height: 333px;
+  left: 0;
+  position: absolute;
+  top: 174px;
+  width: 642px;
+}
+
+.users-HP .overlap-group {
+  background-image: url(../pics/Rectangle_380.svg);
+  background-size: 100% 100%;
+  height: 341px;
+  left: -4px;
+  position: relative;
+  width: 650px;
+}
+
+.users-HP .text-wrapper-3 {
+  color: black;
+  font-family: "Poppins-Bold", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  left: 29px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 16px;
+  white-space: nowrap;
+  width: 267px;
+}
+
+.users-HP .data-vi {
+  height: 256px;
+  left: 24px;
+  position: absolute;
+  top: 235px;
+  width: 594px;
+}

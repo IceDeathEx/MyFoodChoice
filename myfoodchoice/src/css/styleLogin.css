@@ -56,7 +56,7 @@
     top: 678px;
   }
   
-  .login-pop-up .text-wrapper-2 {
+  .login-pop-up .text-wrapper-2b {
     color: var(--gray-3);
     font-family: "Nunito Sans-Regular", Helvetica;
     font-size: 18px;
@@ -68,7 +68,7 @@
     width: fit-content;
   }
   
-  .login-pop-up .text-wrapper-3 {
+  .login-pop-up .text-wrapper-3b {
     color: #000000;
     font-family: "Nunito Sans-SemiBold", Helvetica;
     font-size: 18px;

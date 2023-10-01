@@ -64,11 +64,11 @@ const Login = () => {
     <div className="login-pop-up">
       <div className="div"> 
         <div className="group">
-          <div className="frame">
+          <div className="frame-login">
             <div className="text-wrapper">CareCalories.</div>
             <div className="frame-2">
-              <div className="text-wrapper-2">Not Registered Yet?</div>
-              <Link to='/signup' className="text-wrapper-3">Create an account</Link>
+              <div className="text-wrapper-2b">Not Registered Yet?</div>
+              <Link to='/signup' className="text-wrapper-3b">Create an account</Link>
             </div>
             <div className="frame-wrapper">
               <div className="frame-3">

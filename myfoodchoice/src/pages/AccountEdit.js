@@ -26,7 +26,6 @@ const AccountEdit = () => {
 
   useEffect(() => {
     Axios.get(`http://localhost:3002/api/getUser/${id}`).then((res) => {
-      console.log(res);
       setUser(res.data);
       setisLoading(false);
 
@@ -167,7 +166,7 @@ const AccountEdit = () => {
                 </div>
                 <div className="frame-13">
                   <div className="group-3">
-                    <input className="overlap-group-4" placeholder="****************" type="password" value={password} onChange={(e) => { setPassword(e.target.value); }}
+                    <input className="overlap-group-4" placeholder="&nbsp;&nbsp;****************" type="password" value={password} onChange={(e) => { setPassword(e.target.value); }}
                     ></input>
                   </div>
                 </div>

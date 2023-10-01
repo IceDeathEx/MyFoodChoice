@@ -30,7 +30,6 @@ const HealthTips = () => {
       .then((data) => {
         sethtdata(data.data)
         sethtdata2(data.data)
-        console.log(data)
       })
   }, [])
 

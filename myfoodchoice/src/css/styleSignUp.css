@@ -261,7 +261,7 @@
 
 .sign-up-pop-up .rectangle {
   border: 1px solid;
-  border-color: var(--gray);
+  border-color: #d9d9d9;
   border-radius: 7px;
   height: 48px;
   left: 0;
@@ -629,3 +629,6 @@
   font-size: 14px; /* Adjust the font size as needed */
 }
 
+.change100{
+  padding-left: 1em;
+}

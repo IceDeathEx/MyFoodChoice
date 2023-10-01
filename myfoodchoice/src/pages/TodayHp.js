@@ -20,7 +20,7 @@ const TodayHp = () => {
                             <div className="text-wrapper-3">500 cal</div>
                         </div>
                         <div className="datavi-circle">
-                            <div className="container" style={{ width: 265, height: 2 }}>
+                            <div style={{ width: 265, height: 300 }}>
                             <CircularProgressbar
         value={percentage}
         text={`${percentage}%`}
