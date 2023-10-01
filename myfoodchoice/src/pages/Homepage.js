@@ -3,6 +3,8 @@ import { PopUpModalLogin1 } from './PopUpModalLogin1';
 import { NavBarUser } from './NavBarUser';
 
 import ComponentBuynow from './ComponentBuynow';
+import TodayHp from './TodayHp';
+import AchievementHP from './AchievementHP';
 
 function Homepage() {
     const [once, setOnce] = useState(false)
@@ -24,6 +26,8 @@ function Homepage() {
                 <div className="divcss">
                     {once && <PopUpModalLogin1/>}
                     <ComponentBuynow/>
+                    <TodayHp/>
+                    <AchievementHP/>
                 </div>
                 
             </div>

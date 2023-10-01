@@ -89,8 +89,11 @@ app.post('/api/signup', (req,res)=> {
     const conditions = req.body.conditions;
     const dob = req.body.dob;
     const bmi = req.body.bmi;
+    const premium = req.body.premium;
+    const loyaltypoint = req.body.loyaltypoint;
+    const age = req.body.age;
   
-  db.query("INSERT INTO user (email, name, password, gender, accountType, country, height, weight, lifestyle, conditions, dob, bmi) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",[email, name, password, gender, accounttype, country, height, weight, lifestyle, conditions, dob, bmi], (err,result)=>{
+  db.query("INSERT INTO user (email, name, password, gender, accountType, country, height, weight, lifestyle, conditions, dob, bmi, premium, loyaltypoint, age) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[email, name, password, gender, accounttype, country, height, weight, lifestyle, conditions, dob, bmi, premium, loyaltypoint, age], (err,result)=>{
      if(err) {
      console.log(err)
      } 

@@ -175,7 +175,7 @@ const AccountEdit = () => {
             </div>
             <div className="frame-14">
               <div className="text-wrapper-4">YOUR CURRENT BMI (NEW BMI)</div>
-              <div className="text-wrapper-5c">{user[0].bmi} ({bmi})</div>
+              <div className="text-wrapper-5b">{user[0].bmi} ({bmi})</div>
             </div>
             <div className="frame-15">
               <div className="frame-16">
