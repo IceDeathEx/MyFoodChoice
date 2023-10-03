@@ -11,6 +11,8 @@
   .popup-modal .frame {
     flex: 0 0 auto;
     position: relative;
+    height: 50px;
+    width: 50px;
   }
   
   .popup-modal .div-wrapper {

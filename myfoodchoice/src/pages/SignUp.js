@@ -33,23 +33,34 @@ const SignUp = () => {
     const [emptyName, setemptyName] = useState(false)
     const [emptyNameMsg, setEmptyNameMsg] = useState('')
 
-    //If name is password
+    //If password is empty
     const [emptyPassword, setemptyPassword] = useState(false)
     const [emptyPasswordMsg, setEmptyPasswordMsg] = useState('')
 
-    //If name is password2
+    //If password2 is empty
     const [emptyPassword2, setemptyPassword2] = useState(false)
     const [emptyPassword2Msg, setEmptyPassword2Msg] = useState('')
 
+    //If Height is empty
+    const [emptyHeight, setemptyHeight] = useState(false)
+    const [emptyHeightMsg, setEmptyHeightMsg] = useState('')
+
+    //If Weight is empty
+    const [emptyWeight, setemptyWeight] = useState(false)
+    const [emptyWeightMsg, setEmptyWeightMsg] = useState('')
+
+    //Email Exist 
     const [emailExists, setEmailExists] = useState(false); // State to track if email exists
     const [emailExistsMessage, setEmailExistsMessage] = useState(''); // State to store the email error message
+
+    //Password mismatch error
     const [passwordMatchError, setPasswordMatchError] = useState(false); // State to track password match error
+    
     const navigate = useNavigate();
 
     const checkEmailAndPassword = async (e) => {
       e.preventDefault(); // Prevent the default form submission behavior
 
-      let isEmailValid = true;
       let isPasswordValid = true;
 
       // Check if the email was keyed and if it does, check if email exists in database
@@ -61,7 +72,6 @@ const SignUp = () => {
           });
             // If the response indicates that the email exists
             if (response.data.emailExists) {
-              isEmailValid = false;
               setEmailExists(true);
               setEmailExistsMessage('Email already exists. Please use a different email.');
             } else {
@@ -70,8 +80,6 @@ const SignUp = () => {
             }
           } catch (error) {
             console.error('Error checking email existence:', error);
-            // Handle the error appropriately
-            isEmailValid = false;
           }
       }
       else{
@@ -107,8 +115,22 @@ const SignUp = () => {
           setemptyPassword2(true)
           setEmptyPassword2Msg('Password confirmation field is empty. Please type in your password.')
         }
+        if (height){
+          setemptyHeight(false)
+        }
+        else{
+          setemptyHeight(true)
+          setEmptyHeightMsg('Height field is empty. Please type in your height value')
+        }
+        if (weight){
+          setemptyWeight(false)
+        }
+        else{
+          setemptyWeight(true)
+          setEmptyWeightMsg('Weight field is empty. Please type in your height value')
+        }
         // If both email and password are valid, proceed with registration
-        if (isEmailValid && isPasswordValid && !emailEmpty && !emptyName) {
+        if (emailExists && isPasswordValid && !emailEmpty && !emptyName && !emptyHeight && !emptyWeight) {
           submitPost();
         }
       };
@@ -226,46 +248,74 @@ const SignUp = () => {
       {/* Password Match Error Message */}
         {passwordMatchError && (
           <div className="error-container">
+            <div className="customised-container">
             <img src={redX} alt="Error Icon" className="error-icon" />
-            <div className="password-match-error">
-              Passwords do not match. Please retype your password.
+            <div className="password-match-error">Passwords do not match. Please retype your password.</div>
             </div>
           </div>
         )}
         {/* Password Match Error Message */}
         {emptyName && (
           <div className="error-container">
+            <div className="customised-container">
             <img src={redX} alt="Error Icon" className="error-icon" />
             <div className="email-exists-prompt">{emptyNameMsg}</div>
+            </div>
           </div>
         )}
 
         {/* Email Error Message */}
         {emailExistsMessage && (
           <div className="error-container">
+            <div className="customised-container">
             <img src={redX} alt="Error Icon" className="error-icon" />
             <div className="email-exists-prompt">{emailExistsMessage}</div>
+            </div>
           </div>
         )}
         {/* Password Empty Message */}
         {emptyPassword && (
           <div className="error-container">
+            <div className="customised-container">
             <img src={redX} alt="Error Icon" className="error-icon" />
             <div className="email-exists-prompt">{emptyPasswordMsg}</div>
+            </div>
           </div>
         )}
         {/* Password2 Empty Message */}
         {emptyPassword2 && (
           <div className="error-container">
+            <div className="customised-container">
             <img src={redX} alt="Error Icon" className="error-icon" />
             <div className="email-exists-prompt">{emptyPassword2Msg}</div>
+            </div>
           </div>
         )}
         {/* Email Empty Message */}
         {emailEmpty && (
           <div className="error-container">
+            <div className="customised-container">
             <img src={redX} alt="Error Icon" className="error-icon" />
             <div className="email-exists-prompt">{emailEmtpyMessage}</div>
+            </div>
+          </div>
+        )}
+        {/* Height Empty Message */}
+        {emptyHeight && (
+          <div className="error-container">
+            <div className="customised-container">
+            <img src={redX} alt="Error Icon" className="error-icon" />
+            <div className="email-exists-prompt">{emptyHeightMsg}</div>
+            </div>
+          </div>
+        )}
+        {/* Weight Empty Message */}
+        {emptyWeight && (
+          <div className="error-container">
+            <div className="customised-container">
+            <img src={redX} alt="Error Icon" className="error-icon" />
+            <div className="email-exists-prompt">{emptyWeightMsg}</div>
+            </div>
           </div>
         )}
       <Link to='/'><img className="icon-circle-x" alt="Icon circle x" src={imagex} /></Link>

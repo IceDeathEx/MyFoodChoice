@@ -301,4 +301,26 @@
     top: 310px;
     width: 639px;
   }
+  .error-container {
+    display: flex;
+    align-items: center;
+    margin-top: 5px; /* Adjust the spacing as needed */
+    padding-left: 450px;
+  }
+  
+  .error-icon {
+    height: 20px; /* Adjust the size as needed */
+    margin-right: 10px; /* Adjust the spacing between icon and message */
+  }
+  
+  .password-match-error,
+  .email-exists-prompt {
+    font-size: 14px; /* Adjust the font size as needed */
+  }
+  .customised-container{
+    background-color: rgb(231, 176, 176);
+    border-radius: 10px;
+    display: flex;
+    padding:10px;
+  }
 

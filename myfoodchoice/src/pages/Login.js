@@ -6,17 +6,27 @@ import image1 from "../pics/image-1.png";
 import { useNavigate } from "react-router";
 import { Link, useLocation } from "react-router-dom";
 import Axios from 'axios';
-import { PopUpModalLogin2 } from "./PopUpModalLogin2";
 import { useSignIn } from 'react-auth-kit'
+import redX from '../pics/icon_circleX.png';
 
 const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate()
-    const [invalidMsg, setInvalidMsg] = useState(false);
     const signIn = useSignIn()
     const location = useLocation()
+
+    //Invalid Login
+    const [isInvalid, setInvalid] = useState(false)
+    const [invalidMsg, setInvalidMsg] = useState('');
+
+    //Email Empty
+    const [isEmailEmpty, setEmailEmpty] = useState(false)
+    const [EmailEmptyMsg, setEmailEmptyMsg] = useState('');
     
+    //Password empty
+    const [isPasswordEmpty, setPasswordEmpty] = useState(false)
+    const [PasswordEmptyMsg, setPasswordEmptyMsg] = useState('');
 
     function handleLogin(e){
       //Setting error message to false to prevent it from showing.
@@ -26,7 +36,8 @@ const Login = () => {
       //Storing the path in local Storage for access once login
       window.localStorage.setItem('path', JSON.stringify(location))
       //Using axios to check for login Creds.
-      Axios.post("http://localhost:3002/api/validateLoginCreds", {username: username, password: password})
+      if(username && password){
+        Axios.post("http://localhost:3002/api/validateLoginCreds", {username: username, password: password})
       .then((res)=>{
           if(res.status === 200){
             //Can use res.data.user[0].columnName to get the user details from here.
@@ -51,19 +62,35 @@ const Login = () => {
             
           }
           //If failure to login, error message is prompted.
-          else{
-            setInvalidMsg(true)
-            console.log('Invalid Login Credentials. Please try again!')
+          else if(res.status === 204){
+            setInvalid(true)
+            setInvalidMsg('Invalid Login Credentials. Please try again.')
           }
       })
+      }
+      if(username){
+        setEmailEmpty(false)
+      }
+      else{
+        setEmailEmpty(true)
+        setEmailEmptyMsg('Please enter an email in the username field.')
+      }
+      if(password){
+        setPasswordEmpty(false)
+      }
+      else{
+        setPasswordEmpty(true)
+        setPasswordEmptyMsg('Please enter password in the password field.')
+      }
+      
     }
 
     return (
         <div className="App">
-        {invalidMsg && <PopUpModalLogin2/>}
     <div className="login-pop-up">
       <div className="div"> 
         <div className="group">
+
           <div className="frame-login">
             <div className="text-wrapper">CareCalories.</div>
             <div className="frame-2">
@@ -107,9 +134,34 @@ const Login = () => {
             </div>
             
             </form>
+            
           </div>
+          
         </div>
-
+        {isInvalid && (
+          <div className="error-container">
+            <div className="customised-container">
+              <img src={redX} alt="Error Icon" className="error-icon" />
+              <div className="password-match-error">{invalidMsg}</div>
+            </div>
+          </div>
+        )}
+        {isEmailEmpty && (
+          <div className="error-container">
+            <div className="customised-container">
+              <img src={redX} alt="Error Icon" className="error-icon" />
+              <div className="password-match-error">{EmailEmptyMsg}</div>
+            </div>
+          </div>
+        )}
+        {isPasswordEmpty && (
+          <div className="error-container">
+            <div className="customised-container">
+              <img src={redX} alt="Error Icon" className="error-icon" />
+              <div className="password-match-error">{PasswordEmptyMsg}</div>
+            </div>
+          </div>
+        )}
         <Link to ='/'><img className="icon-circle-x" alt="Icon circle x" src={imagex}/></Link>
         <div className="overlap-group">
           <img className="image" alt="pic" src={image1}/>

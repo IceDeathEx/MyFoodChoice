@@ -139,8 +139,9 @@ app.post('/api/signup', (req,res)=> {
         // If results have length > 0, the creds already exists
         if (results.length > 0) {
           return res.status(200).json({ user: results });
-        } else {
-          return res.status(200).json({ accountType: results[0].accountType });
+        }
+        else{
+          return res.status(204).json({ error: 'Invalid login' });
         }
       });
     });
