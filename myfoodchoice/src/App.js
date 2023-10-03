@@ -20,13 +20,14 @@ import { RequireAuth } from 'react-auth-kit'
 import HealthTips1 from './pages/HealthTips1'
 import AccountDetails from './pages/AccountDetails'
 import AccountEdit from './pages/AccountEdit'
+import TestML from './MLtesting/TestML'
 
 const App = () => {
 
   return (
           //<AuthProvider>
             <Routes>
-              <Route path="/" element={<Onboarding />} />
+              <Route path="/" element={<TestML />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp/>}/>
               <Route path="/healthtips1" element={<HealthTips1/>}/>

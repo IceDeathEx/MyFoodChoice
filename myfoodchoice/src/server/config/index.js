@@ -188,6 +188,17 @@ db.query("UPDATE user SET password = ?, height = ?, weight = ?, lifestyle = ?, c
  console.log(result)
   });
 });
+
+// Route to get unique Id for Food Nutrition page(WORKING)
+app.get("/api/getFood/:id", (req,res)=>{
+  const id = req.params.id;
+  db.query("SELECT * FROM foodnutrition WHERE id = ?", id, (err,result)=>{
+      if(err) {
+      console.log(err)
+      } 
+  res.send(result)
+  });   });
+
 //Listening to PORT 3002
 app.listen(PORT, ()=>{
     console.log(`Server is running on ${PORT}`)

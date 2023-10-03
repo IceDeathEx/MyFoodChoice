@@ -210,7 +210,6 @@ const SignUp = () => {
         <select className="overlap-3" placeholder="Male" onChange={(e)=> setGender(e.target.value)}>
           <option>Male</option>
           <option>Female</option>
-          <option>Prefer Not to Say</option>
         </select>
         <label className="text-wrapper-16">Gender*</label>
       </div>
