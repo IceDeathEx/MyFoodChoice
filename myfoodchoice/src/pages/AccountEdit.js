@@ -9,12 +9,6 @@ import dateFormat from "dateformat";
 const AccountEdit = () => {
   const [user, setUser] = useState(null);
   const [isLoading, setisLoading] = useState(true);
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [gender, setGender] = useState("");
-  const [dob, setDob] = useState("");
-  const [country, setCountry] = useState("");
   const [height, setHeight] = useState("");
   const [weight, setWeight] = useState("");
   const [lifestyle, setLifestyle] = useState("");
@@ -70,7 +64,7 @@ const AccountEdit = () => {
             <div className="text-wrapper">Hi, {user[0].name} !!</div>
             <div className="overlap">
               <button className="rectangle" onClick={updateAccount}>
-                <Link to="/account">
+                <Link to="/homepage">
                   <div className="text-wrapper-2">Confirm</div>
                 </Link>
               </button>

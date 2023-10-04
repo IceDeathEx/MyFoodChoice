@@ -200,6 +200,34 @@ app.get("/api/getFood/:id", (req,res)=>{
   res.send(result)
   });   });
 
+// Route to update user loyaltypoints based on ID
+app.put('/api/updateloyaltypts/:id', (req,res)=>{
+  const id = req.params.id;
+  const balance = req.body.balance;
+
+db.query("UPDATE user SET loyaltypoint = ?  WHERE id = ?;",[balance, id], (err,result)=>{
+  if(err) {
+ console.log(err)   }
+ console.log(result)
+  });
+});
+
+// Route to inserting records to loyalty transaction (WORKING)
+app.post('/api/loyaltytransaction', (req,res)=> {
+
+  const userid = req.body.userid;
+  const itemname = req.body.itemname;
+  const point = req.body.point;
+  const qty = req.body.qty;
+
+db.query("INSERT INTO loyaltytransaction (userid, itemname, point, qty) VALUES (?, ?, ?, ?)",[userid, itemname, point, qty], (err,result)=>{
+   if(err) {
+   console.log(err)
+   } 
+   console.log(result)
+});   })
+
+
 //Listening to PORT 3002
 app.listen(PORT, ()=>{
     console.log(`Server is running on ${PORT}`)
