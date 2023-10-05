@@ -1,9 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import { NavBarUser } from './NavBarUser';
+import FoodComp from './FoodComp';
+import Step1n2 from './Step1n2';
 
 const MealRecord = () => {
-        const [toggle, setToggle] = useState(false)
+        /* const [toggle, setToggle] = useState(false)
         const [toggle2, setToggle2] = useState(true)
     function mealhistory(){
         setToggle(true);
@@ -12,11 +14,13 @@ const MealRecord = () => {
     function mealhistory2(){
         setToggle(false);
         setToggle2(true);
-    }
+    } */
     return (
         <div>
             <NavBarUser/>
-            <div className="divcss">
+            <FoodComp/>
+            <Step1n2/>
+            {/* <div className="divcss">
                 <h2>Meal Record page</h2>
                 <form>
                     <label>Choose User Profile</label><br></br>
@@ -144,7 +148,7 @@ const MealRecord = () => {
                     </table>}
 
                 </form>    
-            </div>     
+            </div>      */}
         </div>
     );
 };

@@ -18,9 +18,6 @@ const AccountDetails = () => {
     })
   },[])
 
-  function handleUpgrade(){
-    console.log(user)
-  }
   return (
     <div>
       <NavBarUser/>
@@ -97,7 +94,7 @@ const AccountDetails = () => {
         </div>
         <div className="frame-15">
           <div className="frame-16">
-            <button onClick={handleUpgrade}><div className="text-wrapper-11">upgrade</div></button>
+          <Link to='/homepage'><div className="text-wrapper-11">upgrade</div></Link>
             <div className="text-wrapper-4">Account Type</div>
             <div className="text-wrapper-5">Basic</div>
           </div>

@@ -90,7 +90,7 @@ app.post('/api/signup', (req,res)=> {
     const dob = req.body.dob;
     const bmi = req.body.bmi;
     const premium = req.body.premium;
-    const loyaltypoint = req.body.loyaltypoint;
+    const loyaltypoint = req.body.loyalty;
     const age = req.body.age;
   
   db.query("INSERT INTO user (email, name, password, gender, accountType, country, height, weight, lifestyle, conditions, dob, bmi, premium, loyaltypoint, age) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[email, name, password, gender, accounttype, country, height, weight, lifestyle, conditions, dob, bmi, premium, loyaltypoint, age], (err,result)=>{
@@ -219,8 +219,9 @@ app.post('/api/loyaltytransaction', (req,res)=> {
   const itemname = req.body.itemname;
   const point = req.body.point;
   const qty = req.body.qty;
+  const date = req.body.date;
 
-db.query("INSERT INTO loyaltytransaction (userid, itemname, point, qty) VALUES (?, ?, ?, ?)",[userid, itemname, point, qty], (err,result)=>{
+db.query("INSERT INTO loyaltytransaction (userid, itemname, point, qty, date) VALUES (?, ?, ?, ?, ?)",[userid, itemname, point, qty, date], (err,result)=>{
    if(err) {
    console.log(err)
    } 

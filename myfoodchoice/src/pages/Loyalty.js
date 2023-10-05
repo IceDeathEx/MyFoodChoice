@@ -3,6 +3,7 @@ import Axios from 'axios'; // Make sure Axios is installed in your project
 import '../css/loyalty.css'; // Import your CSS stylesheet
 import { NavBarUser } from './NavBarUser';
 import { useNavigate } from "react-router";
+import dateFormat from 'dateformat';
 
 const Loyalty = () => {
   // State to store loyalty items from the database
@@ -48,8 +49,11 @@ const Loyalty = () => {
   // Function to complete the checkout
   const handleCheckout = () => {
     const pts = calculateTotalPoints()
+    const date = new Date()
+    const date2 = dateFormat(date, "yyyy-mm-dd HH:MM:ss")
     if(user[0].loyaltypoint > pts){
       const balance = user[0].loyaltypoint - pts
+      
       Axios.put(`http://localhost:3002/api/updateloyaltypts/${id}`, {balance: balance})
       selectedItems.map((claimeditem) =>{
         Axios.post("http://localhost:3002/api/loyaltytransaction",{
@@ -57,6 +61,7 @@ const Loyalty = () => {
           itemname : claimeditem.l_name,
           point : claimeditem.points,
           qty : 1,
+          date : date2
         })
       })
       navigate('/homepage')

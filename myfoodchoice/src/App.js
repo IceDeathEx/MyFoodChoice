@@ -18,7 +18,6 @@ import HealthTips1 from './pages/HealthTips1'
 import AccountDetails from './pages/AccountDetails'
 import AccountEdit from './pages/AccountEdit'
 import TestML from './MLtesting/TestML'
-
 const App = () => {
 
   return (

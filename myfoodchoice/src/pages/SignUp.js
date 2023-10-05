@@ -22,7 +22,7 @@ const SignUp = () => {
     const [weight, setWeight] = useState('');
     const [conditions, setConditions] = useState('Normal');
     const [dob, setdob] = useState('');
-    const [loyaltypoints] = useState(1000);
+    const loyaltypoints = 1000;
     const [premium] = useState('basic')
     
     //If email is empty
@@ -129,8 +129,9 @@ const SignUp = () => {
           setemptyWeight(true)
           setEmptyWeightMsg('Weight field is empty. Please type in your height value')
         }
+        console.log(emailExists, isPasswordValid, emailEmpty, emptyName, emptyHeight, emptyWeight, emptyPassword2, emptyPassword)
         // If both email and password are valid, proceed with registration
-        if (emailExists && isPasswordValid && !emailEmpty && !emptyName && !emptyHeight && !emptyWeight) {
+        if (!emailExists && isPasswordValid && !emailEmpty && !emptyName && !emptyHeight && !emptyWeight && !emptyPassword2 && !emptyPassword && height && weight && password && password2 && name && email) {
           submitPost();
         }
       };
@@ -158,11 +159,9 @@ const SignUp = () => {
           premium: premium,
           loyalty: loyaltypoints,
           age: age
-          
         });
-        navigate('/')
+        navigate('/login')
       };
-
 
     return (
         <div className="sign-up-pop-up">
@@ -170,7 +169,7 @@ const SignUp = () => {
       <form>
       <div className="text-wrapper">CareCalories.</div>
 
-      <button className="frame" onClick={checkEmailAndPassword}><div className="text-wrapper-2">Sign Up</div></button>
+      <div className="text-wrapper-2"><button className="frame" onClick={checkEmailAndPassword}>Sign Up</button></div>
 
       <div className="frame-2">
         <div className="text-wrapper-3">Create your account</div>
