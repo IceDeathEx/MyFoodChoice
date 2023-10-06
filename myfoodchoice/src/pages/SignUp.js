@@ -49,9 +49,21 @@ const SignUp = () => {
     const [emptyWeight, setemptyWeight] = useState(false)
     const [emptyWeightMsg, setEmptyWeightMsg] = useState('')
 
+    //If Dob is empty
+    const [emptydob, setemptydob] = useState(false)
+    const [emptydobMsg, setemptydobMsg] = useState('')
+
+     //Invalid age 
+     const [invalidAge, setInvalidAge] = useState(false); 
+     const [invalidAgeMsg, setInvalidAgeMsg] = useState(''); 
+ 
     //Email Exist 
     const [emailExists, setEmailExists] = useState(false); // State to track if email exists
     const [emailExistsMessage, setEmailExistsMessage] = useState(''); // State to store the email error message
+
+    //Valid Email 
+    const [validemail, setvalidemail] = useState(false);
+    const [validemailMsg, setvalidemailMsg] = useState('');
 
     //Password mismatch error
     const [passwordMatchError, setPasswordMatchError] = useState(false); // State to track password match error
@@ -62,7 +74,16 @@ const SignUp = () => {
       e.preventDefault(); // Prevent the default form submission behavior
 
       let isPasswordValid = true;
-
+      
+      if (validateEmailAddress(email) === true){
+          setvalidemail(false)
+          console.log(1)
+      }
+      else{
+          setvalidemail(true)
+          console.log(2)
+          setvalidemailMsg('Email is without an "@" symbol.')
+      }
       // Check if the email was keyed and if it does, check if email exists in database
       if(email){
         try {
@@ -74,9 +95,11 @@ const SignUp = () => {
             if (response.data.emailExists) {
               setEmailExists(true);
               setEmailExistsMessage('Email already exists. Please use a different email.');
+            //  console.log(1)
             } else {
               setEmailExists(false);
               setEmailExistsMessage('');
+            //  console.log(2)
             }
           } catch (error) {
             console.error('Error checking email existence:', error);
@@ -84,54 +107,77 @@ const SignUp = () => {
       }
       else{
         setEmailEmpty(true)
-        setEmailEmptyMessage('Email field is empty. Please type in an email.');
+       // console.log(3)
+        setEmailEmptyMessage('Please type in your email.');
       }
       //Check if name is not empty, if it is, output error message.
         if (name){
           setemptyName(false)
+         // console.log(4)
         }
         else{
           setemptyName(true)
-          setEmptyNameMsg('Name field is empty. Please type in your name.')
+          setEmptyNameMsg('Please type in your name')
+        //  console.log(5)
         }
         // Check if passwords match
         if (password !== password2) {
           isPasswordValid = false;
           setPasswordMatchError(true);
+         // console.log(6)
         } else {
           setPasswordMatchError(false);
         }
         if (password){
           setemptyPassword(false)
+         // console.log(7)
         }
         else{
           setemptyPassword(true)
-          setEmptyPasswordMsg('Password field is empty. Please type in your password.')
+          setEmptyPasswordMsg('Please type in your password')
+         // console.log(8)
         }
         if (password2){
           setemptyPassword2(false)
+         // console.log(9)
         }
         else{
           setemptyPassword2(true)
-          setEmptyPassword2Msg('Password confirmation field is empty. Please type in your password.')
+          setEmptyPassword2Msg('Please type in your confirm password')
+          //console.log(10)
         }
-        if (height){
-          setemptyHeight(false)
-        }
-        else{
+        if(height < 1 || height === null){
           setemptyHeight(true)
-          setEmptyHeightMsg('Height field is empty. Please type in your height value')
-        }
-        if (weight){
-          setemptyWeight(false)
+          setEmptyHeightMsg('Please indicate a valid height value')
+          //console.log(18)
         }
         else{
-          setemptyWeight(true)
-          setEmptyWeightMsg('Weight field is empty. Please type in your height value')
+          setemptyHeight(false)
+          //console.log(19)
         }
-        console.log(emailExists, isPasswordValid, emailEmpty, emptyName, emptyHeight, emptyWeight, emptyPassword2, emptyPassword)
+        if(weight < 1 || weight === null){
+          setemptyWeight(true)
+          setEmptyWeightMsg('Please indicate a valid weight value')
+          //console.log(20)
+        }
+        else{
+          setemptyWeight(false)
+          //console.log(21)
+        }
+        if (dob){
+          setemptydob(false)
+          //console.log(16)
+        }
+        else{
+          setemptydob(true)
+          //console.log(17)
+          setemptydobMsg('Please indicate date of birth.')
+        }
+        
+        console.log(emailExists, isPasswordValid, emailEmpty, emptyName, emptyHeight, emptyWeight, emptyPassword2, emptyPassword, validemail, height, emptydob, weight, password, password2, name, email, dob)
         // If both email and password are valid, proceed with registration
-        if (!emailExists && isPasswordValid && !emailEmpty && !emptyName && !emptyHeight && !emptyWeight && !emptyPassword2 && !emptyPassword && height && weight && password && password2 && name && email) {
+        if (!emailExists && isPasswordValid && !emailEmpty && !emptyName && !emptyHeight && !emptyWeight && !emptyPassword2 && !emptyPassword && !emptydob && !validemail && height && weight && password && password2 && name && email && dob) {
+          //console.log(15)
           submitPost();
         }
       };
@@ -141,27 +187,50 @@ const SignUp = () => {
          const birthDate = new Date(dob);
          const currentDate = new Date();
          const age = currentDate.getFullYear() - birthDate.getFullYear();
-        // Calculate BMI
+          // Calculate BMI
           const bmi = ((weight)/ ((height/100) *(height/100)))
+         if(age <= 0){
+          setInvalidAge(true)
+          setInvalidAgeMsg('Please enter an age 1 year old or older.')
+         }else{
           Axios.post('http://localhost:3002/api/signup', {
-          email: email,
-          name: name,
-          password: password,
-          gender: gender,
-          accounttype: accounttype,
-          country: country,
-          height: height,
-          weight: weight,
-          lifestyle: lifestyle,
-          conditions: conditions,
-          dob: dob,
-          bmi: bmi,
-          premium: premium,
-          loyalty: loyaltypoints,
-          age: age
-        });
-        navigate('/login')
+            email: email,
+            name: name,
+            password: password,
+            gender: gender,
+            accounttype: accounttype,
+            country: country,
+            height: height,
+            weight: weight,
+            lifestyle: lifestyle,
+            conditions: conditions,
+            dob: dob,
+            bmi: bmi,
+            premium: premium,
+            loyalty: loyaltypoints,
+            age: age
+          });
+          navigate('/login')
+         }
       };
+      function validateEmailAddress(emailAddress) { 
+        var atSymbol = emailAddress.indexOf("@"); 
+        var dotSymbol = emailAddress.lastIndexOf("."); 
+        var spaceSymbol = emailAddress.indexOf(" "); 
+
+        if ((atSymbol != -1) && 
+            (atSymbol != 0) && 
+            (dotSymbol != -1) && 
+            (dotSymbol != 0) && 
+            (dotSymbol > atSymbol + 1) && 
+            (emailAddress.length > dotSymbol + 1) && 
+            (spaceSymbol == -1)) { 
+            return true; 
+        } else { 
+            return false; 
+        } 
+      
+    } 
 
     return (
         <div className="sign-up-pop-up">
@@ -224,7 +293,7 @@ const SignUp = () => {
         <label className="text-wrapper-19">Medical Condition*</label>
       </div>
       <div className="frame-11">
-        <input className="overlap-group" placeholder="&nbsp;&nbsp; name@example.com" onChange={(e)=> setEmail(e.target.value)}></input>
+        <input className="overlap-group" placeholder="&nbsp;&nbsp; name@example.com" type="email" onChange={(e)=> setEmail(e.target.value)}/>
         <label className="text-wrapper-21">Email*</label>
       </div>
       <div className="frame-12">
@@ -254,6 +323,24 @@ const SignUp = () => {
           </div>
         )}
         {/* Password Match Error Message */}
+        {invalidAge && (
+          <div className="error-container">
+            <div className="customised-container">
+            <img src={redX} alt="Error Icon" className="error-icon" />
+            <div className="password-match-error">{invalidAgeMsg}</div>
+            </div>
+          </div>
+        )}
+        {/* Password Match Error Message */}
+        {validemail && (
+          <div className="error-container">
+            <div className="customised-container">
+            <img src={redX} alt="Error Icon" className="error-icon" />
+            <div className="password-match-error">{validemailMsg}</div>
+            </div>
+          </div>
+        )}
+        {/* Password Match Error Message */}
         {emptyName && (
           <div className="error-container">
             <div className="customised-container">
@@ -269,6 +356,15 @@ const SignUp = () => {
             <div className="customised-container">
             <img src={redX} alt="Error Icon" className="error-icon" />
             <div className="email-exists-prompt">{emailExistsMessage}</div>
+            </div>
+          </div>
+        )}
+         {/* dob empty Message */}
+         {emptydob && (
+          <div className="error-container">
+            <div className="customised-container">
+            <img src={redX} alt="Error Icon" className="error-icon" />
+            <div className="email-exists-prompt">{emptydobMsg}</div>
             </div>
           </div>
         )}

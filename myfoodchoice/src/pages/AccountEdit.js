@@ -5,6 +5,7 @@ import { NavBarUser } from "./NavBarUser";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import dateFormat from "dateformat";
+import { useNavigate } from 'react-router';
 
 const AccountEdit = () => {
   const [user, setUser] = useState(null);
@@ -15,6 +16,7 @@ const AccountEdit = () => {
   const [conditions, setConditions] = useState("");
   const [password, setPassword] = useState("");
   const [bmi, setBMI] = useState(""); // State to store calculated BMI
+  const navigate = useNavigate();
 
   const id = JSON.parse(window.localStorage.getItem("account"));
 
@@ -51,6 +53,8 @@ const AccountEdit = () => {
     };
 
     Axios.put(`http://localhost:3002/api/accupdate/${id}`, updatedData);
+    alert("Account profile successfully updated!")
+    navigate('/homepage')
   }
 
   return (
@@ -64,9 +68,7 @@ const AccountEdit = () => {
             <div className="text-wrapper">Hi, {user[0].name} !!</div>
             <div className="overlap">
               <button className="rectangle" onClick={updateAccount}>
-                <Link to="/homepage">
                   <div className="text-wrapper-2">Confirm</div>
-                </Link>
               </button>
             </div>
             <div className="overlap-group">
