@@ -1,0 +1,46 @@
+.step {
+    height: 130px;
+    position: relative;
+    width: 1029px;
+}
+
+.step .frame {
+    height: 130px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 489px;
+}
+
+.step .p {
+    color: #000000;
+    font-family: "Montserrat-Light", Helvetica;
+    font-size: 40px;
+    font-weight: 300;
+    left: 0;
+    letter-spacing: -0.6px;
+    line-height: 47px;
+    position: absolute;
+    top: 82px;
+    white-space: nowrap;
+}
+
+.step .text-wrapper-2 {
+    color: #000000;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 48px;
+    font-weight: 700;
+    left: 150px;
+    letter-spacing: 0;
+    line-height: 72px;
+    position: absolute;
+    top: -1px;
+    white-space: nowrap;
+    width: 161px;
+}
+
+.step .user-choice-instance {
+    left: 672px !important;
+    position: absolute !important;
+    top: 20px !important;
+}

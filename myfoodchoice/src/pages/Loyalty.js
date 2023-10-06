@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import Axios from 'axios'; // Make sure Axios is installed in your project
 import '../css/loyalty.css'; // Import your CSS stylesheet
-import { NavBarUser } from './NavBarUser';
+import NavBarUser from './NavBarUser';
 import { useNavigate } from "react-router";
 import dateFormat from 'dateformat';
 

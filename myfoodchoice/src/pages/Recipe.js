@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { NavBarUser } from './NavBarUser';
+import NavBarUser from './NavBarUser';
 const Recipe = () => {
         
     return (

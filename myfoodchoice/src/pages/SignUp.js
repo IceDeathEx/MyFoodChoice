@@ -75,18 +75,19 @@ const SignUp = () => {
 
       let isPasswordValid = true;
       
-      if (validateEmailAddress(email) === true){
-          setvalidemail(false)
-          console.log(1)
-      }
-      else{
-          setvalidemail(true)
-          console.log(2)
-          setvalidemailMsg('Email is without an "@" symbol.')
-      }
+
       // Check if the email was keyed and if it does, check if email exists in database
       if(email){
         try {
+          for (var i = 0; i < email.length; i++){
+            if(email[i] === '@'){
+              setvalidemail(false)
+            }
+            else{
+              setvalidemail(true)
+              setvalidemailMsg('Email is without an "@" symbol.')
+            }
+          }
           setEmailEmpty(false)
           const response = await Axios.post('http://localhost:3002/api/check-email-exists', {
             email: email,
@@ -189,9 +190,9 @@ const SignUp = () => {
          const age = currentDate.getFullYear() - birthDate.getFullYear();
           // Calculate BMI
           const bmi = ((weight)/ ((height/100) *(height/100)))
-         if(age <= 0){
+         if(age < 1){
           setInvalidAge(true)
-          setInvalidAgeMsg('Please enter an age 1 year old or older.')
+          setInvalidAgeMsg('Please enter an age 1 year or older.')
          }else{
           Axios.post('http://localhost:3002/api/signup', {
             email: email,
@@ -213,24 +214,7 @@ const SignUp = () => {
           navigate('/login')
          }
       };
-      function validateEmailAddress(emailAddress) { 
-        var atSymbol = emailAddress.indexOf("@"); 
-        var dotSymbol = emailAddress.lastIndexOf("."); 
-        var spaceSymbol = emailAddress.indexOf(" "); 
-
-        if ((atSymbol != -1) && 
-            (atSymbol != 0) && 
-            (dotSymbol != -1) && 
-            (dotSymbol != 0) && 
-            (dotSymbol > atSymbol + 1) && 
-            (emailAddress.length > dotSymbol + 1) && 
-            (spaceSymbol == -1)) { 
-            return true; 
-        } else { 
-            return false; 
-        } 
       
-    } 
 
     return (
         <div className="sign-up-pop-up">

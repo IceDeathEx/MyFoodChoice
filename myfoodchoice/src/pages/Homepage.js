@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import { PopUpModalLogin1 } from './PopUpModalLogin1';
-import { NavBarUser } from './NavBarUser';
+import NavBarUser from './NavBarUser';
 //import '../css/styleHomePage.css'
 import '../css/homepage.css'
 import ComponentBuynow from './ComponentBuynow';

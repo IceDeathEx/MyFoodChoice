@@ -6,7 +6,6 @@ import Feedback from './pages/Feedback'
 import Transaction from './pages/Transaction'
 import Recipe from './pages/Recipe'
 import HealthTips from './pages/HealthTips'
-import MealRecord from './pages/MealRecord'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Onboarding from './pages/Onboarding'
@@ -18,6 +17,7 @@ import HealthTips1 from './pages/HealthTips1'
 import AccountDetails from './pages/AccountDetails'
 import AccountEdit from './pages/AccountEdit'
 import TestML from './MLtesting/TestML'
+import { MealRecords } from './pages/MealRecords'
 const App = () => {
 
   return (
@@ -28,7 +28,7 @@ const App = () => {
               <Route path="/healthtips1" element={<HealthTips1/>}/>
               
               <Route path="/homepage" element={<RequireAuth loginPath={'/login'}><Homepage /></RequireAuth>}/>
-              <Route path="/mealrecord" element={<RequireAuth loginPath={'/login'}><MealRecord /></RequireAuth>}/>
+              <Route path="/mealrecord" element={<RequireAuth loginPath={'/login'}><MealRecords /></RequireAuth>}/>
               <Route path="/healthtips" element={<RequireAuth loginPath={'/login'}><HealthTips /></RequireAuth>}/>
               <Route path="/recipe" element={<RequireAuth loginPath={'/login'}><Recipe /></RequireAuth>}/>
               <Route path="/account" element={<RequireAuth loginPath={'/login'}><AccountDetails /></RequireAuth>}/>

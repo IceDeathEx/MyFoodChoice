@@ -1,5 +1,5 @@
 import React from "react";
-import { NavBarUser } from "./NavBarUser";
+import NavBarUser from "./NavBarUser";
 import '../css/styleHomePageNavbar.css'
 const Feedback = () => {
   return (

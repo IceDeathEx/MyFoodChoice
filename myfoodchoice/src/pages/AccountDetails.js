@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import "../css/styleAccount.css";
 import image from '../pics/ellipse-2.png'
-import { NavBarUser } from "./NavBarUser";
+import NavBarUser from "./NavBarUser";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import dateFormat from 'dateformat';
