@@ -1,0 +1,496 @@
+.food-compMR {
+    height: 572px;
+    position: relative;
+    width: 1319px;
+    top: 380px ;
+    left: -150px;
+}
+
+.food-compMR .text-wrapper {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 64px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: -0.96px;
+    line-height: 47px;
+    position: absolute;
+    top: -1px;
+    width: 451px;
+}
+
+.food-compMR .div {
+    color: #000000;
+    font-family: "Montserrat-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: -0.48px;
+    line-height: 36px;
+    position: absolute;
+    top: 162px;
+    white-space: nowrap;
+    width: 179px;
+}
+
+.food-compMR .text-wrapper-2 {
+    color: #000000;
+    font-family: "Montserrat-SemiBold", Helvetica;
+    font-size: 32px;
+    font-weight: 600;
+    left: 0;
+    letter-spacing: -0.48px;
+    line-height: 36px;
+    position: absolute;
+    top: 365px;
+    white-space: nowrap;
+    width: 339px;
+}
+
+.food-compMR .frame {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    left: 144px;
+    position: absolute;
+    top: 214px;
+}
+
+.food-compMR .label {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 100px;
+    height: 41.15px;
+    position: relative;
+    width: 470.44px;
+}
+
+.food-compMR .text-wrapper-3 {
+    color: #0000004c;
+    font-family: "Montserrat-Medium", Helvetica;
+    font-size: 15px;
+    font-weight: 500;
+    left: 35px;
+    letter-spacing: -0.23px;
+    line-height: 36px;
+    position: absolute;
+    top: 5px;
+    white-space: nowrap;
+    width: 367px;
+}
+
+.food-compMR .icon-magnifying {
+    height: 22px;
+    left: 430px;
+    position: absolute;
+    top: 10px;
+    width: 23px;
+}
+
+.food-compMR .frame-2 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    left: 144px;
+    position: absolute;
+    top: 418px;
+}
+
+.food-compMR .food {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 38px;
+    left: 8px;
+    position: absolute;
+    top: 266px;
+    width: 606px;
+}
+
+.food-compMR .rectangle {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 11px;
+    box-shadow: 0px 4px 4px #00000040;
+    height: 37.91px;
+    margin-bottom: -0.07px;
+    margin-right: -0.92px;
+    position: relative;
+    width: 606.47px;
+}
+
+.food-compMR .frame-3 {
+    align-items: flex-end;
+    display: inline-flex;
+    gap: 41px;
+    justify-content: center;
+    left: 17px;
+    position: absolute;
+    top: 6px;
+}
+
+.food-compMR .radio {
+    height: 20px;
+    position: relative;
+    width: 20px;
+}
+
+.food-compMR .frame-4 {
+    align-items: center;
+    display: flex;
+    gap: 41px;
+    position: relative;
+    width: 507px;
+}
+
+.food-compMR .text-wrapper-4 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 26px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    margin-top: -1px;
+    position: relative;
+    width: 130px;
+}
+
+.food-compMR .text-wrapper-5 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 25.99px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    margin-top: -1px;
+    position: relative;
+    width: 188.17px;
+}
+
+.food-compMR .text-wrapper-6 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 25.99px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    margin-right: -81.35px;
+    margin-top: -1px;
+    position: relative;
+    width: 188.17px;
+}
+
+.food-compMR .food-2 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 38px;
+    left: 8px;
+    position: absolute;
+    top: 471px;
+    width: 606px;
+}
+
+.food-compMR .frame-5 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    left: 645px;
+    position: absolute;
+    top: 150px;
+}
+
+.food-compMR .rectangle-2 {
+    background-color: #fcf6f6;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 14px;
+    height: 202px;
+    position: relative;
+    width: 675px;
+}
+
+.food-compMR .details-box {
+    align-items: center;
+    display: flex;
+    gap: 17px;
+    height: 172px;
+    justify-content: center;
+    left: 38px;
+    position: absolute;
+    top: 15px;
+    width: 599px;
+}
+
+.food-compMR .box {
+    height: 109px;
+    position: relative;
+    width: 185px;
+}
+
+.food-compMR .overlap-group {
+    background-color: #5ee7fa;
+    border-radius: 11px;
+    box-shadow: 0px 4px 4px #00000040;
+    height: 109px;
+    position: relative;
+    width: 173px;
+}
+
+.food-compMR .text-wrapper-7 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 20px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 11px;
+    white-space: nowrap;
+}
+
+.food-compMR .text-wrapper-8 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 20px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 36px;
+    white-space: nowrap;
+}
+
+.food-compMR .text-wrapper-9 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 20px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 62px;
+    white-space: nowrap;
+}
+
+.food-compMR .text-wrapper-10 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 131px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 12px;
+    white-space: nowrap;
+}
+
+.food-compMR .text-wrapper-11 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 130px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 38px;
+    white-space: nowrap;
+}
+
+.food-compMR .text-wrapper-12 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 130px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 64px;
+    white-space: nowrap;
+}
+
+.food-compMR .overlap-wrapper {
+    height: 107px;
+    position: relative;
+    width: 189.97px;
+}
+
+.food-compMR .overlap {
+    background-color: #c2da8d80;
+    border-radius: 11px;
+    box-shadow: 0px 4px 4px #00000040;
+    height: 107px;
+    position: relative;
+    width: 178px;
+}
+
+.food-compMR .text-wrapper-13 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 15px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 10px;
+    white-space: nowrap;
+    width: 89px;
+}
+
+.food-compMR .text-wrapper-14 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 15px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 35px;
+    white-space: nowrap;
+    width: 51px;
+}
+
+.food-compMR .text-wrapper-15 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 15px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 61px;
+    white-space: nowrap;
+    width: 75px;
+}
+
+.food-compMR .text-wrapper-16 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 134px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 7px;
+    white-space: nowrap;
+    width: 22px;
+}
+
+.food-compMR .text-wrapper-17 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 134px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 33px;
+    white-space: nowrap;
+    width: 22px;
+}
+
+.food-compMR .text-wrapper-18 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 134px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 59px;
+    white-space: nowrap;
+    width: 22px;
+}
+
+.food-compMR .overlap-2 {
+    background-color: #ea143b80;
+    border-radius: 11px;
+    box-shadow: 0px 4px 4px #00000040;
+    height: 107px;
+    position: relative;
+    width: 178px;
+}
+
+.food-compMR .text-wrapper-19 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 15px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 34px;
+    width: 78px;
+}
+
+.food-compMR .text-wrapper-20 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 15px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 60px;
+    width: 78px;
+}
+
+.food-compMR .frame-6 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    left: 645px;
+    position: absolute;
+    top: 370px;
+}
+
+.food-compMR .details-box-2 {
+    align-items: center;
+    display: flex;
+    gap: 17px;
+    height: 172px;
+    justify-content: center;
+    left: 38px;
+    position: absolute;
+    top: 17px;
+    width: 599px;
+}

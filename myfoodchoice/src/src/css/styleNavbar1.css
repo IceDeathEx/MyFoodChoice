@@ -1,0 +1,128 @@
+.navbar {
+    height: 80px;
+    width: 1535px;
+  }
+  
+  .navbar .frame-ob {
+    background-color: #000000;
+    height: 80px;
+    position: relative;
+  }
+  
+  .navbar .logo {
+    color: #ffffff;
+    font-family: "Inria Sans-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    left: 63px;
+    letter-spacing: 0;
+    line-height: 20px;
+    position: absolute;
+    top: 28px;
+    width: 200px;
+  }
+  
+  .navbar .sign-up-button {
+    all: unset;
+    box-sizing: border-box;
+    height: 38px;
+    left: 1273px;
+    position: absolute;
+    top: 21px;
+    width: 139px;
+  }
+  
+  .navbar .overlap-group {
+    background-color: #ffffff;
+    border-radius: 100px;
+    height: 38px;
+    position: relative;
+    width: 137px;
+  }
+  
+  .navbar .text-wrapper {
+    color: #000000;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    left: 39px;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 7px;
+    white-space: nowrap;
+  }
+  
+  .navbar .div {
+    color: #ffffff;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    left: 1207px;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 27px;
+    width: 60px;
+  }
+  
+  .navbar .main {
+    height: 30px;
+    left: 509px;
+    position: absolute;
+    top: 29px;
+    width: 443px;
+  }
+  
+  .navbar .text-wrapper-2 {
+    color: #ffffff;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 0;
+    width: 48px;
+  }
+  
+  .navbar .text-wrapper-3 {
+    color: #ffffff;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    left: 86px;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 0;
+    width: 91px;
+  }
+  
+  .navbar .text-wrapper-4 {
+    color: #ffffff;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    left: 344px;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 0;
+    width: 91px;
+  }
+  
+  .navbar .text-wrapper-5 {
+    color: #ffffff;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    left: 215px;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 0;
+    width: 77px;
+  }
+  

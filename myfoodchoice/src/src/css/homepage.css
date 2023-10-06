@@ -1,0 +1,175 @@
+
+.frame1 {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 40px;
+  padding-top: 50px;
+  position: relative;
+}
+
+.frame1 .div-2 {
+  height: 1557px;
+  position: relative;
+  width: 717px;
+  padding-left: 30px;
+}
+
+.frame1 .your-achievement {
+  align-items: flex-end;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 39px;
+  left: 1px;
+  position: absolute;
+  padding-left: 30px;
+  top: 1096px;
+}
+
+.frame1 .flexcontainer {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 655px;
+}
+
+.frame1 .span-wrapper {
+  align-self: stretch;
+  color: #000000;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 1.68px;
+  line-height: 36px;
+  position: relative;
+}
+
+.frame1 .span {
+  color: #000000;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 1.68px;
+  line-height: 36px;
+}
+
+.frame1 .rectangle-2 {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #000000;
+  border-radius: 11px;
+  box-shadow: 0px 4px 4px #00000040, 0px 4px 4px #00000040, 0px 4px 4px #00000040;
+  height: 286px;
+  position: relative;
+  width: 652px;
+}
+
+.frame1 .div-3 {
+  height: 221px;
+  left: 45px;
+  position: absolute;
+  top: 161px;
+  width: 542px;
+}
+
+.frame1 .element-5 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 31px;
+  justify-content: center;
+  left: 44px;
+  position: absolute;
+  top: 72px;
+}
+
+.frame1 .img-2 {
+  height: 82.28px;
+  position: relative;
+  width: 78.09px;
+}
+
+.frame1 .text-wrapper-22 {
+  color: #000000;
+  font-family: "Montserrat-ExtraBold", Helvetica;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  line-height: 36px;
+  position: relative;
+  text-align: center;
+  width: 75px;
+}
+
+.frame1 .element-6 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 31px;
+  justify-content: center;
+  left: 464px;
+  position: absolute;
+  top: 71px;
+}
+
+.frame1 .element-7 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 31px;
+  left: 254px;
+  position: absolute;
+  top: 72px;
+}
+
+.frame1 .text-wrapper-23 {
+  color: #000000;
+  font-family: "Montserrat-ExtraBold", Helvetica;
+  font-size: 20px;
+  font-weight: 800;
+  height: 35px;
+  letter-spacing: -0.3px;
+  line-height: 36px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: 77px;
+}
+
+.frame1 .text-wrapper-24 {
+  color: #000000;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-size: 32px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: -0.48px;
+  line-height: 36px;
+  position: absolute;
+  padding-left: 20px;
+  top: -1px;
+  width: 199px;
+}
+
+.frame1 .today-component-instance {
+  left: 54px !important;
+  position: absolute !important;
+  top: 33px !important;
+}
+
+.frame1 .div-4 {
+  height: 1636px;
+  position: relative;
+  width: 715px;
+}
+
+.frame1 .users-HP-instance {
+  left: 26px !important;
+  position: absolute !important;
+  top: 6px !important;
+}
+
+.frame1 .buy-food-instance {
+  left: 26px !important;
+  position: absolute !important;
+  top: 557px !important;
+}

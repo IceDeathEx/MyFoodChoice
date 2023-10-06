@@ -1,0 +1,49 @@
+.healthtips-on-login .searchbar {
+    height: 57px;
+    left: 462px;
+    position: absolute;
+    top: 123px;
+    width: 620px;
+  }
+  .homepage-sign-up {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.homepage-sign-up .div-2 {
+    background-color: #ffffff;
+    height: 2004px;
+    position: relative;
+    width: 1553px;
+}
+
+.homepage-sign-up .users-HP-instance {
+    left: 803px !important;
+    position: absolute !important;
+    top: 176px !important;
+}
+
+.homepage-sign-up .your-achievement {
+    align-items: flex-end;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 39px;
+    left: 107px;
+    position: absolute;
+    top: 1247px;
+}
+
+.homepage-sign-up .buy-food-instance {
+    left: 803px !important;
+    position: absolute !important;
+    top: 727px !important;
+}
+
+.homepage-sign-up .today-component-instance {
+    left: 105px !important;
+    position: absolute !important;
+    top: 184px !important;
+}

@@ -1,0 +1,198 @@
+.element {
+  align-items: center;
+  background-color: #000000;
+  display: flex;
+  gap: 109px;
+  padding: 8px 17px 8px 45px;
+  position: relative;
+  width: 100% ;
+}
+  
+  .element .care-calories {
+    color: #ffffff;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 20px;
+    font-weight: 700;
+    height: 35px;
+    letter-spacing: -0.3px;
+    line-height: 36px;
+    position: relative;
+    white-space: nowrap;
+    width: 197px;
+  }
+  
+  .element .navigation {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 40px;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .element .home {
+    height: 24px;
+    position: relative;
+    width: 62px;
+  }
+  
+  .element .text-wrapper {
+    color: white;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+  }
+  
+  .element .meal-record {
+    height: 24px;
+    position: relative;
+    width: 121px;
+  }
+  
+  .element .icon-outline {
+    height: 16px !important;
+    left: 103px !important;
+    position: absolute !important;
+    top: 4px !important;
+    width: 16px !important;
+  }
+  
+  .element .health-tips {
+    height: 24px;
+    position: relative;
+    width: 103px;
+  }
+  
+  .element .div {
+    color: white;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 0;
+    width: 101px;
+  }
+  
+  .element .recipe {
+    height: 24px;
+    position: relative;
+    width: 65px;
+  }
+  
+  .element .text-wrapper-2 {
+    color: white;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 0;
+    width: 63px;
+  }
+  
+  .element .company {
+    height: 24px;
+    position: relative;
+    width: 80.33px;
+  }
+  
+  .element .text-wrapper-3 {
+    color: white;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 0;
+    width: 78px;
+  }
+  
+  .element .order-food {
+    height: 24px;
+    margin-right: -2px;
+    position: relative;
+    width: 107px;
+  }
+  
+  .element .text-wrapper-4 {
+    color: white;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 0;
+    width: 105px;
+  }
+  
+  .element .cart {
+    height: 25px;
+    position: relative;
+    width: 39.25px;
+    margin-right: 20px;
+  }
+
+  .element .ellipse {
+    height: 57px;
+    object-fit: cover;
+    position: relative;
+    width: 56px;
+    margin-right: 10px;
+  }
+  .dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}

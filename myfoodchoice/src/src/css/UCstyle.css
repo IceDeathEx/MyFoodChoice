@@ -1,0 +1,58 @@
+.user-choiceMR {
+    align-items: flex-start;
+    display: inline-flex;
+    gap: 3px;
+    position: relative;
+    left:800px;
+    top:60px;
+}
+
+.user-choiceMR .group {
+    height: 91px;
+    position: relative;
+    width: 71px;
+}
+
+.user-choiceMR .ellipse {
+    height: 57px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 56px;
+}
+
+.user-choiceMR .text-wrapper {
+    color: #567710;
+    font-family: "Montserrat-ExtraBold", Helvetica;
+    font-size: 20px;
+    font-weight: 800;
+    left: 0;
+    letter-spacing: -0.3px;
+    line-height: 36px;
+    position: absolute;
+    top: 63px;
+    white-space: nowrap;
+    width: 69px;
+}
+
+.user-choiceMR .div {
+    color: #567710;
+    font-family: "Montserrat-Regular", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: -0.3px;
+    line-height: 36px;
+    position: absolute;
+    top: 63px;
+    white-space: nowrap;
+    width: 69px;
+}
+
+.user-choiceMR .group-2 {
+    height: 91px;
+    margin-right: -2px;
+    position: relative;
+    width: 71px;
+}

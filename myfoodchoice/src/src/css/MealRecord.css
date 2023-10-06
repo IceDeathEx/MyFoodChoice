@@ -1,0 +1,124 @@
+.add-meal-recordMR {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.add-meal-recordMR .div-3 {
+    background-color: #ffffff;
+    height: 3555px;
+    position: relative;
+    width: 1518px;
+}
+
+.add-meal-recordMR .frame-22 {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    height: 267px;
+    
+    padding: 20px 47px;
+    position: absolute;
+    top: 0%;
+    width: 1018px;
+}
+
+.add-meal-recordMR .flexcontainer {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    height: 113px;
+    width: 924px;
+}
+
+.add-meal-recordMR .text {
+    align-self: stretch;
+    color: #000000;
+    font-family: "Montserrat-Light", Helvetica;
+    font-size: 64px;
+    font-weight: 300;
+    letter-spacing: -0.96px;
+    line-height: 47px;
+    position: relative;
+}
+
+.add-meal-recordMR .span {
+    color: #000000;
+    font-family: "Montserrat-Light", Helvetica;
+    font-size: 64px;
+    font-weight: 300;
+    letter-spacing: -0.96px;
+    line-height: 47px;
+}
+
+.add-meal-recordMR .text-wrapper-60 {
+    color: #000000;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 96px;
+    font-weight: 700;
+    height: 158.09px;
+    letter-spacing: 0;
+    line-height: 144px;
+    position: relative;
+    white-space: nowrap;
+    width: 740.93px;
+}
+
+.add-meal-recordMR .step-3 {
+    left: 205px !important;
+    position: absolute !important;
+    top: 2450px !important;
+}
+
+.add-meal-recordMR .step-4 {
+    left: 122px !important;
+    position: absolute !important;
+    top: 2658px !important;
+}
+
+.add-meal-recordMR .frame-wrapper {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    left: 1000px;
+    position: absolute;
+    top: 3180px;
+}
+
+.add-meal-recordMR .frame-23 {
+    background-color: #0b0b0b;
+    border-radius: 27.5px;
+    height: 55px;
+    position: relative;
+    width: 269px;
+}
+
+.add-meal-recordMR .text-wrapper-61 {
+    color: #ffffff;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 20px;
+    font-weight: 300;
+    left: 56px;
+    letter-spacing: -0.3px;
+    line-height: 36px;
+    position: absolute;
+    top: 8px;
+    white-space: nowrap;
+    width: 173px;
+}
+
+.add-meal-recordMR .step-1n-2 {
+    left: 89px !important;
+    position: absolute !important;
+    top: 1153px !important;
+}
+
+.add-meal-recordMR .food-comp-instance {
+    left: 81px !important;
+    position: absolute !important;
+    top: 700px !important;
+}

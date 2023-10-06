@@ -16,31 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `loyaltytransaction`
+-- Table structure for table `orderfood`
 --
 
-DROP TABLE IF EXISTS `loyaltytransaction`;
+DROP TABLE IF EXISTS `orderfood`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `loyaltytransaction` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `userid` int DEFAULT NULL,
-  `itemname` varchar(100) DEFAULT NULL,
-  `point` int DEFAULT NULL,
-  `qty` int DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `orderfood` (
+  `id` int NOT NULL,
+  `desc` varchar(100) DEFAULT NULL,
+  `location` varchar(100) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `foodimg` varchar(10000) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `id` FOREIGN KEY (`id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `loyaltytransaction`
+-- Dumping data for table `orderfood`
 --
 
-LOCK TABLES `loyaltytransaction` WRITE;
-/*!40000 ALTER TABLE `loyaltytransaction` DISABLE KEYS */;
-INSERT INTO `loyaltytransaction` VALUES (4,16,'$20 NTUCC Voucher',2000,1,'2023-10-04 21:32:23'),(5,16,'FitBit Watch',10000,1,'2023-10-06 02:48:19'),(6,16,'$20 NTUCC Voucher',2000,1,'2023-10-06 02:48:19'),(7,16,'FitBit Watch',10000,1,'2023-10-06 23:09:59'),(8,16,'$10 NTUCC Voucher',1000,1,'2023-10-06 23:09:59');
-/*!40000 ALTER TABLE `loyaltytransaction` ENABLE KEYS */;
+LOCK TABLES `orderfood` WRITE;
+/*!40000 ALTER TABLE `orderfood` DISABLE KEYS */;
+INSERT INTO `orderfood` VALUES (1,'Hamburger','Clementi',19.99,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCj-rrbXtqidB3coimmXmCOzLTbHwptgdA0g&usqp=CAU'),(2,'Salad','Admiralty',10,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1jilAOw-NbN6aV2xQ85h-zp9m2mqWO-3L3w&usqp=CAU'),(3,'Pasta','Woodlands',15.99,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp3Rp4BN1k9rMidFoBnD7OLU_p0g-6Dwf0xA&usqp=CAU'),(4,'Green Smoothie','Yishun',8.7,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv079VWcqjozYf_8AmhByGaeG7OD5eShR21g&usqp=CAU');
+/*!40000 ALTER TABLE `orderfood` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
