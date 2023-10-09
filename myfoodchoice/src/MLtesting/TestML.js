@@ -6,7 +6,7 @@ const TestML = () => {
     const [imageURL, setImageURL] = useState(null);
     const [results, setResults] = useState('')
     const [model, setModel] = useState(null)
-    const [data, setData] = useState([])
+    const [data] = useState([])
     const fileInputRef = useRef()
     const imageRef = useRef()
     const [isModelLoading, setIsModelLoading] = useState(false)

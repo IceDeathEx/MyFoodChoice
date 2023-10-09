@@ -394,3 +394,19 @@
     top: 12px;
     white-space: nowrap;
 }
+
+.btn {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: arial, sans-serif;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+.calendar-container {
+    margin-left: 480px;
+    padding-top: -100px ;
+    width: 80px;
+}

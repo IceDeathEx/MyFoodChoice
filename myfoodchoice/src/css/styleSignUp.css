@@ -323,7 +323,8 @@
   position: absolute;
   text-align: center;
   top: 39px;
-  width: 173px;
+  width: 100px;
+  text-align: right;
 }
 
 .sign-up-pop-up .frame-8 {

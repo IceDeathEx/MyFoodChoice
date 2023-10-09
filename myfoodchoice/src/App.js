@@ -10,13 +10,12 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Onboarding from './pages/Onboarding'
 import NotFound from './pages/NotFound'
-import Partnership from './pages/Partnership'
-import TakePhoto from './pages/TakePhoto'
+//import Partnership from './pages/Partnership'
+//import TakePhoto from './pages/TakePhoto'
 import { RequireAuth } from 'react-auth-kit'
-import HealthTips1 from './pages/HealthTips1'
 import AccountDetails from './pages/AccountDetails'
 import AccountEdit from './pages/AccountEdit'
-import TestML from './MLtesting/TestML'
+//import TestML from './MLtesting/TestML'
 import { MealRecords } from './pages/MealRecords'
 const App = () => {
 
@@ -25,8 +24,7 @@ const App = () => {
               <Route path="/" element={<Onboarding />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp/>}/>
-              <Route path="/healthtips1" element={<HealthTips1/>}/>
-              
+
               <Route path="/homepage" element={<RequireAuth loginPath={'/login'}><Homepage /></RequireAuth>}/>
               <Route path="/mealrecord" element={<RequireAuth loginPath={'/login'}><MealRecords /></RequireAuth>}/>
               <Route path="/healthtips" element={<RequireAuth loginPath={'/login'}><HealthTips /></RequireAuth>}/>

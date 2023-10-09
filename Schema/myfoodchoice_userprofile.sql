@@ -18,31 +18,38 @@ USE `myfoodchoice`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `orderfood`
+-- Table structure for table `userprofile`
 --
 
-DROP TABLE IF EXISTS `orderfood`;
+DROP TABLE IF EXISTS `userprofile`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `orderfood` (
-  `id` int NOT NULL,
-  `desc` varchar(100) DEFAULT NULL,
-  `location` varchar(100) DEFAULT NULL,
-  `price` float DEFAULT NULL,
-  `foodimg` varchar(10000) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `id` FOREIGN KEY (`id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `userprofile` (
+  `iduserprofile` int NOT NULL AUTO_INCREMENT,
+  `iduser` int NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `dob` date NOT NULL,
+  `height` float NOT NULL,
+  `weight` float NOT NULL,
+  `conditions` varchar(45) NOT NULL,
+  `lifestyle` varchar(45) NOT NULL,
+  `gender` varchar(45) NOT NULL,
+  `bmi` float NOT NULL,
+  `age` int NOT NULL,
+  PRIMARY KEY (`iduserprofile`),
+  KEY `iduser_idx` (`iduser`),
+  CONSTRAINT `iduser` FOREIGN KEY (`iduser`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `orderfood`
+-- Dumping data for table `userprofile`
 --
 
-LOCK TABLES `orderfood` WRITE;
-/*!40000 ALTER TABLE `orderfood` DISABLE KEYS */;
-INSERT INTO `orderfood` VALUES (1,'Hamburger','Clementi',19.99,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCj-rrbXtqidB3coimmXmCOzLTbHwptgdA0g&usqp=CAU'),(2,'Salad','Admiralty',10,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1jilAOw-NbN6aV2xQ85h-zp9m2mqWO-3L3w&usqp=CAU'),(3,'Pasta','Woodlands',15.99,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp3Rp4BN1k9rMidFoBnD7OLU_p0g-6Dwf0xA&usqp=CAU'),(4,'Green Smoothie','Yishun',8.7,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSv079VWcqjozYf_8AmhByGaeG7OD5eShR21g&usqp=CAU');
-/*!40000 ALTER TABLE `orderfood` ENABLE KEYS */;
+LOCK TABLES `userprofile` WRITE;
+/*!40000 ALTER TABLE `userprofile` DISABLE KEYS */;
+INSERT INTO `userprofile` VALUES (1,16,'testing','2015-02-10',160,40,'Asthma','Active(1-2 times a week)','Female',15.625,8),(2,16,'testing1','2022-02-09',90,90,'Diabetic','Active(1-2 times a week)','Diabetic',111.111,1),(3,16,'testing2','2017-07-12',175,70,'Normal','Active(1-2 times a week)','Male',22.8571,6),(4,16,'testing3','2017-02-09',180,90,'Normal','Active(1-2 times a week)','Male',27.7778,6),(5,16,'testing4','2022-02-09',90,90,'Diabetic','Active(1-2 times a week)','Female',111.111,1);
+/*!40000 ALTER TABLE `userprofile` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

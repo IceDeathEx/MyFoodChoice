@@ -33,6 +33,41 @@
     top: 680px;
     width: 138px;
   }
+
+  .account .overlap2 {
+    height: 39px;
+    left: 880px;
+    position: absolute;
+    top: 680px;
+    width: 138px;
+  }
+
+  #open_dialog {
+    margin: 0 auto;
+  }
+  
+  dialog {
+    border: none !important;
+    border-radius: 10px;
+    box-shadow: 0 0 #0000, 0 0 #0000, 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    padding: 1.6rem;
+    max-width: 2000px;
+    height: 800px;
+  }
+
+  .account .overlap3 {
+    height: 39px;
+    left: 735px;
+    position: absolute;
+    top: 680px;
+    width: 138px;
+  }
+
+  .inputName {
+    padding-top: 100px;
+    width: 200px;
+    margin-left: 570px;
+  }
   
   .account .rectangle {
     background-color: #000000;
@@ -57,7 +92,34 @@
     white-space: nowrap;
     width: 72px;
   }
+
+  .account .addprofile {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 12px;
+    font-weight: 700;
+    left: 30px;
+    letter-spacing: -0.18px;
+    line-height: 36px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 72px;
+  }
   
+  .account .deleteprofile {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 12px;
+    font-weight: 700;
+    left: 30px;
+    letter-spacing: -0.18px;
+    line-height: 36px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 72px;
+  }
   .account .overlap-group {
     height: 39px;
     left: 874px;
@@ -67,6 +129,30 @@
   }
   
   .account .rectangle-2 {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 12px;
+    height: 38px;
+    margin: auto;
+    position: absolute;
+    top: 1px;
+    width: 138px;
+  }
+
+  .account .rectangle-3 {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 12px;
+    height: 38px;
+    left: 0;
+    position: absolute;
+    top: 1px;
+    width: 138px;
+  }
+
+  .account .rectangle-4{
     background-color: #ffffff;
     border: 1px solid;
     border-color: #000000;
@@ -439,12 +525,13 @@
   }
   
   .account .frame-13 {
-    height: 71px;
+    height: 80px;
     left: 0;
     overflow: hidden;
     position: absolute;
     top: 8px;
-    width: 328px;
+    width: 400px;
+
   }
   
   .account .group-3 {
@@ -521,4 +608,12 @@
     top: 84px;
     width: 206px;
   }
-  
+  .btn {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: arial, sans-serif;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+  }

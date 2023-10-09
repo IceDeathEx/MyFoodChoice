@@ -82,6 +82,7 @@ const SignUp = () => {
           for (var i = 0; i < email.length; i++){
             if(email[i] === '@'){
               setvalidemail(false)
+              break
             }
             else{
               setvalidemail(true)
@@ -400,8 +401,8 @@ const SignUp = () => {
       <Link to='/'><img className="icon-circle-x" alt="Icon circle x" src={imagex} /></Link>
 
       <div className="overlap-6">
-        <img className="image" alt="Image" src={image1} />
-        <img className="image-2" alt="Image" src={image2} />
+        <img className="image" alt="Burger" src={image1} />
+        <img className="image-2" alt="Salad" src={image2} />
       </div>
       </form>
     </div>

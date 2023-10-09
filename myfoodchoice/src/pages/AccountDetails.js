@@ -6,11 +6,26 @@ import { Link } from "react-router-dom";
 import Axios from "axios";
 import dateFormat from 'dateformat';
 
+
+const modal = document.querySelector("#modal");
+const openModal = document.querySelector("#openModal");
+const closeModal = document.querySelector("#closeModal");
+
+if (modal) {
+  openModal &&
+    openModal.addEventListener("click", () => modal.showModal());
+
+  closeModal &&
+    closeModal.addEventListener("click", () => modal.close());
+}
+
+
 const AccountDetails = () => {
   const [user, setUser] = useState(null)
   const [isLoading, setisLoading] = useState(true)
   const id = JSON.parse(window.localStorage.getItem('account'))
-  
+  const [modal2, setModal] = useState(false)
+
   useEffect (()=>{
     Axios.get(`http://localhost:3002/api/getUser/${id}`).then((res)=>{  
     setUser(res.data)
@@ -18,6 +33,21 @@ const AccountDetails = () => {
     })
   },[])
 
+ 
+  const modal = document.querySelector("#modal");
+  const openModal = document.querySelector("#openModal");
+  const closeModal = document.querySelector("#closeModal");
+
+if (modal2) {
+  openModal &&
+    openModal.addEventListener("click", () => modal.showModal());
+
+  closeModal &&
+    closeModal.addEventListener("click", () => modal.close());
+}
+const handleClick = () => {
+  setModal(true)
+}
   return (
     <div>
       <NavBarUser/>
@@ -26,12 +56,66 @@ const AccountDetails = () => {
       ):(
     
     <div className="account">
+      
       <div className="div">
+
         <div className="text-wrapper">Hi, {user[0].name} !!</div>
+        <form className="inputName">
+        <select id="cars" name="cars">
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="fiat">Fiat</option>
+          <option value="audi">Audi</option>
+        </select>
+        </form>
         <div className="overlap">
-          <div className="rectangle" />
+
+        <div className="rectangle">
           <Link to='/editprofile'><div className="text-wrapper-2">Edit profile</div></Link>
         </div>
+        </div>
+        
+        <div className="overlap2">
+          <button className="rectangle-3 btn" id="openModal" onClick={handleClick}><div className="addprofile">Add Profile</div></button>
+          <dialog id="modal">
+          <label>Full Name*</label>
+          <input placeholder="&nbsp;&nbsp;Full Name"></input><br></br>
+          <label>Date of Birth*</label>
+          <input placeholder="&nbsp;&nbsp;" type="date"></input><br></br>
+          <label>Weight*</label>
+          <input type="number" placeholder="&nbsp;&nbsp; 70 kgs" ></input><br></br>
+          <label >Height*</label>
+          <input placeholder="&nbsp;&nbsp; 171" type="number"></input>
+          
+          <br></br>
+          <label>Medical Condition*</label>
+        <select>
+                  <option >Normal</option>
+                  <option >Heart Disease</option>
+                  <option >Asthma</option>
+                  <option >High Blood Pressure</option>
+                  <option >Diabetic</option>
+                </select>
+        
+        <br></br>
+        <label>Gender*</label><br></br>
+        <select  placeholder="Male">
+          <option>Male</option>
+          <option>Female</option>
+        </select>
+        
+        <br></br>
+    
+          <button id="closeModal">Close this modal</button>
+</dialog>
+
+</div>
+          
+
+        <button className="overlap3 btn">
+          <div className="rectangle-4" ><div className="deleteprofile">Delete Profile</div></div> 
+    </button>
+
         <div className="frame">
           <div className="text-wrapper-4">Email</div>
           <div className="text-wrapper-5">{user[0].email}</div>

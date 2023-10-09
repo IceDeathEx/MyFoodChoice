@@ -228,6 +228,56 @@ db.query("INSERT INTO loyaltytransaction (userid, itemname, point, qty, date) VA
    console.log(result)
 });   })
 
+// Route to get food item information from database (WORKING)
+app.get("/api/orderfood", (req,res)=>{
+  db.query("SELECT * FROM orderfood;", (err,result)=>{
+      if(err) {
+      console.log(err)
+      }
+  res.send(result)
+  });   });
+
+// Route to fetch user meal records in homepage ()
+app.get("/api/mealrecord", (req, res) => {
+  const { date } = req.query;
+  db.query("SELECT * FROM mealrecord WHERE date = ?;", [date], (err, result) => {
+      if(err) {
+      console.log(err)
+      }
+  res.send(result)
+  });   });
+
+//Route to store user BMI
+// Route to store user BMI in bmi_tracker
+app.post('/api/storeBMI', (req, res) => {
+  const { id, bmi } = req.body;
+
+  // Insert a new BMI record into the bmi_tracker table
+  db.query('INSERT INTO bmi_tracker (id, bmi) VALUES (?, ?);', [id, bmi], (err, result) => {
+      if(err) {
+      console.log(err)
+      }
+  res.send(result)
+  });   });
+
+  // Route to fetch foodnutrition in mealrecord page ()
+app.get("/api/getfoodnutrition", (req, res) => {
+  db.query("SELECT * FROM foodnutrition;", (err, result) => {
+      if(err) {
+      console.log(err)
+      }
+  res.send(result)
+  });   });
+
+// Route to get Userprofiles by id for Meal Record page(WORKING)
+app.get("/api/getUserProfile/:id", (req,res)=>{
+  const id = req.params.id;
+  db.query("SELECT * FROM userprofile WHERE iduser = ?", id, (err,result)=>{
+      if(err) {
+      console.log(err)
+      } 
+  res.send(result)
+  });   });
 
 //Listening to PORT 3002
 app.listen(PORT, ()=>{
