@@ -33,7 +33,7 @@ const NavBarUser = () => {
           <Link to="/loyalty">Loyalty</Link>
           <Link to="/transaction">Transaction</Link>
           <Link to="/account">Account</Link>
-          <Link to="/loyalty">Meal Records</Link>
+          <Link to="/mealhistory">Meal Records</Link>
           <Link to="/" onClick={handleLogout}>Logout</Link>
         </div>
       </div>

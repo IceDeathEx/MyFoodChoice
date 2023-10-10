@@ -5,8 +5,8 @@ const Recipe = () => {
     return (
         <div >
             <NavBarUser />  
-            <div className="trackcalories">
-                <div className="divcss">
+            <div>
+                <div>
                     <h2>Recipe page</h2>
                 </div>
                 

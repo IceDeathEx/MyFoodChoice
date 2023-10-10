@@ -134,7 +134,7 @@ export const MealRecords = () => {
             })
         })
         //Do a post to store the loyalty points 25 pts per meal creation
-        if(mealrecord.filter((test)=> test.meal === meal && dateFormat(test.datetime, "yyyy-mm-dd") === dateFormat(today, "yyyy-mm-dd")).length > 0){
+        if(mealrecord.filter((test)=> test.meal === meal && dateFormat(test.date, "yyyy-mm-dd") === dateFormat(today, "yyyy-mm-dd")).length > 0){
             console.log("Do nothing")
         }
         else{
@@ -205,10 +205,10 @@ export const MealRecords = () => {
 
     //Food Comparison
     const handleSearch = (e) => {
-        setFilteredSearch(foodnutrition.filter((searched) => searched.name.toLowerCase() === e.target.value.toLowerCase()))
+        setFilteredSearch(foodnutrition.filter((searched) => searched.fname.toLowerCase() === e.target.value.toLowerCase()))
     }
     const handleSearch2 = (e) => {
-        setFilteredSearch2(foodnutrition.filter((searched) => searched.name.toLowerCase() === e.target.value.toLowerCase()))
+        setFilteredSearch2(foodnutrition.filter((searched) => searched.fname.toLowerCase() === e.target.value.toLowerCase()))
     }
 
     //Meal Recording
@@ -224,7 +224,7 @@ export const MealRecords = () => {
         
     }
     const handleSearch3 = (e) => {
-        setFilteredSearch3(foodnutrition.filter((searched) => searched.name.toLowerCase() === e.target.value.toLowerCase()))
+        setFilteredSearch3(foodnutrition.filter((searched) => searched.fname.toLowerCase() === e.target.value.toLowerCase()))
         setFoodValue(e.target.value)
     }
     //Identify Image

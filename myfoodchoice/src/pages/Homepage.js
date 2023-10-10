@@ -162,7 +162,7 @@ const TodayHp = () => {
 
 const UserHP = () => {
   const [nameStyle, setNameStyle] = useState({ color: 'black', fontWeight: '400' });
-
+  const [nameStyle1, setNameStyle1] = useState({ color: 'black', fontWeight: '400' });
   const toggleNameStyle = () => {
     setNameStyle((prevStyle) => {
       if (prevStyle.color === 'black') {
@@ -178,7 +178,21 @@ const UserHP = () => {
       }
     });
   };
-
+  const toggleNameStyle1 = () => {
+    setNameStyle1((prevStyle) => {
+      if (prevStyle.color === 'black') {
+        return {
+          color: 'green',
+          fontWeight: 'bold',
+        };
+      } else {
+        return {
+          color: 'black',
+          fontWeight: '600',
+        };
+      }
+    });
+  };
   return (
     <div className="users-HP">
       <div className="text-wrapper">users.</div>
@@ -190,8 +204,8 @@ const UserHP = () => {
           </div>
         </div>
         <div className="group">
-          <img id="profile" className="ellipse" alt="Ellipse" src={a} onClick={toggleNameStyle} />
-          <div id="name" className="div-user" style={nameStyle}>
+          <img id="profile1" className="ellipse" alt="Ellipse" src={a} onClick={toggleNameStyle1} />
+          <div id="name" className="div-user" style={nameStyle1}>
             Nicholas
           </div>
         </div>

@@ -5,7 +5,7 @@ const Feedback = () => {
   return (
     <div>
       <NavBarUser />
-      <div className="divcss">
+      <div>
         <h2>Feedback Page</h2>
       </div>
       <form>

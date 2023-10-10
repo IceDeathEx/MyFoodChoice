@@ -240,7 +240,7 @@ app.get("/api/orderfood", (req,res)=>{
 // Route to fetch user meal records in homepage ()
 app.get("/api/mealrecord", (req, res) => {
   const { date } = req.query;
-  db.query("SELECT * FROM mealrecord WHERE date = ?;", [date], (err, result) => {
+  db.query("SELECT * FROM mealrecord WHERE mrdate = ?;", [date], (err, result) => {
       if(err) {
       console.log(err)
       }
@@ -288,7 +288,7 @@ app.post('/api/insertmealrecords', (req,res)=> {
   const datetime = req.body.datetime;
   const meal = req.body.meal;
 
-db.query("INSERT INTO mealrecord (upid, uid, foodid, datetime, meal) VALUES (?, ?, ?, ?, ?)",[upid, uid, foodid, datetime, meal], (err,result)=>{
+db.query("INSERT INTO mealrecord (upid, uid, foodid, mrdate, meal) VALUES (?, ?, ?, ?, ?)",[upid, uid, foodid, datetime, meal], (err,result)=>{
    if(err) {
    console.log(err)
    } 
@@ -308,10 +308,30 @@ db.query("UPDATE user SET loyaltypoint = loyaltypoint + ?  WHERE id = ?;",[point
   });
 });
 
-// Route to update user information based on ID
+// Route to get meal record based on ID
 app.get("/api/getmealrecord/:id", (req,res)=>{
   const id = req.params.id;
   db.query("SELECT * FROM mealrecord WHERE uid = ?", id, (err,result)=>{
+      if(err) {
+      console.log(err)
+      } 
+  res.send(result)
+  });   });
+
+  // Route to get meal record based on ID join other tables
+app.get("/api/getmealrecordfullinfo/:id", (req,res)=>{
+  const id = req.params.id;
+  db.query("select * from mealrecord join foodnutrition on mealrecord.foodid = foodnutrition.id join userprofile on userprofile.iduserprofile = mealrecord.upid where mealrecord.uid=?", id, (err,result)=>{
+      if(err) {
+      console.log(err)
+      } 
+  res.send(result)
+  });   });
+
+  // Route to get loyalty transaction record
+app.get("/api/loyaltytransaction/:id", (req,res)=>{
+  const id = req.params.id;
+  db.query("select * from loyaltytransaction where userid=?", id, (err,result)=>{
       if(err) {
       console.log(err)
       } 

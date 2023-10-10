@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS `foodnutrition`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `foodnutrition` (
   `id` int NOT NULL,
-  `name` varchar(100) DEFAULT NULL,
+  `fname` varchar(100) DEFAULT NULL,
   `kcal` float DEFAULT NULL,
   `protein` float DEFAULT NULL,
   `fat` float DEFAULT NULL,
@@ -59,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-10  0:54:15
+-- Dump completed on 2023-10-10 22:23:02

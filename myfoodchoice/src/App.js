@@ -14,6 +14,7 @@ import { RequireAuth } from 'react-auth-kit'
 import AccountDetails from './pages/AccountDetails'
 import AccountEdit from './pages/AccountEdit'
 import { MealRecords } from './pages/MealRecords'
+import MealHistory from './pages/MealHistory'
 const App = () => {
 
   return (
@@ -24,6 +25,7 @@ const App = () => {
 
               <Route path="/homepage" element={<RequireAuth loginPath={'/login'}><Homepage /></RequireAuth>}/>
               <Route path="/mealrecord" element={<RequireAuth loginPath={'/login'}><MealRecords /></RequireAuth>}/>
+              <Route path="/mealhistory" element={<RequireAuth loginPath={'/login'}><MealHistory /></RequireAuth>}/>
               <Route path="/healthtips" element={<RequireAuth loginPath={'/login'}><HealthTips /></RequireAuth>}/>
               <Route path="/recipe" element={<RequireAuth loginPath={'/login'}><Recipe /></RequireAuth>}/>
               <Route path="/account" element={<RequireAuth loginPath={'/login'}><AccountDetails /></RequireAuth>}/>
