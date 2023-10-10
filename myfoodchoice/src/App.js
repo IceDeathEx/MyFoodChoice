@@ -10,12 +10,9 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import Onboarding from './pages/Onboarding'
 import NotFound from './pages/NotFound'
-//import Partnership from './pages/Partnership'
-//import TakePhoto from './pages/TakePhoto'
 import { RequireAuth } from 'react-auth-kit'
 import AccountDetails from './pages/AccountDetails'
 import AccountEdit from './pages/AccountEdit'
-//import TestML from './MLtesting/TestML'
 import { MealRecords } from './pages/MealRecords'
 const App = () => {
 

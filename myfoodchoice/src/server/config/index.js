@@ -279,6 +279,45 @@ app.get("/api/getUserProfile/:id", (req,res)=>{
   res.send(result)
   });   });
 
+// Route to inserting records to Meal Record (WORKING)
+app.post('/api/insertmealrecords', (req,res)=> {
+
+  const upid = req.body.upid;
+  const uid = req.body.uid;
+  const foodid = req.body.foodid;
+  const datetime = req.body.datetime;
+  const meal = req.body.meal;
+
+db.query("INSERT INTO mealrecord (upid, uid, foodid, datetime, meal) VALUES (?, ?, ?, ?, ?)",[upid, uid, foodid, datetime, meal], (err,result)=>{
+   if(err) {
+   console.log(err)
+   } 
+   console.log(result)
+});   })
+
+// Route to update user information based on ID
+app.put('/api/userpointsupdate/:id', (req,res)=>{
+  const id = req.params.id;
+  const points = req.body.balance;
+
+
+db.query("UPDATE user SET loyaltypoint = loyaltypoint + ?  WHERE id = ?;",[points, id], (err,result)=>{
+  if(err) {
+ console.log(err)   }
+ console.log(result)
+  });
+});
+
+// Route to update user information based on ID
+app.get("/api/getmealrecord/:id", (req,res)=>{
+  const id = req.params.id;
+  db.query("SELECT * FROM mealrecord WHERE uid = ?", id, (err,result)=>{
+      if(err) {
+      console.log(err)
+      } 
+  res.send(result)
+  });   });
+
 //Listening to PORT 3002
 app.listen(PORT, ()=>{
     console.log(`Server is running on ${PORT}`)

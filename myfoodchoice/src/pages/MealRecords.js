@@ -5,10 +5,16 @@ import arrow from '../pics/arrow-7.svg';
 import ellipse from '../pics/ellipse-2.png';
 import Axios from "axios";
 import * as tf from '@tensorflow/tfjs';
+import dateFormat from 'dateformat';
 
 export const MealRecords = () => {
     const [nameStyle, setNameStyle] = useState({ color: '#000000', fontWeight: '400', });
 
+    //Get user details
+    const [user, setuser] = useState([])
+
+    //Get mealrecord
+    const [mealrecord, setmealrecord] = useState([])
 
     //Storing food array
     const [foodnutrition, setFoodnutrition] = useState([])
@@ -87,6 +93,75 @@ export const MealRecords = () => {
             })
         
     } 
+    const CreateMealRecord = () => {
+        var today = new Date()
+        var time = today.getHours()
+        var meal =''
+        //If word search match and user profile is selected, then will trigger the posting
+        if(filteredSearch3.length > 0 && state.mrUser2.length > 0){
+        
+        
+                console.log("do something")
+        //Do a logic check if time is between certain period so its considered which meal of the day
+                if(time >= 21 && time <=4){
+                    console.log("snacks")
+                    meal ='snacks'
+                }
+                else if(time >=5 && time <=11){
+                    console.log("breakfast")
+                    meal ='breakfast'
+                }
+                else if(time >=12 && time <=14){
+                    console.log("lunch")
+                    meal ='lunch'
+                }
+                else if(time >=15 && time <=16){
+                    console.log("snacks")
+                    meal ='snacks'
+                }
+                else if(time >=17 && time <=20){
+                    console.log("dinner")
+                    meal ='dinner'
+                }
+        //Do a post to meal record database
+        state.mrUser2.map((data)=>{
+            Axios.post("http://localhost:3002/api/insertmealrecords", {
+                upid: data.iduserprofile,
+                uid: id,
+                foodid: filteredSearch3[0].id,
+                datetime: dateFormat(today, "yyyy-mm-dd HH:MM:ss"),
+                meal: meal
+            })
+        })
+        //Do a post to store the loyalty points 25 pts per meal creation
+        if(mealrecord.filter((test)=> test.meal === meal && dateFormat(test.datetime, "yyyy-mm-dd") === dateFormat(today, "yyyy-mm-dd")).length > 0){
+            console.log("Do nothing")
+        }
+        else{
+            Axios.put(`http://localhost:3002/api/userpointsupdate/${id}`, {balance : 25})
+        }
+        
+        }
+        else if(filteredSearch3.length === 0 && state.mrUser2.length === 0){
+            console.log('Please enter a valid food name.')
+            console.log('Please click on at least one user profile.')            
+        }
+        else if(state.mrUser2.length === 0){
+            console.log('Please click on at least one user profile.')
+        }
+        else if(filteredSearch3.length === 0){
+            console.log('Please enter a valid food name.')
+        }
+        else{
+            console.log('Some error')
+        }
+        
+        
+        
+        // Meal Record db should contain the following attribute:
+        // id, upid, uid, foodid, datetime, meal, loyaltypts awarded: 25
+        // Update user, increment the loyalty point by 25 for each meal for a total of 100
+    }
     //Store the database food nutrition values inside
     useEffect(() => {
         Axios.get('http://localhost:3002/api/getfoodnutrition')
@@ -98,6 +173,14 @@ export const MealRecords = () => {
                 setUserProfile(data.data)
                 setmrUser(data.data)
             })
+        Axios.get(`http://localhost:3002/api/getUser/${id}`)
+        .then((data) =>{
+            setuser(data.data)
+        })
+        Axios.get(`http://localhost:3002/api/getmealrecord/${id}`)
+        .then((data)=>{
+            setmealrecord(data.data)
+        })
         //Load Machine learning model
         loadModel()
         //getVideo()
@@ -446,17 +529,6 @@ export const MealRecords = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        {/* <div className="food">
-                                            <div className="rectangle-4" />
-                                            <div className="frame-4">
-                                                <input type="radio" className="radio" />
-                                                <div className="frame-5">
-                                                    <div className="text-wrapper-26">chicken rice</div>
-                                                    <div className="text-wrapper-27">500 cal</div>
-                                                    <div className="text-wrapper-28">Encik Tan Curry</div>
-                                                </div>
-                                            </div>
-                                        </div> */}
                                     </div>
                                 </div>
                             </div>
@@ -492,6 +564,7 @@ export const MealRecords = () => {
                             </div>
                             <div className="frame-3">
                                 <div className="frame-4">
+                                
                                     <div className="food">
                                         <div className="rectangle" />
                                         <div className="frame-5">
@@ -503,55 +576,13 @@ export const MealRecords = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="text-wrapper-7">breakfast.</div>
-                                </div>
-                                <div className="frame-7">
-                                    <div className="food-2">
-                                        <div className="rectangle" />
-                                        <div className="frame-5">
-                                            <div className="radio" />
-                                            <div className="frame-6">
-                                                <div className="text-wrapper-4">chicken rice</div>
-                                                <div className="text-wrapper-5">500 cal</div>
-                                                <div className="text-wrapper-6">Encik Tan Curry</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="text-wrapper-7">lunch.</div>
-                                </div>
-                                <div className="frame-8">
-                                    <div className="food-3">
-                                        <div className="rectangle" />
-                                        <div className="frame-5">
-                                            <div className="radio" />
-                                            <div className="frame-6">
-                                                <div className="text-wrapper-4">chicken rice</div>
-                                                <div className="text-wrapper-5">500 cal</div>
-                                                <div className="text-wrapper-6">Encik Tan Curry</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="text-wrapper-7">dinner.</div>
-                                </div>
-                                <div className="frame-9">
-                                    <div className="food-4">
-                                        <div className="rectangle" />
-                                        <div className="frame-5">
-                                            <div className="radio" />
-                                            <div className="frame-6">
-                                                <div className="text-wrapper-4">chicken rice</div>
-                                                <div className="text-wrapper-5">500 cal</div>
-                                                <div className="text-wrapper-6">Encik Tan Curry</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="text-wrapper-7">snack.</div>
+                                    <div className="text-wrapper-7">{foodValue}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="frame-wrapper">
-                        <button className="frame-23">
+                        <button className="frame-23" onClick={CreateMealRecord}>
                             <div className="text-wrapper-61">create meal now</div>
                         </button>
                     </div>
