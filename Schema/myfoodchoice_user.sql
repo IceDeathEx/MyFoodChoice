@@ -41,8 +41,9 @@ CREATE TABLE `user` (
   `premium` varchar(45) DEFAULT NULL,
   `loyaltypoint` int DEFAULT NULL,
   `age` int DEFAULT NULL,
+  `calorielimit` int DEFAULT NULL,
   PRIMARY KEY (`id`,`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -51,7 +52,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'JohnDoe@gmail.com','John Doe','test','Male','user','Singapore',190,80.5,'Sedentary','Diabetes','1997-01-28',22.2991,'basic',10000,NULL),(2,'KarenLoh@gmail.com','Karen Loh','test456','Female','system admin','Singapore',180,70.7,'Not Active','Diabetes','1997-01-28',21.8209,'premium',2000,NULL),(3,'NelsonAw@gmail.com','Nelson Aw','test456','Female','system admin','Singapore',170,60.6,'Sedentary','High blood pressure','1997-01-28',20.9688,'premium',5000,NULL),(4,'SionggoJapit@gmail.com','Sionggo Japit','test789','Male','vendor','Singapore',160,90.9,'Not Active','High Cholesterol','1997-01-28',35.5078,'basic',100000,NULL),(13,'NicholasTan@gmail.com','Nicholas Tan','test','Male','system admin','Singapore',170,80.8,'Sedentary','High blood pressure','1997-01-28',27.9584,'premium',120000,NULL),(15,'Garytan@gmail.com','Gary Tan','test','Male','user','Singapore',180,70.7,'Sedentary','High blood pressure','1997-01-28',21.8209,'basic',120000,NULL),(16,'testing@gmail.com','testing','test','Male','user','Singapore',123,12,'Not Active(0-1 times a week)','High Blood Pressure','1990-01-28',7.93,'basic',9150,NULL),(17,'testing2@gmail.com','testing2','test','Male','user','Singapore',171,70,'Not Active','Normal','1990-12-03',23.9389,'premium',1000,NULL),(18,'JonathanZheng@gmail.com','Jonathan Zheng','test123','Male','vendor','Indonesia',170,65,'Very Active(More than 3 times a week)','Normal','1990-01-02',22.4914,'basic',1500,NULL),(22,'Jed3@gmail.com','Jed3','Test1234','Male','1','Singapore',180,70,'Not Active','Normal','2018-02-07',21.6049,'basic',1000,5),(23,'Jed4@gmail.com','Jed4','test','Male','1','Singapore',156,12,'Not Active','Normal','2022-01-06',4.93097,'basic',1000,1);
+INSERT INTO `user` VALUES (1,'JohnDoe@gmail.com','John Doe','test','Male','user','Singapore',190,80.5,'Sedentary','Diabetes','1997-01-28',22.2991,'basic',10000,19,2500),(2,'KarenLoh@gmail.com','Karen Loh','test456','Female','system admin','Singapore',180,70.7,'Not Active','Diabetes','1997-01-28',21.8209,'premium',2000,18,2000),(3,'NelsonAw@gmail.com','Nelson Aw','test456','Female','system admin','Singapore',170,60.6,'Sedentary','High blood pressure','1997-01-28',20.9688,'premium',5000,24,2000),(4,'SionggoJapit@gmail.com','Sionggo Japit','test789','Male','vendor','Singapore',160,90.9,'Not Active','High Cholesterol','1997-01-28',35.5078,'basic',100000,57,2500),(13,'NicholasTan@gmail.com','Nicholas Tan','test','Male','system admin','Singapore',170,80.8,'Sedentary','High blood pressure','1997-01-28',27.9584,'premium',120000,34,2500),(15,'Garytan@gmail.com','Gary Tan','test','Male','user','Singapore',180,70.7,'Sedentary','High blood pressure','1997-01-28',21.8209,'basic',120000,45,2500),(16,'testing@gmail.com','testing','test','Male','user','Singapore',123,12,'Not Active(0-1 times a week)','High Blood Pressure','1990-01-28',7.93,'basic',9150,67,2500),(17,'testing2@gmail.com','testing2','test','Male','user','Singapore',171,70,'Not Active','Normal','1990-12-03',23.9389,'premium',1000,23,2500),(18,'JonathanZheng@gmail.com','Jonathan Zheng','test123','Male','vendor','Indonesia',170,65,'Very Active(More than 3 times a week)','Normal','1990-01-02',22.4914,'basic',1500,45,2500),(22,'Jed3@gmail.com','Jed3','Test1234','Male','1','Singapore',180,70,'Not Active','Normal','2018-02-07',21.6049,'basic',1000,5,2500),(23,'Jed4@gmail.com','Jed4','test','Male','1','Singapore',156,12,'Not Active','Normal','2022-01-06',4.93097,'basic',1000,1,2500),(35,'JoeWheeler@gmail.com','Joe Wheeler','test','Male','1','Singapore',175,67,'Not Active','Normal','2013-02-11',21.8776,'basic',1000,10,2500),(36,'JoeyWheeler@gmail.com','Joey Wheeler','test','Female','1','Singapore',177,56,'Not Active','Normal','2021-01-11',17.8748,'basic',1000,2,2000);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -64,4 +65,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-10 22:23:02
+-- Dump completed on 2023-10-11 20:29:06

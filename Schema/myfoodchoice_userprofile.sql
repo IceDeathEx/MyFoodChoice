@@ -36,7 +36,7 @@ CREATE TABLE `userprofile` (
   `gender` varchar(45) NOT NULL,
   `bmi` float NOT NULL,
   `age` int NOT NULL,
-  PRIMARY KEY (`iduserprofile`),
+  PRIMARY KEY (`iduserprofile`,`iduser`,`name`),
   KEY `iduser_idx` (`iduser`),
   CONSTRAINT `iduser` FOREIGN KEY (`iduser`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -61,4 +61,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-10 22:23:02
+-- Dump completed on 2023-10-11 20:29:06

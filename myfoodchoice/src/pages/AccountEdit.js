@@ -17,18 +17,38 @@ const AccountEdit = () => {
   const [password, setPassword] = useState("");
   const [bmi, setBMI] = useState(""); // State to store calculated BMI
   const navigate = useNavigate();
-
+  const [iduserprofile, setiduserprofile] = useState(null);
+  const [userProfiles, setUserProfiles] = useState([]);
   const id = JSON.parse(window.localStorage.getItem("account"));
 
-  useEffect(() => {
-    Axios.get(`http://localhost:3002/api/getUser/${id}`).then((res) => {
-      setUser(res.data);
-      setisLoading(false);
 
-      setLifestyle(res.data[0].lifestyle);
-      setConditions(res.data[0].conditions);
-    });
-  }, [id]);
+  useEffect(() => {
+    Axios.get(`http://localhost:3002/api/getUser/${id}`)
+      .then((res) => {
+        setUser(res.data);
+        setisLoading(false);
+
+        setLifestyle(res.data[0].lifestyle);
+        setConditions(res.data[0].conditions);
+      })
+      .catch((error) => {
+        console.error("Error fetching user data:", error);
+        setisLoading(false);
+      });
+
+    Axios.get(`http://localhost:3002/api/getUserProfiles/${id}`)
+      .then((res) => {
+        const profiles = res.data;
+        // Include the owner's name in the profiles array
+        if (user && user[0]) {
+          profiles.unshift({ iduserprofile: id, name: user[0].name });
+        }
+        setUserProfiles(profiles);
+      })
+      .catch((error) => {
+        console.error("Error fetching user profiles:", error);
+      });
+  }, [id, user]);
 
   // Store the original user data
   const originalUserData = user ? user[0] : {};
@@ -63,8 +83,18 @@ const AccountEdit = () => {
       {isLoading ? (
         <p>Still loading</p>
       ) : (
+
         <div className="account">
           <div className="div">
+            <form className="inputName">
+              <select id="cars" name="cars" onChange={(e) => setiduserprofile(e.target.value)}>
+                {userProfiles.map((profile) => (
+                  <option key={profile.iduserprofile} value={profile.iduser}>
+                    {profile.name}
+                  </option>
+                ))}
+              </select>
+            </form>
             <div className="text-wrapper">Hi, {user[0].name} !!</div>
             <div className="overlap">
               <button className="rectangle" onClick={updateAccount}>

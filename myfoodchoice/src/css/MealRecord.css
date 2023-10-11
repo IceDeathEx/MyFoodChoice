@@ -1707,8 +1707,8 @@
     display: inline-flex;
     gap: 3px;
     position: relative;
-    left:800px;
-    top:60px;
+    left:0px;
+    top:0px;
 }
 
 .user-choiceMR .group {

@@ -92,8 +92,9 @@ app.post('/api/signup', (req,res)=> {
     const premium = req.body.premium;
     const loyaltypoint = req.body.loyalty;
     const age = req.body.age;
+    const calorie = req.body.calorie;
   
-  db.query("INSERT INTO user (email, name, password, gender, accountType, country, height, weight, lifestyle, conditions, dob, bmi, premium, loyaltypoint, age) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[email, name, password, gender, accounttype, country, height, weight, lifestyle, conditions, dob, bmi, premium, loyaltypoint, age], (err,result)=>{
+  db.query("INSERT INTO user (email, name, password, gender, accountType, country, height, weight, lifestyle, conditions, dob, bmi, premium, loyaltypoint, age, calorielimit) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",[email, name, password, gender, accounttype, country, height, weight, lifestyle, conditions, dob, bmi, premium, loyaltypoint, age, calorie], (err,result)=>{
      if(err) {
      console.log(err)
      } 
@@ -337,6 +338,38 @@ app.get("/api/loyaltytransaction/:id", (req,res)=>{
       } 
   res.send(result)
   });   });
+
+  // Route to get unique Id for user profiles(WORKING)
+app.get("/api/getUserProfiles/:id", (req,res)=>{
+  const id = req.params.id;
+  db.query("SELECT * FROM userprofile WHERE iduser = ?", id, (err,result)=>{
+      if(err) {
+      console.log(err)
+      }
+  res.send(result)
+  });   });
+
+  // Route to add user profile id(Working)
+app.post('/api/addIdProfile', (req,res)=> {
+
+  const id = req.body.iduser;
+
+db.query("INSERT INTO userprofile (iduser) VALUES (?)",[id], (err,result)=>{
+   if(err) {
+   console.log(err)
+   }
+   console.log(result)
+});   })
+
+  // Route to get Userprofiles by id for Meal Record page(WORKING)
+  app.get("/api/getUserProfile2/:id", (req,res)=>{
+    const id = req.params.id;
+    db.query("SELECT * FROM userprofile WHERE iduser = ?", id, (err,result)=>{
+        if(err) {
+        console.log(err)
+        } 
+    res.send(result)
+    });   });
 
 //Listening to PORT 3002
 app.listen(PORT, ()=>{

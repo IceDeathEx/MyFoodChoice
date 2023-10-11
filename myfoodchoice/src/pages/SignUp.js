@@ -188,6 +188,13 @@ const SignUp = () => {
          // Calculate age
          const birthDate = new Date(dob);
          const currentDate = new Date();
+         var calorie = 2500
+         if(gender === 'Female'){
+          calorie = 2000
+         }
+         else{
+          calorie = 2500
+         }
          const age = currentDate.getFullYear() - birthDate.getFullYear();
           // Calculate BMI
           const bmi = ((weight)/ ((height/100) *(height/100)))
@@ -210,7 +217,8 @@ const SignUp = () => {
             bmi: bmi,
             premium: premium,
             loyalty: loyaltypoints,
-            age: age
+            age: age,
+            calorie: calorie
           });
           navigate('/login')
          }

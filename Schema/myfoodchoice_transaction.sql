@@ -18,31 +18,29 @@ USE `myfoodchoice`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `loyaltytransaction`
+-- Table structure for table `transaction`
 --
 
-DROP TABLE IF EXISTS `loyaltytransaction`;
+DROP TABLE IF EXISTS `transaction`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `loyaltytransaction` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `userid` int DEFAULT NULL,
-  `itemname` varchar(100) DEFAULT NULL,
-  `point` int DEFAULT NULL,
-  `qty` int DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `transaction` (
+  `transid` int NOT NULL,
+  `transitem` varchar(100) DEFAULT NULL,
+  `uid` int DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `transdate` datetime DEFAULT NULL,
+  PRIMARY KEY (`transid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `loyaltytransaction`
+-- Dumping data for table `transaction`
 --
 
-LOCK TABLES `loyaltytransaction` WRITE;
-/*!40000 ALTER TABLE `loyaltytransaction` DISABLE KEYS */;
-INSERT INTO `loyaltytransaction` VALUES (4,16,'$20 NTUCC Voucher',2000,1,'2023-10-04 21:32:23'),(5,16,'FitBit Watch',10000,1,'2023-10-06 02:48:19'),(6,16,'$20 NTUCC Voucher',2000,1,'2023-10-06 02:48:19'),(7,16,'FitBit Watch',10000,1,'2023-10-06 23:09:59'),(8,16,'$10 NTUCC Voucher',1000,1,'2023-10-06 23:09:59');
-/*!40000 ALTER TABLE `loyaltytransaction` ENABLE KEYS */;
+LOCK TABLES `transaction` WRITE;
+/*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
+/*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

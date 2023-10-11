@@ -128,7 +128,7 @@
 
 .recipe-on-login-sign .overlap {
     height: 710px;
-    left: 378px;
+    left: 300px;
     position: absolute;
     top: 230px;
     width: 940px;
@@ -138,7 +138,7 @@
     height: 335px;
     left: 0;
     position: absolute;
-    top: 4px;
+    top: 0px;
     width: 296px;
 }
 
@@ -265,7 +265,7 @@
     height: 335px;
     left: 2px;
     position: absolute;
-    top: 375px;
+    top: 371px;
     width: 296px;
 }
 
@@ -295,7 +295,7 @@
 
 .recipe-on-login-sign .recipe-2 {
     height: 710px;
-    left: 395px;
+    left: 300px;
     position: absolute;
     top: 1174px;
     width: 940px;
@@ -314,11 +314,11 @@
     font-family: "Montserrat-Bold", Helvetica;
     font-size: 64px;
     font-weight: 700;
-    left: 379px;
+    left: 300px;
     letter-spacing: -0.96px;
     line-height: 36px;
     position: absolute;
-    top: 1069px;
+    top: 1050px;
     width: 482px;
 }
 

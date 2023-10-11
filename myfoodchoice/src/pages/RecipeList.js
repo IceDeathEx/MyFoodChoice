@@ -4,21 +4,12 @@ import NavBarUser from "./NavBarUser";
 import { useNavigate } from "react-router";
 
 const RecipeList = () => {
-        const navigate = useNavigate()
+    const navigate = useNavigate()
     const handleClick = () => {
         navigate("/recipedetails")
     }
-    //Define the recipe db
-    //Recipe db should have the attributes: recipeid, recipetitle, recipedesc, recipeprice, vendor, protein, carbs, sugar, sodium, cholesterol, dietaryfibre, fat, saturated fat, calories, date created, recipeimage
+    // Create dropdown based on the user profiles medical conditions
     
-    //recipe info by paragraph db
-    //recipe para db consists: recipeid, ingredient, steps, date created.
-
-    //Define the recipe set db
-    //Recipe set consists of: setid, settitle, recipeid, healthcategory, diettype 
-
-    //Dont include the List Nav bar
-    //Create another search bar for other recipe
     //Create dynamic webpage
     return (
         <div>
@@ -27,36 +18,13 @@ const RecipeList = () => {
         <div className="recipe-on-login-sign">
             
             <div className="div">
-                <div className="list">
-                    <div className="overlap-group">
-                        <div className="frame">
-                            <div className="group">
-                                <img className="line" alt="Line" src="line-4.svg" />
-                                <div className="text-wrapper">Encik Tan’s</div>
-                            </div>
-                            <div className="group">
-                                <img className="line" alt="Line" src="line-4.svg" />
-                                <div className="text-wrapper">Encik Tan’s</div>
-                            </div>
-                            <div className="group">
-                                <img className="line" alt="Line" src="line-4.svg" />
-                                <div className="text-wrapper">Encik Tan’s</div>
-                            </div>
-                            <div className="group">
-                                <img className="line" alt="Line" src="line-4.svg" />
-                                <div className="text-wrapper">Encik Tan’s</div>
-                            </div>
-                        </div>
-                        <div className="text-wrapper-2">List</div>
-                    </div>
-                </div>
+                
                 
                 <div className="text-wrapper-3">don’t worry....</div>
                 <div className="text-wrapper-4">?</div>
                 <select className="label" > 
                     <option>Diabetic</option>
                     <option>Cancer</option>
-
                 </select>
                 <div className="overlap">
                     <div className="div-2">
@@ -484,7 +452,12 @@ const RecipeList = () => {
                         </div>
                     </div>
                 </div>
-                <div className="text-wrapper-8">other recipes.</div>
+                <div className="text-wrapper-8">other recipes.
+                <select className="label" > 
+                    <option>Diabetic</option>
+                    <option>Cancer</option>
+                </select>
+                </div>
             </div>
         </div>
     </div>

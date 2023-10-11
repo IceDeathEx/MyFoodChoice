@@ -18,31 +18,33 @@ USE `myfoodchoice`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `loyaltytransaction`
+-- Table structure for table `recipeset`
 --
 
-DROP TABLE IF EXISTS `loyaltytransaction`;
+DROP TABLE IF EXISTS `recipeset`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `loyaltytransaction` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `userid` int DEFAULT NULL,
-  `itemname` varchar(100) DEFAULT NULL,
-  `point` int DEFAULT NULL,
-  `qty` int DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE `recipeset` (
+  `setid` int NOT NULL,
+  `settitle` varchar(200) DEFAULT NULL,
+  `recipeid1` int DEFAULT NULL,
+  `recipeid2` int DEFAULT NULL,
+  `recipeid3` int DEFAULT NULL,
+  `recipeid4` int DEFAULT NULL,
+  `diettype` varchar(100) DEFAULT NULL,
+  `healthcategory` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`setid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `loyaltytransaction`
+-- Dumping data for table `recipeset`
 --
 
-LOCK TABLES `loyaltytransaction` WRITE;
-/*!40000 ALTER TABLE `loyaltytransaction` DISABLE KEYS */;
-INSERT INTO `loyaltytransaction` VALUES (4,16,'$20 NTUCC Voucher',2000,1,'2023-10-04 21:32:23'),(5,16,'FitBit Watch',10000,1,'2023-10-06 02:48:19'),(6,16,'$20 NTUCC Voucher',2000,1,'2023-10-06 02:48:19'),(7,16,'FitBit Watch',10000,1,'2023-10-06 23:09:59'),(8,16,'$10 NTUCC Voucher',1000,1,'2023-10-06 23:09:59');
-/*!40000 ALTER TABLE `loyaltytransaction` ENABLE KEYS */;
+LOCK TABLES `recipeset` WRITE;
+/*!40000 ALTER TABLE `recipeset` DISABLE KEYS */;
+INSERT INTO `recipeset` VALUES (1,'Hainese Chicken Rice',1,NULL,NULL,NULL,'Normal','Diabetes'),(2,'Nasi Lemak',2,NULL,NULL,NULL,'Normal','Diabetes'),(3,'Nasi Goreng',3,NULL,NULL,NULL,'Normal','Diabetes'),(4,'Penang Assam laksa',4,NULL,NULL,NULL,'Normal','Diabetes'),(5,'Kaya Jam',5,NULL,NULL,NULL,'Normal','Normal'),(6,'Fried Rice with shallots',6,NULL,NULL,NULL,'Normal','Cholesterol'),(7,'Pink swiss roll with chocolate ganache',7,NULL,NULL,NULL,'Normal','Cholesterol'),(8,'Coconut cereal Belgian waffles (4 waffles)',8,NULL,NULL,NULL,'Normal','Cholesterol'),(9,'Fresh corn salad',9,NULL,NULL,NULL,'Normal','Heart disease'),(10,'Asian Ginger Fish Soup',10,NULL,NULL,NULL,'Normal','Diabetes'),(11,'Super healthy set',1,2,3,4,'Keto Diet','All'),(12,'Super value set',5,6,7,8,'Healthy Diet','All');
+/*!40000 ALTER TABLE `recipeset` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

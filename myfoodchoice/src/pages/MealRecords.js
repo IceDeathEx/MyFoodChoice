@@ -305,7 +305,7 @@ export const MealRecords = () => {
     }
     //Take photo
     const takePhoto = () => {
-        const width = 341
+        const width = 322
         const height = 270
 
         let video = videoRef.current;
@@ -340,10 +340,6 @@ export const MealRecords = () => {
         ctx.clearRect(0, 0, photo.width, photo.height)
         sethasPhoto(false)
     }
-    //Testing purposes
-    function handleTest() {
-        console.log(mrUser)
-    }
 
     return (
         <div>
@@ -355,7 +351,6 @@ export const MealRecords = () => {
                             <p className="text">
                                 <span className="span">Why not start your day.... </span><br></br><br></br><span className="span">with</span>
                             </p>
-                            <button onClick={handleTest}>Test</button>
                         </div>
                         <br></br>
                         <div className="text-wrapper-60">FoodScanner™</div>
