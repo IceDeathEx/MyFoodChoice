@@ -29,7 +29,7 @@ const App = () => {
               <Route path="/mealhistory" element={<RequireAuth loginPath={'/login'}><MealHistory /></RequireAuth>}/>
               <Route path="/healthtips" element={<RequireAuth loginPath={'/login'}><HealthTips /></RequireAuth>}/>
               <Route path="/recipe" element={<RequireAuth loginPath={'/login'}><RecipeList /></RequireAuth>}/>
-              <Route path="/recipedetails" element={<RequireAuth loginPath={'/login'}><RecipeDetails /></RequireAuth>}/>
+              <Route path="/recipedetails/:id" element={<RequireAuth loginPath={'/login'}><RecipeDetails /></RequireAuth>}/>
               <Route path="/account" element={<RequireAuth loginPath={'/login'}><AccountDetails /></RequireAuth>}/>
               <Route path="/editprofile" element={<RequireAuth loginPath={'/login'}><AccountEdit /></RequireAuth>}/>
               <Route path="/transaction" element={<RequireAuth loginPath={'/login'}><Transaction /></RequireAuth>}/>

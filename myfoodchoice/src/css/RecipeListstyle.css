@@ -133,7 +133,6 @@
     top: 230px;
     width: 940px;
 }
-
 .recipe-on-login-sign .div-2 {
     height: 335px;
     left: 0;
@@ -175,7 +174,7 @@
 .recipe-on-login-sign .text-wrapper-5 {
     color: #000000;
     font-family: "Montserrat-Bold", Helvetica;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 700;
     height: 33px;
     letter-spacing: -0.48px;
@@ -203,7 +202,7 @@
 .recipe-on-login-sign .text-wrapper-7 {
     color: #000000;
     font-family: "Montserrat-Bold", Helvetica;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 700;
     height: 33px;
     letter-spacing: -0.24px;
@@ -282,6 +281,111 @@
     left: 644px;
     position: absolute;
     top: 371px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-8 {
+    height: 335px;
+    left: 2px;
+    position: absolute;
+    top: 742px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-9 {
+    height: 335px;
+    left: 323px;
+    position: absolute;
+    top: 742px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-10 {
+    height: 335px;
+    left: 644px;
+    position: absolute;
+    top: 742px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-11 {
+    height: 335px;
+    left: 2px;
+    position: absolute;
+    top: 1113px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-12 {
+    height: 335px;
+    left: 323px;
+    position: absolute;
+    top: 1113px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-13 {
+    height: 335px;
+    left: 644px;
+    position: absolute;
+    top: 1113px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-14 {
+    height: 335px;
+    left: 2px;
+    position: absolute;
+    top: 1484px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-15 {
+    height: 335px;
+    left: 323px;
+    position: absolute;
+    top: 1484px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-16 {
+    height: 335px;
+    left: 644px;
+    position: absolute;
+    top: 1484px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-17 {
+    height: 335px;
+    left: 2px;
+    position: absolute;
+    top: 1855px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-18 {
+    height: 335px;
+    left: 323px;
+    position: absolute;
+    top: 1855px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-19 {
+    height: 335px;
+    left: 644px;
+    position: absolute;
+    top: 1855px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-20 {
+    height: 335px;
+    left: 2px;
+    position: absolute;
+    top: 2226px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-21 {
+    height: 335px;
+    left: 323px;
+    position: absolute;
+    top: 2226px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-22 {
+    height: 335px;
+    left: 644px;
+    position: absolute;
+    top: 2226px;
     width: 296px;
 }
 
