@@ -8,7 +8,6 @@ import * as tf from '@tensorflow/tfjs';
 import dateFormat from 'dateformat';
 
 export const MealRecords = () => {
-    const [nameStyle, setNameStyle] = useState({ color: '#000000', fontWeight: '400', });
 
     //Get user details
     const [user, setuser] = useState([])
@@ -43,22 +42,63 @@ export const MealRecords = () => {
     const [userprofile, setUserProfile] = useState([])
     const id = JSON.parse(window.localStorage.getItem("account"))
     const [mrUser, setmrUser] = useState([])
-    /* const toggleNameStyle = () => {
-            setNameStyle((prevStyle) => {
-                if (prevStyle.color === '#000000') {
-                    return {
-                        color: '#567710',
-                        fontWeight: 'bold',
-                    };
-                } else {
-                    return {
-                        color: '#000000', fontWeight: '400',
-                    };
-                }
-            });
-        
 
-    }; */
+    const [nameStyles, setNameStyles] = useState([
+        { color: 'black', fontWeight: '400' },
+        { color: 'black', fontWeight: '400' },
+        { color: 'black', fontWeight: '400' },
+        { color: 'black', fontWeight: '400' },
+        { color: 'black', fontWeight: '400' },
+    ]);
+
+    const toggleNameStyle = (index) => {
+        // Create a copy of the current styles object
+        const newStyles = { ...nameStyles };
+
+        // Check if the style object for this index exists
+        if (!newStyles[index]) {
+            newStyles[index] = {
+                color: 'black',
+                fontWeight: '400',
+            };
+        } else {
+            // Toggle the color and font weight
+            newStyles[index] = {
+                color: newStyles[index].color === 'black' ? '#567710' : 'black',
+                fontWeight: newStyles[index].fontWeight === '400' ? 'bold' : '400',
+            };
+        }
+
+        // Update the state with the new styles
+        setNameStyles(newStyles);
+
+
+        // Create a copy of the current state object
+        const updatedState = { ...state };
+
+        // Check if the item with the given iduserprofile is already in the array
+        const index1 = updatedState.mrUser2.findIndex((item) => item.iduserprofile === index + 1);
+
+        if (index1 === -1) {
+            // If not found, add it to the array
+            updatedState.mrUser2.push({ iduserprofile: index + 1 });
+        } else {
+            // If found, remove it from the array
+            updatedState.mrUser2.splice(index1, 1);
+        }
+
+        // Toggle the profile variable based on the value of i
+        updatedState[`profile${index + 1}`] = !updatedState[`profile${index + 1}`];
+
+        // Update the state
+        setState(updatedState);
+        console.log(state.mrUser2)
+        state.mrUser2.map((item) => {
+            console.log(item.iduserprofile)
+        })
+    };
+
+
     const [state, setState] = useState({
         mrUser2: [],
         profile1: false,
@@ -66,98 +106,72 @@ export const MealRecords = () => {
         profile3: false,
         profile4: false,
         profile5: false,
-      });
-    const toggleNameStyle = (i) =>{
-            // Create a copy of the current state object
-            const updatedState = { ...state };
-
-            // Check if the item with the given iduserprofile is already in the array
-            const index = updatedState.mrUser2.findIndex((item) => item.iduserprofile === i);
-
-            if (index === -1) {
-                // If not found, add it to the array
-                updatedState.mrUser2.push({ iduserprofile: i });
-            } else {
-                // If found, remove it from the array
-                updatedState.mrUser2.splice(index, 1);
-            }
-
-            // Toggle the profile variable based on the value of i
-            updatedState[`profile${i}`] = !updatedState[`profile${i}`];
-
-            // Update the state
-            setState(updatedState);
-            console.log(state.mrUser2)
-            state.mrUser2.map((item)=>{
-                console.log(item.iduserprofile)
-            })
-        
-    } 
+    });
     const CreateMealRecord = () => {
         var today = new Date()
         var time = today.getHours()
-        var meal =''
+        var meal = ''
         //If word search match and user profile is selected, then will trigger the posting
-        if(filteredSearch3.length > 0 && state.mrUser2.length > 0){
-        
-        
-                console.log("do something")
-        //Do a logic check if time is between certain period so its considered which meal of the day
-                if(time >= 21 && time <=4){
-                    console.log("snacks")
-                    meal ='snacks'
-                }
-                else if(time >=5 && time <=11){
-                    console.log("breakfast")
-                    meal ='breakfast'
-                }
-                else if(time >=12 && time <=14){
-                    console.log("lunch")
-                    meal ='lunch'
-                }
-                else if(time >=15 && time <=16){
-                    console.log("snacks")
-                    meal ='snacks'
-                }
-                else if(time >=17 && time <=20){
-                    console.log("dinner")
-                    meal ='dinner'
-                }
-        //Do a post to meal record database
-        state.mrUser2.map((data)=>{
-            Axios.post("http://localhost:3002/api/insertmealrecords", {
-                upid: data.iduserprofile,
-                uid: id,
-                foodid: filteredSearch3[0].id,
-                datetime: dateFormat(today, "yyyy-mm-dd HH:MM:ss"),
-                meal: meal
+        if (filteredSearch3.length > 0 && state.mrUser2.length > 0) {
+
+
+            console.log("do something")
+            //Do a logic check if time is between certain period so its considered which meal of the day
+            if (time >= 21 && time <= 4) {
+                console.log("snacks")
+                meal = 'snacks'
+            }
+            else if (time >= 5 && time <= 11) {
+                console.log("breakfast")
+                meal = 'breakfast'
+            }
+            else if (time >= 12 && time <= 14) {
+                console.log("lunch")
+                meal = 'lunch'
+            }
+            else if (time >= 15 && time <= 16) {
+                console.log("snacks")
+                meal = 'snacks'
+            }
+            else if (time >= 17 && time <= 20) {
+                console.log("dinner")
+                meal = 'dinner'
+            }
+            //Do a post to meal record database
+            state.mrUser2.map((data) => {
+                Axios.post("http://localhost:3002/api/insertmealrecords", {
+                    upid: data.iduserprofile,
+                    uid: id,
+                    foodid: filteredSearch3[0].id,
+                    datetime: dateFormat(today, "yyyy-mm-dd HH:MM:ss"),
+                    meal: meal
+                })
             })
-        })
-        //Do a post to store the loyalty points 25 pts per meal creation
-        if(mealrecord.filter((test)=> test.meal === meal && dateFormat(test.date, "yyyy-mm-dd") === dateFormat(today, "yyyy-mm-dd")).length > 0){
-            console.log("Do nothing")
+            //Do a post to store the loyalty points 25 pts per meal creation
+            if (mealrecord.filter((test) => test.meal === meal && dateFormat(test.date, "yyyy-mm-dd") === dateFormat(today, "yyyy-mm-dd")).length > 0) {
+                console.log("Do nothing")
+            }
+            else {
+                Axios.put(`http://localhost:3002/api/userpointsupdate/${id}`, { balance: 25 })
+            }
+
         }
-        else{
-            Axios.put(`http://localhost:3002/api/userpointsupdate/${id}`, {balance : 25})
-        }
-        
-        }
-        else if(filteredSearch3.length === 0 && state.mrUser2.length === 0){
+        else if (filteredSearch3.length === 0 && state.mrUser2.length === 0) {
             console.log('Please enter a valid food name.')
-            console.log('Please click on at least one user profile.')            
-        }
-        else if(state.mrUser2.length === 0){
             console.log('Please click on at least one user profile.')
         }
-        else if(filteredSearch3.length === 0){
+        else if (state.mrUser2.length === 0) {
+            console.log('Please click on at least one user profile.')
+        }
+        else if (filteredSearch3.length === 0) {
             console.log('Please enter a valid food name.')
         }
-        else{
+        else {
             console.log('Some error')
         }
-        
-        
-        
+
+
+
         // Meal Record db should contain the following attribute:
         // id, upid, uid, foodid, datetime, meal, loyaltypts awarded: 25
         // Update user, increment the loyalty point by 25 for each meal for a total of 100
@@ -174,13 +188,13 @@ export const MealRecords = () => {
                 setmrUser(data.data)
             })
         Axios.get(`http://localhost:3002/api/getUser/${id}`)
-        .then((data) =>{
-            setuser(data.data)
-        })
+            .then((data) => {
+                setuser(data.data)
+            })
         Axios.get(`http://localhost:3002/api/getmealrecord/${id}`)
-        .then((data)=>{
-            setmealrecord(data.data)
-        })
+            .then((data) => {
+                setmealrecord(data.data)
+            })
         //Load Machine learning model
         loadModel()
         //getVideo()
@@ -221,7 +235,7 @@ export const MealRecords = () => {
         } else {
             setImageURL(null)
         }
-        
+
     }
     const handleSearch3 = (e) => {
         setFilteredSearch3(foodnutrition.filter((searched) => searched.fname.toLowerCase() === e.target.value.toLowerCase()))
@@ -229,57 +243,69 @@ export const MealRecords = () => {
     }
     //Identify Image
     const identify = async () => {
-        //Do something to the image first before predicting
-        const tensorImg = tf.browser.fromPixels(photoRef.current).resizeNearestNeighbor([256, 256]).toFloat();
-        const tensorImg2 = tensorImg.expandDims(0);
-        //Predict results
-        const result = await model.predict(tensorImg2)
-        const predicted_index = result.as1D().argMax().dataSync()[0];
-        const predictedClass = classLabels[predicted_index];
-        setResults(predictedClass)
-        setFoodValue(predictedClass)
-        //Get nutritional values from database
-        const id = predicted_index + 1
-        await Axios.get(`http://localhost:3002/api/getFood/${id}`).then((res) => {
-            setFilteredSearch3(res.data)
-        })
+        if (hasPhoto) {
+            //Do something to the image first before predicting
+            const tensorImg = tf.browser.fromPixels(photoRef.current).resizeNearestNeighbor([256, 256]).toFloat();
+            const tensorImg2 = tensorImg.expandDims(0);
+            //Predict results
+            const result = await model.predict(tensorImg2)
+            const predicted_index = result.as1D().argMax().dataSync()[0];
+            const predictedClass = classLabels[predicted_index];
+            setResults(predictedClass)
+            setFoodValue(predictedClass)
+            //Get nutritional values from database
+            const id = predicted_index + 1
+            await Axios.get(`http://localhost:3002/api/getFood/${id}`).then((res) => {
+                setFilteredSearch3(res.data)
+            })
+        }
+        else {
+            console.log('No photo to identify')
+        }
+
     }
     const identify2 = async () => {
-        //Do something to the image first before predicting
-        const tensorImg = tf.browser.fromPixels(imageRef.current).resizeNearestNeighbor([256, 256]).toFloat();
-        const tensorImg2 = tensorImg.expandDims(0);
-        //Predict results
-        const result = await model.predict(tensorImg2)
-        const predicted_index = result.as1D().argMax().dataSync()[0];
-        const predictedClass = classLabels[predicted_index];
-        setResults(predictedClass)
-        setFoodValue(predictedClass)
-        //Get nutritional values from database
-        const id = predicted_index + 1
-        await Axios.get(`http://localhost:3002/api/getFood/${id}`).then((res) => {
-            setFilteredSearch3(res.data)
-        })
+        if (imageURL) {
+            //Do something to the image first before predicting
+            const tensorImg = tf.browser.fromPixels(imageRef.current).resizeNearestNeighbor([256, 256]).toFloat();
+            const tensorImg2 = tensorImg.expandDims(0);
+            //Predict results
+            const result = await model.predict(tensorImg2)
+            const predicted_index = result.as1D().argMax().dataSync()[0];
+            const predictedClass = classLabels[predicted_index];
+            setResults(predictedClass)
+            setFoodValue(predictedClass)
+            //Get nutritional values from database
+            const id = predicted_index + 1
+            await Axios.get(`http://localhost:3002/api/getFood/${id}`).then((res) => {
+                setFilteredSearch3(res.data)
+            })
+        }
+        else{
+            console.log('No image to identify')
+        }
+
     }
     //get Video
-    const getVideo = () =>{
+    const getVideo = () => {
         setImageURL(null)
-        navigator.mediaDevices.getUserMedia ({ 
-            video: { width: 322, height: 270}
+        navigator.mediaDevices.getUserMedia({
+            video: { width: 322, height: 270 }
         })
-        .then(stream =>{
-            let video = videoRef.current;
-            video.srcObject = stream;
-            video.play();
-        })
-        .catch(err =>{
-            console.log(err)
-        })
+            .then(stream => {
+                let video = videoRef.current;
+                video.srcObject = stream;
+                video.play();
+            })
+            .catch(err => {
+                console.log(err)
+            })
         setiscam(true)
-        
+
     }
     //Take photo
     const takePhoto = () => {
-        const width =  341
+        const width = 341
         const height = 270
 
         let video = videoRef.current;
@@ -293,25 +319,25 @@ export const MealRecords = () => {
         sethasPhoto(true);
     }
     // Stop video
-    const stopVideo = () =>{
-        navigator.mediaDevices.getUserMedia ({ 
-            video: { width: 322, height: 270}
+    const stopVideo = () => {
+        navigator.mediaDevices.getUserMedia({
+            video: { width: 322, height: 270 }
         })
-        .then(stream =>{
-            let video = videoRef.current;
-            video.srcObject = stream;
-            video.stop();
-        })
-        .catch(err =>{
-            console.log(err)
-        })
+            .then(stream => {
+                let video = videoRef.current;
+                video.srcObject = stream;
+                video.stop();
+            })
+            .catch(err => {
+                console.log(err)
+            })
         setiscam(false)
     }
     //Photo Close
-    const closePhoto = () =>{
+    const closePhoto = () => {
         let photo = photoRef.current;
         let ctx = photo.getContext('2d')
-        ctx.clearRect(0,0, photo.width, photo.height)
+        ctx.clearRect(0, 0, photo.width, photo.height)
         sethasPhoto(false)
     }
     //Testing purposes
@@ -427,16 +453,16 @@ export const MealRecords = () => {
                             </div>
                             <div className="div">
                                 <div className="component">
-                                <div className="photo-wrapper">
-                                    <div className="photo1"><canvas ref={photoRef}></canvas></div>
-                                </div>
-                                <div className="photo-wrapper">
-                                    <div className="photo2">{imageURL && <img src={imageURL} className="imgML" alt="Upload Preview" crossOrigin="anonymous" ref={imageRef} />}</div>
-                                </div>
-                                <div className="photo-wrapper">
-                                    <div className="photo3"><video ref={videoRef}></video></div>
-                                </div>
-                              
+                                    <div className="photo-wrapper">
+                                        <div className="photo1"><canvas ref={photoRef}></canvas></div>
+                                    </div>
+                                    <div className="photo-wrapper">
+                                        <div className="photo2">{imageURL && <img src={imageURL} className="imgML" alt="Upload Preview" crossOrigin="anonymous" ref={imageRef} />}</div>
+                                    </div>
+                                    <div className="photo-wrapper">
+                                        <div className="photo3"><video ref={videoRef}></video></div>
+                                    </div>
+
                                     <div className="text-wrapper-2">FoodScanner™</div>
                                     {results && <p className="p">This is a {results}</p>}
                                     <div className="frame-2">
@@ -445,11 +471,11 @@ export const MealRecords = () => {
                                                 {isCam ? (<button className="rectangle" onClick={stopVideo}>
                                                     <div className="text-wrapper-3">camera off</div>
                                                 </button>)
-                                                : 
-                                                (<button className="rectangle" onClick={getVideo}>
-                                                    <div className="text-wrapper-3">camera on</div>
-                                                </button>)}
-                                                
+                                                    :
+                                                    (<button className="rectangle" onClick={getVideo}>
+                                                        <div className="text-wrapper-3">camera on</div>
+                                                    </button>)}
+
                                             </div>
                                         </div>
                                         <div className="overlap-wrapper">
@@ -477,7 +503,7 @@ export const MealRecords = () => {
                                     <div className="div-wrapper">
                                         <div className="overlap-2">
                                             <button className="rectangle-3">
-                                                <div className="text-wrapper-6"><input type='file' accept='image/*' capture='camera' onChange={uploadImage} ref={fileInputRef}/></div>
+                                                <div className="text-wrapper-6"><input type='file' accept='image/*' capture='camera' onChange={uploadImage} ref={fileInputRef} /></div>
                                             </button>
                                         </div>
                                     </div>
@@ -540,45 +566,15 @@ export const MealRecords = () => {
                             <div className="text-wrapper-2">step 3.</div>
                         </div>
                         <div className="user-choiceMR">
-                            {userprofile.map((data,index) => {
+                            {userprofile.map((data, index) => {
                                 return <div className="group" key={data.iduserprofile}>
-                                            <img className="ellipse" alt="Ellipse" src={ellipse} value={index} onClick={(e) => toggleNameStyle(index+1)} />
-                                            <div className="text-wrapper" style={nameStyle}>{data.name}</div>
-                                       </div>
+                                    <img className="ellipse" alt="Ellipse" src={ellipse} value={index} onClick={() => toggleNameStyle(index)}
+                                        style={nameStyles[index] || { color: 'black', fontWeight: '400' }} />
+                                    <div className="text-wrapper" style={nameStyles[index]}>{data.name}</div>
+                                </div>
                             })}
 
 
-                        </div>
-                    </div>
-                    <div className="step4">
-                        <div className="frame">
-                            <div className="frame-2">
-                                <div className="overlap-group">
-                                    <p className="p">look at the list of consumed food</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="food-list">
-                            <div className="group-wrapper">
-                                <div className="group-3" />
-                            </div>
-                            <div className="frame-3">
-                                <div className="frame-4">
-                                
-                                    <div className="food">
-                                        <div className="rectangle" />
-                                        <div className="frame-5">
-                                            <div className="radio" />
-                                            <div className="frame-6">
-                                                <div className="text-wrapper-4">chicken rice</div>
-                                                <div className="text-wrapper-5">500 cal</div>
-                                                <div className="text-wrapper-6">Encik Tan Curry</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="text-wrapper-7">{foodValue}</div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div className="frame-wrapper">

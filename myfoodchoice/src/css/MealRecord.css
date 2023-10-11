@@ -84,9 +84,9 @@
     display: inline-flex;
     flex-direction: column;
     gap: 10px;
-    left: 1000px;
+    left: 900px;
     position: absolute;
-    top: 3280px;
+    top: 2800px;
 }
 
 .add-meal-recordMR .frame-23 {
