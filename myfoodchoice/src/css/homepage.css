@@ -135,6 +135,46 @@
   white-space: nowrap;
   width: 77px;
 }
+.user-choiceMR2 {
+  align-items: flex-start;
+  display: inline-flex;
+  gap: 3px;
+  position: relative;
+  left:0px;
+  top:0px;
+}
+.user-choiceMR2 .text-wrapper {
+  color: #567710;
+  font-family: "Montserrat-ExtraBold", Helvetica;
+  font-size: 20px;
+  font-weight: 800;
+  left: 0;
+  letter-spacing: -0.3px;
+  line-height: 36px;
+  position: absolute;
+  top: 63px;
+  white-space: nowrap;
+  width: 69px;
+}
+.user-choiceMR2 .div {
+  color: #567710;
+  font-family: "Montserrat-Regular", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: -0.3px;
+  line-height: 36px;
+  position: absolute;
+  top: 63px;
+  white-space: nowrap;
+  width: 69px;
+}
+.user-choiceMR2 .group-2 {
+  height: 91px;
+  margin-right: -2px;
+  position: relative;
+  width: 71px;
+}
 
 .frame1 .text-wrapper-24 {
   color: #000000;

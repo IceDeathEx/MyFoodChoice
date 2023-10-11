@@ -1707,9 +1707,10 @@
     display: inline-flex;
     gap: 3px;
     position: relative;
-    left:0px;
-    top:0px;
+    left:800px;
+    top:60px;
 }
+
 
 .user-choiceMR .group {
     height: 91px;

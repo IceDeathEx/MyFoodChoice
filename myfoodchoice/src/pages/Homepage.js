@@ -252,12 +252,12 @@ const Homepage = () => {
           <div className="users-HP">
             <div className="text-wrapper">users.</div>
             <div className='frameUser'>
-              <div className="user-choiceMR">
+              <div className="user-choiceMR2">
                 {userprofile.map((data, index) => {
                   return <div className="group" key={data.iduserprofile}>
                     <img className="ellipse" alt="Ellipse" src={ellipse} value={index} onClick={() => toggleNameStyle(index)}
                       style={nameStyles[index] || { color: 'black', fontWeight: '400' }} />
-                    <div className="text-wrapper" style={nameStyles[index]}>{data.name}</div>
+                    <div className="text-wrapper2" style={nameStyles[index]}>{data.name}</div>
                   </div>
                 })}
               </div>

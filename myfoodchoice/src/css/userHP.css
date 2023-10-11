@@ -21,6 +21,20 @@
   white-space: nowrap;
   width: 274px;
 }
+.users-HP .text-wrapper2 {
+  color: black;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  height: 35px;
+  letter-spacing: -0.72px;
+  line-height: 36px;
+  margin-top: -1px;
+  top: 50px;
+  position: relative;
+  white-space: nowrap;
+  width: 274px;
+}
 
 .users-HP .frameUser {
   align-items: flex-start;
