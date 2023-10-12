@@ -13,12 +13,15 @@ const RecipeDetails = () => {
     const [recipestep, setrecipestep] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const [recipe, setrecipe] = useState('')
+    const [img, setimg] = useState('')
     const [recipearr, setrecipearr] = useState([])
     useEffect(() => {
+        let x = ''
         Axios.get(`http://localhost:3002/api/getrecipesetbyid/${id.id}`)
             .then((res) => {
                 setrecipeset(res.data)
                 setrecipe(res.data[0].recipeid1)
+                x = res.data[0].recipeid1
             })
         Axios.get("http://localhost:3002/api/getrecipestep")
             .then((res) => {
@@ -27,17 +30,18 @@ const RecipeDetails = () => {
         Axios.get("http://localhost:3002/api/getrecipeingredient")
             .then((res) => {
                 setrecipeingredient(res.data)
-                console.log(res.data)
             })
         Axios.get("http://localhost:3002/api/getrecipe")
             .then((res) => {
                 setrecipearr(res.data)
+                setimg(res.data.filter((res)=> res.recipetitle === x)[0].recipeimage)
+                
             })
         setIsLoading(false)
     }, [])
     const handleClick =  (e) => {
-        console.log(e.target.value)
         setrecipe(e.target.value)
+        setimg(recipearr.filter((res)=> res.recipetitle === e.target.value)[0].recipeimage)
     }
     return (
         <div>
@@ -45,7 +49,7 @@ const RecipeDetails = () => {
             {recipeset[0] ? (
                 <div className="recipeDetails">
                     <div className="div">
-                        <img className="rectangle" alt="Rectangle" src={foodPhoto} />
+                        <img className="rectangle" alt="Rectangle" src={img} />
                         <div className="text-wrapper">{recipe}</div>
                         <Link to="/recipe" className="back">&lt; Back</Link>
                         <div className="recipe-list">
@@ -94,8 +98,8 @@ const RecipeDetails = () => {
                             })}
                         </div>
                         
-                        {recipearr.filter((res)=> res.recipetitle.toLowerCase() === recipe.toLowerCase()).map((data)=>{
-                                return <div className="details-box">
+                        {recipearr.filter((res)=> res.recipetitle.toLowerCase() === recipe.toLowerCase()).map((data,index)=>{
+                                return <div className="details-box" key={index}>
                             
                                 <div className="box">
                                     <div className="overlap-group">
