@@ -15,11 +15,11 @@ const MealHistory = () => {
         .then((data)=>{
             setmealrecorddb(data.data)
             setmealrecorddb3(data.data.filter((res)=> res.upid === 1))
+            setcondition1(data.data.filter((res)=> res.upid === 1)[0].name)
         })
         Axios.get(`http://localhost:3002/api/getUserProfile/${id}`)
             .then((data) => {
                 setuserprofile(data.data)
-                console.log(data.data)
             })
         
     },[])
@@ -30,19 +30,16 @@ const MealHistory = () => {
         }
         else{
             setmealrecorddb3(mealrecorddb.filter((res)=> res.name === condition1 && res.fname.toLowerCase().includes(e.target.value.toLowerCase())))
-            console.log(1)
         }
     }
     const handleUPChange = (e) =>{
         setcondition1(e.target.value)
         if(condition2 === ''){
             setmealrecorddb3(mealrecorddb.filter((res)=> res.name === e.target.value))
-            console.log(2)
 
         }
         else{
             setmealrecorddb3(mealrecorddb.filter((res)=> res.name === e.target.value && res.fname.toLowerCase().includes(condition2.toLowerCase())))
-            console.log(3)
         }
         
     }
@@ -55,8 +52,8 @@ const MealHistory = () => {
             <label>Select a userprofile name:</label>
             {/*Need to loop through the names of the userprofile so need to grab userprofile name by user id */}
             <select onChange={handleUPChange}>
-                {userprofile.map((data)=>{
-                    return <option value={data.id} key={data.id}>{data.name}</option>
+                {userprofile.map((data,index)=>{
+                    return <option value={data.id} key={index}>{data.name}</option>
                 })}
             </select>
             <table>
