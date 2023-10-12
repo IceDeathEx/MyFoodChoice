@@ -23,7 +23,9 @@ const HealthTips = () => {
   const [htData, sethtdata] = useState([]);
   const [filtered, setFiltered] = useState('');
   const [htData2, sethtdata2] = useState([]);
-
+  const [condition1, setcondition1] = useState(null) //Filter by Random Category
+  const [condition2, setcondition2] = useState('')// Filter by Short Message
+  const [isLoading, setIsLoading] = useState(false)
   //Usage of useEffect
   useEffect(() => {
     Axios.get('http://localhost:3002/api/getHealthTips')
@@ -31,6 +33,7 @@ const HealthTips = () => {
         sethtdata(data.data)
         sethtdata2(data.data)
       })
+      setcondition1('Show All')
   }, [])
 
   //Modal when page loads, is set to false
@@ -50,18 +53,40 @@ const HealthTips = () => {
 
   //This is to handle the dropdown menu
 function handleChange(e){
-  e.preventDefault()
+  setcondition1(e.target.value)
   if(e.target.value === 'Show All'){
-    sethtdata2(htData)
+    sethtdata2(htData.filter((data)=> data.shortmsg.toLowerCase().includes(condition2.toLowerCase())))
   }
   else{
-    sethtdata2(htData.filter((data) => data.category === e.target.value))
+    sethtdata2(htData.filter((data) => data.category === e.target.value && data.shortmsg.toLowerCase().includes(condition2.toLowerCase())))
+  } 
+}
+const handleSearch = (e) =>{
+  setcondition2(e.target.value)
+  if(e.target.value === null){
+    if(condition1 === 'Show All'){
+      sethtdata2(htData)
+    }
+    else{
+      sethtdata2(htData.filter((data) => data.category === condition1))
+      
+    }
+    
   }
-  
+  else{
+    if(condition1 === 'Show All'){
+      sethtdata2(htData.filter((data) => data.shortmsg.toLowerCase().includes(e.target.value.toLowerCase())))
+    }
+    else{
+      sethtdata2(htData.filter((data) => data.category === condition1 && data.shortmsg.toLowerCase().includes(e.target.value.toLowerCase())))
+    }
+    
+  }
 }
 
   return (
     <div>
+    {!isLoading ? (<div>
       <NavBarUser />
       <div className="healthtips-on-login">
         <div className="div">
@@ -90,17 +115,20 @@ function handleChange(e){
 
           <div className="navbar">
             <select className="drp-list" onChange={handleChange}>
+              <option value= "Show All">Show All</option>
               <option value='Sports'>Sports</option>
               <option value='Weight Loss'>Weight Loss</option>
               <option value='Lifestyle'>Lifestyle</option>
               <option value='Food'>Food</option>
-              <option value= "Show All">Show All</option>
+              
             </select>
           </div>
 
-          <div className="searchbar"><input type="text" className="overlap" placeholder="what you looking for?"></input></div>
+          <div className="searchbar"><input type="search" onChange={handleSearch} className="overlap" placeholder="what you looking for?"></input></div>
         </div>
       </div>
+      </div>
+    ): (<p>Loading in progress</p>)}
     </div>
   );
 };
