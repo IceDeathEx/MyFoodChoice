@@ -406,6 +406,45 @@ app.get("/api/getrecipeset", (req, res) => {
     res.send(result)
   });
 });
+// Route to get all rows for recipeset (WORKING)
+app.get("/api/getrecipesetbyid/:id", (req, res) => {
+  const id = req.params.id;
+  db.query("SELECT * FROM recipeset WHERE setid=?;", id, (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+// Route to get all rows for recipeingredient (WORKING)
+app.get("/api/getrecipeingredient", (req, res) => {
+  db.query("SELECT * FROM myfoodchoice.recipe join recipeingredient on recipeingredient.recipeid = recipe.recipeid;", (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+// Route to get all rows for recipeingredient (WORKING)
+app.get("/api/getrecipestep/", (req, res) => {
+  const id = req.params.id;
+  db.query("SELECT * FROM myfoodchoice.recipe join recipestep on recipestep.recipeid = recipe.recipeid;", id, (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+// Route to get all rows for recipeset (WORKING)
+app.get("/api/getrecipe", (req, res) => {
+  db.query("SELECT * FROM recipe;", (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
 
 //Listening to PORT 3002
 app.listen(PORT, () => {

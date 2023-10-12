@@ -1,124 +1,142 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../css/RecipeDetailsstyle.css";
 import foodPhoto from '../pics/rectangle-392.png'
-import { useNavigate } from "react-router";
+import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import NavBarUser from "./NavBarUser";
+import Axios from "axios";
 
 const RecipeDetails = () => {
-    const navigate = useNavigate()
+    const id = useParams() // This is the id passed from previous page.
+    const [recipeset, setrecipeset] = useState([])
+    const [recipeingredient, setrecipeingredient] = useState([])
+    const [recipestep, setrecipestep] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
+    const [recipe, setrecipe] = useState('')
+    const [recipearr, setrecipearr] = useState([])
+    useEffect(() => {
+        Axios.get(`http://localhost:3002/api/getrecipesetbyid/${id.id}`)
+            .then((res) => {
+                setrecipeset(res.data)
+                setrecipe(res.data[0].recipeid1)
+            })
+        Axios.get("http://localhost:3002/api/getrecipestep")
+            .then((res) => {
+                setrecipestep(res.data)
+            })
+        Axios.get("http://localhost:3002/api/getrecipeingredient")
+            .then((res) => {
+                setrecipeingredient(res.data)
+                console.log(res.data)
+            })
+        Axios.get("http://localhost:3002/api/getrecipe")
+            .then((res) => {
+                setrecipearr(res.data)
+            })
+        setIsLoading(false)
+    }, [])
+    const handleClick =  (e) => {
+        console.log(e.target.value)
+        setrecipe(e.target.value)
+    }
     return (
         <div>
-            <NavBarUser/>
-        
-        <div className="recipeDetails">
-        <div className="div">
-        <img className="rectangle" alt="Rectangle" src={foodPhoto} />
-        <div className="text-wrapper">Food 1 Name</div>
-        <Link to="/recipe" className="back">&lt; Back</Link>
-        <div className="recipe-list">
-        <div className="frame">
-        <div className="text-wrapper-2">Encik Tan’s Fav</div>
-        <div className="text-wrapper-3">Keto Diet</div>
-        <a href="" className="text-wrapper-4">Food 1</a>
-        <a href="" className="text-wrapper-4">Food 2</a>
-        <a href="" className="text-wrapper-4">Food 3</a>
-        <a href="" className="text-wrapper-4">Snack</a>
-        </div>
-        </div>
-        <div className="text-wrapper-5">Ingredients.</div>
-        <div className="text-wrapper-6">Steps.</div>
-        <div className="flexcontainer">
-        <p className="text">
-        <span className="span">
-        - 2kg (4lb) maris piper potatoes, quartered
-        <br />
-        </span>
-        </p>
-        <p className="text">
-        <span className="span">
-        - 100g (3½oz) unsalted butter
-        <br />
-        </span>
-        </p>
-        <p className="text">
-        <span className="span">
-        - 3 red onions, finely sliced
-        <br />
-        </span>
-        </p>
-        <p className="text">
-        <span className="span">
-        - 3 garlic cloves, chopped
-        <br />
-        </span>
-        </p>
-        <p className="text">
-        <span className="span">
-        - 2 tbsp chopped thyme
-        <br />
-        </span>
-        </p>
-        <p className="text">
-        <span className="span">- 400g (13oz) Gruyère, grated</span>
-        </p>
-        </div>
-        <div className="flexcontainer-2">
-        <p className="text">
-        <span className="span">
-        1. Preheat the oven to gas 3, 160°c, fan 140°c. Boil the potatoes in salted water for 10-15 minutes, until
-        just cooked, then drain well.
-        <br />
-        </span>
-        </p>
-        <p className="text">
-        <span className="span">
-        2. Melt the butter in a frying pan over a medium heat. Fry the onions for 15 minutes, until golden. Add the
-        garlic and thyme, reduce the heat and cook for 5 minutes. Add the potatoes and season.
-        <br />
-        </span>
-        </p>
-        <p className="text">
-        <span className="span">
-        3. Spoon the potato mix into a baking dish and scatter over the cheese. Bake in the oven for 15-20 minutes,
-        until golden.
-        </span>
-        </p>
-        </div>
-        <div className="details-box">
-        <div className="box">
-        <div className="overlap-group">
-        <div className="text-wrapper-7">protein</div>
-        <div className="text-wrapper-8">carbs</div>
-        <div className="text-wrapper-9">sugar</div>
-        <div className="text-wrapper-10">14g</div>
-        <div className="text-wrapper-11">14g</div>
-        <div className="text-wrapper-12">14g</div>
-        </div>
-        </div>
-        <div className="overlap-wrapper">
-        <div className="overlap">
-        <div className="text-wrapper-13">saturated fat</div>
-        <div className="text-wrapper-14">sodium</div>
-        <div className="text-wrapper-15">cholesterol</div>
-        <div className="text-wrapper-16">14g</div>
-        <div className="text-wrapper-17">14g</div>
-        <div className="text-wrapper-18">14g</div>
-        </div>
-        </div>
-        <div className="overlap-wrapper">
-        <div className="overlap-2">
-        <div className="text-wrapper-13">Fibre</div>
-        <div className="text-wrapper-19">total fat</div>
-        <div className="text-wrapper-20">natrium</div>
-        <div className="text-wrapper-16">14g</div>
-        <div className="text-wrapper-17">14g</div>
-        <div className="text-wrapper-18">14g</div>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>
+            <NavBarUser />
+            {recipeset[0] ? (
+                <div className="recipeDetails">
+                    <div className="div">
+                        <img className="rectangle" alt="Rectangle" src={foodPhoto} />
+                        <div className="text-wrapper">{recipe}</div>
+                        <Link to="/recipe" className="back">&lt; Back</Link>
+                        <div className="recipe-list">
+                            <div className="frame">
+                                <div className="text-wrapper-2">{recipeset[0].settitle}</div>
+                                <div className="text-wrapper-3">{recipeset[0].diettype}, {recipeset[0].healthcategory}</div>
+                                {recipeset[0].recipeid1 && <div className="text-wrapper-4"><button className="btn" onClick={handleClick} value={recipeset[0].recipeid1}>{recipeset[0].recipeid1}</button></div>}
+                                {recipeset[0].recipeid2 && <div className="text-wrapper-4"><button className="btn" onClick={handleClick} value={recipeset[0].recipeid2}>{recipeset[0].recipeid2}</button></div>}
+                                {recipeset[0].recipeid3 && <div className="text-wrapper-4"><button className="btn" onClick={handleClick} value={recipeset[0].recipeid3}>{recipeset[0].recipeid3}</button></div>}
+                                {recipeset[0].recipeid4 && <div className="text-wrapper-4"><button className="btn" onClick={handleClick} value={recipeset[0].recipeid4}>{recipeset[0].recipeid4}</button></div>}
+                            </div>
+                        </div>
+
+                        <div className="text-wrapper-5">Ingredients.</div>
+                        <div className="text-wrapper-6">Steps.</div>
+
+                        <div className="flexcontainer">
+                            {recipeingredient.filter((res) => res.recipetitle.toLowerCase() === recipe.toLowerCase()).map((data, index, arr) => {
+                                const previous = arr[index - 1];
+                                if (index === 0) {
+                                    return <div key={index}>
+                                        <h2>{data.foodcomponent}</h2>
+                                        <p className="text"><span className="span">- {data.ingredient}</span></p>
+                                    </div>
+                                }
+                                else if (data.foodcomponent === previous.foodcomponent) {
+                                    return <div key={index}>
+                                        <p className="text"><span className="span">- {data.ingredient}</span></p>
+                                    </div>
+                                }
+                                else {
+                                    return <div key={index}>
+                                        <h2>{data.foodcomponent}</h2>
+                                        <p className="text"><span className="span">- {data.ingredient}</span></p>
+                                    </div>
+                                }
+                            })}
+                        </div>
+
+                        <div className="flexcontainer-2">
+                            {recipestep.filter((res) => res.recipetitle.toLowerCase() === recipe.toLowerCase()).map((data, index) => {
+                                return <div key={index}>
+                                    <h2>Step. {data.stepno}</h2>
+                                    <p className="text"><span className="span">- {data.step}</span></p>
+                                </div>
+                            })}
+                        </div>
+                        
+                        {recipearr.filter((res)=> res.recipetitle.toLowerCase() === recipe.toLowerCase()).map((data)=>{
+                                return <div className="details-box">
+                            
+                                <div className="box">
+                                    <div className="overlap-group">
+                                        <div className="text-wrapper-7">protein(g)</div>
+                                        <div className="text-wrapper-8">carbs(g)</div>
+                                        <div className="text-wrapper-9">sugar(g)</div>
+                                        <div className="text-wrapper-10">{data.protein}</div>
+                                        <div className="text-wrapper-11">{data.carbohydrate}</div>
+                                        <div className="text-wrapper-12">{data.sugar}</div>
+                                    </div>
+                                </div>
+                                <div className="overlap-wrapper">
+                                    <div className="overlap">
+                                        <div className="text-wrapper-13">saturated fat(g)</div>
+                                        <div className="text-wrapper-14">sodium(mg)</div>
+                                        <div className="text-wrapper-15">cholesterol(mg)</div>
+                                        <div className="text-wrapper-16">{data.saturatedfat}</div>
+                                        <div className="text-wrapper-17">{data.sodium}</div>
+                                        <div className="text-wrapper-18">{data.cholesterol}</div>
+                                    </div>
+                                </div>
+                                <div className="overlap-wrapper">
+                                    <div className="overlap-2">
+                                        <div className="text-wrapper-13">Fibre(g)</div>
+                                        <div className="text-wrapper-19">total fat(g)</div>
+                                        <div className="text-wrapper-20">calories(kcal)</div>
+                                        <div className="text-wrapper-16">{data.dietaryfibre}</div>
+                                        <div className="text-wrapper-17">{data.fat}</div>
+                                        <div className="text-wrapper-18">{data.calories}</div>
+                                    </div>
+                                </div>
+                            </div>
+                            })}
+                        
+                    </div>
+                </div>
+            ) : (
+                <p>Still Loading</p>
+            )
+            }
+
         </div>
     );
 };

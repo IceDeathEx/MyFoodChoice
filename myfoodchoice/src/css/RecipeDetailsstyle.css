@@ -25,7 +25,7 @@
 .recipeDetails .text-wrapper {
     color: #000000;
     font-family: "Montserrat-Bold", Helvetica;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 700;
     left: 158px;
     letter-spacing: -0.48px;
@@ -34,6 +34,15 @@
     top: 404px;
     white-space: nowrap;
 }
+.btn {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: arial, sans-serif;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+  }
 
 .recipeDetails .back {
     color: #000000;
@@ -76,7 +85,7 @@
 .recipeDetails .text-wrapper-2 {
     color: #000000;
     font-family: "Montserrat-Bold", Helvetica;
-    font-size: 32px;
+    font-size: 24px;
     font-weight: 700;
     height: 33px;
     letter-spacing: -0.48px;
@@ -146,7 +155,7 @@
     align-items: flex-start;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 0px;
     height: 227px;
     left: 474px;
     position: absolute;
@@ -163,6 +172,7 @@
     letter-spacing: -0.21px;
     line-height: 36px;
     position: relative;
+    margin: 0px;
 }
 
 .recipeDetails .span {

@@ -11,7 +11,7 @@ const RecipeList = () => {
     const [upcondition, setupcondition] = useState([])
     const [condition, setcondition] = useState('')
     const id = JSON.parse(window.localStorage.getItem("account"))
-    const purchase1 = [4,5,6]
+    const purchase1 = [12,5,6] //NEED TO CHANGE TO ARRAY OF TRANSACTION USER BY ID
     useEffect(() => {
         //Get the set items are out
         Axios.get("http://localhost:3002/api/getrecipeset")
