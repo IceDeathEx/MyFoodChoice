@@ -16,6 +16,8 @@ import { MealRecords } from './pages/MealRecords'
 import MealHistory from './pages/MealHistory'
 import RecipeList from './pages/RecipeList'
 import RecipeDetails from './pages/RecipeDetails'
+import FoodOrder from './pages/FoodOrder'
+import ShoppingCart from './pages/ShoppingCart'
 const App = () => {
 
   return (
@@ -35,7 +37,8 @@ const App = () => {
               <Route path="/transaction" element={<RequireAuth loginPath={'/login'}><Transaction /></RequireAuth>}/>
               <Route path="/feedback" element={<RequireAuth loginPath={'/login'}><Feedback /></RequireAuth>}/>
               <Route path="/loyalty" element={<RequireAuth loginPath={'/login'}><Loyalty /></RequireAuth>}/>
-              <Route path="/orderfood" element={<RequireAuth loginPath={'/login'}><Loyalty /></RequireAuth>}/>
+              <Route path="/orderfood" element={<RequireAuth loginPath={'/login'}><FoodOrder /></RequireAuth>}/>
+              <Route path="/shoppingcart" element={<RequireAuth loginPath={'/login'}><ShoppingCart /></RequireAuth>}/>
 
               <Route path="*" element={<NotFound />}/>
             </Routes>

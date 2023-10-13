@@ -26,7 +26,7 @@ const NavBarUser = () => {
         <Link to='/feedback'><div className="company"><div className="text-wrapper-3">Review</div></div></Link>
         <Link to='/orderfood'><div className="order-food"><div className="text-wrapper-4">Order Food</div></div></Link>
       </div>
-      <Link to="/homepage" ><img className="cart" alt="Cart" src={image2} /></Link>
+      <Link to="/shoppingcart" ><img className="cart" alt="Cart" src={image2} /></Link>
       <div className="dropdown">
         <img className="ellipse dropbtn" alt="Ellipse" src={image} />
         <div className="dropdown-content">
