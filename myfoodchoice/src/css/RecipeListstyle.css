@@ -211,6 +211,18 @@
     white-space: nowrap;
     width: 103px;
 }
+.recipe-on-login-sign .text-wrapper-8 {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 14px;
+    font-weight: 700;
+    height: 33px;
+    letter-spacing: -0.24px;
+    line-height: 36px;
+    position: relative;
+    white-space: nowrap;
+    width: 103px;
+}
 
 .recipe-on-login-sign .button {
     all: unset;

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import '../css/StyleBuyNow.css';
 import Axios from 'axios';
 import icon from '../pics/Icon.png';
-import OrderNow from './OrderNow';
 import {Link} from "react-router-dom";
 
 const ComponentBuynow = () => {

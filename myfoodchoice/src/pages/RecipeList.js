@@ -92,7 +92,7 @@ const RecipeList = () => {
                                                         </div>
                                                     </div>
                                                     <button className="button">
-                                                        <div className="text">Order Now</div>
+                                                        <div className="text">$ {data.recipesetprice} - Order Now  </div>
                                                     </button>
                                                 </div>
                                             </div>
@@ -140,7 +140,7 @@ const RecipeList = () => {
                                                 </div>
                                             </div>
                                             <button className="button">
-                                                <div className="text">Order Now</div>
+                                                <div className="text">$ {data.recipesetprice} - Order Now  </div>
                                             </button>
                                         </div>
                                     </div>
@@ -187,7 +187,7 @@ const RecipeList = () => {
                                                 </div>
                                             </div>
                                             <button className="button">
-                                                <div className="text">Order Now</div>
+                                                <div className="text">$ {data.recipesetprice} - Order Now  </div>
                                             </button>
                                         </div>
                                     </div>

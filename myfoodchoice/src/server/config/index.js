@@ -201,6 +201,38 @@ app.put('/api/accupdate/:id', (req, res) => {
   });
 });
 
+// Route to update user information based on ID
+app.put('/api/accupdateUP/:iduserprofile', (req,res)=>{
+  const id = req.params.iduserprofile;
+  const height = req.body.height;
+  const weight = req.body.weight;
+  const lifestyle = req.body.lifestyle;
+  const conditions = req.body.conditions;
+  const bmi = req.body.bmi;
+
+
+db.query("UPDATE userprofile SET  height = ?, weight = ?, lifestyle = ?, conditions = ?, bmi = ?  WHERE iduserprofile = ?;",[height, weight, lifestyle, conditions, bmi, id], (err,result)=>{
+  if(err) {
+ console.log(err)   }
+ console.log(result)
+  });
+});
+
+//Route to Delete user profile
+app.delete('/api/deleteProfile/:iduserprofile',(req,res)=>{
+  const id = req.params.iduserprofile;
+  
+    db.query('DELETE FROM userprofile WHERE iduserprofile = ?', id, (err, result) => {
+      if (err) {
+        console.log(err);
+        res.status(500).json({ error: "Could not delete profile" });
+      } else {
+        console.log(result);
+        res.sendStatus(200);
+      }
+    });
+  });
+
 // Route to get unique Id for Food Nutrition page(WORKING)
 app.get("/api/getFood/:id", (req, res) => {
   const id = req.params.id;
@@ -445,6 +477,33 @@ app.get("/api/getrecipe", (req, res) => {
     res.send(result)
   });
 });
+
+// Route to get all rows for orderfood (WORKING)
+app.get("/api/getorderfood", (req, res) => {
+  db.query("SELECT * FROM orderfood;", (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+// Route to inserting records to transaction table (WORKING)
+app.post('/api/createtransaction/:id', (req, res) => {
+
+  const upid = req.body.upid;
+  const uid = req.body.uid;
+  const foodid = req.body.foodid;
+  const datetime = req.body.datetime;
+  const meal = req.body.meal;
+
+  db.query("INSERT INTO transaction (transid, transitem, uid, transitemprice, transdate, transqty, transstatus) VALUES (?, ?, ?, ?, ?, ?, ?)", [upid, uid, foodid, datetime, meal], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  });
+})
 
 //Listening to PORT 3002
 app.listen(PORT, () => {

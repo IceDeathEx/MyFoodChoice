@@ -24,7 +24,16 @@
     top: 42px;
     width: 618px;
 }
-
+.btn {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: arial, sans-serif;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: left;
+  }
 .food-order .text-wrapper {
     color: #0000004c;
     font-family: "Montserrat-Medium", Helvetica;
@@ -122,7 +131,12 @@
     position: relative;
     width: 111px;
 }
-
+.pagination-style{
+    left: 580px;
+    top: 1500px;
+    position: absolute;
+    font-size: 30px;
+}
 .food-order .img {
     height: 1px;
     margin-bottom: -0.5px;
@@ -137,7 +151,7 @@
     width: 1201.4px;
 }
 
-.food-order .elements {
+.food-order .element-1 {
     align-items: flex-start;
     display: flex;
     flex-direction: column;

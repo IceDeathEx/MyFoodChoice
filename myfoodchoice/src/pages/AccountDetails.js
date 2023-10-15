@@ -5,6 +5,8 @@ import NavBarUser from "./NavBarUser";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import dateFormat from 'dateformat';
+import { useNavigate } from 'react-router';
+
 
 const AccountDetails = () => {
   const [userprofileid, setuserprofileid] = useState(2)
@@ -12,6 +14,7 @@ const AccountDetails = () => {
   const [userProfiles, setUserProfiles] = useState([]);
   const [isLoading, setisLoading] = useState(true)
   const id = JSON.parse(window.localStorage.getItem('account'))
+  const navigate = useNavigate();
   const [modal2, setModal] = useState(false)
   const [iduserprofile, setiduserprofile] = useState(null);
 
@@ -24,6 +27,7 @@ const AccountDetails = () => {
   const [gender, setGender] = useState("Male");
   const [userData, setuserdata] = useState([]);
   const [userData2, setuserdata2] = useState([]);
+
 
    //If name is empty
     const [emptyName, setemptyName] = useState(false)
@@ -60,12 +64,11 @@ const AccountDetails = () => {
     .then((res) => {
       const profiles = res.data;
       setuserdata(res.data);
-      setuserdata2(res.data.filter((data) => data.name === 'testing1'));
+      //console.log("I am Loading data")
+      //console.log(res.data)
+      setuserdata2(res.data);
+      console.log()
 
-      // Include the owner's name in the profiles array
-      if (user && user[0]) {
-        profiles.unshift({ iduserprofile: id, name: user[0].name });
-      }
       setUserProfiles(profiles);
       setisLoading(false);
     })
@@ -98,12 +101,12 @@ const AccountDetails = () => {
     openModal && openModal.removeEventListener("click", handleOpenModalClick);
     closeModal && closeModal.removeEventListener("click", handleCloseModalClick);
   };
-}, [id, user, modal2]);
+}, []);
 
 
 
   const handleFormSubmit = () => {
-  const birthDate = new Date(dob); // Use 'dob' state variable instead of 'newProfile.dob'
+  const birthDate = new Date(dob); //
   const currentDate = new Date();
   const age = currentDate.getFullYear() - birthDate.getFullYear();
 
@@ -228,7 +231,7 @@ const AccountDetails = () => {
           alert("You can't add more profiles. The maximum limit is 5.");
         } else {
           setuserprofileid(i + 1);
-          Axios.post("http://localhost:3002/api/addIdProfile", /* Replace with your actual data */)
+          Axios.post("http://localhost:3002/api/addIdProfile", )
               .then((response) => {
                 console.log('Successfully added iduserprofile:', response.data);
               })
@@ -240,6 +243,19 @@ const AccountDetails = () => {
       }
     }
   };
+  const DeleteProfile = () => {
+  Axios.delete(`http://localhost:3002/api/deleteProfile/${userData2[0].iduserprofile}`)
+    .then((response) => {
+      console.log("Profile deleted successfully");
+      alert("Profile successfully deleted!");
+      navigate('/account');
+      window.location.reload(); 
+      // You may want to refresh the profile list here
+    })
+    .catch((error) => {
+      console.error("Error deleting profile:", error);
+    });
+};
 
   const handleModalOpen = () => {
     setModal(true);
@@ -251,10 +267,14 @@ const AccountDetails = () => {
 
   //This is to handle the dropdown menu
 
-function handleChange2(e){
-  setuserdata2(userData.filter((data) => data.name === e.target.value))
+const  handleChange2 = (e) =>{
+  console.log(userData2)
+  setuserdata2(userData.filter((res) => res.name === e.target.value))
+  console.log(userData2)
   console.log(e.target.value)
+
 }
+
     return (
         <div>
           <NavBarUser/>
@@ -263,9 +283,9 @@ function handleChange2(e){
                 <div className="div">
                   <div className="text-wrapper">Hi, {userData2[0] ? userData2[0].name : ""} !!</div>
                   <form className="inputName">
-                    <select id="cars" name="cars" onChange={handleChange2}>
-                      {userProfiles.map((profile) => (
-                          <option key={profile.iduserprofile}>
+                    <select onClick={handleChange2}>
+                      {userData.map((profile, index) => (
+                          <option key={index} value={profile.name}>
                             {profile.name}
                           </option>
                       ))}
@@ -291,6 +311,7 @@ function handleChange2(e){
                                  onChange={(e) => setName(e.target.value)}/>
                           <br></br>
                             {emptydob && <div className="error-message">{emptydobMsg}</div>}
+                            {invalidAge && <div className="error-message">{invalidAgeMsg}</div>}
                           <label>Date of Birth*</label>
                           <input type="date" placeholder="Date of Birth" value={dob}
                                  onChange={(e) => setDob(e.target.value)}/>
@@ -329,17 +350,19 @@ function handleChange2(e){
                           </select>
                           <br></br>
                           <button onClick={handleFormSubmit}>Add Profile</button>
-                          <button id="closeModal" onClick={handleModalClose}>Close this modal</button>
+                          <button id="closeModal" onClick={handleModalClose}>Close this Form</button>
                         </dialog>
                     )}
                   </div>
 
 
-                  <button className="overlap3 btn">
-                    <div className="rectangle-4">
-                      <div className="deleteprofile">Delete Profile</div>
-                    </div>
-                  </button>
+                 <div className="overlap3 btn">
+                    {userData2[0].iduserprofile > 1 && (
+                      <button className="rectangle-4" onClick={() => DeleteProfile(userData2[0].iduserprofile)}>
+                        <div className="deleteprofile">Delete Profile</div>
+                      </button>
+                    )}
+                  </div>
 
                   <div className="frame">
                     <div className="text-wrapper-4">Email</div>
