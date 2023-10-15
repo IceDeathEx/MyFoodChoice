@@ -27,12 +27,13 @@ DROP TABLE IF EXISTS `recipeset`;
 CREATE TABLE `recipeset` (
   `setid` int NOT NULL,
   `settitle` varchar(200) DEFAULT NULL,
-  `recipeid1` int DEFAULT NULL,
-  `recipeid2` int DEFAULT NULL,
-  `recipeid3` int DEFAULT NULL,
-  `recipeid4` int DEFAULT NULL,
+  `recipeid1` varchar(100) DEFAULT NULL,
+  `recipeid2` varchar(100) DEFAULT NULL,
+  `recipeid3` varchar(100) DEFAULT NULL,
+  `recipeid4` varchar(100) DEFAULT NULL,
   `diettype` varchar(100) DEFAULT NULL,
   `healthcategory` varchar(100) DEFAULT NULL,
+  `recipesetprice` float DEFAULT NULL,
   PRIMARY KEY (`setid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -43,7 +44,7 @@ CREATE TABLE `recipeset` (
 
 LOCK TABLES `recipeset` WRITE;
 /*!40000 ALTER TABLE `recipeset` DISABLE KEYS */;
-INSERT INTO `recipeset` VALUES (1,'Hainese Chicken Rice',1,NULL,NULL,NULL,'Normal','Diabetes'),(2,'Nasi Lemak',2,NULL,NULL,NULL,'Normal','Diabetes'),(3,'Nasi Goreng',3,NULL,NULL,NULL,'Normal','Diabetes'),(4,'Penang Assam laksa',4,NULL,NULL,NULL,'Normal','Diabetes'),(5,'Kaya Jam',5,NULL,NULL,NULL,'Normal','Normal'),(6,'Fried Rice with shallots',6,NULL,NULL,NULL,'Normal','Cholesterol'),(7,'Pink swiss roll with chocolate ganache',7,NULL,NULL,NULL,'Normal','Cholesterol'),(8,'Coconut cereal Belgian waffles (4 waffles)',8,NULL,NULL,NULL,'Normal','Cholesterol'),(9,'Fresh corn salad',9,NULL,NULL,NULL,'Normal','Heart disease'),(10,'Asian Ginger Fish Soup',10,NULL,NULL,NULL,'Normal','Diabetes'),(11,'Super healthy set',1,2,3,4,'Keto Diet','All'),(12,'Super value set',5,6,7,8,'Healthy Diet','All');
+INSERT INTO `recipeset` VALUES (1,'Hainese Chicken Rice','Hainese Chicken Rice',NULL,NULL,NULL,'Normal Diet','Diabetes',20),(2,'Nasi Lemak','Nasi Lemak',NULL,NULL,NULL,'Normal Diet','Diabetes',10),(3,'Nasi Goreng','Nasi Goreng',NULL,NULL,NULL,'Normal Diet','Diabetes',10),(4,'Penang Assam laksa','Penang Assam laksa',NULL,NULL,NULL,'Normal Diet','Diabetes',20),(5,'Kaya Jam','Kaya Jam',NULL,NULL,NULL,'Normal Diet','Normal',25),(6,'Fried Rice with shallots','Fried Rice with shallots',NULL,NULL,NULL,'Normal Diet','Cholesterol',15),(7,'Swiss roll with chocolate','Swiss roll with chocolate',NULL,NULL,NULL,'Normal Diet','Cholesterol',12),(8,'Belgian waffles','Belgian waffles',NULL,NULL,NULL,'Normal Diet','Cholesterol',12),(9,'Fresh corn salad','Fresh corn salad',NULL,NULL,NULL,'Normal Diet','Heart disease',10),(10,'Asian Ginger Fish Soup','Asian Ginger Fish Soup',NULL,NULL,NULL,'Normal Diet','Diabetes',12),(11,'Super healthy set','Hainese Chicken Rice','Nasi Lemak','Nasi Goreng','Penang Assam laksa','Keto Diet','All',60),(12,'Super value set','Kaya Jam','Fried Rice with shallots','Swiss roll with chocolate','Belgian waffles','Healthy Diet','All',64);
 /*!40000 ALTER TABLE `recipeset` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-11 20:29:06
+-- Dump completed on 2023-10-15 17:34:37
