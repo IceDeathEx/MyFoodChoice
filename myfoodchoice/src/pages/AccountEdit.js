@@ -75,14 +75,16 @@ const AccountEdit = () => {
         Axios.put(`http://localhost:3002/api/accupdate/${id}`, updatedData);
         Axios.put(`http://localhost:3002/api/accupdateUP/${userData2[0].iduserprofile}`, updatedData);
         alert("Account profile successfully updated!");
-        navigate('/homepage');
+        navigate('/account');
+        window.location.reload(); 
         console.log(password)
 
       }
          else{
            Axios.put(`http://localhost:3002/api/accupdateUP/${userData2[0].iduserprofile}`, updatedData);
            alert("Account profile successfully updated!");
-           navigate('/homepage');}
+           navigate('/account');}
+           window.location.reload(); 
 
       }
 

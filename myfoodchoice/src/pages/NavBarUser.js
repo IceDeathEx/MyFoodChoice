@@ -24,7 +24,7 @@ const NavBarUser = () => {
         <Link to="/healthtips"><div className="health-tips"><div className="div">Health Tips</div></div></Link>
         <Link to="/recipe"><div className="recipe"><div className="text-wrapper-2">Recipe</div></div></Link>
         <Link to='/feedback'><div className="company"><div className="text-wrapper-3">Review</div></div></Link>
-        <Link to='/orderfood/page/1'><div className="order-food"><div className="text-wrapper-4">Order Food</div></div></Link>
+        <Link to='/orderfood/All/page/1'><div className="order-food"><div className="text-wrapper-4">Order Food</div></div></Link>
       </div>
       <Link to="/shoppingcart" ><img className="cart" alt="Cart" src={image2} /></Link>
       <div className="dropdown">

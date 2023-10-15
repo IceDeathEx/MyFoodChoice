@@ -1,0 +1,143 @@
+.about-us {
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
+}
+
+.about-us .overlap-group-wrapper {
+    height: 1109px;
+    overflow-x: hidden;
+    width: 1535px;
+}
+
+.about-us .overlap-group {
+    background-color: #ffffff;
+    height: 1109px;
+    position: relative;
+    width: 1546px;
+}
+
+.about-us .overlap {
+    height: 864px;
+    left: 45px;
+    position: absolute;
+    top: 44px;
+    width: 1501px;
+}
+
+.about-us .div {
+    height: 864px;
+    left: 176px;
+    position: absolute;
+    top: 0;
+    width: 1325px;
+}
+
+.about-us .overlap-2 {
+    height: 864px;
+    left: 491px;
+    position: absolute;
+    top: 0;
+    width: 834px;
+}
+
+.about-us .image {
+    height: 416px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 377px;
+}
+
+.about-us .img {
+    height: 503px;
+    left: 195px;
+    mix-blend-mode: darken;
+    object-fit: cover;
+    position: absolute;
+    top: 361px;
+    width: 639px;
+}
+
+.about-us .text-wrapper {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 64px;
+    font-weight: 700;
+    left: 283px;
+    letter-spacing: -0.96px;
+    line-height: 36px;
+    position: absolute;
+    top: 498px;
+    width: 346px;
+}
+
+.about-us .top-and-sensational {
+    color: #454545;
+    font-family: "Nunito-Medium", Helvetica;
+    font-size: 17px;
+    font-weight: 500;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: right;
+    top: 588px;
+    width: 602px;
+}
+
+.about-us .text-wrapper-2 {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 64px;
+    font-weight: 700;
+    left: 61px;
+    letter-spacing: -0.96px;
+    line-height: 36px;
+    position: absolute;
+    top: 138px;
+    width: 398px;
+}
+
+.about-us .our-aspiration-is-to {
+    color: #454545;
+    font-family: "Nunito-Medium", Helvetica;
+    font-size: 17px;
+    font-weight: 500;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: right;
+    top: 228px;
+    width: 625px;
+}
+
+.about-us .text-wrapper-3 {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 64px;
+    font-weight: 700;
+    left: 87px;
+    letter-spacing: -0.96px;
+    line-height: 36px;
+    position: absolute;
+    top: 947px;
+    width: 386px;
+}
+
+.about-us .p {
+    color: #454545;
+    font-family: "Nunito-Medium", Helvetica;
+    font-size: 17px;
+    font-weight: 500;
+    left: 87px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: right;
+    top: 1016px;
+}

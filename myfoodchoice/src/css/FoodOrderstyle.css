@@ -145,22 +145,22 @@
     width: 201px;
 }
 
-.food-order .frame-3 {
+.food-order .frame-box {
     height: 1475px;
     position: relative;
     width: 1201.4px;
 }
 
-.food-order .element-1 {
+.food-order .ele-1 {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
     gap: 16px;
     justify-content: center;
-    left: 6px;
+    left: 0px;
     position: absolute;
     top: 0;
-    width: 283px;
+    width: 280px;
 }
 
 .food-order .image-title {
@@ -314,43 +314,43 @@
     width: fit-content;
 }
 
-.food-order .element-2 {
+.food-order .ele-2 {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
     gap: 16px;
     justify-content: center;
-    left: 310px;
+    left: 304px;
     position: absolute;
     top: 0;
-    width: 283px;
+    width: 280px;
 }
 
-.food-order .element-3 {
+.food-order .ele-3 {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
     gap: 16px;
     justify-content: center;
-    left: 614px;
+    left: 608px;
     position: absolute;
     top: 0;
-    width: 283px;
+    width: 280px;
 }
 
-.food-order .element-4 {
+.food-order .ele-4 {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
     gap: 16px;
     justify-content: center;
-    left: 918px;
+    left: 912px;
     position: absolute;
     top: 0;
-    width: 283px;
+    width: 280px;
 }
 
-.food-order .element-5 {
+.food-order .ele-5 {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
@@ -359,10 +359,10 @@
     left: 0;
     position: absolute;
     top: 503px;
-    width: 283px;
+    width: 280px;
 }
 
-.food-order .element-6 {
+.food-order .ele-6 {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
@@ -374,7 +374,7 @@
     width: 283px;
 }
 
-.food-order .element-7 {
+.food-order .ele-7 {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
@@ -386,7 +386,7 @@
     width: 283px;
 }
 
-.food-order .element-8 {
+.food-order .ele-8 {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
@@ -398,7 +398,7 @@
     width: 283px;
 }
 
-.food-order .element-9 {
+.food-order .ele-9 {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
@@ -410,7 +410,7 @@
     width: 283px;
 }
 
-.food-order .element-10 {
+.food-order .ele-10 {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
@@ -422,7 +422,7 @@
     width: 283px;
 }
 
-.food-order .element-11 {
+.food-order .ele-11 {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
@@ -434,7 +434,7 @@
     width: 283px;
 }
 
-.food-order .element-12 {
+.food-order .ele-12 {
     align-items: flex-start;
     display: flex;
     flex-direction: column;

@@ -1,7 +1,8 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
+  const [x, setx] = useState(window.location.pathname.slice(0, -1))
 
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumbers.push(i);
@@ -14,8 +15,8 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
       
         {pageNumbers.map(number => (
         //   <li key={number} className='page-item'>
-            <a key={number} onClick={() => paginate(number)} href={`/orderfood/page/${number}`} className='page-link'>
-              {number}
+            <a key={number} onClick={() => paginate(number)} href={`${x}${number}`} className='page-link'>
+              {number}..
             </a>
         //   </li>
         ))}

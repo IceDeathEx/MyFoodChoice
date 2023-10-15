@@ -18,6 +18,7 @@ import RecipeList from './pages/RecipeList'
 import RecipeDetails from './pages/RecipeDetails'
 import FoodOrder from './pages/FoodOrder'
 import ShoppingCart from './pages/ShoppingCart'
+import AboutUs from './pages/AboutUs'
 const App = () => {
 
   return (
@@ -25,6 +26,7 @@ const App = () => {
               <Route path="/" element={<Onboarding />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp/>}/>
+              <Route path="/aboutus" element={<AboutUs/>}/>
 
               <Route path="/homepage" element={<RequireAuth loginPath={'/login'}><Homepage /></RequireAuth>}/>
               <Route path="/mealrecord" element={<RequireAuth loginPath={'/login'}><MealRecords /></RequireAuth>}/>
@@ -37,7 +39,7 @@ const App = () => {
               <Route path="/transaction" element={<RequireAuth loginPath={'/login'}><Transaction /></RequireAuth>}/>
               <Route path="/feedback" element={<RequireAuth loginPath={'/login'}><Feedback /></RequireAuth>}/>
               <Route path="/loyalty" element={<RequireAuth loginPath={'/login'}><Loyalty /></RequireAuth>}/>
-              <Route path="/orderfood/page/:id" element={<RequireAuth loginPath={'/login'}><FoodOrder /></RequireAuth>}/>
+              <Route path="/orderfood/:category/page/:id" element={<RequireAuth loginPath={'/login'}><FoodOrder /></RequireAuth>}/>
               <Route path="/shoppingcart" element={<RequireAuth loginPath={'/login'}><ShoppingCart /></RequireAuth>}/>
 
               <Route path="*" element={<NotFound />}/>

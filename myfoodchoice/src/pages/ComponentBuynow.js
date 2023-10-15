@@ -15,22 +15,22 @@ const ComponentBuynow = () => {
 
   return (
     <div className="frame">
-      {foodItems.map((item, index) => (
-        <div key={index} className={`element-${index + 1}`}>
+      {foodItems.slice(0,4).map((item, index) => {
+          return <div key={index} className={`element-${index + 1}`}>
           <div className="image-title">
             <div className="rectangle-wrapper">
-              <img className="rectangle" alt="Rectangle" src={item.foodimg} />
+              <img className="rectangle" alt="Rectangle" src={item.ofimg} />
             </div>
             <div className="name-location-price">
               <div className="name-location">
-                <div className="name">{item.desc}</div>
+                <div className="name">{item.ofname}</div>
                 <div className="location">
                   <img className="icon" src={icon} alt="Icon" />
-                  <div className="text">{item.location}</div>
+                  <div className="text">{item.ofvendor}</div>
                 </div>
               </div>
               <div className="price">
-                <div className="div">${item.price}</div>
+                <div className="div">${item.ofprice}</div>
               </div>
             </div>
           </div>
@@ -40,7 +40,8 @@ const ComponentBuynow = () => {
           </button>
           </Link>
         </div>
-      ))}
+        
+      })}
     </div>
   );
 };

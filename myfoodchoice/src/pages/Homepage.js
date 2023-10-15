@@ -10,6 +10,8 @@ import 'react-datepicker/dist/react-datepicker.css';
 import '../css/styleToday.css';
 import '../css/userHP.css';
 import calendar from '../pics/calendar.png';
+import Chart from 'chart.js/auto';
+import { Line } from 'react-chartjs-2';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import DatePicker from 'react-datepicker';
 import ellipse from '../pics/ellipse-2.png';
@@ -114,6 +116,30 @@ const Homepage = () => {
     setNameStyles(newStyles);
   }
 
+  const weightGraphData = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], 
+    datasets: [
+      {
+        label: '2023 Monthly Weight Progress',
+        fill: false,
+        lineTension: 0.1,
+        backgroundColor: 'rgba(75, 192, 192, 0.4)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 2,
+        data: [70, 70.5, 71, 71.8, 72.2, 73, 73.8, 74.6, 75.5, 76, 76.4, 77],
+      },
+    ],
+  };
+
+  const weightGraphOptions = {
+    scales: {
+      y: {
+        suggestedMin: 50,
+      },
+    },
+  };
+
+
   return (
     <div>
       <NavBarUser />
@@ -125,15 +151,11 @@ const Homepage = () => {
             <div className="flexcontainer">
               <p className="span-wrapper">
                 <span className="span">
-                  your
-                  <br />
+                  your<br></br>achievement.
                 </span>
               </p>
-              <p className="span-wrapper">
-                <span className="span">achievement.</span>
-              </p>
             </div>
-            <div className="rectangle-2" />
+            <div className="rectangle-2">
             <div className="div-3">
               <div className="element-5">
                 <img className="img-2" alt="Icon circle check" src={imageCheck} />
@@ -148,6 +170,7 @@ const Homepage = () => {
                 <div className="text-wrapper-23">DAY 2</div>
               </div>
               <div className="text-wrapper-24">daily streak.</div>
+            </div>
             </div>
           </div>
           <div className="today-component">
@@ -269,7 +292,7 @@ const Homepage = () => {
               </div>
             </div>
             <div className="data-vi">
-
+            <Line data={weightGraphData} options={weightGraphOptions} />
             </div>
           </div>
           <ComponentBuynow className="buy-food-instance" />
