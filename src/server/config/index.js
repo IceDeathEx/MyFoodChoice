@@ -491,19 +491,58 @@ app.get("/api/getorderfood", (req, res) => {
 // Route to inserting records to transaction table (WORKING)
 app.post('/api/createtransaction/:id', (req, res) => {
 
-  const upid = req.body.upid;
-  const uid = req.body.uid;
-  const foodid = req.body.foodid;
-  const datetime = req.body.datetime;
-  const meal = req.body.meal;
+  const transitemid = req.body.transitemid;
+  const transitemprice = req.body.transitemprice;
+  const transdate = req.body.transdate;
+  const transqty = req.body.transqty;
+  const transstatus = req.body.transstatus;
+  const uid = req.params.id;
+  const transitemname = req.body.transitemname;
+  const transitemvendor = req.body.transitemvendor;
+  const payment = req.body.payment;
+  const transcategory = req.body.transcategory;
 
-  db.query("INSERT INTO transaction (transid, transitem, uid, transitemprice, transdate, transqty, transstatus) VALUES (?, ?, ?, ?, ?, ?, ?)", [upid, uid, foodid, datetime, meal], (err, result) => {
+  db.query("INSERT INTO transaction (uid, transitemid, transitemname, transitemprice, transqty, transdate, transitemvendor, transstatus, payment, transcategory) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [uid, transitemid, transitemname, transitemprice, transqty, transdate, transitemvendor, transstatus, payment, transcategory], (err, result) => {
     if (err) {
       console.log(err)
     }
     console.log(result)
   });
 })
+
+// Route to get all rows for shopping cart (WORKING)
+app.get("/api/getshoppingcart/:id", (req, res) => {
+  const id = req.params.id;
+  db.query("SELECT * FROM transaction WHERE uid=?;", id, (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+// Route to delete a transaction item  (WORKING)
+
+app.delete('/api/deletetransactionrecord/:id', (req, res) => {
+  const id = req.params.id;
+
+  db.query("DELETE FROM transaction WHERE transid= ?;", id, (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  })
+})
+// Route to get total price of shopping cart
+app.get("/api/gettotalprice/:id", (req, res) => {
+  const id = req.params.id;
+  db.query("SELECT SUM(transitemprice) AS total FROM transaction WHERE uid=?;", id, (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
 
 //Listening to PORT 3002
 app.listen(PORT, () => {
