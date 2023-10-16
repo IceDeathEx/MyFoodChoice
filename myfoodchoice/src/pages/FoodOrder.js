@@ -7,7 +7,6 @@ import line_4 from "../pics/Line_4.svg"
 import Pagination from "./Pagination"
 import { useParams } from "react-router";
 import { useNavigate } from "react-router";
-import dateFormat from 'dateformat';
 
 const FoodOrder = () => {
 
@@ -23,27 +22,19 @@ const FoodOrder = () => {
     //Redirecting to different page
     const id = useParams() // This is the id passed from previous page.
     const navigate = useNavigate()
-    const uid = JSON.parse(window.localStorage.getItem("account"))
-
+    
     //Load Page
     const [isLoading, setIsLoading] = useState(false)
     const [currentPosts2, setCurrentPosts2] = useState([])
     const [filtersearch, setfiltersearch] = useState(false)
     const [totalPosts, setTotalPosts] = useState(null)
-    
 
     //Use useEffect to load initial rendering
     useEffect(()=>{
         Axios.get("http://localhost:3002/api/getorderfood")
         .then((res)=>{
             setorderfood(res.data)
-            if(id.category === 'All'){
-                setorderfood2(res.data)
-            }
-            else{
-                setorderfood2(res.data.filter((res)=> res.ofname === id.category))
-            }
-            
+            setorderfood2(res.data)
             const unique = [...new Set(res.data.map((item) => item.ofname))]
             setfilterdata(unique)
             setTotalPosts(res.data.length)
@@ -62,7 +53,6 @@ const FoodOrder = () => {
             setCurrentPosts2(currentPosts.filter((data)=> data.ofvendor.toLowerCase().includes(e.target.value.toLowerCase())))
             setfiltersearch(true)
         }
-        
     }
     const handleFilter = (e) => {
         setfilter2(e.target.value)
@@ -71,24 +61,13 @@ const FoodOrder = () => {
             setorderfood(orderfood2)
             setCurrentPosts(orderfood2.slice(indexOfFirstPost, indexOfLastPost))
             setTotalPosts(orderfood2.length)
-            if(currentPosts.length < 13){
-                navigate(`/orderfood/${e.target.value}/page/1`)
-            }
-            else{
-                navigate(`/orderfood/${e.target.value}/page/${id.id}`)
-            }
-            
+            navigate(`/orderfood/${e.target.value}/page/${id.id}`)
         }
         else{
             setfiltersearch(false)
             setCurrentPosts(orderfood2.filter((data)=> data.ofname === e.target.value).slice(indexOfFirstPost, indexOfLastPost))
             setTotalPosts(currentPosts.length)
-            if(currentPosts.length < 13){
-                navigate(`/orderfood/${e.target.value}/page/1`)
-            }
-            else{
-                navigate(`/orderfood/${e.target.value}/page/${id.id}`)
-            }
+            navigate(`/orderfood/${e.target.value}/page/${id.id}`)
         }
     }
 
@@ -104,24 +83,8 @@ const FoodOrder = () => {
 
     //Handle The order by storing it in database
     const handleOrder = (e) => {
-        var today = new Date()
-        const selectedorder = orderfood2.filter((data)=> data.ofid === e.target.value)
-        if(selectedorder){
-            setorder(selectedorder);
-                Axios.post(`http://localhost:3002/api/createtransaction/${uid}`, { 
-                uid: uid, 
-                transitemid: selectedorder.ofid,
-                transitemname: order.ofname,
-                transitemprice: order.ofprice,
-                transqty: 1, 
-                transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"), 
-                transitemvendor: order.ofvendor,
-                transstatus: 'Unpaid', 
-                payment: 'Counter'
-            })
-            navigate('/shoppingcart')
-        }
-        
+        setorder(orderfood2.filter((data)=> data.ofid === e.target.value))
+        //Axios.post()
     }
     
     return (
@@ -174,7 +137,7 @@ const FoodOrder = () => {
                                         </div>
                         })}
                         {filtersearch && currentPosts2.map((data, index)=>{
-                            return      <div className={`ele-${index+1}`} key={index+1}>
+                            return      <div className={`element-${index+1}`} key={index+1}>
                                             <div className="image-title">
                                                 <div className="rectangle-wrapper">
                                                     <img className="rectangle" alt="Rectangle" src={data.ofimg} />
@@ -192,7 +155,7 @@ const FoodOrder = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button className="button" value={data.ofid} onClick={handleOrder}>
+                                            <button className="button">
                                                 <div className="text-2">Order Now</div>
                                             </button>
                                         </div>

@@ -6,7 +6,6 @@ import ellipse from '../pics/ellipse-2.png';
 import Axios from "axios";
 import * as tf from '@tensorflow/tfjs';
 import dateFormat from 'dateformat';
-import { useNavigate } from "react-router";
 
 export const MealRecords = () => {
 
@@ -38,8 +37,6 @@ export const MealRecords = () => {
     const photoRef = useRef(null)
     const [hasPhoto, sethasPhoto] = useState(false)
     const [isCam, setiscam] = useState(false)
-
-    const navigate = useNavigate()
 
     //Selecting User Profiles
     const [userprofile, setUserProfile] = useState([])
@@ -156,7 +153,6 @@ export const MealRecords = () => {
             }
             else {
                 Axios.put(`http://localhost:3002/api/userpointsupdate/${id}`, { balance: 25 })
-                navigate("/homepage")
             }
 
         }

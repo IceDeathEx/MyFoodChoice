@@ -491,17 +491,13 @@ app.get("/api/getorderfood", (req, res) => {
 // Route to inserting records to transaction table (WORKING)
 app.post('/api/createtransaction/:id', (req, res) => {
 
-  const transitemid = req.body.transitemid;
-  const transitemprice = req.body.transtimeprice;
-  const transdate = req.body.transdate;
-  const transqty = req.body.transqty;
-  const transstatus = req.body.transstatus;
-  const uid = req.params.id;
-  const transitemname = req.body.transitemname;
-  const transitemvendor = req.body.transitemvendor;
-  const payment = req.body.payment;
+  const upid = req.body.upid;
+  const uid = req.body.uid;
+  const foodid = req.body.foodid;
+  const datetime = req.body.datetime;
+  const meal = req.body.meal;
 
-  db.query("INSERT INTO transaction (uid, transitemid, transitemname, transitemprice, transqty, transdate, transitemvendor, transstatus, payment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", [uid, transitemid, transitemname, transitemprice, transqty, transdate, transitemvendor, transstatus, payment], (err, result) => {
+  db.query("INSERT INTO transaction (transid, transitem, uid, transitemprice, transdate, transqty, transstatus) VALUES (?, ?, ?, ?, ?, ?, ?)", [upid, uid, foodid, datetime, meal], (err, result) => {
     if (err) {
       console.log(err)
     }
