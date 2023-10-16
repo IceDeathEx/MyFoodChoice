@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import "../css/RecipeListstyle.css";
 import NavBarUser from "./NavBarUser";
 import Axios from "axios";
-import { useNavigate } from "react-router";
-import dateFormat from 'dateformat';
 import { Link } from "react-router-dom";
 
 const RecipeList = () => {
@@ -13,7 +11,6 @@ const RecipeList = () => {
     const [upcondition, setupcondition] = useState([])
     const [condition, setcondition] = useState('')
     const id = JSON.parse(window.localStorage.getItem("account"))
-    const navigate = useNavigate()
     const purchase1 = [12,5,6] //NEED TO CHANGE TO ARRAY OF TRANSACTION USER BY ID
     useEffect(() => {
         //Get the set items are out
@@ -41,24 +38,6 @@ const RecipeList = () => {
             settoggle(true)
         }
 
-    }
-    const handleOrder = (item) => {
-        var today = new Date()
-        Axios.post(`http://localhost:3002/api/createtransaction/${id}`, { 
-            uid: id, 
-            transitemid: item.setid,
-            transitemname: item.settitle,
-            transitemprice: item.recipesetprice,
-            transqty: 1, 
-            transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"), 
-            transitemvendor: 'Care Calories',
-            transstatus: 'Unpaid', 
-            payment: 'Counter',
-            transcategory: 'Recipe'
-            })
-
-        navigate('/shoppingcart')
-        window.location.reload()
     }
     // Create dropdown based on the user profiles medical conditions
     return (
@@ -112,7 +91,7 @@ const RecipeList = () => {
                                                             <div className="text-wrapper-7">{data.recipeid4}</div>
                                                         </div>
                                                     </div>
-                                                    <button className="button" onClick={() => handleOrder(data)}>
+                                                    <button className="button">
                                                         <div className="text">$ {data.recipesetprice} - Order Now  </div>
                                                     </button>
                                                 </div>
@@ -160,7 +139,7 @@ const RecipeList = () => {
                                                     <div className="text-wrapper-7">{data.recipeid4}</div>
                                                 </div>
                                             </div>
-                                            <button className="button" onClick={() => handleOrder(data)}>
+                                            <button className="button">
                                                 <div className="text">$ {data.recipesetprice} - Order Now  </div>
                                             </button>
                                         </div>
@@ -207,7 +186,7 @@ const RecipeList = () => {
                                                     <div className="text-wrapper-7">{data.recipeid4}</div>
                                                 </div>
                                             </div>
-                                            <button className="button" onClick={() => handleOrder(data)}>
+                                            <button className="button">
                                                 <div className="text">$ {data.recipesetprice} - Order Now  </div>
                                             </button>
                                         </div>

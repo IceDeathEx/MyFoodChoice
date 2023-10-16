@@ -274,24 +274,6 @@ const  handleChange2 = (e) =>{
   console.log(e.target.value)
 
 }
-const handleupgrade = () => {
-  var today = new Date()
-  Axios.post(`http://localhost:3002/api/createtransaction/${id}`, { 
-      uid: id, 
-      transitemid: 0,
-      transitemname: 'Upgrade',
-      transitemprice: 30.00,
-      transqty: 1, 
-      transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"), 
-      transitemvendor: 'Care Calories',
-      transstatus: 'Unpaid', 
-      payment: 'Counter',
-      transcategory: 'Upgrade'
-      })
-
-  navigate('/shoppingcart')
-  window.location.reload()
-}
 
     return (
         <div>
@@ -444,8 +426,9 @@ const handleupgrade = () => {
                   </div>
                   <div className="frame-15">
                     <div className="frame-16">
-
-                        <div className="text-wrapper-11" onClick={handleupgrade}>upgrade</div>
+                      <Link to='/homepage'>
+                        <div className="text-wrapper-11">upgrade</div>
+                      </Link>
                       <div className="text-wrapper-4">Account Type</div>
                       <div className="text-wrapper-5">Basic</div>
                     </div>

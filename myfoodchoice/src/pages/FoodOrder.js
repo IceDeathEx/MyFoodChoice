@@ -30,6 +30,7 @@ const FoodOrder = () => {
     const [currentPosts2, setCurrentPosts2] = useState([])
     const [filtersearch, setfiltersearch] = useState(false)
     const [totalPosts, setTotalPosts] = useState(null)
+    
 
     //Use useEffect to load initial rendering
     useEffect(()=>{
@@ -99,24 +100,28 @@ const FoodOrder = () => {
     const [currentPosts, setCurrentPosts] = useState([])
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
-    //Handle The order by storing it in database
-    const handleOrder = (item) => {
-        var today = new Date()
-        Axios.post(`http://localhost:3002/api/createtransaction/${uid}`, { 
-            uid: uid, 
-            transitemid: item.ofid,
-            transitemname: item.ofname,
-            transitemprice: item.ofprice,
-            transqty: 1, 
-            transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"), 
-            transitemvendor: item.ofvendor,
-            transstatus: 'Unpaid', 
-            payment: 'Counter',
-            transcategory: 'Food'
-            })
+    const[order, setorder] = useState([])
 
-        navigate('/shoppingcart')
-        window.location.reload()
+    //Handle The order by storing it in database
+    const handleOrder = (e) => {
+        var today = new Date()
+        const selectedorder = orderfood2.filter((data)=> data.ofid === e.target.value)
+        if(selectedorder){
+            setorder(selectedorder);
+                Axios.post(`http://localhost:3002/api/createtransaction/${uid}`, { 
+                uid: uid, 
+                transitemid: selectedorder.ofid,
+                transitemname: order.ofname,
+                transitemprice: order.ofprice,
+                transqty: 1, 
+                transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"), 
+                transitemvendor: order.ofvendor,
+                transstatus: 'Unpaid', 
+                payment: 'Counter'
+            })
+            navigate('/shoppingcart')
+        }
+        
     }
     
     return (
@@ -163,7 +168,7 @@ const FoodOrder = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button className="button" value={data.ofid} onClick={() => handleOrder(data)}>
+                                            <button className="button" value={data.ofid} onClick={handleOrder}>
                                                 <div className="text-2">Order Now</div>
                                             </button>
                                         </div>
@@ -187,7 +192,7 @@ const FoodOrder = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button className="button" value={data.ofid} onClick={() => handleOrder(data)}>
+                                            <button className="button" value={data.ofid} onClick={handleOrder}>
                                                 <div className="text-2">Order Now</div>
                                             </button>
                                         </div>

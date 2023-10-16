@@ -15,7 +15,7 @@ const SignUp = () => {
     const [password, setPassword] = useState('');
     const [password2, setPassword2] = useState('');
     const [gender, setGender] = useState('Male');
-    const [accounttype] = useState('user');
+    const [accounttype] = useState('1');
     const [country, setCountry] = useState('Singapore');
     const [lifestyle, setlifestyle] = useState('Not Active');
     const [height, setHeight] = useState('');
