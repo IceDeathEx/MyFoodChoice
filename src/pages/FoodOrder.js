@@ -30,7 +30,6 @@ const FoodOrder = () => {
     const [currentPosts2, setCurrentPosts2] = useState([])
     const [filtersearch, setfiltersearch] = useState(false)
     const [totalPosts, setTotalPosts] = useState(null)
-    
 
     //Use useEffect to load initial rendering
     useEffect(()=>{
@@ -100,28 +99,24 @@ const FoodOrder = () => {
     const [currentPosts, setCurrentPosts] = useState([])
     const paginate = pageNumber => setCurrentPage(pageNumber);
 
-    const[order, setorder] = useState([])
-
     //Handle The order by storing it in database
-    const handleOrder = (e) => {
+    const handleOrder = (item) => {
         var today = new Date()
-        const selectedorder = orderfood2.filter((data)=> data.ofid === e.target.value)
-        if(selectedorder){
-            setorder(selectedorder);
-                Axios.post(`http://localhost:3002/api/createtransaction/${uid}`, { 
-                uid: uid, 
-                transitemid: selectedorder.ofid,
-                transitemname: order.ofname,
-                transitemprice: order.ofprice,
-                transqty: 1, 
-                transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"), 
-                transitemvendor: order.ofvendor,
-                transstatus: 'Unpaid', 
-                payment: 'Counter'
+        Axios.post(`http://localhost:3002/api/createtransaction/${uid}`, { 
+            uid: uid, 
+            transitemid: item.ofid,
+            transitemname: item.ofname,
+            transitemprice: item.ofprice,
+            transqty: 1, 
+            transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"), 
+            transitemvendor: item.ofvendor,
+            transstatus: 'Unpaid', 
+            payment: 'Counter',
+            transcategory: 'Food'
             })
-            navigate('/shoppingcart')
-        }
-        
+
+        navigate('/shoppingcart')
+        window.location.reload()
     }
     
     return (
@@ -168,7 +163,7 @@ const FoodOrder = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button className="button" value={data.ofid} onClick={handleOrder}>
+                                            <button className="button" value={data.ofid} onClick={() => handleOrder(data)}>
                                                 <div className="text-2">Order Now</div>
                                             </button>
                                         </div>
@@ -192,7 +187,7 @@ const FoodOrder = () => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <button className="button" value={data.ofid} onClick={handleOrder}>
+                                            <button className="button" value={data.ofid} onClick={() => handleOrder(data)}>
                                                 <div className="text-2">Order Now</div>
                                             </button>
                                         </div>

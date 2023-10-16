@@ -234,41 +234,6 @@ const Homepage = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="overlap-wrapper">
-              <div className="overlap-2">
-                <div className="text-wrapper-12">add your meal.</div>
-                <a href="">
-                  <div className="frame-7">
-                    <div className="rectangle" />
-                    <div className="text-wrapper-13">snack</div>
-                  </div>
-                </a>
-                <a href="">
-                  <div className="frame-8">
-                    <div className="rectangle" />
-                    <div className="text-wrapper-13">exercise</div>
-                  </div>
-                </a>
-                <a href="">
-                  <div className="frame-9">
-                    <div className="rectangle" />
-                    <div className="text-wrapper-13">dinner</div>
-                  </div>
-                </a>
-                <a href="">
-                  <div className="frame-10">
-                    <div className="rectangle" />
-                    <div className="text-wrapper-14">lunch</div>
-                  </div>
-                </a>
-                <a href="">
-                  <div className="frame-11">
-                    <div className="rectangle" />
-                    <div className="text-wrapper-15">breakfast</div>
-                  </div>
-                </a>
-              </div>
-            </div> */}
           </div>
         </div>
         <div className="div-4">
