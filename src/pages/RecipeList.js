@@ -15,6 +15,7 @@ const RecipeList = () => {
     const id = JSON.parse(window.localStorage.getItem("account"))
     const navigate = useNavigate()
     const [transaction, settransaction] = useState([])
+    const [transactionpaid, settransactionpaid] = useState([])
     const purchase1 = [12,5,6] //NEED TO CHANGE TO ARRAY OF TRANSACTION USER BY ID
     useEffect(() => {
         //Get the set items are out
@@ -26,12 +27,15 @@ const RecipeList = () => {
             .then((data) => {
                 const unique = [...new Set(data.data.map((item) => item.conditions))]
                 setupcondition(unique)
-                console.log(upcondition)
                 setcondition(data.data[0].conditions)
             })
         Axios.get(`http://localhost:3002/api/getshoppingcart/${id}`)
         .then((data)=>{
             settransaction(data.data)
+        })
+        Axios.get(`http://localhost:3002/api/gettransactionpaid/${id}`)
+        .then((data)=>{
+            settransactionpaid(data.data)
         })
     }, [])
     const handleCondition = (e) => {
@@ -87,7 +91,7 @@ const RecipeList = () => {
                         <div className="overlap">
                             <div className="recipe">
                                 {recipeset.filter((filter) => filter.healthcategory === condition || filter.healthcategory === 'All').map((data, index) => {
-                                    if (purchase1.filter((number) => number === data.setid).length > 0) {
+                                    if (transactionpaid.filter((number) => number.transitemid === data.setid).length > 0) {
                                         return <div className={`div-${index + 2}`} key={index + 1}>
                                             <div className="recipe-com">
                                                 <div className="frame-2">
@@ -135,7 +139,7 @@ const RecipeList = () => {
                         <div className="recipe-2">
 
                             {!toggle && recipeset.map((data, index) => {
-                                if (purchase1.filter((number) => number === data.setid).length > 0) {
+                                if (transactionpaid.filter((number) => number.transitemid === data.setid).length > 0) {
                                     return <div className={`div-${index + 2}`} key={index + 1}>
                                     <div className="recipe-com">
                                         <div className="frame-2">
@@ -180,7 +184,7 @@ const RecipeList = () => {
                                 
                             })}
                             {toggle && recipeset2.map((data, index) => {
-                                if (purchase1.filter((number) => number === data.setid).length > 0) {
+                                if (transactionpaid.filter((number) => number.transitemid === data.setid).length > 0) {
                                     return <div className={`div-${index + 2}`} key={index + 1}>
                                     <div className="recipe-com">
                                         <div className="frame-2">

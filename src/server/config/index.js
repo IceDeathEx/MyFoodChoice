@@ -521,6 +521,27 @@ app.get("/api/getshoppingcart/:id", (req, res) => {
   });
 });
 
+// Route to getting all rows for shopping cart that user has paid for (WORKING)
+app.get("/api/gettransactionpaid/:id", (req, res) => {
+  const id = req.params.id;
+  db.query("SELECT transitemid FROM transaction WHERE uid=? and transstatus='Paid' and transcategory='Recipe';", id, (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+// Route to getting all rows for shopping cart that user has paid and unpaid for (WORKING)
+app.get("/api/gettransactionpaidandunpaid/:id", (req, res) => {
+  const id = req.params.id;
+  db.query("SELECT * FROM transaction WHERE (uid=? and transstatus='Paid' and transcategory='Recipe') or (uid=? and transstatus='Unpaid' and transcategory='Recipe');", [id,id], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
 // Route to delete a transaction item  (WORKING)
 
 app.delete('/api/deletetransactionrecord/:id', (req, res) => {
@@ -544,12 +565,27 @@ app.get("/api/gettotalprice/:id", (req, res) => {
   });
 });
 
-// Route to update transaction row with rowid(WORKING)
+// Route to update transaction qty row with rowid(WORKING)
 app.put('/api/updatetransactionrecord/:id', (req, res) => {
 
   const id = req.params.id;
   const transqty = req.body.transqty;
   db.query("UPDATE transaction SET transqty = ? WHERE transid = ?;", [transqty, id], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  });
+});
+
+// Route to update transaction status row with rowid(WORKING)
+app.put('/api/updatetransaction/:id', (req, res) => {
+
+  const id = req.params.id;
+  const transid = req.body.transid;
+  const transstatus = req.body.transstatus;
+  const transdate = req.body.transdate;
+  db.query("UPDATE transaction SET transstatus = ?, transdate = ? WHERE uid = ? AND transid = ?;", [transstatus, transdate, id, transid], (err, result) => {
     if (err) {
       console.log(err)
     }

@@ -7,6 +7,8 @@ import { useState, useEffect } from "react";
 import check from "../pics/icon-circle-check.png"
 import NavBarUser from "./NavBarUser";
 import Axios from "axios";
+import { useNavigate } from "react-router";
+import dateFormat from 'dateformat';
 
 const ShoppingCart = () => {
     const [showCreditCardForm, setShowCreditCardForm] = useState(false);
@@ -25,17 +27,77 @@ const ShoppingCart = () => {
     };
 
     const [isDialogOpen, setIsDialogOpen] = useState(false);
+    const [card, setcard] = useState(null)
+    const [cvv, setcvv] = useState(null)
+    const [expiry, setexpiry] = useState(null)
+    const handleCreditCard = (e) =>{
+        setcard(e.target.value)
+    }
+    const handleCVV = (e) =>{
+        setcvv(e.target.value)
+    }
+    const handleExp = (e) =>{
+        setexpiry(e.target.value)
+    }
+
+    function luhnCheck(cardNumber) {
+        var sum = 0;
+        var doubleUp = false;
+        for (var i = cardNumber.length - 1; i >= 0; i--) {
+            var digit = parseInt(cardNumber.charAt(i), 10);
+            if (doubleUp) {
+                digit *= 2;
+                if (digit > 9) {
+                    digit -= 9;
+                }
+            }
+            sum += digit;
+            doubleUp = !doubleUp;
+        }
+        return (sum % 10) === 0;
+    }
+    // USE THIS CREDIT CARD NO. 4012888888881881
 
     const openDialog = () => {
+        var today = new Date()
         setIsDialogOpen(true);
         if(payment === ''){
             console.log('Please select a payment method.')
         }
         else if(payment === 'Credit Card'){
+            var isValidCardNumber = /^\d{13,19}$/.test(card) && luhnCheck(card);
+
+            // Expiration date validation (MM/YY format)
+            var isValidExpirationDate = /^((0[1-9])|(1[0-2]))\/\d{2}$/.test(expiry);
+
+            // CVV validation (3 or 4 digits)
+            var isValidCVV = /^\d{3,4}$/.test(cvv);
+            //console.log(isValidCardNumber, isValidCVV, isValidExpirationDate)
+            // Display validation results
+            if (isValidCardNumber && isValidExpirationDate && isValidCVV) {
+                //console.log("Credit card information is valid.");
+                transaction.map((item)=>{
+                    Axios.put(`http://localhost:3002/api/updatetransaction/${uid}`, {
+                        transstatus: 'Paid',
+                        transid: item.transid,
+                        transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss")
+                    })
+                })
+                navigate('/homepage')
+            } else {
+                console.log("Invalid credit card information. Please check the details.");
+            }
 
         }
         else if(payment === 'Counter'){
-            
+            transaction.map((item)=>{
+                Axios.put(`http://localhost:3002/api/updatetransaction/${uid}`, {
+                    transstatus: 'Unpaid',
+                    transid: item.transid,
+                    transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss")
+                })
+            })
+            navigate('/homepage')
         }
         else{
             console.log('Some Error happening.')
@@ -50,6 +112,7 @@ const ShoppingCart = () => {
     const [transaction, settransaction] = useState([])
     const [totalprice, settotalprice] = useState([])
     const [payment, setpayment] = useState('')
+    const navigate = useNavigate()
     useEffect(()=>{
         Axios.get(`http://localhost:3002/api/getshoppingcart/${uid}`)
         .then((data)=>{
@@ -124,13 +187,13 @@ const ShoppingCart = () => {
                         <input className="overlap-2" type="text" placeholder="Full Name">
                         </input>
                         <div className="text-wrapper-11">Expiration date</div>
-                        <input className="overlap-3" placeholder="mm/yy">
+                        <input className="overlap-3" placeholder="mm/yy" onChange={handleExp}>
                         </input>
                         <div className="text-wrapper-13">CVV</div>
-                        <input className="overlap-4" placeholder="123">
+                        <input className="overlap-4" type="number" placeholder="123" onChange={handleCVV}>
                         </input>
                         <div className="text-wrapper-14">Card Number</div>
-                        <input className="overlap-5" placeholder="1111 2222 3333 4444">
+                        <input className="overlap-5" placeholder="1111 2222 3333 4444" onChange={handleCreditCard}>
                         </input>
                     </div>
                     )}

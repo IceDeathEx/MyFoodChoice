@@ -37,7 +37,7 @@ CREATE TABLE `transaction` (
   `payment` varchar(45) DEFAULT NULL,
   `transcategory` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`transid`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `transaction` (
 
 LOCK TABLES `transaction` WRITE;
 /*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
-INSERT INTO `transaction` VALUES (1,16,1,'Hamburger',19.99,1,'2023-10-16 20:11:40','Clementi Mall','Unpaid','Counter','Food'),(2,16,2,'Salad',10,1,'2023-10-16 20:12:33','Admiralty 313','Unpaid','Counter','Food'),(7,16,2,'Salad',10,1,'2023-10-16 22:15:10','Admiralty 313','Unpaid','Counter','Food'),(8,16,3,'Pasta',15.99,1,'2023-10-16 22:15:28','Woodlands North','Unpaid','Counter','Food'),(9,16,6,'Chicken Rice',3.5,1,'2023-10-16 22:16:57','Tiong Bahru Chicken Rice','Unpaid','Counter','Food'),(12,16,11,'Super healthy set',60,1,'2023-10-16 22:50:01','Care Calories','Unpaid','Counter','Recipe');
+INSERT INTO `transaction` VALUES (15,16,2,'Salad',10,4,'2023-10-17 20:20:19','Admiralty 313','Unpaid','Counter','Food'),(18,16,9,'Fresh corn salad',10,1,'2023-10-17 20:20:19','Care Calories','Unpaid','Counter','Recipe'),(19,16,5,'Chicken Rice',3.5,10,'2023-10-17 20:20:19','Ji De Lai Chicken Rice','Unpaid','Counter','Food'),(21,16,0,'Upgrade',30,1,'2023-10-17 20:20:19','Care Calories','Unpaid','Counter','Upgrade'),(27,16,1,'Hamburger',19.99,1,'2023-10-17 20:20:19','Clementi Mall','Unpaid','Counter','Food'),(28,16,2,'Nasi Lemak',10,1,'2023-10-17 20:53:31','Care Calories','Paid','Counter','Recipe'),(30,16,4,'Penang Assam laksa',20,1,'2023-10-17 21:00:37','Care Calories','Paid','Counter','Recipe'),(31,16,1,'Hainese Chicken Rice',20,1,'2023-10-17 21:00:37','Care Calories','Paid','Counter','Recipe'),(32,16,11,'Super healthy set',60,1,'2023-10-17 21:04:26','Care Calories','Paid','Counter','Recipe');
 /*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-16 23:05:09
+-- Dump completed on 2023-10-17 21:42:17
