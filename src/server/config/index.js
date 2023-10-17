@@ -513,7 +513,7 @@ app.post('/api/createtransaction/:id', (req, res) => {
 // Route to get all rows for shopping cart (WORKING)
 app.get("/api/getshoppingcart/:id", (req, res) => {
   const id = req.params.id;
-  db.query("SELECT * FROM transaction WHERE uid=? and transstatus='Unpaid';", id, (err, result) => {
+  db.query("SELECT * FROM transaction WHERE uid=? and transstatus='Ongoing';", id, (err, result) => {
     if (err) {
       console.log(err)
     }
@@ -536,7 +536,7 @@ app.delete('/api/deletetransactionrecord/:id', (req, res) => {
 // Route to get total price of shopping cart
 app.get("/api/gettotalprice/:id", (req, res) => {
   const id = req.params.id;
-  db.query("SELECT SUM(transitemprice * transqty) AS total FROM myfoodchoice.transaction WHERE uid=? and transstatus='Unpaid';", id, (err, result) => {
+  db.query("SELECT SUM(transitemprice * transqty) AS total FROM myfoodchoice.transaction WHERE uid=? and transstatus='Ongoing';", id, (err, result) => {
     if (err) {
       console.log(err)
     }

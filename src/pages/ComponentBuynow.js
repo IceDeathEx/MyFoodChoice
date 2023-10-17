@@ -33,7 +33,7 @@ const ComponentBuynow = () => {
             transqty: 1, 
             transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"), 
             transitemvendor: item.ofvendor,
-            transstatus: 'Unpaid', 
+            transstatus: 'Ongoing', 
             payment: 'Counter',
             transcategory: 'Food'
             })

@@ -28,6 +28,18 @@ const ShoppingCart = () => {
 
     const openDialog = () => {
         setIsDialogOpen(true);
+        if(payment === ''){
+            console.log('Please select a payment method.')
+        }
+        else if(payment === 'Credit Card'){
+
+        }
+        else if(payment === 'Counter'){
+            
+        }
+        else{
+            console.log('Some Error happening.')
+        }
     };
 
     const closeDialog = () => {
@@ -37,7 +49,7 @@ const ShoppingCart = () => {
     const uid = JSON.parse(window.localStorage.getItem("account"))
     const [transaction, settransaction] = useState([])
     const [totalprice, settotalprice] = useState([])
-    const [payment, setpayment] = useState('Counter')
+    const [payment, setpayment] = useState('')
     useEffect(()=>{
         Axios.get(`http://localhost:3002/api/getshoppingcart/${uid}`)
         .then((data)=>{

@@ -58,7 +58,7 @@ const RecipeList = () => {
             transqty: 1, 
             transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"), 
             transitemvendor: 'Care Calories',
-            transstatus: 'Unpaid', 
+            transstatus: 'Ongoing', 
             payment: 'Counter',
             transcategory: 'Recipe'
             })
