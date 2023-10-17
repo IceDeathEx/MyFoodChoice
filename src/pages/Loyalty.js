@@ -1,32 +1,29 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
+import "../css/loyalty.css";
 import Axios from 'axios'; // Make sure Axios is installed in your project
-import '../css/loyalty.css'; // Import your CSS stylesheet
-import NavBarUser from './NavBarUser';
 import { useNavigate } from "react-router";
 import dateFormat from 'dateformat';
+import NavBarUser from './NavBarUser';
 
-const Loyalty = () => {
-  // State to store loyalty items from the database
+export const Loyalty = () => {
   const [loyaltyItems, setLoyaltyItems] = useState([]);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [user, setUser] = useState([]);
   const [checkoutCompleted, setCheckoutCompleted] = useState(false);
-  const id = JSON.parse(window.localStorage.getItem('account'))
-  const [user, setUser] = useState([])
-  const [loading, setLoading] = useState(false)
+  const [isLoading, setisLoading] = useState(false)
   const navigate = useNavigate()
-  
-
+  const id = JSON.parse(window.localStorage.getItem("account"))
   // Function to fetch loyalty items from the server when the component mounts
   useEffect(() => {
     Axios.get('http://localhost:3002/api/loyaltyitem') // Replace with your API endpoint
       .then((response) => setLoyaltyItems(response.data))
       .catch((error) => console.error('Error fetching data:', error));
-      //Getting the user data
-    Axios.get(`http://localhost:3002/api/getUser/${id}`)
-    .then((res) =>{ setUser(res.data)
-      setLoading(true)
-    })
-    
+
+    Axios.get(`http://localhost:3002/api/getUser/${16}`)
+      .then((res)=>{
+        setUser(res.data)
+      })
+      setisLoading(true)
   }, []);
 
   // Function to handle item selection
@@ -35,9 +32,9 @@ const Loyalty = () => {
   };
 
   // Function to handle item removal
-  const handleItemRemoval = (itemToRemove) => {
+  const handleItemRemoval = (RemoveItem) => {
     setSelectedItems((prevSelectedItems) =>
-      prevSelectedItems.filter((selectedItem) => selectedItem.id !== itemToRemove.id)
+      prevSelectedItems.filter((selectedItem) => selectedItem.id !== RemoveItem.id)
     );
   };
 
@@ -47,85 +44,99 @@ const Loyalty = () => {
   };
 
   // Function to complete the checkout
-  const handleCheckout = () => {
-    const pts = calculateTotalPoints()
-    const date = new Date()
-    const date2 = dateFormat(date, "yyyy-mm-dd HH:MM:ss")
-    if(user[0].loyaltypoint > pts){
-      const balance = user[0].loyaltypoint - pts
-      
-      Axios.put(`http://localhost:3002/api/updateloyaltypts/${id}`, {balance: balance})
-      selectedItems.map((claimeditem) =>{
-        Axios.post("http://localhost:3002/api/loyaltytransaction",{
-          userid : id,
-          itemname : claimeditem.l_name,
-          point : claimeditem.points,
-          qty : 1,
-          date : date2
-        })
-      })
-      navigate('/homepage')
-    }
-    else{
-      setCheckoutCompleted(true);
-    }
-    
-  };
 
   const handleReturn = () =>{
     setCheckoutCompleted(false)
-  }
+  };
+
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+    const openDialog = () => {
+        setIsDialogOpen(true);
+    };
+
+    const closeDialog = () => {
+        setIsDialogOpen(false);
+    };
+    const handleCheckout = () => {
+      const pts = calculateTotalPoints()
+      const date = new Date()
+      const date2 = dateFormat(date, "yyyy-mm-dd HH:MM:ss")
+      if(user[0].loyaltypoint > pts){
+        const balance = user[0].loyaltypoint - pts
+        
+        Axios.put(`http://localhost:3002/api/updateloyaltypts/${id}`, {balance: balance})
+        selectedItems.map((claimeditem) =>{
+          Axios.post("http://localhost:3002/api/loyaltytransaction",{
+            userid : id,
+            itemname : claimeditem.l_name,
+            point : claimeditem.points,
+            qty : 1,
+            date : date2
+          })
+        })
+        navigate('/signup')
+      }
+      else{
+        setCheckoutCompleted(true);
+      }
+      
+    };
 
   return (
     <div>
-      <NavBarUser /> {/* Assuming you have a Navbar component */}
-      <div className="divcss">
-        {loading && <h1>Hi, {user[0].name}, you have {user[0].loyaltypoint} loyalty points</h1>}
-        <h2>Loyalty Reward Page</h2>
-        <p>Select items to redeem using your loyalty points.</p>
-
-        <div className="loyalty-items-wrapper">
-          {loyaltyItems.map((item) => (
-            <div key={item.id} className="loyalty-item">
-              <h3>{item.l_name}</h3>
-              {item.l_image && <img src={item.l_image} alt={item.l_image} />}
-              <p>Description: {item.desc}</p>
-              <p>Points required: {item.points}</p>
-              <button onClick={() => handleItemClick(item)}>Redeem</button>
+      <NavBarUser/>
+      {isLoading ? (
+        <div className="loyalty">
+        <div className="div">
+          <div className="text-wrapper">Checkout</div>
+          <div className="text-wrapper-2">Selected Items :</div>
+          <div className="text-wrapper-3">Loyalty</div>
+          <div className="text-wrapper-4">Your points : 3200</div>
+          <div className="frame">
+            {isLoading && loyaltyItems.map((data, index)=>{
+                return <div className="loyalty-items" key={index+1}>
+                <button className="button" onClick={() => handleItemClick(data)}>
+                  <div className="text">{data.points} - Redeem</div>
+                </button>
+                <div className="text-wrapper-5">{data.l_name}</div>
+                <div className="text-wrapper-6">{data.desc}</div>
+                <div className="photobox"><img src={data.l_image} style={{"width": "283px", "height": "148px"}}></img></div>
+                </div>
+            })}
+            
+                <button className="div-wrapper" onClick={handleCheckout} >
+                  <div className="text" >Checkout</div>
+                </button>
+  
+                {isDialogOpen && (
+                <dialog>
+                  <div>Redeem successful!</div>
+                  <button onClick={closeDialog}>Close</button>
+                </dialog>
+                )}
+  
+                
+                <p className="text-wrapper-7">Click the button below to finalize your redemption.</p>
+                {/* {user && (<p className="text-wrapper-8">Total Points left after checkout : {user[0].loyaltypoint - calculateTotalPoints()}</p>)} */}
+                <div className="frame-2">
+                {selectedItems.map((item, index) => {
+                  return <div className="frame-3" key={index+1}>
+                    <div className="text-wrapper-9" key={item.id}>{item.l_name}{' '}</div>
+                    <button className="text-wrapper-10 btn" onClick={()=>handleItemRemoval(item)}>remove</button>
+                  </div>
+                })}
+                </div>
+              </div>
             </div>
-          ))}
-        </div>
-
-        <div className="loyalty-summary">
-          <h3>Selected Items:</h3>
-          <ul>
-            {selectedItems.map((item) => (
-              <li key={item.id}>
-                {item.l_name}{' '}
-                <button onClick={() => handleItemRemoval(item)}>Remove</button>
-              </li>
-            ))}
-          </ul>
-          <p>Total Points: {calculateTotalPoints()}</p>
-        </div>
-
-        {!checkoutCompleted && (
-          <div className="checkout-section">
-            <h3>Checkout</h3>
-            <p>Click the button below to finalize your redemption:</p>
-            <button onClick={handleCheckout}>Redeem</button>
           </div>
-        )}
+      ) : (
+        <p>Still Loading...</p>
+      )}
 
-        {checkoutCompleted && (
-          <div className="checkout-completed">
-            <p>You do not have sufficient loyalty points.</p>
-            <button onClick={handleReturn}>Click here to continue to redeem</button>
-          </div>
-        )}
+    
       </div>
-    </div>
-  );
+          );
 };
 
-export default Loyalty;
+          export default Loyalty;

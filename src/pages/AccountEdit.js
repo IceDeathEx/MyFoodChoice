@@ -22,6 +22,8 @@ const AccountEdit = () => {
   const id = JSON.parse(window.localStorage.getItem("account"));
   const [userData, setuserdata] = useState([]);
   const [userData2, setuserdata2] = useState([]);
+  const currentDate = new Date();
+  const formatCurrentDate = currentDate.toISOString(); //Convert to ISO
 
   useEffect(() => {
     // Fetch the account owner's information
@@ -70,24 +72,43 @@ const AccountEdit = () => {
       password: password === "" ? originalUserData.password : password,
       bmi: bmi === "" ? originalUserData.bmi : bmi,
     }
-    if (iduserprofile === 1){
-      console.log("Update account function called");
-        Axios.put(`http://localhost:3002/api/accupdate/${id}`, updatedData);
-        Axios.put(`http://localhost:3002/api/accupdateUP/${userData2[0].iduserprofile}`, updatedData);
-        alert("Account profile successfully updated!");
-        navigate('/account');
-        window.location.reload(); 
-        console.log(password)
-
-      }
-         else{
-           Axios.put(`http://localhost:3002/api/accupdateUP/${userData2[0].iduserprofile}`, updatedData);
-           alert("Account profile successfully updated!");
-           navigate('/account');}
-           window.location.reload(); 
-
-      }
-
+    if (iduserprofile === 1) {
+    console.log("Update account function called");
+    Axios.put(`http://localhost:3002/api/accupdate/${id}`, updatedData);
+    Axios.put(`http://localhost:3002/api/accupdateUP/${userData2[0].iduserprofile}`, updatedData);
+    Axios.post(`http://localhost:3002/api/UserBMItracker/${id}`, {
+      iduserprofile: iduserprofile,
+      weight: weight,
+      height: height,
+      bmi: bmi,
+      timestamp: dateFormat("yyyy-mm-dd HH:MM:ss"),
+    })
+      .then((response) => {
+        console.log("User data added successfully");
+        setWeight("");
+        setHeight("");
+      })
+    alert("Account profile successfully updated!");
+    navigate('/account');
+    console.log(password);
+  } else {
+    Axios.put(`http://localhost:3002/api/accupdateUP/${userData2[0].iduserprofile}`, updatedData);
+    Axios.post(`http://localhost:3002/api/UserBMItracker/${id}`, {
+      iduserprofile: iduserprofile,
+      weight: weight,
+      height: height,
+      bmi: bmi,
+      timestamp: formatCurrentDate,
+    })
+      .then((response) => {
+        console.log("User data added successfully");
+        setWeight("");
+        setHeight("");
+      })
+    alert("Account profile successfully updated!");
+    navigate('/account');
+  }
+}
 
  const  handleChange2 = (e) =>{
   console.log(userData2)

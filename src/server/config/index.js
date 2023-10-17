@@ -429,6 +429,33 @@ app.get("/api/getUserProfile2/:id", (req, res) => {
   });
 });
 
+// Route to insert height, weight, bmi into bmitracker()
+app.post('/api/UserBMItracker/:id', (req, res) => {
+
+  const id = req.params.id;
+  const iduserprofile = req.body.iduserprofile;
+  const height = req.body.height;
+  const weight = req.body.weight;
+  const bmi = req.body.bmi;
+
+  db.query("INSERT INTO bmitracker(iduser, iduserprofile, height, weight, bmi, timestamp) VALUES (?,?,?,?,?, CURRENT_TIMESTAMP)", [id, iduserprofile, height, weight, bmi], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  });
+})
+
+// Get user BMI, weight, height for graph
+app.get("/api/UserBMIgraph/:id",(req, res) => {
+  db.query("SELECT * FROM bmitracker;", (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
 // Route to get all rows (WORKING)
 app.get("/api/getrecipeset", (req, res) => {
   db.query("SELECT * FROM recipeset;", (err, result) => {

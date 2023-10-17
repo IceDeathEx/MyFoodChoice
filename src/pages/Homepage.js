@@ -16,6 +16,7 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import DatePicker from 'react-datepicker';
 import ellipse from '../pics/ellipse-2.png';
 import Axios from "axios";
+import dateFormat from 'dateformat';
 
 const Homepage = () => {
   const [once, setOnce] = useState(false)
@@ -24,6 +25,7 @@ const Homepage = () => {
   const percentage = 58;
   const [selectedDate, setSelectedDate] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
+  const [BMIData, setBMIData] = useState([]);
 
   //const [nameStyle, setNameStyle] = useState({});
   const [userprofile, setuserprofile] = useState([])
@@ -78,7 +80,18 @@ const Homepage = () => {
       .catch((error) => {
         console.error("Error fetching user profile:", error);
       });
-    }, [path, selectedDate, id]);
+
+    Axios.get(`http://localhost:3002/api/UserBMIgraph/${id}`)
+      .then((response)=> {
+        const { data } = response;
+        setBMIData(data);
+        const graphData = BMIGraphData(data);
+      })
+  .catch((error) => {
+      console.error("Error fetching BMI data:", error);
+    });
+  }, [path, selectedDate, id]);
+
 
   const toggleCalendar = () => {
     setShowCalendar(!showCalendar);
@@ -95,49 +108,70 @@ const Homepage = () => {
   ]);
 
   const toggleNameStyle = (index) => {
-    // Create a copy of the current styles object
-    const newStyles = { ...nameStyles };
-
-    // Check if the style object for this index exists
-    if (!newStyles[index]) {
-      newStyles[index] = {
-        color: 'black',
-        fontWeight: '400',
-      };
-    } else {
-      // Toggle the color and font weight
-      newStyles[index] = {
-        color: newStyles[index].color === 'black' ? '#567710' : 'black',
-        fontWeight: newStyles[index].fontWeight === '400' ? 'bold' : '400',
-      };
-    }
+    const newStyles = nameStyles.map((style, i) => {
+      if (i === index) {
+        // Toggle the color and font weight for the clicked index
+        return {
+          color: style.color === 'black' ? '#567710' : 'black',
+          fontWeight: style.fontWeight === '400' ? 'bold' : '400',
+        };
+      } else {
+        // Reset the style for all other indices
+        return {
+          color: 'black',
+          fontWeight: '400',
+        };
+      }
+    });
 
     // Update the state with the new styles
     setNameStyles(newStyles);
   }
 
-  const weightGraphData = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'], 
-    datasets: [
-      {
-        label: '2023 Monthly Weight Progress',
-        fill: false,
-        lineTension: 0.1,
-        backgroundColor: 'rgba(75, 192, 192, 0.4)',
-        borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 2,
-        data: [70, 70.5, 71, 71.8, 72.2, 73, 73.8, 74.6, 75.5, 76, 76.4, 77],
-      },
-    ],
+  const BMIGraphData = (data) => {
+    const timestamps = data.map((item) => dateFormat(item.timestamp, "yyyy-mm-dd"));
+    const bmiValues = data.map((item) => item.bmi);
+    const heightValues = data.map((item) => item.height);
+    const weightValues = data.map((item) => item.weight);
+  
+    return {
+      labels: timestamps,
+      datasets: [
+        {
+          label: 'BMI',
+          fill: false,
+          lineTension: 0.1,
+          borderColor: 'rgba(75, 192, 192, 1)',
+          borderWidth: 2,
+          data: bmiValues,
+        },
+        {
+          label: 'Height',
+          fill: false,
+          lineTension: 0.1,
+          borderColor: 'rgba(192, 75, 75, 1)',
+          borderWidth: 2,
+          data: heightValues,
+        },
+        {
+          label: 'Weight',
+          fill: false,
+          lineTension: 0.1,
+          borderColor: 'rgba(75, 75, 192, 1)',
+          borderWidth: 2,
+          data: weightValues,
+        },
+      ],
+    };
   };
-
-  const weightGraphOptions = {
-    scales: {
-      y: {
-        suggestedMin: 50,
+    const BMIGraphOptions = {
+      scales: {
+        y: {
+          
+          suggestedMin: 50,
+        },
       },
-    },
-  };
+    };
 
 
   return (
@@ -257,7 +291,9 @@ const Homepage = () => {
               </div>
             </div>
             <div className="data-vi">
-            <Line data={weightGraphData} options={weightGraphOptions} />
+            <div className="weight-line-graph">
+            <Line data={BMIGraphData(BMIData)} options={BMIGraphOptions} />
+            </div>
             </div>
           </div>
           <ComponentBuynow className="buy-food-instance" />

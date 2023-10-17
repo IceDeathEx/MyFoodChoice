@@ -213,3 +213,7 @@
   position: absolute !important;
   top: 557px !important;
 }
+
+.weight-line-graph {
+  margin-top: -40px; /* Adjust the value as needed */
+}
