@@ -78,6 +78,10 @@ const AccountDetails = () => {
       setUserProfiles([]); // Set an empty array or handle the error case appropriately
       setisLoading(false);
     });
+    Axios.get(`http://localhost:3002/api/getshoppingcart/${id}`)
+        .then((data)=>{
+            settransaction(data.data)
+        })
 
   const modal = document.querySelector("#modal");
   const openModal = document.querySelector("#openModal");
@@ -274,23 +278,31 @@ const  handleChange2 = (e) =>{
   console.log(e.target.value)
 
 }
-const handleupgrade = () => {
-  var today = new Date()
-  Axios.post(`http://localhost:3002/api/createtransaction/${id}`, { 
-      uid: id, 
-      transitemid: 0,
-      transitemname: 'Upgrade',
-      transitemprice: 30.00,
-      transqty: 1, 
-      transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"), 
-      transitemvendor: 'Care Calories',
-      transstatus: 'Unpaid', 
-      payment: 'Counter',
-      transcategory: 'Upgrade'
-      })
+const [transaction, settransaction] = useState([])
 
-  navigate('/shoppingcart')
-  window.location.reload()
+const handleupgrade = () => {
+  if(transaction.filter((res)=> res.transcategory === 'Upgrade').length === 0){
+    var today = new Date()
+    Axios.post(`http://localhost:3002/api/createtransaction/${id}`, { 
+        uid: id, 
+        transitemid: 0,
+        transitemname: 'Upgrade',
+        transitemprice: 30.00,
+        transqty: 1, 
+        transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"), 
+        transitemvendor: 'Care Calories',
+        transstatus: 'Unpaid', 
+        payment: 'Counter',
+        transcategory: 'Upgrade'
+        })
+  
+    navigate('/shoppingcart')
+    //window.location.reload()
+  }
+  else{
+    console.log("Already added")
+  }
+  
 }
 
     return (

@@ -14,6 +14,7 @@ const RecipeList = () => {
     const [condition, setcondition] = useState('')
     const id = JSON.parse(window.localStorage.getItem("account"))
     const navigate = useNavigate()
+    const [transaction, settransaction] = useState([])
     const purchase1 = [12,5,6] //NEED TO CHANGE TO ARRAY OF TRANSACTION USER BY ID
     useEffect(() => {
         //Get the set items are out
@@ -28,6 +29,10 @@ const RecipeList = () => {
                 console.log(upcondition)
                 setcondition(data.data[0].conditions)
             })
+        Axios.get(`http://localhost:3002/api/getshoppingcart/${id}`)
+        .then((data)=>{
+            settransaction(data.data)
+        })
     }, [])
     const handleCondition = (e) => {
         setcondition(e.target.value)
@@ -43,8 +48,9 @@ const RecipeList = () => {
 
     }
     const handleOrder = (item) => {
-        var today = new Date()
-        Axios.post(`http://localhost:3002/api/createtransaction/${id}`, { 
+        if (transaction.filter((res)=> res.transitemid === item.setid && res.transcategory === 'Recipe').length === 0){
+            var today = new Date()
+            Axios.post(`http://localhost:3002/api/createtransaction/${id}`, { 
             uid: id, 
             transitemid: item.setid,
             transitemname: item.settitle,
@@ -56,9 +62,13 @@ const RecipeList = () => {
             payment: 'Counter',
             transcategory: 'Recipe'
             })
-
-        navigate('/shoppingcart')
-        window.location.reload()
+            navigate('/shoppingcart')
+            //window.location.reload()
+        }
+        else{
+            console.log('Already added')
+        }
+        
     }
     // Create dropdown based on the user profiles medical conditions
     return (

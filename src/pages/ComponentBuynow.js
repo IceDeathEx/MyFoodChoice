@@ -10,30 +10,41 @@ const ComponentBuynow = () => {
   const [foodItems, setFoodItems] = useState([]);
   const id = JSON.parse(window.localStorage.getItem("account"))
   const navigate = useNavigate()
+  const [transaction, settransaction] = useState([])
 
   useEffect(() => {
     Axios.get('http://localhost:3002/api/orderfood')
       .then((response) => setFoodItems(response.data))
       .catch((error) => console.error('Error fetching data:', error));
+      Axios.get(`http://localhost:3002/api/getshoppingcart/${id}`)
+      .then((data)=>{
+          settransaction(data.data)
+      })
   }, []);
 
   const handleOrder = (item) => {
-    var today = new Date()
-    Axios.post(`http://localhost:3002/api/createtransaction/${id}`, { 
-        uid: id, 
-        transitemid: item.ofid,
-        transitemname: item.ofname,
-        transitemprice: item.ofprice,
-        transqty: 1, 
-        transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"), 
-        transitemvendor: item.ofvendor,
-        transstatus: 'Unpaid', 
-        payment: 'Counter',
-        transcategory: 'Food'
-        })
+    if(transaction.filter((res)=> res.transitemid === item.ofid && res.transcategory === 'Food' ).length === 0){
+        var today = new Date()
+        Axios.post(`http://localhost:3002/api/createtransaction/${id}`, { 
+            uid: id, 
+            transitemid: item.ofid,
+            transitemname: item.ofname,
+            transitemprice: item.ofprice,
+            transqty: 1, 
+            transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"), 
+            transitemvendor: item.ofvendor,
+            transstatus: 'Unpaid', 
+            payment: 'Counter',
+            transcategory: 'Food'
+            })
 
-    navigate('/shoppingcart')
-    window.location.reload()
+        navigate('/shoppingcart')
+        //window.location.reload()
+    }
+    else{
+        console.log('Already added')
+    }
+    
 }
   return (
     <div className="frame">

@@ -15,6 +15,7 @@ const FoodOrder = () => {
     const [orderfood, setorderfood] = useState([])
     const [orderfood2, setorderfood2] = useState([])
     const [filterdata, setfilterdata] = useState([])
+    const [transaction, settransaction] = useState([])
 
     //Declare search conditions and filter conditions
     const [filter1, setfilter1] = useState('')
@@ -48,6 +49,10 @@ const FoodOrder = () => {
             setTotalPosts(res.data.length)
             setCurrentPosts(res.data.slice(indexOfFirstPost, indexOfLastPost))
             setIsLoading(true)
+        })
+        Axios.get(`http://localhost:3002/api/getshoppingcart/${uid}`)
+        .then((data)=>{
+            settransaction(data.data)
         })
     },[])
 
@@ -101,22 +106,28 @@ const FoodOrder = () => {
 
     //Handle The order by storing it in database
     const handleOrder = (item) => {
-        var today = new Date()
-        Axios.post(`http://localhost:3002/api/createtransaction/${uid}`, { 
-            uid: uid, 
-            transitemid: item.ofid,
-            transitemname: item.ofname,
-            transitemprice: item.ofprice,
-            transqty: 1, 
-            transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"), 
-            transitemvendor: item.ofvendor,
-            transstatus: 'Unpaid', 
-            payment: 'Counter',
-            transcategory: 'Food'
-            })
-
-        navigate('/shoppingcart')
-        window.location.reload()
+        if(transaction.filter((res)=> res.transitemid === item.ofid && res.transcategory === 'Food' ).length === 0){
+            var today = new Date()
+            Axios.post(`http://localhost:3002/api/createtransaction/${uid}`, { 
+                uid: uid, 
+                transitemid: item.ofid,
+                transitemname: item.ofname,
+                transitemprice: item.ofprice,
+                transqty: 1, 
+                transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"), 
+                transitemvendor: item.ofvendor,
+                transstatus: 'Unpaid', 
+                payment: 'Counter',
+                transcategory: 'Food'
+                })
+    
+            navigate('/shoppingcart')
+            //window.location.reload()
+        }
+        else{
+            console.log('Already added')
+        }
+        
     }
     
     return (

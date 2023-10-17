@@ -513,7 +513,7 @@ app.post('/api/createtransaction/:id', (req, res) => {
 // Route to get all rows for shopping cart (WORKING)
 app.get("/api/getshoppingcart/:id", (req, res) => {
   const id = req.params.id;
-  db.query("SELECT * FROM transaction WHERE uid=?;", id, (err, result) => {
+  db.query("SELECT * FROM transaction WHERE uid=? and transstatus='Unpaid';", id, (err, result) => {
     if (err) {
       console.log(err)
     }
@@ -536,11 +536,24 @@ app.delete('/api/deletetransactionrecord/:id', (req, res) => {
 // Route to get total price of shopping cart
 app.get("/api/gettotalprice/:id", (req, res) => {
   const id = req.params.id;
-  db.query("SELECT SUM(transitemprice) AS total FROM transaction WHERE uid=?;", id, (err, result) => {
+  db.query("SELECT SUM(transitemprice * transqty) AS total FROM myfoodchoice.transaction WHERE uid=? and transstatus='Unpaid';", id, (err, result) => {
     if (err) {
       console.log(err)
     }
     res.send(result)
+  });
+});
+
+// Route to update transaction row with rowid(WORKING)
+app.put('/api/updatetransactionrecord/:id', (req, res) => {
+
+  const id = req.params.id;
+  const transqty = req.body.transqty;
+  db.query("UPDATE transaction SET transqty = ? WHERE transid = ?;", [transqty, id], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
   });
 });
 

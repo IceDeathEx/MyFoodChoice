@@ -54,6 +54,10 @@ const ShoppingCart = () => {
         Axios.delete(`http://localhost:3002/api/deletetransactionrecord/${item.transid}`)
     }
     const [isLoading, setIsLoading] = useState(false)
+
+    const handleQtyChange = (item, e) => {
+        Axios.put(`http://localhost:3002/api/updatetransactionrecord/${item.transid}`,{transqty: e.target.value})
+    }
     return (
         <div>
             <NavBarUser/>
@@ -138,8 +142,8 @@ const ShoppingCart = () => {
                     <button className="btn" onClick={() => handleDelete(item)}>
                     <img className="trash-can" alt="Trash can" src={trash} />
                     </button>
-                    <div className="text-wrapper-18">${(Math.round(item.transitemprice * 100) / 100).toFixed(2)}</div>
-                    <input className="rectangle-2" type="number" placeholder={item.transqty} />
+                    <div className="text-wrapper-18">${(Math.round(item.transitemprice * item.transqty * 100) / 100).toFixed(2)}</div>
+                    <input className="rectangle-2" type="number" placeholder={item.transqty} onChange={(e)=> handleQtyChange(item, e)} />
                 </div>
                     }
                     
