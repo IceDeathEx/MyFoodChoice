@@ -94,7 +94,7 @@ const AccountEdit = () => {
   } else {
     Axios.put(`http://localhost:3002/api/accupdateUP/${userData2[0].iduserprofile}`, updatedData);
     Axios.post(`http://localhost:3002/api/UserBMItracker/${id}`, {
-      iduserprofile: iduserprofile,
+      iduserprofile:  userData2.filter((res)=>res.name === iduserprofile)[0].iduserprofile,
       weight: weight,
       height: height,
       bmi: bmi,
@@ -126,11 +126,11 @@ const AccountEdit = () => {
           <div className="account">
             <div className="div">
               <div className="text-wrapper">Hi, {userData2[0] ? userData2[0].name : ""} !!</div>
-              <form className="inputName">
-                <select id="cars" name="cars" onChange={handleChange2}>
+              <form className="inputName1">
+                <select className="inputName" id="cars" name="cars" onChange={handleChange2}>
                   {userData.map((profile, index) => (
-                    <option key={index} value={profile.name}>
-                      {profile.name}
+                    <option key={index} value=  {profile.name}>
+                        {profile.name}
                     </option>
                   ))}
                 </select>

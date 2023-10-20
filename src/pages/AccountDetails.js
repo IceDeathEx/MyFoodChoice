@@ -312,8 +312,8 @@ const handleupgrade = () => {
               <div className="account">
                 <div className="div">
                   <div className="text-wrapper">Hi, {userData2[0] ? userData2[0].name : ""} !!</div>
-                  <form className="inputName">
-                    <select onClick={handleChange2}>
+                  <form className="inputName1">
+                    <select className="inputName" onClick={handleChange2}>
                       {userData.map((profile, index) => (
                           <option key={index} value={profile.name}>
                             {profile.name}

@@ -620,6 +620,43 @@ app.put('/api/updatetransaction/:id', (req, res) => {
   });
 });
 
+// Route to inserting records to review table (WORKING)
+app.post('/api/addreview/:id', (req, res) => {
+
+  const star = req.body.star;
+  const title = req.body.title;
+  const body = req.body.body;
+  const id = req.params.id;
+
+  db.query("INSERT INTO review (reviewstar, reviewtitle, reviewbody, uid) VALUES (?, ?, ?, ?)", [star, title, body, id], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  });
+})
+
+// Route to get reviews
+app.get("/api/getreviews/", (req, res) => {
+  db.query("SELECT idreview, reviewstar, reviewtitle, reviewbody, uid, name FROM myfoodchoice.review left outer join myfoodchoice.user on myfoodchoice.user.id = myfoodchoice.review.uid;", (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+// Route to get vendors
+app.get("/api/getvendors", (req, res) => {
+  db.query("SELECT * FROM vendor;", (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+
 //Listening to PORT 3002
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`)

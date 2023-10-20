@@ -1,0 +1,373 @@
+.partnership-on {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.partnership-on .div {
+    background-color: #ffffff;
+    height: 3884px;
+    position: relative;
+    width: 1707px;
+}
+
+.partnership-on .group {
+    height: 84px;
+    left: 95px;
+    position: absolute;
+    top: 95px;
+    width: 294px;
+}
+
+.partnership-on .text-wrapper {
+    color: #1e1e1e;
+    font-family: "Poppins-Medium", Helvetica;
+    font-size: 40px;
+    font-weight: 500;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    width: 290px;
+}
+
+.partnership-on .text-wrapper-2 {
+    color: #1e1e1e;
+    font-family: "Poppins-Medium", Helvetica;
+    font-size: 20px;
+    font-weight: 500;
+    left: 2px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 54px;
+    width: 130px;
+}
+
+.partnership-on .group-2 {
+    height: 116px;
+    left: 95px;
+    position: absolute;
+    top: 1064px;
+    width: 1001px;
+}
+
+.partnership-on .text-wrapper-3 {
+    color: #1e1e1e;
+    font-family: "Poppins-Medium", Helvetica;
+    font-size: 40px;
+    font-weight: 500;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    width: 691px;
+}
+
+.partnership-on .p {
+    color: #1e1e1e;
+    font-family: "Poppins-Medium", Helvetica;
+    font-size: 20px;
+    font-weight: 500;
+    left: 2px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 54px;
+    width: 995px;
+}
+
+.partnership-on .group-3 {
+    height: 84px;
+    left: 91px;
+    position: absolute;
+    top: 2125px;
+    width: 695px;
+}
+
+.partnership-on .text-wrapper-4 {
+    color: #1e1e1e;
+    font-family: "Poppins-Medium", Helvetica;
+    font-size: 20px;
+    font-weight: 500;
+    left: 2px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 54px;
+    width: 639px;
+}
+
+.partnership-on .frame {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 21px;
+    left: 95px;
+    position: absolute;
+    top: 211px;
+}
+
+.partnership-on .frame-2 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 29px;
+    position: relative;
+}
+
+.partnership-on .job-offer {
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #cfcfcf;
+    border-radius: 8px;
+    display: flex;
+    gap: 77px;
+    height: 129px;
+    justify-content: center;
+    padding: 6px 17px 0px 37px;
+    position: relative;
+    width: 662px;
+}
+
+.partnership-on .download {
+    height: 49px;
+    object-fit: cover;
+    position: relative;
+    width: 211px;
+}
+
+.partnership-on .group-wrapper {
+    height: 54px;
+    position: relative;
+    width: 274px;
+}
+
+.partnership-on .group-4 {
+    height: 54px;
+    position: relative;
+    width: 280px;
+}
+
+.partnership-on .text-wrapper-5 {
+    color: #000000;
+    font-family: "Al Bayan-Plain", Helvetica;
+    font-size: 16px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    width: 274px;
+}
+
+.partnership-on .text-wrapper-6 {
+    color: #000000;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 11px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 26px;
+    width: 267px;
+}
+
+.partnership-on .text-wrapper-7 {
+    color: #a0a0a0;
+    font-family: "Roboto-Medium", Helvetica;
+    font-size: 11px;
+    font-weight: 500;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-decoration: underline;
+    top: 41px;
+    width: 274px;
+}
+
+.partnership-on .job-offer-2 {
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #cfcfcf;
+    border-radius: 8px;
+    display: flex;
+    gap: 77px;
+    height: 129px;
+    justify-content: center;
+    left: 0;
+    padding: 6px 17px 0px 37px;
+    position: absolute;
+    top: 0;
+    width: 660px;
+}
+
+.partnership-on .group-5 {
+    height: 789px;
+    left: 91px;
+    position: absolute;
+    top: 1180px;
+    width: 1537px;
+}
+
+.partnership-on .revolutionary {
+    color: #000000;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 40px;
+    font-weight: 400;
+    left: 6px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    width: 1112px;
+}
+
+.partnership-on .span {
+    font-weight: 700;
+}
+
+.partnership-on .text-wrapper-8 {
+    font-family: "Poppins-Medium", Helvetica;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.partnership-on .health-and-wellness {
+    color: #000000;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 40px;
+    font-weight: 400;
+    left: 410px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: right;
+    top: 205px;
+    width: 1112px;
+}
+
+.partnership-on .text-wrapper-9 {
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 24px;
+}
+
+.partnership-on .marketing-and {
+    color: #000000;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 40px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 394px;
+    width: 1112px;
+}
+
+.partnership-on .text-wrapper-10 {
+    font-family: "Poppins-Regular", Helvetica;
+    font-size: 20px;
+}
+
+.partnership-on .customer-engagement {
+    color: #000000;
+    font-family: "Poppins-Bold", Helvetica;
+    font-size: 40px;
+    font-weight: 400;
+    left: 417px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: right;
+    top: 618px;
+    width: 1112px;
+}
+
+.partnership-on .spaghetti {
+    height: 535px;
+    left: 190px;
+    object-fit: cover;
+    position: absolute;
+    top: 2739px;
+    width: 664px;
+}
+
+.partnership-on .rice {
+    height: 541px;
+    left: 991px;
+    object-fit: cover;
+    position: absolute;
+    top: 3187px;
+    width: 482px;
+}
+
+.partnership-on .group-6 {
+    height: 424px;
+    left: 93px;
+    position: absolute;
+    top: 2241px;
+    width: 1471px;
+}
+
+.partnership-on .rectangle {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 9px;
+    box-shadow: 0px 4px 4px #00000040;
+    height: 75px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 805px;
+}
+
+.partnership-on .rectangle-2 {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 12px;
+    box-shadow: 0px 4px 4px #00000040;
+    height: 229px;
+    left: 0;
+    position: absolute;
+    top: 97px;
+    width: 1450px;
+}
+
+.partnership-on .div-wrapper {
+    align-items: center;
+    background-color: #000000;
+    border-radius: 39.5px;
+    box-shadow: 0px 4px 4px #00000040;
+    display: inline-flex;
+    gap: 10px;
+    justify-content: center;
+    left: 1164px;
+    overflow: hidden;
+    padding: 24px 117px;
+    position: absolute;
+    top: 346px;
+}
+
+.partnership-on .text-wrapper-11 {
+    color: #ffffff;
+    font-family: "Poppins-Medium", Helvetica;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+}

@@ -1,6 +1,7 @@
 .navbar {
     height: 80px;
-    width: 1535px;
+    width: 100%;
+    transform: scale(1.0);
   }
   
   .navbar .frame-ob {
@@ -24,12 +25,13 @@
   
   .navbar .sign-up-button {
     all: unset;
-    box-sizing: border-box;
-    height: 38px;
-    left: 1273px;
-    position: absolute;
-    top: 21px;
-    width: 139px;
+  box-sizing: border-box;
+  height: 38px;
+  position: absolute;
+  top: 21px;
+  width: 139px;
+  right: 20px; /* Set the right position to 20px */
+  margin-right: 0; /* Reset any previous margin-right property */
   }
   
   .navbar .overlap-group {
@@ -55,23 +57,25 @@
   
   .navbar .div {
     color: #ffffff;
-    font-family: "Space Grotesk-Bold", Helvetica;
-    font-size: 16px;
-    font-weight: 700;
-    left: 1207px;
-    letter-spacing: 0;
-    line-height: 24px;
-    position: absolute;
-    top: 27px;
-    width: 60px;
+  font-family: "Space Grotesk-Bold", Helvetica;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 24px;
+  position: absolute;
+  top: 27px;
+  width: 60px;
+  right: 200px; /* Set the right position to 20px */
+  margin-right: 0px; /* Reset any previous margin-right property */
   }
   
   .navbar .main {
     height: 30px;
-    left: 509px;
-    position: absolute;
-    top: 29px;
-    width: 443px;
+  position: absolute;
+  top: 29px;
+  width: 443px;
+  left: 50%; /* Set left to 50% */
+  transform: translateX(-50%); /* Translate it back by -50% of its own width */
   }
   
   .navbar .text-wrapper-2 {

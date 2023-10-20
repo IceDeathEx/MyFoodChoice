@@ -113,8 +113,8 @@ const handleSearch = (e) =>{
             <button onClick={closeModal}>Close</button>
           </Modal>
 
-          <div className="navbar">
-            <select className="drp-list" onChange={handleChange}>
+          <div className="filter">
+            <select className="drplist" onChange={handleChange}>
               <option value= "Show All">Show All</option>
               <option value='Sports'>Sports</option>
               <option value='Weight Loss'>Weight Loss</option>

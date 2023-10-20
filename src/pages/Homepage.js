@@ -224,7 +224,7 @@ const Homepage = () => {
                 )}
               </div>
               <div className="text-wrapper">
-                {selectedDate ? `Today (${formatDate(selectedDate)})` : 'Today()'}
+              {selectedDate ? `Today (${selectedDate.toLocaleString('en-US', { timeZone: 'Asia/Singapore' }).slice(0, 10)})` : 'Today()'}
               </div>
               <div className="overlap-group">
                 <div className="overlap">

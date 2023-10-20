@@ -222,13 +222,7 @@
     width: 1394px;
   }
   
-  .healthtips-on-login .navbar {
-    height: 42px;
-    left: 381px;
-    position: absolute;
-    top: 227px;
-    width: 827px;
-  }
+  
   
   .healthtips-on-login .text-wrapper-4 {
     color: #000000;
@@ -326,7 +320,22 @@
     text-decoration: underline;
     cursor: pointer;
   }
-  .drp-list{
+
+  .healthtips-on-login .filter {
+    height: 42px;
+    left: 381px!important;
+    position: absolute;
+    top: 227px!important;
+    width: 827px!important;
+
+  }
+  .healthtips-on-login .drplist{
+    border-color:#000000;
+    border: 2.5px solid;
+    border-radius: 20px;
+    height: 42px;
+    position: absolute;
+    width: 827px!important;
     border-color:#000000;
     border: 2.5px solid;
     border-radius: 20px;

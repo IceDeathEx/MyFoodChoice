@@ -47,6 +47,7 @@ const FoodOrder = () => {
             const unique = [...new Set(res.data.map((item) => item.ofname))]
             setfilterdata(unique)
             setTotalPosts(res.data.length)
+            console.log(res.data.length)
             setCurrentPosts(res.data.slice(indexOfFirstPost, indexOfLastPost))
             setIsLoading(true)
         })

@@ -19,6 +19,8 @@ import RecipeDetails from './pages/RecipeDetails'
 import FoodOrder from './pages/FoodOrder'
 import ShoppingCart from './pages/ShoppingCart'
 import AboutUs from './pages/AboutUs'
+import PartnershipOn from './pages/PartnershipOn'
+import ReviewOn from './pages/ReviewOn'
 const App = () => {
 
   return (
@@ -27,6 +29,8 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp/>}/>
               <Route path="/aboutus" element={<AboutUs/>}/>
+              <Route path="/partnership" element={<PartnershipOn/>}/>
+              <Route path="/review" element={<ReviewOn/>}/>
 
               <Route path="/homepage" element={<RequireAuth loginPath={'/login'}><Homepage /></RequireAuth>}/>
               <Route path="/mealrecord" element={<RequireAuth loginPath={'/login'}><MealRecords /></RequireAuth>}/>

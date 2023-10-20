@@ -1,11 +1,17 @@
+body {
+  overflow-x: hidden;
+}
+
 .element {
   align-items: center;
   background-color: #000000;
   display: flex;
-  gap: 109px;
-  padding: 8px 17px 8px 45px;
+  gap: 10px;
+  justify-content: space-between; /* Space elements apart horizontally */
+  padding: 10px 10px 10px 10px; /* Adjusted right and left padding */
   position: relative;
   width: 100% ;
+  align-items: center;
 }
   
   .element .care-calories {
@@ -55,13 +61,6 @@
     width: 121px;
   }
   
-  .element .icon-outline {
-    height: 16px !important;
-    left: 103px !important;
-    position: absolute !important;
-    top: 4px !important;
-    width: 16px !important;
-  }
   
   .element .health-tips {
     height: 24px;
@@ -142,21 +141,21 @@
   
   .element .cart {
     height: 25px;
-    position: relative;
-    width: 39.25px;
-    margin-right: 20px;
+    right: 0;
   }
 
   .element .ellipse {
     height: 57px;
-    object-fit: cover;
-    position: relative;
-    width: 56px;
-    margin-right: 10px;
+  object-fit: cover;
+  width: 56px; 
+  left: -40px; /* Adjusted left position by -20px */
   }
   .dropdown {
   float: left;
   overflow: hidden;
+
+  
+
 }
 
 .dropdown .dropbtn {
@@ -168,6 +167,7 @@
   background-color: inherit;
   font-family: inherit;
   margin: 0;
+  padding-right: 50px;
 }
 
 
@@ -178,6 +178,7 @@
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  left : 1700px;
 }
 
 .dropdown-content a {

@@ -1,6 +1,7 @@
 .onboarding {
-    height: 1009px;
-    width: 1535px;
+  width: 100%; /* Make it fit the screen horizontally */
+  height: 1009px; /* Maintain the original height */
+  margin: 0 auto; /* Center it horizontally using margin auto */
   }
   
   .onboarding .overlap {

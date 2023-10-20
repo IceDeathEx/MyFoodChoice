@@ -13,6 +13,9 @@ const Onboarding = () => {
     }
 
     return (
+        <div>
+            <Navbar1/>
+        
         <div className="onboarding">
             <div className="overlap">
                 <div className="onboarding-page">
@@ -34,8 +37,9 @@ const Onboarding = () => {
                 </div>
                 <img className="image" alt="pic" src={image1} />
                 <img className="img" alt="pic" src={image2} />
-                <Navbar1/>
+                
             </div>
+        </div>
         </div>
     );
 }
