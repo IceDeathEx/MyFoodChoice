@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import NavBarUser from './NavBarUser';
-import Axios from "axios";
 import dateFormat from 'dateformat';
+import CareCalories from "../server/config/CareCalories";
 
 const Transaction = () => {
     const [loyaltydb, setloyaltydb] = useState([])
@@ -14,11 +14,11 @@ const Transaction = () => {
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(()=>{
-        Axios.get(`http://localhost:3002/api/loyaltytransaction/${id}`)
+        CareCalories.get(`/api/loyaltytransaction/${id}`)
         .then((data)=>{
             setloyaltydb(data.data.reverse())
         })
-        Axios.get(`http://localhost:3002/api/gettransactionpaidandunpaid/${id}`)
+        CareCalories.get(`/api/gettransactionpaidandunpaid/${id}`)
         .then((data)=>{
             settransaction(data.data.reverse())
         })

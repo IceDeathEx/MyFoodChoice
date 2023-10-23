@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "../css/styleHT.css";
 import NavBarUser from "./NavBarUser";
-import Axios from "axios";
 import dateFormat from 'dateformat';
 import Modal from 'react-modal';
+import CareCalories from "../server/config/CareCalories";
 
 // Styling of the Modal
 const customStyles = {
@@ -28,7 +28,7 @@ const HealthTips = () => {
   const [isLoading, setIsLoading] = useState(false)
   //Usage of useEffect
   useEffect(() => {
-    Axios.get('http://localhost:3002/api/getHealthTips')
+    CareCalories.get('/api/getHealthTips')
       .then((data) => {
         sethtdata(data.data)
         sethtdata2(data.data)

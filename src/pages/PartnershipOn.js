@@ -4,15 +4,15 @@ import encik from "../pics/download-1.png";
 import spaghetti from "../pics/spaghetti.gif";
 import rice from "../pics/rice.gif";
 import Navbar1 from "./Navbar1";
-import Axios from "axios";
 import { useNavigate } from "react-router";
+import CareCalories from "../server/config/CareCalories";
 
 const PartnershipOn = () => {
     const [vendor, setvendor] = useState ([])
     const navigate = useNavigate()
     const [isloading, setisloading] = useState(false)
     useEffect(()=>{
-        Axios.get("http://localhost:3002/api/getvendors")
+        CareCalories.get("/api/getvendors")
         .then((res)=>{
             setvendor(res.data)
         })

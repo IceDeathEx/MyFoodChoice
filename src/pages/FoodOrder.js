@@ -2,12 +2,12 @@ import React, {useEffect, useState} from "react";
 import "../css/FoodOrderstyle.css";
 import icon from '../pics/Icon.png';
 import NavBarUser from "./NavBarUser";
-import Axios from "axios";
 import line_4 from "../pics/Line_4.svg"
 import Pagination from "./Pagination"
 import { useParams } from "react-router";
 import { useNavigate } from "react-router";
 import dateFormat from 'dateformat';
+import CareCalories from "../server/config/CareCalories";
 
 const FoodOrder = () => {
 
@@ -34,7 +34,7 @@ const FoodOrder = () => {
 
     //Use useEffect to load initial rendering
     useEffect(()=>{
-        Axios.get("http://localhost:3002/api/getorderfood")
+        CareCalories.get("/api/getorderfood")
         .then((res)=>{
             setorderfood(res.data)
             if(id.category === 'All'){
@@ -51,7 +51,7 @@ const FoodOrder = () => {
             setCurrentPosts(res.data.slice(indexOfFirstPost, indexOfLastPost))
             setIsLoading(true)
         })
-        Axios.get(`http://localhost:3002/api/getshoppingcart/${uid}`)
+        CareCalories.get(`/api/getshoppingcart/${uid}`)
         .then((data)=>{
             settransaction(data.data)
         })
@@ -109,7 +109,7 @@ const FoodOrder = () => {
     const handleOrder = (item) => {
         if(transaction.filter((res)=> res.transitemid === item.ofid && res.transcategory === 'Food' ).length === 0){
             var today = new Date()
-            Axios.post(`http://localhost:3002/api/createtransaction/${uid}`, { 
+            CareCalories.post(`/api/createtransaction/${uid}`, { 
                 uid: uid, 
                 transitemid: item.ofid,
                 transitemname: item.ofname,

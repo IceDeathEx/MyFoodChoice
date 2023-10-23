@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import NavBarUser from "./NavBarUser";
 import ReactStars from "react-rating-stars-component";
 import "../css/reviewStyle.css";
-import Axios from "axios";
 import { useNavigate } from "react-router";
+import CareCalories from "../server/config/CareCalories";
 
 const Feedback = () => {
   const ratingChanged = (newRating) => {
@@ -20,7 +20,7 @@ const Feedback = () => {
       console.log('Please fill in the fields to continue')
     }
     else{
-      Axios.post(`http://localhost:3002/api/addreview/${uid}`, 
+      CareCalories.post(`/api/addreview/${uid}`, 
       {
       star: rating,
       title: title,

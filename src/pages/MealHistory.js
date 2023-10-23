@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import NavBarUser from './NavBarUser';
-import Axios from "axios";
 import dateFormat from 'dateformat';
+import CareCalories from "../server/config/CareCalories";
 
 const MealHistory = () => {
     const id = JSON.parse(window.localStorage.getItem("account"))
@@ -11,13 +11,13 @@ const MealHistory = () => {
     const [condition1, setcondition1] = useState(null) //Condition1 is the user profile name
     const [condition2, setcondition2] = useState('') //Condition2 is the user type in field
     useEffect(()=>{
-        Axios.get(`http://localhost:3002/api/getmealrecordfullinfo/${id}`)
+        CareCalories.get(`/api/getmealrecordfullinfo/${id}`)
         .then((data)=>{
             setmealrecorddb(data.data)
             setmealrecorddb3(data.data.filter((res)=> res.upid === 1))
             setcondition1(data.data.filter((res)=> res.upid === 1)[0].name)
         })
-        Axios.get(`http://localhost:3002/api/getUserProfile/${id}`)
+        CareCalories.get(`/api/getUserProfile/${id}`)
             .then((data) => {
                 setuserprofile(data.data)
             })

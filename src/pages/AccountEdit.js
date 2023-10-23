@@ -3,8 +3,8 @@ import "../css/styleAccount.css";
 import image from "../pics/ellipse-2.png";
 import NavBarUser from "./NavBarUser";
 import { Link } from "react-router-dom";
-import Axios from "axios";
 import dateFormat from "dateformat";
+import CareCalories from "../server/config/CareCalories";
 import { useNavigate } from 'react-router';
 
 const AccountEdit = () => {
@@ -27,7 +27,7 @@ const AccountEdit = () => {
 
   useEffect(() => {
     // Fetch the account owner's information
-    Axios.get(`http://localhost:3002/api/getUser/${id}`)
+    CareCalories.get(`/api/getUser/${id}`)
       .then((res) => {
         setUser(res.data);
       })
@@ -36,7 +36,7 @@ const AccountEdit = () => {
       });
 
     // Fetch the added profiles' information
-    Axios.get(`http://localhost:3002/api/getUserProfiles/${id}`)
+    CareCalories.get(`/api/getUserProfiles/${id}`)
       .then((res) => {
         const profiles = res.data;
         setuserdata(res.data);
@@ -74,9 +74,9 @@ const AccountEdit = () => {
     }
     if (iduserprofile === 1) {
     console.log("Update account function called");
-    Axios.put(`http://localhost:3002/api/accupdate/${id}`, updatedData);
-    Axios.put(`http://localhost:3002/api/accupdateUP/${userData2[0].iduserprofile}`, updatedData);
-    Axios.post(`http://localhost:3002/api/UserBMItracker/${id}`, {
+    CareCalories.put(`/api/accupdate/${id}`, updatedData);
+    CareCalories.put(`/api/accupdateUP/${userData2[0].iduserprofile}`, updatedData);
+    CareCalories.post(`/api/UserBMItracker/${id}`, {
       iduserprofile: iduserprofile,
       weight: weight,
       height: height,
@@ -92,8 +92,8 @@ const AccountEdit = () => {
     navigate('/account');
     console.log(password);
   } else {
-    Axios.put(`http://localhost:3002/api/accupdateUP/${userData2[0].iduserprofile}`, updatedData);
-    Axios.post(`http://localhost:3002/api/UserBMItracker/${id}`, {
+    CareCalories.put(`/api/accupdateUP/${userData2[0].iduserprofile}`, updatedData);
+    CareCalories.post(`/api/UserBMItracker/${id}`, {
       iduserprofile:  userData2.filter((res)=>res.name === iduserprofile)[0].iduserprofile,
       weight: weight,
       height: height,

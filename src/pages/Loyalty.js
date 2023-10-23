@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import "../css/loyalty.css";
-import Axios from 'axios'; // Make sure Axios is installed in your project
 import { useNavigate } from "react-router";
 import dateFormat from 'dateformat';
 import NavBarUser from './NavBarUser';
+import CareCalories from "../server/config/CareCalories";
 
 export const Loyalty = () => {
   const [loyaltyItems, setLoyaltyItems] = useState([]);
@@ -15,11 +15,11 @@ export const Loyalty = () => {
   const id = JSON.parse(window.localStorage.getItem("account"))
   // Function to fetch loyalty items from the server when the component mounts
   useEffect(() => {
-    Axios.get('http://localhost:3002/api/loyaltyitem') // Replace with your API endpoint
+    CareCalories.get('/api/loyaltyitem') // Replace with your API endpoint
       .then((response) => setLoyaltyItems(response.data))
       .catch((error) => console.error('Error fetching data:', error));
 
-    Axios.get(`http://localhost:3002/api/getUser/${16}`)
+    CareCalories.get(`/api/getUser/${16}`)
       .then((res)=>{
         setUser(res.data)
       })
@@ -65,9 +65,9 @@ export const Loyalty = () => {
       if(user[0].loyaltypoint > pts){
         const balance = user[0].loyaltypoint - pts
         
-        Axios.put(`http://localhost:3002/api/updateloyaltypts/${id}`, {balance: balance})
+        CareCalories.put(`/api/updateloyaltypts/${id}`, {balance: balance})
         selectedItems.map((claimeditem) =>{
-          Axios.post("http://localhost:3002/api/loyaltytransaction",{
+          CareCalories.post("/api/loyaltytransaction",{
             userid : id,
             itemname : claimeditem.l_name,
             point : claimeditem.points,

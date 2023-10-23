@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "../css/RecipeListstyle.css";
 import NavBarUser from "./NavBarUser";
-import Axios from "axios";
 import { useNavigate } from "react-router";
 import dateFormat from 'dateformat';
 import { Link } from "react-router-dom";
+import CareCalories from "../server/config/CareCalories";
 
 const RecipeList = () => {
     const [recipeset, setrecipeset] = useState([])
@@ -19,21 +19,21 @@ const RecipeList = () => {
     const purchase1 = [12,5,6] //NEED TO CHANGE TO ARRAY OF TRANSACTION USER BY ID
     useEffect(() => {
         //Get the set items are out
-        Axios.get("http://localhost:3002/api/getrecipeset")
+        CareCalories.get("/api/getrecipeset")
             .then((res) => {
                 setrecipeset(res.data)
             })
-        Axios.get(`http://localhost:3002/api/getUserProfile/${id}`)
+        CareCalories.get(`/api/getUserProfile/${id}`)
             .then((data) => {
                 const unique = [...new Set(data.data.map((item) => item.conditions))]
                 setupcondition(unique)
                 setcondition(data.data[0].conditions)
             })
-        Axios.get(`http://localhost:3002/api/getshoppingcart/${id}`)
+        CareCalories.get(`/api/getshoppingcart/${id}`)
         .then((data)=>{
             settransaction(data.data)
         })
-        Axios.get(`http://localhost:3002/api/gettransactionpaid/${id}`)
+        CareCalories.get(`/api/gettransactionpaid/${id}`)
         .then((data)=>{
             settransactionpaid(data.data)
         })
@@ -54,7 +54,7 @@ const RecipeList = () => {
     const handleOrder = (item) => {
         if (transaction.filter((res)=> res.transitemid === item.setid && res.transcategory === 'Recipe').length === 0){
             var today = new Date()
-            Axios.post(`http://localhost:3002/api/createtransaction/${id}`, { 
+            CareCalories.post(`/api/createtransaction/${id}`, { 
             uid: id, 
             transitemid: item.setid,
             transitemname: item.settitle,

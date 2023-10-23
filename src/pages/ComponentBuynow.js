@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import '../css/StyleBuyNow.css';
-import Axios from 'axios';
 import icon from '../pics/Icon.png';
-import {Link} from "react-router-dom";
 import { useNavigate } from "react-router";
 import dateFormat from 'dateformat';
+import CareCalories from "../server/config/CareCalories";
 
 const ComponentBuynow = () => {
   const [foodItems, setFoodItems] = useState([]);
@@ -13,10 +12,10 @@ const ComponentBuynow = () => {
   const [transaction, settransaction] = useState([])
 
   useEffect(() => {
-    Axios.get('http://localhost:3002/api/orderfood')
+    CareCalories.get('/api/orderfood')
       .then((response) => setFoodItems(response.data))
       .catch((error) => console.error('Error fetching data:', error));
-      Axios.get(`http://localhost:3002/api/getshoppingcart/${id}`)
+      CareCalories.get(`/api/getshoppingcart/${id}`)
       .then((data)=>{
           settransaction(data.data)
       })
@@ -25,7 +24,7 @@ const ComponentBuynow = () => {
   const handleOrder = (item) => {
     if(transaction.filter((res)=> res.transitemid === item.ofid && res.transcategory === 'Food' ).length === 0){
         var today = new Date()
-        Axios.post(`http://localhost:3002/api/createtransaction/${id}`, { 
+        CareCalories.post(`/api/createtransaction/${id}`, { 
             uid: id, 
             transitemid: item.ofid,
             transitemname: item.ofname,

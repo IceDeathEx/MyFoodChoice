@@ -15,8 +15,8 @@ import { Line } from 'react-chartjs-2';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import DatePicker from 'react-datepicker';
 import ellipse from '../pics/ellipse-2.png';
-import Axios from "axios";
 import dateFormat from 'dateformat';
+import CareCalories from "../server/config/CareCalories";
 
 const Homepage = () => {
   const [once, setOnce] = useState(false)
@@ -48,8 +48,8 @@ const Homepage = () => {
   
     // Fetch meal data based on selected date
     if (selectedDate) {
-      Axios.get(
-        `http://localhost:3002/api/mealrecord?date=${selectedDate.toISOString()}`
+      CareCalories.get(
+        `/api/mealrecord?date=${selectedDate.toISOString()}`
       )
         .then((response) => {
           const { data } = response;
@@ -73,7 +73,7 @@ const Homepage = () => {
     }
 
     // Fetch user profile based on id
-    Axios.get(`http://localhost:3002/api/getUserProfile2/${id}`)
+    CareCalories.get(`/api/getUserProfile2/${id}`)
       .then((res) => {
         setuserprofile(res.data);
       })
@@ -81,7 +81,7 @@ const Homepage = () => {
         console.error("Error fetching user profile:", error);
       });
 
-    Axios.get(`http://localhost:3002/api/UserBMIgraph/${id}`)
+    CareCalories.get(`/api/UserBMIgraph/${id}`)
       .then((response)=> {
         const { data } = response;
         setBMIData(data);

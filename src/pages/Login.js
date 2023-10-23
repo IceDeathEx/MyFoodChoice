@@ -5,9 +5,9 @@ import image2 from "../pics/image-2.png";
 import image1 from "../pics/image-1.png";
 import { useNavigate } from "react-router";
 import { Link, useLocation } from "react-router-dom";
-import Axios from 'axios';
 import { useSignIn } from 'react-auth-kit'
 import redX from '../pics/icon_circleX.png';
+import CareCalories from "../server/config/CareCalories";
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -37,7 +37,7 @@ const Login = () => {
       window.localStorage.setItem('path', JSON.stringify(location))
       //Using axios to check for login Creds.
       if(username && password){
-        Axios.post("http://localhost:3002/api/validateLoginCreds", {username: username, password: password})
+        CareCalories.post("/api/validateLoginCreds", {username: username, password: password})
       .then((res)=>{
           if(res.status === 200){
             //Can use res.data.user[0].columnName to get the user details from here.

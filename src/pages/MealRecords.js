@@ -3,10 +3,10 @@ import "../css/MealRecord.css";
 import NavBarUser from './NavBarUser'
 import arrow from '../pics/arrow-7.svg';
 import ellipse from '../pics/ellipse-2.png';
-import Axios from "axios";
 import * as tf from '@tensorflow/tfjs';
 import dateFormat from 'dateformat';
 import { useNavigate } from "react-router";
+import CareCalories from "../server/config/CareCalories";
 
 export const MealRecords = () => {
 
@@ -142,7 +142,7 @@ export const MealRecords = () => {
             }
             //Do a post to meal record database
             state.mrUser2.map((data) => {
-                Axios.post("http://localhost:3002/api/insertmealrecords", {
+                CareCalories.post("/api/insertmealrecords", {
                     upid: data.iduserprofile,
                     uid: id,
                     foodid: filteredSearch3[0].id,
@@ -155,7 +155,7 @@ export const MealRecords = () => {
                 console.log("Do nothing")
             }
             else {
-                Axios.put(`http://localhost:3002/api/userpointsupdate/${id}`, { balance: 25 })
+                CareCalories.put(`/api/userpointsupdate/${id}`, { balance: 25 })
                 navigate("/homepage")
             }
 
@@ -182,20 +182,20 @@ export const MealRecords = () => {
     }
     //Store the database food nutrition values inside
     useEffect(() => {
-        Axios.get('http://localhost:3002/api/getfoodnutrition')
+        CareCalories.get('/api/getfoodnutrition')
             .then((res) => {
                 setFoodnutrition(res.data)
             })
-        Axios.get(`http://localhost:3002/api/getUserProfile/${id}`)
+        CareCalories.get(`/api/getUserProfile/${id}`)
             .then((data) => {
                 setUserProfile(data.data)
                 setmrUser(data.data)
             })
-        Axios.get(`http://localhost:3002/api/getUser/${id}`)
+        CareCalories.get(`/api/getUser/${id}`)
             .then((data) => {
                 setuser(data.data)
             })
-        Axios.get(`http://localhost:3002/api/getmealrecord/${id}`)
+        CareCalories.get(`/api/getmealrecord/${id}`)
             .then((data) => {
                 setmealrecord(data.data)
             })
@@ -259,7 +259,7 @@ export const MealRecords = () => {
             setFoodValue(predictedClass)
             //Get nutritional values from database
             const id = predicted_index + 1
-            await Axios.get(`http://localhost:3002/api/getFood/${id}`).then((res) => {
+            await CareCalories.get(`/api/getFood/${id}`).then((res) => {
                 setFilteredSearch3(res.data)
             })
         }
@@ -281,7 +281,7 @@ export const MealRecords = () => {
             setFoodValue(predictedClass)
             //Get nutritional values from database
             const id = predicted_index + 1
-            await Axios.get(`http://localhost:3002/api/getFood/${id}`).then((res) => {
+            await CareCalories.get(`/api/getFood/${id}`).then((res) => {
                 setFilteredSearch3(res.data)
             })
         }

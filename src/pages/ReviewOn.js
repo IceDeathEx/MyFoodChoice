@@ -1,9 +1,8 @@
 import React, {useState, useEffect} from "react";
 import "../css/ReviewOnstyle.css";
 import ReactStars from "react-rating-stars-component";
-import { render } from "react-dom";
 import Navbar1 from "./Navbar1";
-import Axios from "axios";
+import CareCalories from "../server/config/CareCalories";
 
 const ReviewOn = () => {
   const ratingChanged = (newRating) => {
@@ -12,7 +11,7 @@ const ReviewOn = () => {
   const [isLoading, setisloading] = useState(false)
   const [reviews, setreviews] = useState([])
   useEffect (()=>{
-    Axios.get("http://localhost:3002/api/getreviews")
+    CareCalories.get("/api/getreviews")
     .then((res)=>{
       setreviews(res.data)
       console.log(res.data)

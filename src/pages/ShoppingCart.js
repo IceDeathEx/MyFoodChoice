@@ -6,9 +6,9 @@ import line2 from '../pics/Line_2.png';
 import { useState, useEffect } from "react";
 import check from "../pics/icon-circle-check.png"
 import NavBarUser from "./NavBarUser";
-import Axios from "axios";
 import { useNavigate } from "react-router";
 import dateFormat from 'dateformat';
+import CareCalories from "../server/config/CareCalories";
 
 const ShoppingCart = () => {
     const [showCreditCardForm, setShowCreditCardForm] = useState(false);
@@ -77,7 +77,7 @@ const ShoppingCart = () => {
             if (isValidCardNumber && isValidExpirationDate && isValidCVV) {
                 //console.log("Credit card information is valid.");
                 transaction.map((item)=>{
-                    Axios.put(`http://localhost:3002/api/updatetransaction/${uid}`, {
+                    CareCalories.put(`/api/updatetransaction/${uid}`, {
                         transstatus: 'Paid',
                         transid: item.transid,
                         transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss")
@@ -91,7 +91,7 @@ const ShoppingCart = () => {
         }
         else if(payment === 'Counter'){
             transaction.map((item)=>{
-                Axios.put(`http://localhost:3002/api/updatetransaction/${uid}`, {
+                CareCalories.put(`/api/updatetransaction/${uid}`, {
                     transstatus: 'Unpaid',
                     transid: item.transid,
                     transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss")
@@ -114,11 +114,11 @@ const ShoppingCart = () => {
     const [payment, setpayment] = useState('')
     const navigate = useNavigate()
     useEffect(()=>{
-        Axios.get(`http://localhost:3002/api/getshoppingcart/${uid}`)
+        CareCalories.get(`/api/getshoppingcart/${uid}`)
         .then((data)=>{
             settransaction(data.data)
         })
-        Axios.get(`http://localhost:3002/api/gettotalprice/${uid}`)
+        CareCalories.get(`/api/gettotalprice/${uid}`)
         .then((data)=>{
             settotalprice(data.data)
         })
@@ -126,12 +126,12 @@ const ShoppingCart = () => {
     })
 
     const handleDelete = (item) => {
-        Axios.delete(`http://localhost:3002/api/deletetransactionrecord/${item.transid}`)
+        CareCalories.delete(`/api/deletetransactionrecord/${item.transid}`)
     }
     const [isLoading, setIsLoading] = useState(false)
 
     const handleQtyChange = (item, e) => {
-        Axios.put(`http://localhost:3002/api/updatetransactionrecord/${item.transid}`,{transqty: e.target.value})
+        CareCalories.put(`/api/updatetransactionrecord/${item.transid}`,{transqty: e.target.value})
     }
     return (
         <div>

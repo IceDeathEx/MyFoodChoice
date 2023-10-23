@@ -4,7 +4,7 @@ import foodPhoto from '../pics/rectangle-392.png'
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import NavBarUser from "./NavBarUser";
-import Axios from "axios";
+import CareCalories from "../server/config/CareCalories";
 
 const RecipeDetails = () => {
     const id = useParams() // This is the id passed from previous page.
@@ -17,21 +17,21 @@ const RecipeDetails = () => {
     const [recipearr, setrecipearr] = useState([])
     useEffect(() => {
         let x = ''
-        Axios.get(`http://localhost:3002/api/getrecipesetbyid/${id.id}`)
+        CareCalories.get(`/api/getrecipesetbyid/${id.id}`)
             .then((res) => {
                 setrecipeset(res.data)
                 setrecipe(res.data[0].recipeid1)
                 x = res.data[0].recipeid1
             })
-        Axios.get("http://localhost:3002/api/getrecipestep")
+        CareCalories.get("/api/getrecipestep")
             .then((res) => {
                 setrecipestep(res.data)
             })
-        Axios.get("http://localhost:3002/api/getrecipeingredient")
+        CareCalories.get("/api/getrecipeingredient")
             .then((res) => {
                 setrecipeingredient(res.data)
             })
-        Axios.get("http://localhost:3002/api/getrecipe")
+        CareCalories.get("/api/getrecipe")
             .then((res) => {
                 setrecipearr(res.data)
                 setimg(res.data.filter((res)=> res.recipetitle === x)[0].recipeimage)

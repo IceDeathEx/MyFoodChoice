@@ -6,8 +6,8 @@ import image2 from '../pics/image-2.png';
 
 import { Link } from "react-router-dom";
 import React, { useState } from 'react';
-import Axios from 'axios';
 import { useNavigate } from 'react-router';
+import CareCalories from "../server/config/CareCalories";
 
 const SignUp = () => {
     const [email, setEmail] = useState(null);
@@ -90,7 +90,7 @@ const SignUp = () => {
             }
           }
           setEmailEmpty(false)
-          const response = await Axios.post('http://localhost:3002/api/check-email-exists', {
+          const response = await CareCalories.post('/api/check-email-exists', {
             email: email,
           });
             // If the response indicates that the email exists
@@ -202,7 +202,7 @@ const SignUp = () => {
           setInvalidAge(true)
           setInvalidAgeMsg('Please enter an age 1 year or older.')
          }else{
-          Axios.post('http://localhost:3002/api/signup', {
+          CareCalories.post('/api/signup', {
             email: email,
             name: name,
             password: password,

@@ -3,9 +3,9 @@ import "../css/styleAccount.css";
 import image from '../pics/ellipse-2.png'
 import NavBarUser from "./NavBarUser";
 import { Link } from "react-router-dom";
-import Axios from "axios";
 import dateFormat from 'dateformat';
 import { useNavigate } from 'react-router';
+import CareCalories from "../server/config/CareCalories";
 
 
 const AccountDetails = () => {
@@ -51,7 +51,7 @@ const AccountDetails = () => {
 
   useEffect(() => {
   // Fetch the account owner's information
-  Axios.get(`http://localhost:3002/api/getUser/${id}`)
+  CareCalories.get(`/api/getUser/${id}`)
     .then((res) => {
       setUser(res.data);
     })
@@ -60,7 +60,7 @@ const AccountDetails = () => {
     });
 
   // Fetch the added profiles' information
-  Axios.get(`http://localhost:3002/api/getUserProfiles/${id}`)
+  CareCalories.get(`/api/getUserProfiles/${id}`)
     .then((res) => {
       const profiles = res.data;
       setuserdata(res.data);
@@ -78,7 +78,7 @@ const AccountDetails = () => {
       setUserProfiles([]); // Set an empty array or handle the error case appropriately
       setisLoading(false);
     });
-    Axios.get(`http://localhost:3002/api/getshoppingcart/${id}`)
+    CareCalories.get(`/api/getshoppingcart/${id}`)
         .then((data)=>{
             settransaction(data.data)
         })
@@ -159,7 +159,7 @@ const AccountDetails = () => {
   }
 
   if (isFormValid) {
-    Axios.post("http://localhost:3002/api/addIdProfile", {
+    CareCalories.post("/api/addIdProfile", {
       name: name,
       dob: dob,
       weight: weight,
@@ -235,7 +235,7 @@ const AccountDetails = () => {
           alert("You can't add more profiles. The maximum limit is 5.");
         } else {
           setuserprofileid(i + 1);
-          Axios.post("http://localhost:3002/api/addIdProfile", )
+          CareCalories.post("/api/addIdProfile", )
               .then((response) => {
                 console.log('Successfully added iduserprofile:', response.data);
               })
@@ -248,7 +248,7 @@ const AccountDetails = () => {
     }
   };
   const DeleteProfile = () => {
-  Axios.delete(`http://localhost:3002/api/deleteProfile/${userData2[0].iduserprofile}`)
+  CareCalories.delete(`/api/deleteProfile/${userData2[0].iduserprofile}`)
     .then((response) => {
       console.log("Profile deleted successfully");
       alert("Profile successfully deleted!");
@@ -283,7 +283,7 @@ const [transaction, settransaction] = useState([])
 const handleupgrade = () => {
   if(transaction.filter((res)=> res.transcategory === 'Upgrade').length === 0){
     var today = new Date()
-    Axios.post(`http://localhost:3002/api/createtransaction/${id}`, { 
+    CareCalories.post(`/api/createtransaction/${id}`, { 
         uid: id, 
         transitemid: 0,
         transitemname: 'Upgrade',
