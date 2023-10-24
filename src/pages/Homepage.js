@@ -179,7 +179,6 @@ const Homepage = () => {
       <NavBarUser />
       {once && <PopUpModalLogin1 />}
       <div className="frame1">
-
         <div className="div-2">
           <div className="your-achievement">
             <div className="flexcontainer">

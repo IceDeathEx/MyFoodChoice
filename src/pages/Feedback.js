@@ -17,7 +17,7 @@ const Feedback = () => {
   const navigate = useNavigate()
   function handleSubmit() {
     if(title === '' || body === '' || rating === null){
-      console.log('Please fill in the fields to continue')
+      alert('Please fill in the appropriate fields to continue')
     }
     else{
       CareCalories.post(`/api/addreview/${uid}`, 

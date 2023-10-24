@@ -121,23 +121,23 @@ export const MealRecords = () => {
             console.log("do something")
             //Do a logic check if time is between certain period so its considered which meal of the day
             if (time >= 21 && time <= 4) {
-                console.log("snacks")
+                //console.log("snacks")
                 meal = 'snacks'
             }
             else if (time >= 5 && time <= 11) {
-                console.log("breakfast")
+                //console.log("breakfast")
                 meal = 'breakfast'
             }
             else if (time >= 12 && time <= 14) {
-                console.log("lunch")
+                //console.log("lunch")
                 meal = 'lunch'
             }
             else if (time >= 15 && time <= 16) {
-                console.log("snacks")
+                //console.log("snacks")
                 meal = 'snacks'
             }
             else if (time >= 17 && time <= 20) {
-                console.log("dinner")
+                //console.log("dinner")
                 meal = 'dinner'
             }
             //Do a post to meal record database
@@ -161,17 +161,17 @@ export const MealRecords = () => {
 
         }
         else if (filteredSearch3.length === 0 && state.mrUser2.length === 0) {
-            console.log('Please enter a valid food name.')
-            console.log('Please click on at least one user profile.')
+            alert('Please enter a valid food name.')
+            alert('Please click on at least one user profile.')
         }
         else if (state.mrUser2.length === 0) {
-            console.log('Please click on at least one user profile.')
+            alert('Please click on at least one user profile.')
         }
         else if (filteredSearch3.length === 0) {
-            console.log('Please enter a valid food name.')
+            alert('Please enter a valid food name.')
         }
         else {
-            console.log('Some error')
+            alert('Some error')
         }
 
 
@@ -264,7 +264,7 @@ export const MealRecords = () => {
             })
         }
         else {
-            console.log('No photo to identify')
+            alert('No photo to identify')
         }
 
     }
@@ -286,7 +286,7 @@ export const MealRecords = () => {
             })
         }
         else{
-            console.log('No image to identify')
+            alert('No image to identify')
         }
 
     }
@@ -309,18 +309,24 @@ export const MealRecords = () => {
     }
     //Take photo
     const takePhoto = () => {
-        const width = 322
-        const height = 270
-
-        let video = videoRef.current;
-        let photo = photoRef.current;
-
-        photo.width = width;
-        photo.height = height;
-
-        let ctx = photo.getContext('2d');
-        ctx.drawImage(video, 0, 0, width, height);
-        sethasPhoto(true);
+        if(isCam){
+            const width = 322
+            const height = 270
+    
+            let video = videoRef.current;
+            let photo = photoRef.current;
+    
+            photo.width = width;
+            photo.height = height;
+    
+            let ctx = photo.getContext('2d');
+            ctx.drawImage(video, 0, 0, width, height);
+            sethasPhoto(true);
+        }
+        else{
+            alert('Camera is not on!')
+        }
+        
     }
     // Stop video
     const stopVideo = () => {

@@ -223,7 +223,7 @@ const SignUp = () => {
           navigate('/login')
          }
       };
-      
+
 
     return (
         <div className="sign-up-pop-up">
@@ -263,7 +263,7 @@ const SignUp = () => {
         </div>
         <div className="text-wrapper-14">cm</div>
         <div className="frame-8">
-          <input className="div-wrapper" placeholder="&nbsp;&nbsp; 171" type="number" onChange={(e)=> setHeight(e.target.value)}></input>
+          <input className="div-wrapper" placeholder="&nbsp;&nbsp; 171" type="number" onWheel={(e) => e.target.blur()} onChange={(e)=> setHeight(e.target.value)}></input>
           <label className="text-wrapper-16">Height*</label>
         </div>
       </div>

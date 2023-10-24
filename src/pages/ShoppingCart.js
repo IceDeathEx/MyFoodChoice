@@ -30,6 +30,7 @@ const ShoppingCart = () => {
     const [card, setcard] = useState(null)
     const [cvv, setcvv] = useState(null)
     const [expiry, setexpiry] = useState(null)
+    const [name, setname] = useState('')
     const handleCreditCard = (e) =>{
         setcard(e.target.value)
     }
@@ -59,10 +60,13 @@ const ShoppingCart = () => {
     // USE THIS CREDIT CARD NO. 4012888888881881
 
     const openDialog = () => {
+        if(name === ''){
+            alert('Please enter a name.')
+        }
         var today = new Date()
-        setIsDialogOpen(true);
+        //setIsDialogOpen(true);
         if(payment === ''){
-            console.log('Please select a payment method.')
+            alert('Please select a payment method.')
         }
         else if(payment === 'Credit Card'){
             var isValidCardNumber = /^\d{13,19}$/.test(card) && luhnCheck(card);
@@ -85,7 +89,7 @@ const ShoppingCart = () => {
                 })
                 navigate('/homepage')
             } else {
-                console.log("Invalid credit card information. Please check the details.");
+                alert("Invalid credit card information. Please check the placeholder values example.");
             }
 
         }
@@ -100,7 +104,7 @@ const ShoppingCart = () => {
             navigate('/homepage')
         }
         else{
-            console.log('Some Error happening.')
+            alert('Some Error happening.')
         }
     };
 
@@ -184,17 +188,13 @@ const ShoppingCart = () => {
                     {showCreditCardForm && (
                     <div className="group-2">
                         <div className="text-wrapper-9">Name on card</div>
-                        <input className="overlap-2" type="text" placeholder="Full Name">
-                        </input>
+                        <input className="overlap-2" type="text" placeholder="Full Name" onChange={(e)=> setname(e.target.value)} />
                         <div className="text-wrapper-11">Expiration date</div>
-                        <input className="overlap-3" placeholder="mm/yy" onChange={handleExp}>
-                        </input>
+                        <input className="overlap-3" placeholder="mm/yy" onChange={handleExp}/>
                         <div className="text-wrapper-13">CVV</div>
-                        <input className="overlap-4" type="number" placeholder="123" onChange={handleCVV}>
-                        </input>
+                        <input className="overlap-4" type="number" placeholder="123" onChange={handleCVV}/>
                         <div className="text-wrapper-14">Card Number</div>
-                        <input className="overlap-5" placeholder="1111 2222 3333 4444" onChange={handleCreditCard}>
-                        </input>
+                        <input className="overlap-5" placeholder="1111 2222 3333 4444" onChange={handleCreditCard}/>
                     </div>
                     )}
                 </div>
@@ -225,7 +225,7 @@ const ShoppingCart = () => {
                 })}
                 
                 
-                <h1>Shoppe Cart</h1>
+                <h1>Shopping Cart</h1>
                 <div className="overlap-7">
                     <p className="p">You have {transaction.length} item(s) in your cart</p>
                 </div>

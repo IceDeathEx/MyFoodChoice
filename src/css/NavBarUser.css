@@ -151,8 +151,9 @@ body {
   left: -40px; /* Adjusted left position by -20px */
   }
   .dropdown {
-  float: left;
   overflow: hidden;
+  float: right;
+  z-index: 99;
 
   
 
@@ -176,9 +177,12 @@ body {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  left : 1700px;
+  box-shadow: 0px 8px 16px 0px rgb(0, 0, 0, 0.2);
+  z-index: 99;
+  padding-right: 10px;
+  left: 1800px; /* Adjust as needed */
+  top: 90%; /* Position the dropdown content below the .dropbtn */
+  transform: translateX(-25%); /* Translate the dropdown horizontally to align with the ellipse */
 }
 
 .dropdown-content a {

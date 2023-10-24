@@ -62,7 +62,7 @@ const ComponentBuynow = () => {
                 </div>
               </div>
               <div className="price">
-                <div className="div">${item.ofprice}</div>
+                <div className="div">${(Math.round(item.ofprice * 100) / 100).toFixed(2)}</div>
               </div>
             </div>
           </div>

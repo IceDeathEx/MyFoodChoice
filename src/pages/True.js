@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/Truestyle.css";
+import "../css/True.css";
 
 const True = () => {
     return (
