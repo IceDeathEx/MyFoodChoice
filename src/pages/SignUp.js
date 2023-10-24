@@ -70,6 +70,12 @@ const SignUp = () => {
     
     const navigate = useNavigate();
 
+    const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!])(?!.*\s).{8,16}$/;
+
+    function validatePassword(password) {
+      return passwordRegex.test(password);
+    }
+    
     const checkEmailAndPassword = async (e) => {
       e.preventDefault(); // Prevent the default form submission behavior
 
@@ -91,7 +97,7 @@ const SignUp = () => {
           }
           setEmailEmpty(false)
           const response = await CareCalories.post('/api/check-email-exists', {
-            email: email,
+            email: email.toLowerCase(),
           });
             // If the response indicates that the email exists
             if (response.data.emailExists) {
@@ -131,6 +137,10 @@ const SignUp = () => {
           setPasswordMatchError(false);
         }
         if (password){
+          if (validatePassword(password)) {
+          } else {
+            alert("Password is invalid. Password requires one uppercase letter, one lowercase letter, least one digit, at least one special character, no whitespace is allowed, a password length between 8 and 16 characters.");
+          }
           setemptyPassword(false)
          // console.log(7)
         }
