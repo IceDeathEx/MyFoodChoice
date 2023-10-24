@@ -1,0 +1,448 @@
+.food-vendor {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.food-vendor .div {
+    background-color: #ffffff;
+    height: 1946px;
+    position: relative;
+    width: 1497px;
+}
+
+.food-vendor .text-wrapper {
+    color: #000000;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 96px;
+    font-weight: 700;
+    left: 55px;
+    letter-spacing: 0;
+    line-height: 144px;
+    position: absolute;
+    top: 715px;
+    white-space: nowrap;
+}
+
+.food-vendor .text-wrapper-2 {
+    color: #000000;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 96px;
+    font-weight: 700;
+    left: 58px;
+    letter-spacing: 0;
+    line-height: 144px;
+    position: absolute;
+    top: 56px;
+    white-space: nowrap;
+}
+
+.food-vendor .frame {
+    height: 990px;
+    left: 125px;
+    position: absolute;
+    top: 882px;
+    width: 1228px;
+}
+
+.food-vendor .overlap {
+    height: 469px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 283px;
+}
+
+.food-vendor .elementaaa {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 283px;
+}
+
+.food-vendor .image-title {
+    align-items: flex-start;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    width: 100%;
+}
+
+.food-vendor .rectangle-wrapper {
+    align-self: stretch;
+    border-radius: 16px;
+    height: 283px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.food-vendor .rectangle {
+    height: 283px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 283px;
+}
+
+.food-vendor .name-location-price {
+    align-items: flex-start;
+    align-self: stretch;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    width: 100%;
+}
+
+.food-vendor .name-location {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+}
+
+.food-vendor .name {
+    color: var(--themegray-800);
+    font-family: var(--headline-6-bold-font-family);
+    font-size: var(--headline-6-bold-font-size);
+    font-style: var(--headline-6-bold-font-style);
+    font-weight: var(--headline-6-bold-font-weight);
+    letter-spacing: var(--headline-6-bold-letter-spacing);
+    line-height: var(--headline-6-bold-line-height);
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.food-vendor .location {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 8px;
+    position: relative;
+}
+
+.food-vendor .icon {
+    color: #1c659b;
+    font-family: "Font Awesome 5 Free-Solid", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 21.6px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.food-vendor .text {
+    color: #1c659b;
+    font-family: var(--headline-6-font-family);
+    font-size: var(--headline-6-font-size);
+    font-style: var(--headline-6-font-style);
+    font-weight: var(--headline-6-font-weight);
+    letter-spacing: var(--headline-6-letter-spacing);
+    line-height: var(--headline-6-line-height);
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.food-vendor .price {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 8px;
+    position: relative;
+}
+
+.food-vendor .text-wrapper-3 {
+    color: var(--themegray-900);
+    font-family: var(--headline-6-bold-font-family);
+    font-size: var(--headline-6-bold-font-size);
+    font-style: var(--headline-6-bold-font-style);
+    font-weight: var(--headline-6-bold-font-weight);
+    letter-spacing: var(--headline-6-bold-letter-spacing);
+    line-height: var(--headline-6-bold-line-height);
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.food-vendor .button {
+    all: unset;
+    align-items: center;
+    align-self: stretch;
+    background-color: #000000;
+    border-radius: 8px;
+    box-shadow: 0px 20px 40px #fa62223d, 0px 5px 10px #fd715b38;
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 10px;
+    justify-content: center;
+    padding: 21px 48px;
+    position: relative;
+    width: 100%;
+}
+
+.food-vendor .text-2 {
+    color: var(--themewhite);
+    font-family: var(--button-bold-font-family);
+    font-size: var(--button-bold-font-size);
+    font-style: var(--button-bold-font-style);
+    font-weight: var(--button-bold-font-weight);
+    letter-spacing: var(--button-bold-letter-spacing);
+    line-height: var(--button-bold-line-height);
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.food-vendor .elementaaa-2 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 521px;
+    width: 283px;
+}
+
+.food-vendor .overlap-group {
+    height: 469px;
+    left: 315px;
+    position: absolute;
+    top: 0;
+    width: 283px;
+}
+
+.food-vendor .elementaaa-3 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    left: 315px;
+    position: absolute;
+    top: 521px;
+    width: 283px;
+}
+
+.food-vendor .overlap-2 {
+    height: 469px;
+    left: 630px;
+    position: absolute;
+    top: 0;
+    width: 283px;
+}
+
+.food-vendor .elementaaa-4 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    left: 630px;
+    position: absolute;
+    top: 521px;
+    width: 283px;
+}
+
+.food-vendor .overlap-3 {
+    height: 469px;
+    left: 945px;
+    position: absolute;
+    top: 0;
+    width: 283px;
+}
+
+.food-vendor .elementaaa-5 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    left: 945px;
+    position: absolute;
+    top: 521px;
+    width: 283px;
+}
+
+.food-vendor .div-wrapper {
+    all: unset;
+    align-items: center;
+    background-color: #000000;
+    border-radius: 8px;
+    box-shadow: 0px 20px 40px #fa62223d, 0px 5px 10px #fd715b38;
+    box-sizing: border-box;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    left: 114px;
+    padding: 21px 48px;
+    position: absolute;
+    top: 555px;
+    width: 401px;
+}
+
+.food-vendor .frame-2 {
+    align-items: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px 27px;
+    left: 607px;
+    position: absolute;
+    top: 249px;
+    width: 283px;
+}
+
+.food-vendor .button-2 {
+    all: unset;
+    align-items: center;
+    background-color: #000000;
+    border-radius: 8px;
+    box-shadow: 0px 20px 40px #fa62223d, 0px 5px 10px #fd715b38;
+    box-sizing: border-box;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 21px 48px;
+    position: relative;
+    width: 155px;
+}
+
+.food-vendor .text-3 {
+    color: var(--themewhite);
+    font-family: var(--button-bold-font-family);
+    font-size: var(--button-bold-font-size);
+    font-style: var(--button-bold-font-style);
+    font-weight: var(--button-bold-font-weight);
+    letter-spacing: var(--button-bold-letter-spacing);
+    line-height: var(--button-bold-line-height);
+    margin-left: -23.5px;
+    margin-right: -23.5px;
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.food-vendor .text-wrapper-4 {
+    color: #000000;
+    font-family: var(--button-bold-font-family);
+    font-size: var(--button-bold-font-size);
+    font-style: var(--button-bold-font-style);
+    font-weight: var(--button-bold-font-weight);
+    letter-spacing: var(--button-bold-letter-spacing);
+    line-height: var(--button-bold-line-height);
+    position: relative;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.food-vendor .img-wrapper {
+    border-radius: 16px;
+    height: 283px;
+    overflow: hidden;
+    position: relative;
+    width: 283.4px;
+}
+
+.food-vendor .frame-3 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 14px;
+    left: 105px;
+    position: absolute;
+    top: 302px;
+}
+
+.food-vendor .name-input {
+    align-items: flex-start;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    position: relative;
+    width: 438px;
+}
+
+.food-vendor .text-wrapper-5 {
+    color: var(--grayscaleblack);
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+}
+
+.food-vendor .enter-username {
+    background-color: #ffffff;
+    border: 1px solid;
+    height: 45px;
+    position: relative;
+    width: 438px;
+}
+
+.food-vendor .label-BG {
+    background-color: var(--grayscalewhite);
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 9px;
+    box-shadow: 0px 2px 2px #0000002e;
+    height: 45px;
+    width: 420px;
+}
+:root {
+    --button-bold-font-family: "SourceSans Pro-Bold", Helvetica;
+    --button-bold-font-size: 18px;
+    --button-bold-font-style: normal;
+    --button-bold-font-weight: 700;
+    --button-bold-letter-spacing: 0px;
+    --button-bold-line-height: 100%;
+    --grayscaleblack: rgba(0, 0, 0, 1);
+    --grayscalewhite: rgba(255, 255, 255, 1);
+    --headline-6-bold-font-family: "SourceSans Pro-Bold", Helvetica;
+    --headline-6-bold-font-size: 22px;
+    --headline-6-bold-font-style: normal;
+    --headline-6-bold-font-weight: 700;
+    --headline-6-bold-letter-spacing: 0px;
+    --headline-6-bold-line-height: 120.00000476837158%;
+    --headline-6-font-family: "SourceSans Pro-Regular", Helvetica;
+    --headline-6-font-size: 22px;
+    --headline-6-font-style: normal;
+    --headline-6-font-weight: 400;
+    --headline-6-letter-spacing: 0px;
+    --headline-6-line-height: 120.00000476837158%;
+    --themegray-800: rgba(66, 66, 66, 1);
+    --themegray-900: rgba(33, 33, 33, 1);
+    --themewhite: rgba(255, 255, 255, 1);
+}

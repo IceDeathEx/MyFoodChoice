@@ -1,0 +1,864 @@
+.createrecipe-vendor {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    left: 0;
+    width: 100%;
+}
+
+.createrecipe-vendor .div { 
+    background-color: #ffffff;
+    height: 2058px;
+    position: relative;
+    width: 1497px;
+}
+
+.createrecipe-vendor .overlap {
+    height: 934px;
+    left: 29px;
+    position: absolute;
+    top: 0;
+    width: 1421px;
+}
+
+.createrecipe-vendor .text-wrapper {
+    color: #000000;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 96px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 144px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+}
+
+.createrecipe-vendor .rectangle {
+    height: 299px;
+    left: 720px;
+    object-fit: cover;
+    position: absolute;
+    top: 620px;
+    width: 675px;
+}
+
+.createrecipe-vendor .button {
+    all: unset;
+    align-items: center;
+    background-color: #000000;
+    border-radius: 8px;
+    box-shadow: 0px 20px 40px #fa62223d, 0px 5px 10px #fd715b38;
+    box-sizing: border-box;
+    display: flex;
+    gap: 10px;
+    height: 36px;
+    justify-content: center;
+    left: 720px;
+    padding: 21px 48px;
+    position: absolute;
+    top: 547px;
+    width: 113px;
+}
+
+.createrecipe-vendor .text {
+    color: var(--themewhite);
+    font-family: "Source Sans Pro-Bold", Helvetica;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 12px;
+    margin-bottom: -8px;
+    margin-left: -27.3px;
+    margin-right: -27.3px;
+    margin-top: -10px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.createrecipe-vendor .text-wrapper-2 {
+    color: #000000;
+    font-family: "Source Sans Pro-Regular", Helvetica;
+    font-size: 12px;
+    font-weight: 400;
+    left: 847px;
+    letter-spacing: 0;
+    line-height: 12px;
+    position: absolute;
+    top: 568px;
+    width: 109px;
+}
+
+.createrecipe-vendor .overlap-group {
+    height: 903px;
+    left: 501px;
+    position: absolute;
+    top: 31px;
+    width: 920px;
+}
+
+.createrecipe-vendor .details-box {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    height: 397px;
+    left: 0;
+    padding: 16px 9px;
+    position: absolute;
+    top: 506px;
+    width: 187px;
+}
+
+.createrecipe-vendor .box {
+    height: 109px;
+    margin-left: -2px;
+    margin-right: -8px;
+    position: relative;
+    width: 179px;
+}
+
+.createrecipe-vendor .overlap-group-2 {
+    background-color: #5ee7fa;
+    border-radius: 11px;
+    box-shadow: 0px 4px 4px #00000040;
+    height: 109px;
+    position: relative;
+    width: 173px;
+}
+
+.createrecipe-vendor .text-wrapper-3 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 20px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 11px;
+    white-space: nowrap;
+}
+
+.createrecipe-vendor .text-wrapper-4 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 20px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 36px;
+    white-space: nowrap;
+}
+
+.createrecipe-vendor .text-wrapper-5 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 20px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 62px;
+    white-space: nowrap;
+}
+
+.createrecipe-vendor .overlap-wrapper {
+    height: 107px;
+    margin-left: -4.49px;
+    margin-right: -10.49px;
+    position: relative;
+    width: 183.97px;
+}
+
+.createrecipe-vendor .overlap-2 {
+    background-color: #c2da8d80;
+    border-radius: 11px;
+    box-shadow: 0px 4px 4px #00000040;
+    height: 107px;
+    position: relative;
+    width: 178px;
+}
+
+.createrecipe-vendor .text-wrapper-6 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 15px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 10px;
+    white-space: nowrap;
+    width: 89px;
+}
+
+.createrecipe-vendor .text-wrapper-7 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 15px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 35px;
+    white-space: nowrap;
+    width: 51px;
+}
+
+.createrecipe-vendor .text-wrapper-8 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 15px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 61px;
+    white-space: nowrap;
+    width: 75px;
+}
+
+.createrecipe-vendor .overlap-3 {
+    background-color: #ea143b80;
+    border-radius: 11px;
+    box-shadow: 0px 4px 4px #00000040;
+    height: 107px;
+    position: relative;
+    width: 178px;
+}
+
+.createrecipe-vendor .text-wrapper-9 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 15px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 34px;
+    width: 78px;
+}
+
+.createrecipe-vendor .text-wrapper-10 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 14px;
+    font-weight: 300;
+    height: 20px;
+    left: 15px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 60px;
+    width: 78px;
+}
+
+.createrecipe-vendor .rectangle-2 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 20px;
+    left: 125px;
+    position: absolute;
+    top: 27px;
+    width: 31px;
+}
+
+.createrecipe-vendor .rectangle-2:focus {
+    outline: none;
+}
+
+.createrecipe-vendor .rectangle-3:focus {
+    outline: none;
+}
+
+.createrecipe-vendor .rectangle-4:focus {
+    outline: none;
+}
+.createrecipe-vendor .rectangle-5:focus {
+    outline: none;
+}
+.createrecipe-vendor .rectangle-6:focus {
+    outline: none;
+}
+.createrecipe-vendor .rectangle-7:focus {
+    outline: none;
+}
+
+.createrecipe-vendor .rectangle-8:focus {
+    outline: none;
+}
+
+.createrecipe-vendor .rectangle-9:focus {
+    outline: none;
+}
+
+.createrecipe-vendor .rectangle-10:focus {
+    outline: none;
+}
+.createrecipe-vendor .text-wrapper-11 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 13px;
+    font-weight: 300;
+    height: 20px;
+    left: 165px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 26px;
+    width: 9px;
+}
+
+.createrecipe-vendor .rectangle-3 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 20px;
+    left: 125px;
+    position: absolute;
+    top: 52px;
+    width: 31px;
+}
+
+.createrecipe-vendor .text-wrapper-12 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 13px;
+    font-weight: 300;
+    height: 20px;
+    left: 165px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 51px;
+    width: 9px;
+}
+
+.createrecipe-vendor .rectangle-4 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 20px;
+    left: 125px;
+    position: absolute;
+    top: 78px;
+    width: 31px;
+}
+
+.createrecipe-vendor .text-wrapper-13 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 13px;
+    font-weight: 300;
+    height: 20px;
+    left: 165px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 77px;
+    width: 9px;
+}
+
+.createrecipe-vendor .rectangle-5 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 20px;
+    left: 125px;
+    position: absolute;
+    top: 152px;
+    width: 31px;
+}
+
+.createrecipe-vendor .text-wrapper-14 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 13px;
+    font-weight: 300;
+    height: 20px;
+    left: 165px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 151px;
+    width: 9px;
+}
+
+.createrecipe-vendor .rectangle-6 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 20px;
+    left: 125px;
+    position: absolute;
+    top: 176px;
+    width: 31px;
+}
+
+.createrecipe-vendor .text-wrapper-15 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 13px;
+    font-weight: 300;
+    height: 20px;
+    left: 165px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 175px;
+    width: 9px;
+}
+
+.createrecipe-vendor .rectangle-7 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 20px;
+    left: 125px;
+    position: absolute;
+    top: 202px;
+    width: 31px;
+}
+
+.createrecipe-vendor .text-wrapper-16 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 13px;
+    font-weight: 300;
+    height: 20px;
+    left: 165px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 201px;
+    width: 9px;
+}
+
+.createrecipe-vendor .rectangle-8 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 20px;
+    left: 125px;
+    position: absolute;
+    top: 275px;
+    width: 31px;
+}
+
+.createrecipe-vendor .text-wrapper-17 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 13px;
+    font-weight: 300;
+    height: 20px;
+    left: 165px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 274px;
+    width: 9px;
+}
+
+.createrecipe-vendor .rectangle-9 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 20px;
+    left: 125px;
+    position: absolute;
+    top: 300px;
+    width: 31px;
+}
+
+.createrecipe-vendor .text-wrapper-18 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 13px;
+    font-weight: 300;
+    height: 20px;
+    left: 165px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 299px;
+    width: 9px;
+}
+
+.createrecipe-vendor .rectangle-10 {
+    background-color: #ffffff;
+    border-radius: 4px;
+    height: 20px;
+    left: 125px;
+    position: absolute;
+    top: 326px;
+    width: 31px;
+}
+
+.createrecipe-vendor .text-wrapper-19 {
+    color: #000000;
+    font-family: "Poppins-Light", Helvetica;
+    font-size: 13px;
+    font-weight: 300;
+    height: 20px;
+    left: 165px;
+    letter-spacing: -0.24px;
+    line-height: 20px;
+    position: absolute;
+    top: 325px;
+    width: 9px;
+}
+
+.createrecipe-vendor .overlap-4 {
+    height: 515px;
+    left: 141px;
+    position: absolute;
+    top: 0;
+    width: 779px;
+}
+
+.createrecipe-vendor .image {
+    height: 392px;
+    left: 301px;
+    mix-blend-mode: darken;
+    object-fit: cover;
+    position: absolute;
+    top: 123px;
+    width: 478px;
+}
+
+.createrecipe-vendor .img {
+    height: 416px;
+    left: 0;
+    mix-blend-mode: multiply;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 377px;
+}
+
+.createrecipe-vendor .text-wrapper-20 {
+    color: #000000;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 70px;
+    font-weight: 700;
+    height: 81px;
+    left: 36px;
+    letter-spacing: 0;
+    line-height: 105px;
+    position: absolute;
+    top: 554px;
+    white-space: nowrap;
+    width: 283px;
+}
+
+.createrecipe-vendor .text-wrapper-21 {
+    color: #000000;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 70px;
+    font-weight: 700;
+    height: 105px;
+    left: 275px;
+    letter-spacing: 0;
+    line-height: 105px;
+    position: absolute;
+    top: 962px;
+    width: 205px;
+}
+
+.createrecipe-vendor .text-wrapper-22 {
+    color: #000000;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 70px;
+    font-weight: 700;
+    height: 105px;
+    left: 867px;
+    letter-spacing: 0;
+    line-height: 105px;
+    position: absolute;
+    top: 970px;
+    white-space: nowrap;
+}
+
+.createrecipe-vendor .frame {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 30px;
+    left: 36px;
+    position: absolute;
+    top: 207px;
+}
+
+.createrecipe-vendor .name-input {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    position: relative;
+}
+
+.createrecipe-vendor .text-wrapper-23 {
+    color: var(--grayscaleblack);
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-top: -1px;
+    position: relative;
+    width: fit-content;
+}
+
+.createrecipe-vendor .enter-username {
+    background-color: #ffffff;
+    border: 1px solid;
+    height: 45px;
+    position: relative;
+    width: 350px;
+}
+
+.createrecipe-vendor .label-BG {
+    background-color: var(--grayscalewhite);
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 9px;
+    box-shadow: 0px 2px 2px #0000002e;
+    height: 45px;
+}
+
+.createrecipe-vendor .name-input-2 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    left: 39px;
+    position: absolute;
+    top: 681px;
+}
+
+.createrecipe-vendor .overlap-5 {
+    height: 72px;
+    left: 39px;
+    position: absolute;
+    top: 766px;
+    width: 482px;
+}
+
+.createrecipe-vendor .name-input-3 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 482px;
+}
+
+.createrecipe-vendor .enter-username-2 {
+    background-color: #ffffff;
+    border: 1px solid;
+    height: 45px;
+    position: relative;
+    width: 473px;
+}
+
+.createrecipe-vendor .label-BG-2 {
+    background-color: var(--grayscalewhite);
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 9px;
+    box-shadow: 0px 2px 2px #0000002e;
+    height: 53px;
+    left: 0;
+    position: absolute;
+    top: 19px;
+    width: 472px;
+}
+
+.createrecipe-vendor .frame-2 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 20px;
+    left: 73px;
+    position: absolute;
+    top: 1122px;
+}
+
+.createrecipe-vendor .comments {
+    height: 66px;
+    position: relative;
+    width: 594px;
+}
+
+.createrecipe-vendor .add-your-comments-wrapper {
+    background-color: var(--grayscalewhite);
+    border: 1px solid;
+    border-color: var(--grayscaleshaded-white);
+    border-radius: 9px;
+    box-shadow: 0px 2px 2px #0000002e;
+    height: 66px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 483px;
+}
+
+.createrecipe-vendor .add-your-comments {
+    color: var(--grayscalepale-gray);
+    font-family: "Montserrat-Medium", Helvetica;
+    font-size: 12px;
+    font-weight: 500;
+    left: 9px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 8px;
+}
+
+.createrecipe-vendor .plus {
+    height: 39px;
+    left: 531px;
+    object-fit: cover;
+    position: absolute;
+    top: 13px;
+    width: 39px;
+}
+
+.createrecipe-vendor .div-wrapper {
+    all: unset;
+    align-items: center;
+    background-color: #000000;
+    border-radius: 8px;
+    box-shadow: 0px 20px 40px #fa62223d, 0px 5px 10px #fd715b38;
+    box-sizing: border-box;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    left: 842px;
+    padding: 21px 48px;
+    position: absolute;
+    top: 1881px;
+    width: 461px;
+}
+
+.createrecipe-vendor .text-2 {
+    color: var(--themewhite);
+    font-family: var(--button-bold-font-family);
+    font-size: var(--button-bold-font-size);
+    font-style: var(--button-bold-font-style);
+    font-weight: var(--button-bold-font-weight);
+    letter-spacing: var(--button-bold-letter-spacing);
+    line-height: var(--button-bold-line-height);
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.createrecipe-vendor .frame-3 {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 23px;
+    left: 815px;
+    position: absolute;
+    top: 1122px;
+}
+
+.createrecipe-vendor .comments-2 {
+    height: 300px;
+    position: relative;
+    width: 560px;
+}
+
+.createrecipe-vendor .overlap-6 {
+    background-color: var(--grayscalewhite);
+    border: 1px solid;
+    border-color: var(--grayscaleshaded-white);
+    border-radius: 9px;
+    box-shadow: 0px 2px 2px #0000002e;
+    height: 54px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 483px;
+}
+
+.createrecipe-vendor .plus-2 {
+    height: 39px;
+    left: 521px;
+    object-fit: cover;
+    position: absolute;
+    top: 5px;
+    width: 39px;
+}
+
+.createrecipe-vendor .overlap-group-3 {
+    background-color: var(--grayscalewhite);
+    border: 1px solid;
+    border-color: var(--grayscaleshaded-white);
+    border-radius: 9px;
+    box-shadow: 0px 2px 2px #0000002e;
+    height: 223px;
+    left: 0;
+    position: absolute;
+    top: 77px;
+    width: 483px;
+}
+
+.createrecipe-vendor .add-your-comments-2 {
+    color: var(--grayscalepale-gray);
+    font-family: "Montserrat-Medium", Helvetica;
+    font-size: 12px;
+    font-weight: 500;
+    left: 23px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 13px;
+}
+
+.createrecipe-vendor .text-wrapper-24 {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 12px;
+    font-weight: 700;
+    left: 77px;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 1091px;
+    width: 367px;
+}
+
+:root {
+    --button-bold-font-family: "SourceSans Pro-Bold", Helvetica;
+    --button-bold-font-size: 18px;
+    --button-bold-font-style: normal;
+    --button-bold-font-weight: 700;
+    --button-bold-letter-spacing: 0px;
+    --button-bold-line-height: 100%;
+    --grayscaleblack: rgba(0, 0, 0, 1);
+    --grayscalepale-gray: rgba(170, 170, 170, 1);
+    --grayscaleshaded-white: rgba(221, 221, 221, 1);
+    --grayscalewhite: rgba(255, 255, 255, 1);
+    --themewhite: rgba(255, 255, 255, 1);
+}

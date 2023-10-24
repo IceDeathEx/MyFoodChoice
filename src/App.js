@@ -21,6 +21,12 @@ import ShoppingCart from './pages/ShoppingCart'
 import AboutUs from './pages/AboutUs'
 import PartnershipOn from './pages/PartnershipOn'
 import ReviewOn from './pages/ReviewOn'
+import HomepageVendor from './pages/HomepageVendor'
+import CreateRecipe from './pages/CreateRecipe'
+import RecipelistVendor from './pages/RecipelistVendor'
+import FoodVendor from './pages/FoodVendor'
+import ManageVendor from './pages/SAManageVendor'
+import TransactionSA from './pages/TransactionSA'
 const App = () => {
 
   return (
@@ -45,6 +51,14 @@ const App = () => {
               <Route path="/loyalty" element={<RequireAuth loginPath={'/login'}><Loyalty /></RequireAuth>}/>
               <Route path="/orderfood/:category/page/:id" element={<RequireAuth loginPath={'/login'}><FoodOrder /></RequireAuth>}/>
               <Route path="/shoppingcart" element={<RequireAuth loginPath={'/login'}><ShoppingCart /></RequireAuth>}/>
+
+              <Route path="/vendor" element={<RequireAuth loginPath={'/login'}><HomepageVendor /></RequireAuth>}/>
+              <Route path="/createrecipe" element={<RequireAuth loginPath={'/login'}><CreateRecipe /></RequireAuth>}/>
+              <Route path="/vendorviewrecipe" element={<RequireAuth loginPath={'/login'}><RecipelistVendor /></RequireAuth>}/>
+              <Route path="/createfoodmenu" element={<RequireAuth loginPath={'/login'}><FoodVendor /></RequireAuth>}/>
+
+              <Route path="/sysadm" element={<RequireAuth loginPath={'/login'}><ManageVendor /></RequireAuth>}/>
+              <Route path="/sysadmtransaction" element={<RequireAuth loginPath={'/login'}><TransactionSA /></RequireAuth>}/>
 
               <Route path="*" element={<NotFound />}/>
             </Routes>

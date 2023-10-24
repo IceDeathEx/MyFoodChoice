@@ -1,0 +1,155 @@
+.recipelist-vendor {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.recipelist-vendor .div {
+    background-color: #ffffff;
+    height: 982px;
+    position: relative;
+    width: 1497px;
+}
+
+.recipelist-vendor .text-wrapper {
+    color: #000000;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 96px;
+    font-weight: 700;
+    left: 39px;
+    letter-spacing: 0;
+    line-height: 144px;
+    position: absolute;
+    top: -1px;
+    white-space: nowrap;
+}
+
+.recipelist-vendor .frame {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 19px 29px;
+    left: 128px;
+    position: absolute;
+    top: 177px;
+    width: 1241px;
+}
+
+.recipelist-vendor .recipe-com {
+    height: 335px;
+    position: relative;
+    width: 296px;
+}
+
+.recipelist-vendor .frame-2 {
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 19px;
+    position: relative;
+}
+
+.recipelist-vendor .frame-wrapper {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    box-shadow: 0px 4px 4px #00000040, 0px 4px 4px #00000040, 0px 4px 4px #00000040;
+    height: 256px;
+    position: relative;
+    width: 296px;
+}
+
+.recipelist-vendor .frame-3 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    height: 216px;
+    left: 22px;
+    position: relative;
+    top: 24px;
+    width: 254px;
+}
+
+.recipelist-vendor .text-wrapper-2 {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 32px;
+    font-weight: 700;
+    height: 33px;
+    letter-spacing: -0.48px;
+    line-height: 36px;
+    margin-right: -85px;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: 339px;
+}
+
+.recipelist-vendor .text-wrapper-3 {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    height: 33px;
+    letter-spacing: -0.24px;
+    line-height: 36px;
+    position: relative;
+    white-space: nowrap;
+    width: 166px;
+}
+
+.recipelist-vendor .text-wrapper-4 {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    height: 33px;
+    letter-spacing: -0.24px;
+    line-height: 36px;
+    position: relative;
+    white-space: nowrap;
+    width: 103px;
+}
+
+.recipelist-vendor .button {
+    all: unset;
+    align-items: center;
+    background-color: #000000;
+    border-radius: 8px;
+    box-shadow: 0px 20px 40px #fa62223d, 0px 5px 10px #fd715b38;
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 10px;
+    justify-content: center;
+    padding: 21px 48px;
+    position: relative;
+    width: 283.4px;
+}
+
+.recipelist-vendor .text {
+    color: var(--themewhite);
+    font-family: var(--button-bold-font-family);
+    font-size: var(--button-bold-font-size);
+    font-style: var(--button-bold-font-style);
+    font-weight: var(--button-bold-font-weight);
+    letter-spacing: var(--button-bold-letter-spacing);
+    line-height: var(--button-bold-line-height);
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+}
+:root {
+    --button-bold-font-family: "SourceSans Pro-Bold", Helvetica;
+    --button-bold-font-size: 18px;
+    --button-bold-font-style: normal;
+    --button-bold-font-weight: 700;
+    --button-bold-letter-spacing: 0px;
+    --button-bold-line-height: 100%;
+    --themewhite: rgba(255, 255, 255, 1);
+}

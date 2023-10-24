@@ -1,0 +1,54 @@
+.transaction {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.transaction .div {
+    background-color: #ffffff;
+    height: 1169px;
+    position: relative;
+    width: 1564px;
+}
+
+.transaction .rectangleTS {
+    background-color: #ffffff;
+    height: 931px;
+    left: 108px;
+    position: absolute;
+    top: 153px;
+    width: 1347px;
+}
+
+.transaction .frameTS {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    left: 500px;
+    position: absolute;
+    top: 61px;
+    width: 618px;
+}
+
+.transaction .label {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 100px;
+    height: 57px;
+    position: relative;
+    width: 618px;
+    padding-left: 15px;
+}
+
+.transaction .icon-magnifying {
+    height: 35px;
+    left: 563px;
+    position: absolute;
+    top: 11px;
+    width: 33px;
+}

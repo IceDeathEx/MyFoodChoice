@@ -55,9 +55,13 @@ const Login = () => {
           if(res.data.user[0].accountType.toString() === 'user'){
               navigate('/homepage', {replace: true})
           }
-          else{
+          else if(res.data.user[0].accountType.toString() === 'vendor'){
             //Later will be changed to system admin's page.
-            navigate('/healthtips', {replace: true})
+            navigate('/vendor', {replace: true})
+          }
+          else if(res.data.user[0].accountType.toString() === 'system admin'){
+            //Later will be changed to system admin's page.
+            navigate('/sysadm', {replace: true})
           }
             
           }
