@@ -11,7 +11,7 @@ const MealHistory = () => {
     const [condition1, setcondition1] = useState(null) //Condition1 is the user profile name
     const [condition2, setcondition2] = useState('') //Condition2 is the user type in field
     useEffect(()=>{
-        CareCalories.get(`/api/getmealrecordfullinfo/${id}`)
+        CareCalories.get(`/api/getmealrecordfullinfo1/${id}`)
         .then((data)=>{
             setmealrecorddb(data.data)
             setmealrecorddb3(data.data.filter((res)=> res.upid === 1))

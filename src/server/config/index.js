@@ -375,10 +375,60 @@ app.get("/api/getmealrecord/:id", (req, res) => {
 });
 
 // Route to get meal record based on ID join other tables
-app.get("/api/getmealrecordfullinfo/:id", (req, res) => {
+app.get("/api/getmealrecordfullinfo1/:id", (req, res) => {
   const id = req.params.id;
   db.query("select * from mealrecord join foodnutrition on mealrecord.foodid = foodnutrition.id join userprofile on userprofile.iduserprofile = mealrecord.upid where mealrecord.uid=?", id, (err, result) => {
     if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+// Route to get Total calories by meal
+app.get("/api/totalMealcalories/:id", (req, res) => {
+  const uid = req.params.id;
+  const upid = req.query.upid;
+  const mrdate = req.query.mrdate;
+  console.log(upid, uid, mrdate)
+  db.query("SELECT uid, upid, meal, SUM(kcal) AS kcal FROM myfoodchoice.mealrecord  join foodnutrition on mealrecord.foodid = foodnutrition.id WHERE upid = ? AND uid = ? AND DATE(mrdate) = ? GROUP BY uid, upid, meal", [upid, uid, mrdate], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+
+// Route to get Total calories 
+app.get("/api/totalcalories/:id", (req, res) => {
+  const uid = req.params.id;
+  const upid = req.query.upid;
+  const mrdate = req.query.mrdate;
+  console.log(upid, uid, mrdate)
+  db.query("SELECT uid, upid, SUM(kcal) AS kcal FROM myfoodchoice.mealrecord  join foodnutrition on mealrecord.foodid = foodnutrition.id WHERE upid = ? AND uid = ? AND DATE(mrdate) = ? GROUP BY uid, upid", [upid, uid, mrdate], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+// Route to get user nutrients
+app.get("/api/getmealrecordfullinfo/:id", (req, res) => {
+  const upid = req.query.upid;
+  const uid = req.params.id;
+  const mrdate = req.query.mrdate;
+
+  db.query(`
+  SELECT uid, upid, SUM(carbohydrate) AS carbohydate , SUM(protein) AS protein, SUM(fat) AS fat, SUM(saturatedfat) AS saturatedfat, SUM(dietaryfibre) AS dietaryfibre, SUM(sodium) AS sodium, SUM(weight) AS weight
+  FROM myfoodchoice.mealrecord 
+  join foodnutrition on 
+  mealrecord.foodid = foodnutrition.id
+  WHERE upid = ? AND uid = ? AND DATE(mrdate) = ?
+  GROUP BY uid, upid ;
+`, [upid, uid, mrdate], (err, result) => {
+   if (err) {
       console.log(err)
     }
     res.send(result)
@@ -457,6 +507,7 @@ app.get("/api/UserBMIgraph/:id",(req, res) => {
     res.send(result)
   });
 });
+
 
 // Route to get all rows (WORKING)
 app.get("/api/getrecipeset", (req, res) => {
