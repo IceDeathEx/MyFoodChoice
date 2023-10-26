@@ -9,7 +9,7 @@ const ManageVendor = () => {
     return (
         <div>
             <NavbarSa />
-
+            
 
             <div className="manage-vendor">
                 <div className="div">
@@ -59,7 +59,28 @@ const ManageVendor = () => {
 
 
                         <div className="rectangle-2" >
-                            {/* table here*/}
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Vendor Name</th>
+                                        <th>Email</th>
+                                        <th>Password</th>
+                                        <th>Address</th>
+                                        <th>Vendor Specialty</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
 
                         <div className="frame-10SA">

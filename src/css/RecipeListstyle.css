@@ -21,6 +21,26 @@
     width: 231px;
 }
 
+.drpbox {
+    height: 32px;
+    width: 234px;
+}
+
+.drpbox .drpppdown {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 53px;
+    height: 32px;
+    left:1025px;
+    position: fixed;
+    top: 80px;
+    width: 234px;
+    position: absolute;
+    padding-left: 10px;
+}
+
+
 .recipe-on-login-sign .overlap-group {
     background-color: #ffffff;
     border: 2px solid;

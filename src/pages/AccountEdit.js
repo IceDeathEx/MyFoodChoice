@@ -25,6 +25,19 @@ const AccountEdit = () => {
   const currentDate = new Date();
   const formatCurrentDate = currentDate.toISOString(); //Convert to ISO
 
+  const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!])(?!.*\s).{8,16}$/;
+
+    function validatePassword(password) {
+      return passwordRegex.test(password);
+    }
+
+    if (password){
+      if (validatePassword(password)) {
+        alert("Password is invalid. Password requires one uppercase letter, one lowercase letter, least one digit, at least one special character, no whitespace is allowed, a password length between 8 and 16 characters.");
+      } 
+       
+      }
+
   useEffect(() => {
     // Fetch the account owner's information
     CareCalories.get(`/api/getUser/${id}`)
@@ -126,7 +139,7 @@ const AccountEdit = () => {
           <div className="account">
             <div className="div">
               <div className="text-wrapper">Hi, {userData2[0] ? userData2[0].name : ""} !!</div>
-              <form className="inputName1">
+              <form className="inputName">
                 <select className="inputName" id="cars" name="cars" onChange={handleChange2}>
                   {userData.map((profile, index) => (
                     <option key={index} value=  {profile.name}>
@@ -273,11 +286,12 @@ const AccountEdit = () => {
               </div>
               <div className="frame-15">
                 <div className="frame-16">
+               
                   <a href="" className="text-wrapper-11">
-                    upgrade
+                   
                   </a>
                   <div className="text-wrapper-4">Account Type</div>
-                  <div className="text-wrapper-5">Basic</div>
+                  <div className="text-wrapper-5">{user[0].premium}</div>
                 </div>
               </div>
               <img className="ellipse" alt="Ellipse" src={image} />
@@ -297,7 +311,7 @@ const AccountEdit = () => {
             <div className="div">
               <div className="text-wrapper">Hi, {userData2[0] ? userData2[0].name : ""} !!</div>
               <form className="inputName">
-                <select id="cars" name="cars" onChange={handleChange2}>
+                <select className="inputName" onChange={handleChange2}>
                   {userData.map((profile, index) => (
                     <option key={index} value={profile.name}>
                       {profile.name}
@@ -439,13 +453,8 @@ const AccountEdit = () => {
                 <div className="text-wrapper-5b">{userData2[0].bmi} ({bmi})</div>
               </div>
               <div className="frame-15">
-                <div className="frame-16">
-                  <a href="" className="text-wrapper-11">
-                    upgrade
-                  </a>
-                  <div className="text-wrapper-4">Account Type</div>
-                  <div className="text-wrapper-5">Basic</div>
-                </div>
+                <div className="text-wrapper-4">Account Type</div>
+                <div className="text-wrapper-5">{user[0].premium}</div>
               </div>
               <img className="ellipse" alt="Ellipse" src={image} />
             </div>

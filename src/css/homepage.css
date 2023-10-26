@@ -5,6 +5,7 @@
   gap: 40px;
   padding-top: 50px;
   position: relative;
+  zoom: 130%;
 }
 
 .frame1 .div-2 {
@@ -22,7 +23,7 @@
   left: 1px;
   position: absolute;
   padding-left: 30px;
-  top: 950px;
+  top: 680px;
 }
 
 .frame1 .flexcontainer {
@@ -59,14 +60,15 @@
   border-color: #000000;
   border-radius: 11px;
   box-shadow: 0px 4px 4px #00000040, 0px 4px 4px #00000040, 0px 4px 4px #00000040;
-  height: 286px;
+  height: 660px;
   position: relative;
-  width: 652px;
+  width: 630px;
+  left: -10px;
 }
 
 .frame1 .div-3 {
   height: 221px;
-  left: 45px;
+  left: 30px;
   position: absolute;
   top: 37px;
   width: 542px;
@@ -218,55 +220,63 @@
   margin-top: -40px; /* Adjust the value as needed */
 }
 
-.hpnew-box {
-  align-items: flex-start;
+.hpnewbox {
+  align-items: center;
   display: inline-flex;
   flex-direction: column;
   gap: 10px;
-  top: 450px;
+  justify-content: center;
+  position: relative;
+  top: 410px;
+}
+
+.hpnewbox .new-box {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
   position: relative;
 }
 
-.hpnew-box .hprectangle {
+.hpnewbox .hp-rectangle {
   background-color: #ffffff;
-  border: 1px solid;
+  border: 2px solid;
   border-color: #000000;
   border-radius: 27px;
-  height: 402px;
+  height: 202px;
   position: relative;
   width: 640px;
 }
 
-.hpnew-box .hpdetails-box {
-  align-items: center;
+.hpnewbox .hpdetails-box {
+  align-items: flex-start;
   display: flex;
-  flex-direction: column;
   gap: 17px;
-  height: 368px;
-  justify-content: center;
-  left: 438px;
+  height: 120px;
+  left: 38px;
   position: absolute;
-  top: 17px;
-  width: 186px;
+  top: 41px;
+  width: 563px;
 }
 
-.hpnew-box .hpbox {
+.hpnewbox .hpbox {
   height: 109px;
-  margin-right: -5.5px;
   position: relative;
   width: 185px;
 }
 
-.hpnew-box .hpoverlap-group {
+.hpnewbox .hpoverlap-group {
   background-color: #5ee7fa;
   border-radius: 11px;
   box-shadow: 0px 4px 4px #00000040;
   height: 109px;
   position: relative;
-  width: 190px;
+  width: 185px;
 }
 
-.hpnew-box .hptext-wrapper {
+.hpnewbox .hptext-wrapper {
   color: #000000;
   font-family: "Poppins-Light", Helvetica;
   font-size: 14px;
@@ -280,7 +290,7 @@
   white-space: nowrap;
 }
 
-.hpnew-box .hpdiv {
+.hpnewbox .hpdiv {
   color: #000000;
   font-family: "Poppins-Light", Helvetica;
   font-size: 14px;
@@ -294,7 +304,7 @@
   white-space: nowrap;
 }
 
-.hpnew-box .hptext-wrapper-2 {
+.hpnewbox .hptext-wrapper-2 {
   color: #000000;
   font-family: "Poppins-Light", Helvetica;
   font-size: 14px;
@@ -308,7 +318,7 @@
   white-space: nowrap;
 }
 
-.hpnew-box .hptext-wrapper-3 {
+.hpnewbox .hptext-wrapper-3 {
   color: #000000;
   font-family: "Poppins-Light", Helvetica;
   font-size: 14px;
@@ -322,7 +332,7 @@
   white-space: nowrap;
 }
 
-.hpnew-box .hptext-wrapper-4 {
+.hpnewbox .hptext-wrapper-4 {
   color: #000000;
   font-family: "Poppins-Light", Helvetica;
   font-size: 14px;
@@ -336,7 +346,7 @@
   white-space: nowrap;
 }
 
-.hpnew-box .hptext-wrapper-5 {
+.hpnewbox .hptext-wrapper-5 {
   color: #000000;
   font-family: "Poppins-Light", Helvetica;
   font-size: 14px;
@@ -350,23 +360,22 @@
   white-space: nowrap;
 }
 
-.hpnew-box .hpoverlap-wrapper {
+.hpnewbox .hpoverlap-wrapper {
   height: 107px;
-  margin-right: -7.99px;
   position: relative;
   width: 189.97px;
 }
 
-.hpnew-box .hpoverlap {
+.hpnewbox .hpoverlap {
   background-color: #c2da8d80;
   border-radius: 11px;
   box-shadow: 0px 4px 4px #00000040;
   height: 107px;
   position: relative;
-  width: 190px;
+  width: 185px;
 }
 
-.hpnew-box .hptext-wrapper-6 {
+.hpnewbox .hptext-wrapper-6 {
   color: #000000;
   font-family: "Poppins-Light", Helvetica;
   font-size: 14px;
@@ -380,8 +389,21 @@
   white-space: nowrap;
   width: 89px;
 }
-
-.hpnew-box .hptext-wrapper-7 {
+.hpnewbox .hptext-wrapper-6a {
+  color: #000000;
+  font-family: "Poppins-Light", Helvetica;
+  font-size: 14px;
+  font-weight: 300;
+  height: 20px;
+  left: 15px;
+  letter-spacing: -0.24px;
+  line-height: 20px;
+  position: absolute;
+  top: 30px;
+  white-space: nowrap;
+  width: 89px;
+}
+.hpnewbox .hptext-wrapper-7 {
   color: #000000;
   font-family: "Poppins-Light", Helvetica;
   font-size: 14px;
@@ -396,7 +418,7 @@
   width: 51px;
 }
 
-.hpnew-box .hptext-wrapper-8 {
+.hpnewbox .hptext-wrapper-8 {
   color: #000000;
   font-family: "Poppins-Light", Helvetica;
   font-size: 14px;
@@ -411,7 +433,7 @@
   width: 75px;
 }
 
-.hpnew-box .hptext-wrapper-9 {
+.hpnewbox .hptext-wrapper-9 {
   color: #000000;
   font-family: "Poppins-Light", Helvetica;
   font-size: 14px;
@@ -421,12 +443,12 @@
   letter-spacing: -0.24px;
   line-height: 20px;
   position: absolute;
-  top: 7px;
+  top: 10px;
   white-space: nowrap;
   width: 22px;
 }
 
-.hpnew-box .hptext-wrapper-10 {
+.hpnewbox .hptext-wrapper-10 {
   color: #000000;
   font-family: "Poppins-Light", Helvetica;
   font-size: 14px;
@@ -436,12 +458,12 @@
   letter-spacing: -0.24px;
   line-height: 20px;
   position: absolute;
-  top: 33px;
+  top: 35px;
   white-space: nowrap;
   width: 22px;
 }
 
-.hpnew-box .hptext-wrapper-11 {
+.hpnewbox .hptext-wrapper-11 {
   color: #000000;
   font-family: "Poppins-Light", Helvetica;
   font-size: 14px;
@@ -451,21 +473,28 @@
   letter-spacing: -0.24px;
   line-height: 20px;
   position: absolute;
-  top: 59px;
+  top: 62px;
   white-space: nowrap;
   width: 22px;
 }
 
-.hpnew-box .hpoverlap-2 {
+.hpnewbox .hpoverlap-group-wrapper {
+  height: 107px;
+  margin-right: -11.94px;
+  position: relative;
+  width: 189.97px;
+}
+
+.hpnewbox .hpoverlap-2 {
   background-color: #ea143b80;
   border-radius: 11px;
   box-shadow: 0px 4px 4px #00000040;
   height: 107px;
   position: relative;
-  width: 190px;
+  width: 178px;
 }
 
-.hpnew-box .hptext-wrapper-12 {
+.hpnewbox .hptext-wrapper-12 {
   color: #000000;
   font-family: "Poppins-Light", Helvetica;
   font-size: 14px;
@@ -475,11 +504,11 @@
   letter-spacing: -0.24px;
   line-height: 20px;
   position: absolute;
-  top: 34px;
+  top: 58px;
   width: 78px;
 }
 
-.hpnew-box .hptext-wrapper-13 {
+.hpnewbox .hptext-wrapper-13 {
   color: #000000;
   font-family: "Poppins-Light", Helvetica;
   font-size: 14px;
@@ -491,13 +520,4 @@
   position: absolute;
   top: 60px;
   width: 78px;
-}
-
-.hpnew-box .hprectangle-2 {
-  background-color: #ffffff;
-  height: 346px;
-  left: 21px;
-  position: absolute;
-  top: 29px;
-  width: 410px;
 }

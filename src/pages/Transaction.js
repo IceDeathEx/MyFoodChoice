@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import NavBarUser from './NavBarUser';
 import dateFormat from 'dateformat';
 import CareCalories from "../server/config/CareCalories";
+import "../css/TSstyle.css";
 
 const Transaction = () => {
     const [loyaltydb, setloyaltydb] = useState([])
@@ -47,13 +48,14 @@ const Transaction = () => {
             <NavBarUser/>
             {isLoading ? (
                 <div className="divcss">
+                    <div className='table1'>
                 <h2>Loyalty Transaction section</h2>
                 <label>Search for record via item name: </label>
                 <input type="search" name="1" onChange={handleLoyaltyName}/>
-                <table>
+                <table className='center'>
                   <thead>
                       <tr>
-                          <th>ID</th>
+                          <th className='1'>ID</th>
                           <th>Item name</th>
                           <th>Points deducted</th>
                           <th>Quantity</th>
@@ -63,7 +65,7 @@ const Transaction = () => {
                   <tbody>
                       {!filterloyalty && loyaltydb.map((data, index)=>{
                           return  <tr key={index+1}>
-                                      <td>{index+1}</td>
+                                      <td className='one'>{index+1}</td>
                                       <td>{data.itemname}</td>
                                       <td>{data.point}</td>
                                       <td>{data.qty}</td>
@@ -72,7 +74,7 @@ const Transaction = () => {
                       })}
                       {filterloyalty && loyaltydb2.map((data, index)=>{
                           return  <tr key={index+1}>
-                                      <td>{index+1}</td>
+                                      <td className='one'>{index+1}</td>
                                       <td>{data.itemname}</td>
                                       <td>{data.point}</td>
                                       <td>{data.qty}</td>
@@ -81,10 +83,12 @@ const Transaction = () => {
                       })}
                   </tbody>
               </table>
-                  <h2>Transaction history section</h2>
+              </div>
+              <div className='table2'>
+                  <h2 >Transaction history section</h2>
                   <label>Search for record: </label>
                   <input type="search" name="2" onChange={handleTransactionName}/>
-              <table>
+              <table className='center'>
                   <thead>
                       <tr> 
                           <th>ID</th>
@@ -121,6 +125,7 @@ const Transaction = () => {
                           })}
                   </tbody>
               </table>
+              </div>
               </div>
             ) :(
                 <p>Still Loading...</p>

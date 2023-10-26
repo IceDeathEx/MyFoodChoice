@@ -52,6 +52,41 @@ app.post('/api/create', (req, res) => {
   });
 })
 
+// Route to get one row by email (WORKING)
+app.get('/api/getnewaccountemail', (req, res) => {
+
+  const id = req.params.id;
+  db.query("SELECT * FROM user ORDER BY id DESC LIMIT 1;", id, (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+// Route for creating a new user profile row into the table 'userprofile' (WORKING)
+app.post('/api/createuserprofilenewaccount', (req, res) => {
+
+  const name = req.body.name;
+  const gender = req.body.gender;
+  const height = req.body.height;
+  const weight = req.body.weight;
+  const lifestyle = req.body.lifestyle;
+  const conditions = req.body.conditions;
+  const dob = req.body.dob;
+  const iduserprofile = req.body.iduserprofile;
+  const iduser = req.body.iduser;
+  const bmi = req.body.bmi;
+  const age = req.body.age;
+
+  db.query("INSERT INTO userprofile (iduserprofile, iduser, name, dob, height, weight, conditions, lifestyle, gender, bmi, age) VALUES (?,?,?,?,?,?,?,?,?,?,?)", [iduserprofile, iduser, name, dob, height, weight, conditions, lifestyle, gender, bmi, age], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  });
+})
+
 // Route to update row (WORKING)
 app.put('/api/update/:id', (req, res) => {
 
@@ -665,13 +700,28 @@ app.put('/api/updatetransaction/:id', (req, res) => {
   const transid = req.body.transid;
   const transstatus = req.body.transstatus;
   const transdate = req.body.transdate;
-  db.query("UPDATE transaction SET transstatus = ?, transdate = ? WHERE uid = ? AND transid = ?;", [transstatus, transdate, id, transid], (err, result) => {
+  const payment = req.body.payment;
+  db.query("UPDATE transaction SET transstatus = ?, payment = ?, transdate = ? WHERE uid = ? AND transid = ?;", [transstatus, payment, transdate, id, transid], (err, result) => {
     if (err) {
       console.log(err)
     }
     console.log(result)
   });
 });
+
+// Route to update transaction status row with rowid(WORKING)
+app.put('/api/updateuserpremiumstatus/:id', (req, res) => {
+
+  const uid = req.params.id;
+  const premium = req.body.premium;
+  db.query("UPDATE user SET premium = ? WHERE id = ?;", [premium, uid], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  });
+});
+
 
 // Route to inserting records to review table (WORKING)
 app.post('/api/addreview/:id', (req, res) => {
@@ -702,6 +752,16 @@ app.get("/api/getreviews/", (req, res) => {
 // Route to get vendors
 app.get("/api/getvendors", (req, res) => {
   db.query("SELECT * FROM vendor;", (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+// Route to get all transaction with name
+app.get("/api/getalltransactionwithname", (req, res) => {
+  db.query("SELECT * FROM myfoodchoice.transaction join user on transaction.uid = user.id; ", (err, result) => {
     if (err) {
       console.log(err)
     }

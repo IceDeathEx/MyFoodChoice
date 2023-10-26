@@ -312,7 +312,7 @@ const handleupgrade = () => {
               <div className="account">
                 <div className="div">
                   <div className="text-wrapper">Hi, {userData2[0] ? userData2[0].name : ""} !!</div>
-                  <form className="inputName1">
+                  <form className="inputName">
                     <select className="inputName" onClick={handleChange2}>
                       {userData.map((profile, index) => (
                           <option key={index} value={profile.name}>
@@ -456,10 +456,11 @@ const handleupgrade = () => {
                   </div>
                   <div className="frame-15">
                     <div className="frame-16">
-
+                    {user[0].premium === "basic" && (
                         <div className="text-wrapper-11" onClick={handleupgrade}>upgrade</div>
+                        )}
                       <div className="text-wrapper-4">Account Type</div>
-                      <div className="text-wrapper-5">Basic</div>
+                      <div className="text-wrapper-5">{user[0].premium}</div>
                     </div>
                   </div>
                   <img className="ellipse" alt="Ellipse" src={image}/>

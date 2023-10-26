@@ -5,7 +5,7 @@ import image1 from '../pics/image-1.png';
 import image2 from '../pics/image-2.png';
 
 import { Link } from "react-router-dom";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import CareCalories from "../server/config/CareCalories";
 
@@ -25,6 +25,14 @@ const SignUp = () => {
     const loyaltypoints = 1000;
     const [premium] = useState('basic')
     
+    const [lastid, setlastid] = useState(null)
+    useEffect(()=>{
+      CareCalories.get('/api/getnewaccountemail/')
+      .then((res)=>{
+        setlastid(res.data[0].id)
+      })
+    })
+
     //If email is empty
     const [emailEmpty, setEmailEmpty] = useState(false)
     const [emailEmtpyMessage, setEmailEmptyMessage] = useState('')
@@ -194,7 +202,7 @@ const SignUp = () => {
         }
       };
       // Function to submit user registration data
-      const submitPost = () => {
+      const submitPost = () =>{
          // Calculate age
          const birthDate = new Date(dob);
          const currentDate = new Date();
@@ -212,7 +220,7 @@ const SignUp = () => {
           setInvalidAge(true)
           setInvalidAgeMsg('Please enter an age 1 year or older.')
          }else{
-          CareCalories.post('/api/signup', {
+         CareCalories.post('/api/signup', {
             email: email,
             name: name,
             password: password,
@@ -229,7 +237,21 @@ const SignUp = () => {
             loyalty: loyaltypoints,
             age: age,
             calorie: calorie
+          })
+          CareCalories.post("/api/createuserprofilenewaccount", {
+          name: name,
+          gender: gender,
+          height: height,
+          weight: weight,
+          lifestyle: lifestyle,
+          conditions: conditions,
+          dob: dob,
+          bmi: bmi,
+          age: age,
+          iduserprofile: 1,
+          iduser: lastid + 1
           });
+          
           navigate('/login')
          }
       };

@@ -13,9 +13,16 @@ const MealHistory = () => {
     useEffect(()=>{
         CareCalories.get(`/api/getmealrecordfullinfo1/${id}`)
         .then((data)=>{
-            setmealrecorddb(data.data)
-            setmealrecorddb3(data.data.filter((res)=> res.upid === 1))
-            setcondition1(data.data.filter((res)=> res.upid === 1)[0].name)
+            if(data.data.length === 0){
+                alert('No Meal record data stored.')
+                setmealrecorddb(data.data)
+            }
+            else{
+                setmealrecorddb(data.data)
+                setmealrecorddb3(data.data.filter((res)=> res.upid === 1))
+                setcondition1(data.data.filter((res)=> res.upid === 1)[0].name)
+            }
+            
         })
         CareCalories.get(`/api/getUserProfile/${id}`)
             .then((data) => {
@@ -24,23 +31,29 @@ const MealHistory = () => {
         
     },[])
     const handleMealRecordName = (e) =>{
-        setcondition2(e.target.value)
-        if(e.target.value === ''){
-            //Do nothing
+        if(mealrecorddb.length === 0){
+            setcondition2(e.target.value)
+            if(e.target.value === ''){
+                //Do nothing
+            }
+            else{
+                setmealrecorddb3(mealrecorddb.filter((res)=> res.name === condition1 && res.fname.toLowerCase().includes(e.target.value.toLowerCase())))
+            }
         }
-        else{
-            setmealrecorddb3(mealrecorddb.filter((res)=> res.name === condition1 && res.fname.toLowerCase().includes(e.target.value.toLowerCase())))
-        }
+        
     }
     const handleUPChange = (e) =>{
-        setcondition1(e.target.value)
-        if(condition2 === ''){
-            setmealrecorddb3(mealrecorddb.filter((res)=> res.name === e.target.value))
+        if(mealrecorddb.length === 0){
+            setcondition1(e.target.value)
+            if(condition2 === ''){
+                setmealrecorddb3(mealrecorddb.filter((res)=> res.name === e.target.value))
 
+            }
+            else{
+                setmealrecorddb3(mealrecorddb.filter((res)=> res.name === e.target.value && res.fname.toLowerCase().includes(condition2.toLowerCase())))
+            }
         }
-        else{
-            setmealrecorddb3(mealrecorddb.filter((res)=> res.name === e.target.value && res.fname.toLowerCase().includes(condition2.toLowerCase())))
-        }
+        
         
     }
     return ( 

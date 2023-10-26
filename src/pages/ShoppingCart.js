@@ -60,15 +60,15 @@ const ShoppingCart = () => {
     // USE THIS CREDIT CARD NO. 4012888888881881
 
     const openDialog = () => {
-        if(name === ''){
-            alert('Please enter a name.')
-        }
         var today = new Date()
         //setIsDialogOpen(true);
         if(payment === ''){
             alert('Please select a payment method.')
         }
         else if(payment === 'Credit Card'){
+            if(name === ''){
+                alert('Please enter a name.')
+            }
             var isValidCardNumber = /^\d{13,19}$/.test(card) && luhnCheck(card);
 
             // Expiration date validation (MM/YY format)
@@ -78,15 +78,22 @@ const ShoppingCart = () => {
             var isValidCVV = /^\d{3,4}$/.test(cvv);
             //console.log(isValidCardNumber, isValidCVV, isValidExpirationDate)
             // Display validation results
-            if (isValidCardNumber && isValidExpirationDate && isValidCVV) {
+            if (isValidCardNumber && isValidExpirationDate && isValidCVV && name) {
                 //console.log("Credit card information is valid.");
                 transaction.map((item)=>{
                     CareCalories.put(`/api/updatetransaction/${uid}`, {
                         transstatus: 'Paid',
                         transid: item.transid,
-                        transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss")
+                        transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"),
+                        payment: 'Credit Card'
                     })
                 })
+                if(transaction.filter((res)=> res.transitemname === 'Upgrade').length > 0){
+                    CareCalories.put(`/api/updateuserpremiumstatus/${uid}`, {
+                        premium: 'premium'
+                    })
+                }
+                alert("Transaction successfully went through.")
                 navigate('/homepage')
             } else {
                 alert("Invalid credit card information. Please check the placeholder values example.");
@@ -98,7 +105,8 @@ const ShoppingCart = () => {
                 CareCalories.put(`/api/updatetransaction/${uid}`, {
                     transstatus: 'Unpaid',
                     transid: item.transid,
-                    transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss")
+                    transdate: dateFormat(today, "yyyy-mm-dd HH:MM:ss"),
+                    payment: 'Counter'
                 })
             })
             navigate('/homepage')

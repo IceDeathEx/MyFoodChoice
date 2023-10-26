@@ -381,10 +381,9 @@ const snacksData = mealcalories.filter((data) => data.meal === 'snacks');
                 </div>
                
 {/*                 isLoading && mealData !== null && mealData.map((data)=>{ */}
-
-
-<div className="hpnew-box">
-<div className="hprectangle" />
+<div className="hpnewbox">
+<div className="new-box">
+<div className="hp-rectangle" />
 <div className="hpdetails-box">
 <div className="hpbox">
 <div className="hpoverlap-group">
@@ -406,19 +405,15 @@ const snacksData = mealcalories.filter((data) => data.meal === 'snacks');
 <div className="hptext-wrapper-11">{mealData[0] && mealData[0].cholestrol ? (mealData[0].cholestrol.toFixed(2)) : ('0')}</div>
 </div>
 </div>
-<div className="hpoverlap-wrapper">
+<div className="hpoverlap-group-wrapper">
 <div className="hpoverlap-2">
-<div className="hptext-wrapper-6">Fibre (g)</div>
+<div className="hptext-wrapper-6a">Fibre (g)</div>
 <div className="hptext-wrapper-12">Fats (g)</div>
-<div className="hptext-wrapper-9">{mealData[0] && mealData[0].dietaryfibre ? (mealData[0].dietaryfibre.toFixed(2)) : ('0')}</div>
-<div className="hptext-wrapper-10">{mealData[0] && mealData[0].fat ? (mealData[0].fat.toFixed(2)) : ('0')}</div>
-
+<div className="hptext-wrapper-10">{mealData[0] && mealData[0].dietaryfibre ? (mealData[0].dietaryfibre.toFixed(2)) : ('0')}</div>
+<div className="hptext-wrapper-11">{mealData[0] && mealData[0].fat ? (mealData[0].fat.toFixed(2)) : ('0')}</div>
 </div>
 </div>
 </div>
-
-<div className="hprectangle-2">
-  //graph
 </div>
 </div>
                     

@@ -19,7 +19,7 @@ export const Loyalty = () => {
       .then((response) => setLoyaltyItems(response.data))
       .catch((error) => console.error('Error fetching data:', error));
 
-    CareCalories.get(`/api/getUser/${16}`)
+    CareCalories.get(`/api/getUser/${id}`)
       .then((res)=>{
         setUser(res.data)
       })
@@ -92,7 +92,7 @@ export const Loyalty = () => {
           <div className="text-wrapper">Checkout</div>
           <div className="text-wrapper-2">Selected Items :</div>
           <div className="text-wrapper-3">Loyalty</div>
-          <div className="text-wrapper-4">Your points : 3200</div>
+          <div className="text-wrapper-4">Your points : {user[0] && user[0].loyaltypoint}</div>
           <div className="frame">
             {isLoading && loyaltyItems.map((data, index)=>{
                 return <div className="loyalty-items" key={index+1}>
