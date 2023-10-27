@@ -37,7 +37,7 @@ CREATE TABLE `transaction` (
   `payment` varchar(45) DEFAULT NULL,
   `transcategory` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`transid`)
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `transaction` (
 
 LOCK TABLES `transaction` WRITE;
 /*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
-INSERT INTO `transaction` VALUES (15,16,2,'Salad',10,4,'2023-10-17 20:20:19','Admiralty 313','Unpaid','Counter','Food'),(18,16,9,'Fresh corn salad',10,1,'2023-10-17 20:20:19','Care Calories','Unpaid','Counter','Recipe'),(19,16,5,'Chicken Rice',3.5,10,'2023-10-17 20:20:19','Ji De Lai Chicken Rice','Unpaid','Counter','Food'),(21,16,0,'Upgrade',30,1,'2023-10-17 20:20:19','Care Calories','Unpaid','Counter','Upgrade'),(27,16,1,'Hamburger',19.99,1,'2023-10-17 20:20:19','Clementi Mall','Unpaid','Counter','Food'),(28,16,2,'Nasi Lemak',10,1,'2023-10-17 20:53:31','Care Calories','Paid','Counter','Recipe'),(30,16,4,'Penang Assam laksa',20,1,'2023-10-17 21:00:37','Care Calories','Paid','Counter','Recipe'),(31,16,1,'Hainese Chicken Rice',20,1,'2023-10-17 21:00:37','Care Calories','Paid','Counter','Recipe'),(32,16,11,'Super healthy set',60,1,'2023-10-17 21:04:26','Care Calories','Paid','Counter','Recipe'),(33,16,12,'Super value set',64,1,'2023-10-17 22:10:52','Care Calories','Paid','Counter','Recipe'),(42,16,2,'Salad',10,9,'2023-10-21 15:49:41','Admiralty 313','Ongoing','Counter','Food'),(43,16,5,'Kaya Jam',25,1,'2023-10-21 15:49:49','Care Calories','Ongoing','Counter','Recipe'),(44,16,0,'Upgrade',30,1,'2023-10-21 15:50:03','Care Calories','Ongoing','Counter','Upgrade');
+INSERT INTO `transaction` VALUES (15,16,2,'Salad',10,4,'2023-10-17 20:20:19','Admiralty 313','Unpaid','Counter','Food'),(18,16,9,'Fresh corn salad',10,1,'2023-10-17 20:20:19','Care Calories','Unpaid','Counter','Recipe'),(19,16,5,'Chicken Rice',3.5,10,'2023-10-17 20:20:19','Ji De Lai Chicken Rice','Unpaid','Counter','Food'),(21,16,0,'Upgrade',30,1,'2023-10-17 20:20:19','Care Calories','Unpaid','Counter','Upgrade'),(27,16,1,'Hamburger',19.99,1,'2023-10-17 20:20:19','Clementi Mall','Unpaid','Counter','Food'),(28,16,2,'Nasi Lemak',10,1,'2023-10-17 20:53:31','Care Calories','Paid','Counter','Recipe'),(30,16,4,'Penang Assam laksa',20,1,'2023-10-17 21:00:37','Care Calories','Paid','Counter','Recipe'),(31,16,1,'Hainese Chicken Rice',20,1,'2023-10-17 21:00:37','Care Calories','Paid','Counter','Recipe'),(32,16,11,'Super healthy set',60,1,'2023-10-17 21:04:26','Care Calories','Paid','Counter','Recipe'),(33,16,12,'Super value set',64,1,'2023-10-17 22:10:52','Care Calories','Paid','Counter','Recipe'),(42,16,2,'Salad',10,9,'2023-10-26 20:52:19','Admiralty 313','Paid','Credit Card','Food'),(43,16,5,'Kaya Jam',25,1,'2023-10-26 20:52:19','Care Calories','Paid','Credit Card','Recipe'),(44,16,0,'Upgrade',30,1,'2023-10-26 20:52:19','Care Calories','Paid','Credit Card','Upgrade'),(47,16,1,'Hamburger',19.99,10,'2023-10-26 21:25:23','Clementi Mall','Paid','Credit Card','Food'),(48,16,2,'Salad',10,1,'2023-10-26 21:25:53','Admiralty 313','Unpaid','Counter','Food'),(49,16,4,'Green Smoothie',8.7,1,'2023-10-26 21:32:34','Yishun','Paid','Credit Card','Food'),(50,17,2,'Salad',10,1,'2023-10-26 21:59:58','Admiralty 313','Unpaid','Counter','Food');
 /*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-24 11:33:55
+-- Dump completed on 2023-10-27 22:30:15

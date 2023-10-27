@@ -41,9 +41,9 @@ const TransactionSA = () => {
                                     <th>User's ID</th>
                                     <th>User's Email</th>
                                     <th>Item' name</th>
-                                    <th>Item's price</th>
+                                    <th>Item's price ($)</th>
                                     <th>Item's qty</th>
-                                    <th>Total price</th>
+                                    <th>Total price ($)</th>
                                     <th>Date Purchased</th>
                                     <th>Status</th>
                                     <th>Payment</th>
@@ -59,7 +59,7 @@ const TransactionSA = () => {
                                     <td>{record.transitemname}</td>
                                     <td>{record.transitemprice}</td>
                                     <td>{record.transqty}</td>
-                                    <td>{record.transqty}</td>
+                                    <td>{(record.transqty * record.transitemprice).toFixed(2)}</td>
                                     <td>{dateFormat(record.transdate, "dddd, mmmm dS, yyyy, h:MM:ss TT")}</td>
                                     <td>{record.transstatus}</td>
                                     <td>{record.payment}</td>
@@ -73,7 +73,7 @@ const TransactionSA = () => {
                                     <td>{record.transitemname}</td>
                                     <td>{record.transitemprice}</td>
                                     <td>{record.transqty}</td>
-                                    <td>{record.transqty}</td>
+                                    <td>{(record.transqty * record.transitemprice).toFixed(2)}</td>
                                     <td>{dateFormat(record.transdate, "dddd, mmmm dS, yyyy, h:MM:ss TT")}</td>
                                     <td>{record.transstatus}</td>
                                     <td>{record.payment}</td>

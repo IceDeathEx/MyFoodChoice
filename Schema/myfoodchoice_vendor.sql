@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `vendor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vendor` (
-  `idvendor` int NOT NULL,
+  `idvendor` int NOT NULL AUTO_INCREMENT,
   `vendorname` varchar(100) DEFAULT NULL,
   `vendoremail` varchar(300) DEFAULT NULL,
   `vendorpassword` varchar(300) DEFAULT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE `vendor` (
   `vendorspecialty` varchar(200) DEFAULT NULL,
   `vendorimg` varchar(2000) DEFAULT NULL,
   PRIMARY KEY (`idvendor`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `vendor` (
 
 LOCK TABLES `vendor` WRITE;
 /*!40000 ALTER TABLE `vendor` DISABLE KEYS */;
-INSERT INTO `vendor` VALUES (1,'Burnt Ends','BurntEnds@gmail.com','BurntEnds','7 Dempsey Rd, #01-02, Singapore 249671','Bar & Grill','https://www.shutterstock.com/shutterstock/photos/2287821617/display_1500/stock-vector-burnt-ends-label-or-stamp-on-white-background-vector-illustration-2287821617.jpg'),(2,'WildFire Burger','WildFire@gmail.com','WildFire','80 Bencoolen St, #01-15 NAFA Campus, Singapore 189655','Hamburger','https://images.squarespace-cdn.com/content/v1/5ec69a21d1b2b336d94836d5/fa86e719-4d29-4805-ace8-d13b33fc6cb9/Wildfire+Burgers+Logo.png'),(3,'Project Burgs','Burgs@gmail.com','Project Burgs','313@somerset, 313 Orchard Road, #05-01/02/03, Stall 25','Hamburger','https://eatbook.sg/wp-content/uploads/2021/07/lotus-biscoff-icecream-min.jpg'),(4,'Chirashi King Kong','ChirashiKK@gmail.com','Chirashi King Kong','9 Raffles Boulevard, #02-17, Millenia Walk, Singapore 039596','Japanese Cuisine','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJPU-2hunCnEf_GIaqFS0Wd1bAqQh9ppT9_Q&usqp=CAU'),(5,'Umi Nami','UmiNami@gmail.com','Umi Nami','8 Lor Mambong, Singapore 277674','Japanese Cuisine','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCAup--CvakZWB9SDJrGGBuFNrA5ZhqGUfdg&usqp=CAU'),(6,'Wolf Burger','WolfBurger@gmail.com','Wolf Burger','63 Hillview Avenue','Hamburger','https://scontent.fsin15-2.fna.fbcdn.net/v/t39.30808-6/348300746_608120137921472_6290819430512690533_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=8hZoHWyUAb4AX8JAQXa&_nc_ht=scontent.fsin15-2.fna&oh=00_AfAYIidOcdF08XvOCjIw1rB8CuADfkiGMZGP2QKSOibPqg&oe=6536A02F');
+INSERT INTO `vendor` VALUES (1,'Burnt Ends','BurntEnds@gmail.com','BurntEnds','7 Dempsey Rd, #01-02, Singapore 249671','Bar & Grill','https://www.shutterstock.com/shutterstock/photos/2287821617/display_1500/stock-vector-burnt-ends-label-or-stamp-on-white-background-vector-illustration-2287821617.jpg'),(2,'WildFire Burger','WildFire@gmail.com','WildFire','80 Bencoolen St, #01-15 NAFA Campus, Singapore 189655','Hamburger','https://images.squarespace-cdn.com/content/v1/5ec69a21d1b2b336d94836d5/fa86e719-4d29-4805-ace8-d13b33fc6cb9/Wildfire+Burgers+Logo.png'),(3,'Project Burgs','Burgs@gmail.com','Project Burgs','313@somerset, 313 Orchard Road, #05-01/02/03, Stall 25','Hamburger','https://eatbook.sg/wp-content/uploads/2021/07/lotus-biscoff-icecream-min.jpg'),(4,'Chirashi King Kong','ChirashiKK@gmail.com','Chirashi King Kong','9 Raffles Boulevard, #02-17, Millenia Walk, Singapore 039596','Japanese Cuisine','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJPU-2hunCnEf_GIaqFS0Wd1bAqQh9ppT9_Q&usqp=CAU'),(5,'Umi Nami','UmiNami@gmail.com','Umi Nami','8 Lor Mambong, Singapore 277674','Japanese Cuisine','https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCAup--CvakZWB9SDJrGGBuFNrA5ZhqGUfdg&usqp=CAU'),(6,'Wolf Burger','WolfBurger@gmail.com','Wolf Burger','63 Hillview Avenue','Hamburger','https://scontent.fsin15-2.fna.fbcdn.net/v/t39.30808-6/348300746_608120137921472_6290819430512690533_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=8hZoHWyUAb4AX8JAQXa&_nc_ht=scontent.fsin15-2.fna&oh=00_AfAYIidOcdF08XvOCjIw1rB8CuADfkiGMZGP2QKSOibPqg&oe=6536A02F'),(10,'123','123@','1231Test1!','@123123','Bar and Grill','blob:http://localhost:3000/4d43918e-ee9b-49e3-afbe-603c479b6910'),(11,'FitBit','@saf','Test1234@','123123','Japanese Cuisine','blob:http://localhost:3000/435ec0ea-efc4-48b3-b599-a1eec5256d92'),(12,'asdasd','123@','123@teTes','213','Bar and Grill','blob:http://localhost:3000/c6d76a52-b93e-492f-bae9-85b87670d874'),(13,'asdasd','123@','123@teTes','213','Bar and Grill','blob:http://localhost:3000/c6d76a52-b93e-492f-bae9-85b87670d874');
 /*!40000 ALTER TABLE `vendor` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-24 11:33:55
+-- Dump completed on 2023-10-27 22:30:16

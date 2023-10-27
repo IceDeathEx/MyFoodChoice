@@ -1,11 +1,16 @@
 const express = require('express');
 const db = require('./db')
 const cors = require('cors')
+const multer = require('multer');
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+
 
 const app = express();
 const PORT = 3002;
 app.use(cors());
 app.use(express.json())
+
 
 // Route to get all rows (WORKING)
 app.get("/api/get", (req, res) => {
@@ -94,6 +99,33 @@ app.put('/api/update/:id', (req, res) => {
   const name = req.body.name;
   const password = req.body.password;
   db.query("UPDATE user SET name = ?, password = ? WHERE id = ?;", [name, password, id], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  });
+});
+
+// Route to update row (WORKING)
+app.put('/api/updatepassword/:id', (req, res) => {
+
+  const id = req.params.id;
+  const password = req.body.password;
+  db.query("UPDATE user SET password = ? WHERE id = ?;", [password, id], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  });
+});
+
+
+// Route to update row on Vendor (WORKING)
+app.put('/api/updatevendor/:id', (req, res) => {
+
+  const id = req.params.id;
+  const password = req.body.password;
+  db.query("UPDATE vendor SET vendorpassword = ? WHERE idvendor = ?;", [password, id], (err, result) => {
     if (err) {
       console.log(err)
     }
@@ -310,6 +342,98 @@ app.post('/api/loyaltytransaction', (req, res) => {
     console.log(result)
   });
 })
+
+// Route to inserting vendor records to user table
+app.post('/api/insertvendortouser', (req, res) => {
+
+  const name = req.body.vendorname;
+  const email = req.body.vendoremail;
+  const password = req.body.vendorpassword;
+  const accountType = 'vendor'
+
+  db.query("INSERT INTO user (email, name, password, accountType) VALUES (?, ?, ?, ?)", [email, name, password, accountType], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  });
+})
+
+
+// Route to inserting records to vendor (WORKING)
+app.post('/api/insertvendor2', upload.single('image'), (req, res) => {
+  if(!req.file){
+    console.log('File no Found!')
+  }
+  const vendorimg = req.body.vendorimg;
+  const vendorname = req.body.vendorname;
+  const vendoremail = req.body.vendoremail;
+  const vendorpassword = req.body.vendorpassword;
+  const vendoraddress = req.body.vendoraddress;
+  const vendorspecialty = req.body.vendorspecialty;
+  const imageData = req.file.buffer;
+
+  db.query("INSERT INTO vendor2 (vendorname, vendoremail, vendorpassword, vendoraddress, vendorspecialty, vendorimg) VALUES (?, ?, ?, ?, ?, ?)", [vendorname, vendoremail, vendorpassword, vendoraddress, vendorspecialty, imageData], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  });
+})
+
+// Route to get unique Id for Food Nutrition page(WORKING)
+app.get("/api/getvendor2", (req, res) => {
+  const id = req.params.id;
+  db.query("SELECT vendorimg FROM vendor2;", (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    if (result.length > 0) {
+      const imageData = result[0].vendorimg;
+      res.header('Content-Type', 'image/jpg'); // Set the appropriate content type
+      res.send(imageData);
+    } else {
+      res.status(404).send('Image not found');
+    }
+    /* const imageResponses = result.map((row) => {
+      // Determine the appropriate content type based on the image format
+      let contentType = 'image/jpeg'; // Default to JPEG
+      if (row.vendorimg.type === 'image/png') {
+        contentType = 'image/png';
+      }
+      if (row.vendorimg.type === 'image/jpg') {
+        contentType = 'image/png';
+      }
+      return {
+        contentType,
+        imageBuffer: row.vendorimg
+      }
+    });
+    imageResponses.forEach((imageResponse) => {
+      res.setHeader('Content-Type', imageResponse.contentType);
+      res.write(imageResponse.imageBuffer, 'binary');
+    });
+    res.end(); */
+  });
+});
+
+// Route to inserting records to vendor (WORKING)
+app.post('/api/insertvendor', (req, res) => {
+  const vendorimg = req.body.vendorimg;
+  const vendorname = req.body.vendorname;
+  const vendoremail = req.body.vendoremail;
+  const vendorpassword = req.body.vendorpassword;
+  const vendoraddress = req.body.vendoraddress;
+  const vendorspecialty = req.body.vendorspecialty;
+
+  db.query("INSERT INTO vendor (vendorname, vendoremail, vendorpassword, vendoraddress, vendorspecialty, vendorimg) VALUES (?, ?, ?, ?, ?, ?)", [vendorname, vendoremail, vendorpassword, vendoraddress, vendorspecialty, vendorimg], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  });
+})
+
 
 // Route to get food item information from database (WORKING)
 app.get("/api/orderfood", (req, res) => {
