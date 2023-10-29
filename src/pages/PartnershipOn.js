@@ -12,7 +12,7 @@ const PartnershipOn = () => {
     const navigate = useNavigate()
     const [isloading, setisloading] = useState(false)
     useEffect(()=>{
-        CareCalories.get("/api/getvendors")
+        CareCalories.get("/api/getvendor")
         .then((res)=>{
             setvendor(res.data)
         })
@@ -59,7 +59,7 @@ const PartnershipOn = () => {
                                                 </div>
                                             </div>
                                         </div>
-                        
+                                        {vendor[index+1] &&
                                         <div className="job-offer">
                                             <img className="download" alt="Download" src={vendor[index + 1].vendorimg} />
                                             <div className="group-wrapper">
@@ -69,7 +69,8 @@ const PartnershipOn = () => {
                                                     <p className="text-wrapper-7">{vendor[index + 1].vendoraddress}</p>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>}
+
                                     </div>
                                 )}
                         })}

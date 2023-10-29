@@ -16,18 +16,12 @@ const ManageVendor = () => {
     const [user, setuser]= useState([])
     const [user2, setuser2]= useState([])
     const navigate = useNavigate()
-    const [test, settest]= useState('')
-    const [test2, settest2]= useState('')
+    const [test2, settest2]= useState([])
     useEffect(()=>{
-        //testing
-        CareCalories.get("/api/getvendor2", { responseType: 'blob' })
+        CareCalories.get("/api/getvendor")
         .then((res)=>{
-            settest(URL.createObjectURL(res.data));
             console.log(res.data)
             settest2(res.data)
-        })
-        CareCalories.get("/api/getvendors")
-        .then((res)=>{
             setvendor(res.data)
         })
         CareCalories.get("/api/get")
@@ -81,19 +75,20 @@ const ManageVendor = () => {
             window.location.reload()
         }
     }
-    const [selectedFile, setSelectedFile] = useState(null);
     const [imageURL, setImageURL] = useState('')
+    const [imagebin, setimagebin] = useState('')
     const handleUpload = (e) => {
-        const { files } = e.target
-        setSelectedFile(e.target.files[0])
-        
-        if(files.length > 0){
-            const url = URL.createObjectURL(files[0])
-            console.log(url)
+        console.log(e)
+        var reader = new FileReader()
+        reader.readAsDataURL(e.target.files[0])
+        reader.onload = () => {
+            console.log(reader.result)
+            const url = URL.createObjectURL(e.target.files[0])
             setImageURL(url)
+            setimagebin(reader.result)
         }
-        else{
-            setImageURL(null)
+        reader.onerror = error => {
+            console.log("Error: ", error)
         }
     }
     const [specialty, setspecialty] = useState('Bar and Grill')
@@ -111,10 +106,7 @@ const ManageVendor = () => {
     const [pwCheck, setpwCheck] = useState(false)
     const [addrCheck, setaddrCheck] = useState(false)
 
-    const handleVendorCreation = async() =>{
-        // Do the appriopriate checks for
-        //image //store the url to see if it works.
-        const formData = new FormData();
+    const handleVendorCreation = () =>{
         
         if(imageURL.length === 0){
             alert('Please upload an image.')
@@ -143,24 +135,11 @@ const ManageVendor = () => {
             setpwCheck(false)
             alert('Please enter a password.')
         }
-        if(email){
-            for (var i = 0; i < email.length; i++){
-                if(email[i] === '@'){
-                  setEmailCheck(true)
-                  break
-                }
-                else{
-                  setEmailCheck(false)
-                  
-                }
-            }
-            if(!emailCheck){
-                alert('Email is without an "@" symbol.')
-            }
-        }
-        else{
-            alert('Please enter an email')
-            setEmailCheck(false)
+        if (email && email.split('@').length === 2) {
+            setEmailCheck(true);
+        } else {
+            setEmailCheck(false);
+            alert('Invalid email format. Please include exactly one "@" symbol.');
         }
         
         if(addr){
@@ -170,25 +149,22 @@ const ManageVendor = () => {
             setaddrCheck(false)
             alert('Please enter an address.')
         }
-        console.log(imageCheck, emailCheck, addrCheck, pwCheck, nameCheck)
-        if(imageCheck && emailCheck && addrCheck && pwCheck && nameCheck){
+        //console.log(imageCheck, emailCheck, addrCheck, pwCheck, nameCheck)
+        if(prevState => ({
+            imageCheck: prevState.imageCheck,
+            emailCheck: prevState.emailCheck,
+            addrCheck: prevState.addrCheck,
+            pwCheck: prevState.pwCheck,
+            nameCheck: prevState.nameCheck
+        })){
             CareCalories.post('/api/insertvendor',{
                 vendorname: name,
                 vendoremail: email,
                 vendorpassword: pw,
-                vendorimg: imageURL,
+                vendorimg: imagebin,
                 vendoraddress: addr,
                 vendorspecialty: specialty
             })
-            formData.append('image', selectedFile);
-            formData.append('vendoremail', email);
-            formData.append('vendorname', name);
-            formData.append('vendorpassword', pw);
-            formData.append('vendoraddress', addr);
-            formData.append('vendorspecialty', specialty);
-
-            await CareCalories.post('/api/insertvendor2', formData)
-            
             CareCalories.post('/api/insertvendortouser',{
                 vendorname: name,
                 vendoremail: email,
@@ -196,6 +172,7 @@ const ManageVendor = () => {
             })
             alert('Account successfully created.')
             window.location.reload()
+            alert('successful')
         }
     }
     const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!])(?!.*\s).{8,16}$/;
@@ -301,7 +278,6 @@ const ManageVendor = () => {
                                     })}
                                 </tbody>
                             </table>
-                            {test && <img src={test}/>}
                         </div>
 
                         <div className="frame-10SA">

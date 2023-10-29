@@ -358,67 +358,10 @@ app.post('/api/insertvendortouser', (req, res) => {
     console.log(result)
   });
 })
-
-
-// Route to inserting records to vendor (WORKING)
-app.post('/api/insertvendor2', upload.single('image'), (req, res) => {
-  if(!req.file){
-    console.log('File no Found!')
-  }
-  const vendorimg = req.body.vendorimg;
-  const vendorname = req.body.vendorname;
-  const vendoremail = req.body.vendoremail;
-  const vendorpassword = req.body.vendorpassword;
-  const vendoraddress = req.body.vendoraddress;
-  const vendorspecialty = req.body.vendorspecialty;
-  const imageData = req.file.buffer;
-
-  db.query("INSERT INTO vendor2 (vendorname, vendoremail, vendorpassword, vendoraddress, vendorspecialty, vendorimg) VALUES (?, ?, ?, ?, ?, ?)", [vendorname, vendoremail, vendorpassword, vendoraddress, vendorspecialty, imageData], (err, result) => {
-    if (err) {
-      console.log(err)
-    }
-    console.log(result)
-  });
-})
-
-// Route to get unique Id for Food Nutrition page(WORKING)
-app.get("/api/getvendor2", (req, res) => {
-  const id = req.params.id;
-  db.query("SELECT vendorimg FROM vendor2;", (err, result) => {
-    if (err) {
-      console.log(err)
-    }
-    if (result.length > 0) {
-      const imageData = result[0].vendorimg;
-      res.header('Content-Type', 'image/jpg'); // Set the appropriate content type
-      res.send(imageData);
-    } else {
-      res.status(404).send('Image not found');
-    }
-    /* const imageResponses = result.map((row) => {
-      // Determine the appropriate content type based on the image format
-      let contentType = 'image/jpeg'; // Default to JPEG
-      if (row.vendorimg.type === 'image/png') {
-        contentType = 'image/png';
-      }
-      if (row.vendorimg.type === 'image/jpg') {
-        contentType = 'image/png';
-      }
-      return {
-        contentType,
-        imageBuffer: row.vendorimg
-      }
-    });
-    imageResponses.forEach((imageResponse) => {
-      res.setHeader('Content-Type', imageResponse.contentType);
-      res.write(imageResponse.imageBuffer, 'binary');
-    });
-    res.end(); */
-  });
-});
-
+// THIS WORKS!!!!!!!!!!!!!!!
 // Route to inserting records to vendor (WORKING)
 app.post('/api/insertvendor', (req, res) => {
+
   const vendorimg = req.body.vendorimg;
   const vendorname = req.body.vendorname;
   const vendoremail = req.body.vendoremail;
@@ -433,6 +376,18 @@ app.post('/api/insertvendor', (req, res) => {
     console.log(result)
   });
 })
+// THIS WORKS!!!!!!!!!!!!!!!
+// Route to get unique Id for Food Nutrition page(WORKING)
+app.get("/api/getvendor", (req, res) => {
+  const id = req.params.id;
+  db.query("SELECT * FROM vendor;", (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
 
 
 // Route to get food item information from database (WORKING)
@@ -873,15 +828,6 @@ app.get("/api/getreviews/", (req, res) => {
   });
 });
 
-// Route to get vendors
-app.get("/api/getvendors", (req, res) => {
-  db.query("SELECT * FROM vendor;", (err, result) => {
-    if (err) {
-      console.log(err)
-    }
-    res.send(result)
-  });
-});
 
 // Route to get all transaction with name
 app.get("/api/getalltransactionwithname", (req, res) => {
