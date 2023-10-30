@@ -172,7 +172,6 @@ const ManageVendor = () => {
             })
             alert('Account successfully created.')
             window.location.reload()
-            alert('successful')
         }
     }
     const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!])(?!.*\s).{8,16}$/;
@@ -339,7 +338,7 @@ const ManageVendor = () => {
                                                     <td>{user.country}</td>
                                                     <td>{user.height}</td>
                                                     <td>{user.weight}</td>
-                                                    <td>{user.bmi.toFixed(2)}</td>
+                                                    <td>{user.bmi && user.bmi.toFixed(2)}</td>
                                                     <td>{user.lifestyle}</td>
                                                     <td>{user.conditions}</td>
                                                     <td>{dateFormat(user.dob, "dd/mm/yyyy")}</td>

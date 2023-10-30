@@ -23,7 +23,7 @@ const TransactionSA = () => {
         }
         else{
             setfilter(true)
-            settransaction2(transaction.filter((item)=> item.email.toLowerCase().includes(e.target.value.toLowerCase())))
+            settransaction2(transaction.filter((item)=> item.email.toLowerCase().includes(e.target.value.toLowerCase()) || dateFormat(item.transdate, "dd/mm/yyyy, h:MM:ss TT").toLowerCase().includes(e.target.value)))
             
         }
         

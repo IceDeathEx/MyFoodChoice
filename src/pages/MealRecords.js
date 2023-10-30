@@ -153,6 +153,7 @@ export const MealRecords = () => {
             //Do a post to store the loyalty points 25 pts per meal creation
             if (mealrecord.filter((test) => test.meal === meal && dateFormat(test.date, "yyyy-mm-dd") === dateFormat(today, "yyyy-mm-dd")).length > 0) {
                 console.log("Do nothing")
+                navigate("/homepage")
             }
             else {
                 CareCalories.put(`/api/userpointsupdate/${id}`, { balance: 25 })
@@ -211,7 +212,7 @@ export const MealRecords = () => {
     const loadModel = async () => {
         setIsModelLoading(true)
         try {
-            const modelJson = 'http://192.168.1.15:8080/model.json'
+            const modelJson = 'http://127.0.0.1:8080/model.json'
             const modell = await tf.loadLayersModel(modelJson);
             setModel(modell)
             setIsModelLoading(false)

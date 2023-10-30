@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `myfoodchoice` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `myfoodchoice`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: myfoodchoice
@@ -48,7 +46,7 @@ CREATE TABLE `userprofile` (
 
 LOCK TABLES `userprofile` WRITE;
 /*!40000 ALTER TABLE `userprofile` DISABLE KEYS */;
-INSERT INTO `userprofile` VALUES (1,16,'testing','2015-02-10',123,12,'Normal','Not Active(0-1 times a week)','Female',7.93,8),(1,17,'testing2','1990-12-03',171,70,'Normal','Not Active(0-1 times a week)','Male',23.9389,23),(1,46,'testing9','2020-06-26',123,56,'Heart Disease','Active(1-2 times a week)','Female',37.015,3),(2,16,'testing1','2022-02-09',90,90,'Diabetic','Active(1-2 times a week)','Diabetic',111.111,1),(4,16,'testing3','2017-02-09',180,90,'Normal','Active(1-2 times a week)','Male',27.7778,6),(5,16,'testing4','2022-02-09',123,12,'High Blood Pressure','Not Active(0-1 times a week)','Female',7.93,1);
+INSERT INTO `userprofile` VALUES (1,16,'testing','2015-02-10',123,12,'Normal','Not Active(0-1 times a week)','Female',7.93,8),(1,17,'testing2','1990-12-03',171,70,'Normal','Not Active(0-1 times a week)','Male',23.9389,23),(1,46,'testing9','2020-06-26',123,56,'Heart Disease','Active(1-2 times a week)','Female',37.015,3),(2,16,'testing1','2022-02-09',90,90,'Diabetes','Active(1-2 times a week)','Female',111.111,1),(4,16,'testing3','2017-02-09',180,90,'Normal','Active(1-2 times a week)','Male',27.7778,6),(5,16,'testing4','2022-02-09',123,12,'High Blood Pressure','Not Active(0-1 times a week)','Female',7.93,1);
 /*!40000 ALTER TABLE `userprofile` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -61,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-29 13:52:25
+-- Dump completed on 2023-10-31  0:31:48

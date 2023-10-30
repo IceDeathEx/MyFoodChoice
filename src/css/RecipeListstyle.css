@@ -205,7 +205,10 @@
     white-space: nowrap;
     width: 339px;
 }
-
+.progressBar{
+    width:100%;
+    display: block;
+}
 .recipe-on-login-sign .text-wrapper-6 {
     color: #000000;
     font-family: "Montserrat-Bold", Helvetica;
