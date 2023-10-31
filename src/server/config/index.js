@@ -487,7 +487,7 @@ app.get("/api/getmealrecord/:id", (req, res) => {
 // Route to get meal record based on ID join other tables
 app.get("/api/getmealrecordfullinfo1/:id", (req, res) => {
   const id = req.params.id;
-  db.query("select * from mealrecord join foodnutrition on mealrecord.foodid = foodnutrition.id join userprofile on userprofile.iduserprofile = mealrecord.upid where mealrecord.uid=?", id, (err, result) => {
+  db.query("select * from mealrecord join foodnutrition on mealrecord.foodid = foodnutrition.id join userprofile on userprofile.iduserprofile = mealrecord.upid where mealrecord.uid=? and iduser=?", [id,id], (err, result) => {
     if (err) {
       console.log(err)
     }

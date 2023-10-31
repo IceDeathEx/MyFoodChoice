@@ -39,9 +39,11 @@ const FoodOrder = () => {
             setorderfood(res.data)
             if(id.category === 'All'){
                 setorderfood2(res.data)
+                console.log(id.id)
             }
             else{
                 setorderfood2(res.data.filter((res)=> res.ofname === id.category))
+                console.log(res.data)
             }
             
             const unique = [...new Set(res.data.map((item) => item.ofname))]
@@ -76,26 +78,21 @@ const FoodOrder = () => {
             setorderfood(orderfood2)
             setCurrentPosts(orderfood2.slice(indexOfFirstPost, indexOfLastPost))
             setTotalPosts(orderfood2.length)
-            if(currentPosts.length < 13){
-                navigate(`/orderfood/${e.target.value}/page/1`)
-            }
-            else{
-                navigate(`/orderfood/${e.target.value}/page/${id.id}`)
-            }
+            navigate(`/orderfood/${e.target.value}/page/1`)
+            
+            
             
         }
         else{
             setfiltersearch(false)
             setCurrentPosts(orderfood2.filter((data)=> data.ofname === e.target.value).slice(indexOfFirstPost, indexOfLastPost))
             setTotalPosts(currentPosts.length)
-            if(currentPosts.length < 13){
-                navigate(`/orderfood/${e.target.value}/page/1`)
-            }
-            else{
-                navigate(`/orderfood/${e.target.value}/page/${id.id}`)
-            }
+            navigate(`/orderfood/${e.target.value}/page/1`)
         }
     }
+
+    
+
 
     //Pagination
     const [currentPage, setCurrentPage] = useState(id.id)

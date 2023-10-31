@@ -38,7 +38,7 @@ const TransactionSA = () => {
                             <thead>
                                 <tr>
                                     <th>Transaction ID</th>
-                                    <th>User's ID</th>
+                                    <th>User's Name</th>
                                     <th>User's Email</th>
                                     <th>Item' name</th>
                                     <th>Item's price ($)</th>
@@ -54,7 +54,7 @@ const TransactionSA = () => {
                                 {!filter && transaction.map((record, index)=>{
                                     return <tr key={index}>
                                     <td>{record.transid}</td>
-                                    <td>{record.uid}</td>
+                                    <td>{record.name}</td>
                                     <td>{record.email}</td>
                                     <td>{record.transitemname}</td>
                                     <td>{record.transitemprice}</td>

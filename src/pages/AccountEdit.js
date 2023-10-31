@@ -252,7 +252,7 @@ const AccountEdit = () => {
                     <option className="text-wrapper-9b">Normal</option>
                     <option className="text-wrapper-9b">Asthma</option>
                     <option className="text-wrapper-9b">High Blood Pressure</option>
-                    <option className="text-wrapper-9b">Diabetic</option>
+                    <option className="text-wrapper-9b">Diabetes</option>
                   </select>
                 </div>
               </div>

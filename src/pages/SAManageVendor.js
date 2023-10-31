@@ -13,62 +13,62 @@ const ManageVendor = () => {
     const [newPW2, setNewPW2] = useState('')
     const [searchV, setsearchV] = useState(false)
     const [searchU, setsearchU] = useState(false)
-    const [user, setuser]= useState([])
-    const [user2, setuser2]= useState([])
+    const [user, setuser] = useState([])
+    const [user2, setuser2] = useState([])
     const navigate = useNavigate()
-    const [test2, settest2]= useState([])
-    useEffect(()=>{
+    const [test2, settest2] = useState([])
+    useEffect(() => {
         CareCalories.get("/api/getvendor")
-        .then((res)=>{
-            console.log(res.data)
-            settest2(res.data)
-            setvendor(res.data)
-        })
+            .then((res) => {
+                console.log(res.data)
+                settest2(res.data)
+                setvendor(res.data)
+            })
         CareCalories.get("/api/get")
-        .then((res)=>{
-            setuser(res.data)
-        })
-    },[])
-    const handleChangePW = (e) =>{
+            .then((res) => {
+                setuser(res.data)
+            })
+    }, [])
+    const handleChangePW = (e) => {
         //console.log(e.target.value)
-        if(newPW.length === 0){
+        if (newPW.length === 0) {
             alert('Password is empty')
         }
-        else{
-            CareCalories.put(`/api/updatevendor/${e.target.value}`,{
+        else {
+            CareCalories.put(`/api/updatevendor/${e.target.value}`, {
                 password: newPW
             })
             alert('Password successfully updated.')
             window.location.reload()
         }
     }
-    const handleSearchvendor = (e) =>{
+    const handleSearchvendor = (e) => {
         //console.log(e.target.value)
-        if(e.target.value.length === 0){
+        if (e.target.value.length === 0) {
             setsearchV(false)
         }
-        else{
+        else {
             setsearchV(true)
-            setvendor2(vendor.filter((itemname)=> itemname.vendorname.toLowerCase().includes(e.target.value.toLowerCase())))
+            setvendor2(vendor.filter((itemname) => itemname.vendorname.toLowerCase().includes(e.target.value.toLowerCase())))
         }
     }
-    const findUser = (e) =>{
-        if(e.target.value.length === 0){
+    const findUser = (e) => {
+        if (e.target.value.length === 0) {
             setsearchU(false)
         }
-        else{
+        else {
             setsearchU(true)
-            setuser2(user.filter((U)=> U.email.toLowerCase().includes(e.target.value.toLowerCase())))
+            setuser2(user.filter((U) => U.email.toLowerCase().includes(e.target.value.toLowerCase())))
         }
     }
     const handleChangePW2 = (e) => {
         //console.log(newPW2)
         //console.log(e.target.value)
-        if(newPW2.length === 0){
+        if (newPW2.length === 0) {
             alert('Password is empty.')
         }
-        else{
-            CareCalories.put(`/api/updatepassword/${e.target.value}`,{
+        else {
+            CareCalories.put(`/api/updatepassword/${e.target.value}`, {
                 password: newPW2
             })
             alert('Password successfully updated.')
@@ -106,32 +106,32 @@ const ManageVendor = () => {
     const [pwCheck, setpwCheck] = useState(false)
     const [addrCheck, setaddrCheck] = useState(false)
 
-    const handleVendorCreation = () =>{
-        
-        if(imageURL.length === 0){
+    const handleVendorCreation = async () => {
+
+        if (imageURL.length === 0) {
             alert('Please upload an image.')
             setimageCheck(false)
         }
-        else{
+        else {
             setimageCheck(true)
         }
 
-        if(name.length === 0){
+        if (name.length === 0) {
             alert('Please enter a vendor name')
             setNameCheck(false)
         }
-        else{
+        else {
             setNameCheck(true)
         }
-        if(pw){
-            if(validatePassword(pw)){
+        if (pw) {
+            if (validatePassword(pw)) {
                 setpwCheck(true)
             }
-            else{
+            else {
                 alert("Password is invalid. Password requires one uppercase letter, one lowercase letter, least one digit, at least one special character, no whitespace is allowed, a password length between 8 and 16 characters.");
             }
         }
-        else{
+        else {
             setpwCheck(false)
             alert('Please enter a password.')
         }
@@ -141,23 +141,26 @@ const ManageVendor = () => {
             setEmailCheck(false);
             alert('Invalid email format. Please include exactly one "@" symbol.');
         }
-        
-        if(addr){
+
+        if (addr) {
             setaddrCheck(true)
         }
-        else{
+        else {
             setaddrCheck(false)
             alert('Please enter an address.')
         }
+        await new Promise((resolve) => {
+            setTimeout(resolve, 0);
+        });
         //console.log(imageCheck, emailCheck, addrCheck, pwCheck, nameCheck)
-        if(prevState => ({
+        if/* (prevState => ({
             imageCheck: prevState.imageCheck,
             emailCheck: prevState.emailCheck,
             addrCheck: prevState.addrCheck,
             pwCheck: prevState.pwCheck,
             nameCheck: prevState.nameCheck
-        })){
-            CareCalories.post('/api/insertvendor',{
+        })) */(imageCheck && emailCheck && addrCheck && pwCheck && nameCheck) {
+            CareCalories.post('/api/insertvendor', {
                 vendorname: name,
                 vendoremail: email,
                 vendorpassword: pw,
@@ -165,24 +168,24 @@ const ManageVendor = () => {
                 vendoraddress: addr,
                 vendorspecialty: specialty
             })
-            CareCalories.post('/api/insertvendortouser',{
+            CareCalories.post('/api/insertvendortouser', {
                 vendorname: name,
                 vendoremail: email,
                 vendorpassword: pw
             })
             alert('Account successfully created.')
-            window.location.reload()
+            navigate("/sysadm")
         }
     }
     const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!])(?!.*\s).{8,16}$/;
 
-        function validatePassword(password) {
+    function validatePassword(password) {
         return passwordRegex.test(password);
-        }
+    }
     return (
         <div>
             <NavbarSa />
-            
+
 
             <div className="manage-vendor">
                 <div className="div">
@@ -192,30 +195,30 @@ const ManageVendor = () => {
                     {toggle && <div className="vendorPage">
                         <div className="text-wrapper-3">Create Account for Vendor</div>
                         <div className="text-wrapper-4">List of Vendor</div>
-                        {imageURL &&<img className="kfc" alt="Vendor's logo" src={imageURL} />}
+                        {imageURL && <img className="kfc" alt="Vendor's logo" src={imageURL} />}
                         <div className="frame">
                             <div className="frame-2">
                                 <div className="frame-3">
                                     <div className="frame-4">
-                                        <input className="rectangle" onChange={(e)=> setname(e.target.value)}/>
+                                        <input className="rectangle" onChange={(e) => setname(e.target.value)} />
                                         <div className="text-wrapper-5">Name*</div>
                                     </div>
                                     <div className="frame-5">
-                                        <input className="rectangle" onChange={(e)=> setpw(e.target.value)}/>
+                                        <input className="rectangle" onChange={(e) => setpw(e.target.value)} />
                                         <div className="text-wrapper-6">Password*</div>
                                     </div>
                                     <div className="frame-6">
-                                        <input className="rectangle" onChange={(e)=> setaddr(e.target.value)}/>
+                                        <input className="rectangle" onChange={(e) => setaddr(e.target.value)} />
                                         <div className="text-wrapper-7">Address</div>
                                     </div>
                                 </div>
                                 <div className="frame-7">
                                     <div className="frame-8">
-                                        <input className="rectangle" onChange={(e)=> setemail(e.target.value)}/>
+                                        <input className="rectangle" onChange={(e) => setemail(e.target.value)} />
                                         <div className="text-wrapper-8">Email*</div>
                                     </div>
                                     <div className="frame-9">
-                                    <div className="text-wrapper-9SA">Specialty</div>
+                                        <div className="text-wrapper-9SA">Specialty</div>
                                         <select className="rectangle" onChange={handleSpecialty}>
                                             <option value="Bar and Grill">Bar and Grill</option>
                                             <option value="Hamburger">Hamburger</option>
@@ -253,27 +256,27 @@ const ManageVendor = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {!searchV && vendor.map((ven, index)=>{
+                                    {!searchV && vendor.map((ven, index) => {
                                         return <tr key={index}>
-                                                    <td>{ven.idvendor}</td>
-                                                    <td>{ven.vendorname}</td>
-                                                    <td>{ven.vendoremail}</td>
-                                                    <td>{ven.vendorpassword}</td>
-                                                    <td><input onChange={(e) => setNewPW(e.target.value)} type='text' placeholder="new password"/><button value={ven.idvendor} onClick={handleChangePW}>Change</button></td>
-                                                    <td>{ven.vendoraddress}</td>
-                                                    <td>{ven.vendorspecialty}</td>
-                                                </tr>
+                                            <td>{ven.idvendor}</td>
+                                            <td>{ven.vendorname}</td>
+                                            <td>{ven.vendoremail}</td>
+                                            <td>{ven.vendorpassword}</td>
+                                            <td><input onChange={(e) => setNewPW(e.target.value)} type='text' placeholder="new password" /><button value={ven.idvendor} onClick={handleChangePW}>Change</button></td>
+                                            <td>{ven.vendoraddress}</td>
+                                            <td>{ven.vendorspecialty}</td>
+                                        </tr>
                                     })}
-                                    {searchV && vendor2.map((ven, index)=>{
+                                    {searchV && vendor2.map((ven, index) => {
                                         return <tr key={index}>
-                                                    <td>{ven.idvendor}</td>
-                                                    <td>{ven.vendorname}</td>
-                                                    <td>{ven.vendoremail}</td>
-                                                    <td>{ven.vendorpassword}</td>
-                                                    <td><input onChange={(e) => setNewPW(e.target.value)} type='text' placeholder="new password"/><button value={ven.idvendor} onClick={handleChangePW}>Change</button></td>
-                                                    <td>{ven.vendoraddress}</td>
-                                                    <td>{ven.vendorspecialty}</td>
-                                                </tr>
+                                            <td>{ven.idvendor}</td>
+                                            <td>{ven.vendorname}</td>
+                                            <td>{ven.vendoremail}</td>
+                                            <td>{ven.vendorpassword}</td>
+                                            <td><input onChange={(e) => setNewPW(e.target.value)} type='text' placeholder="new password" /><button value={ven.idvendor} onClick={handleChangePW}>Change</button></td>
+                                            <td>{ven.vendoraddress}</td>
+                                            <td>{ven.vendorspecialty}</td>
+                                        </tr>
                                     })}
                                 </tbody>
                             </table>
@@ -281,13 +284,13 @@ const ManageVendor = () => {
 
                         <div className="frame-10SA">
                             <button className="div-wrapperSA">
-                                <div className="text-2"><input type='file' placeholder="Choose an image." accept="image/*" onChange={handleUpload}/></div>
-                                
+                                <div className="text-2"><input type='file' placeholder="Choose an image." accept="image/*" onChange={handleUpload} /></div>
+
                             </button>
                             <div className="text-wrapper-10"></div>
                         </div>
                         <div className="frame-11">
-                            <input className="label" onChange={handleSearchvendor}/>
+                            <input className="label" onChange={handleSearchvendor} placeholder="Search for vendor's email." />
                             <img className="icon-magnifying" alt="Icon magnifying" src={glass} />
                         </div>
                     </div>}
@@ -297,58 +300,58 @@ const ManageVendor = () => {
                             <div className="user-text-wrapper">List of User Account</div>
                             <div className="user-rectangle" />
                             <div className="user-frame">
-                                <input className="user-label" onChange={findUser} />
+                                <input className="user-label" onChange={findUser} placeholder="Search for user's email" />
                                 <img className="user-icon-magnifying" alt="Icon magnifying" src={glass} />
-                                
+
                             </div>
                         </div>
                         <table>
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Email</th>
-                                        <th>Name</th>
-                                        <th>Password</th>
-                                        <th>New Password:</th>
-                                        <th>Gender</th>
-                                        <th>Account Type</th>
-                                        <th>Country</th>
-                                        <th>Height</th>
-                                        <th>Weight</th>
-                                        <th>BMI</th>
-                                        <th>LifeStyle</th>
-                                        <th>Health Conditions</th>
-                                        <th>Date Of Birth</th>
-                                        <th>Status</th>
-                                        <th>Loyalty points</th>
-                                        <th>Age</th>
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Email</th>
+                                    <th>Name</th>
+                                    <th>Password</th>
+                                    <th>New Password:</th>
+                                    <th>Gender</th>
+                                    <th>Account Type</th>
+                                    <th>Country</th>
+                                    <th>Height</th>
+                                    <th>Weight</th>
+                                    <th>BMI</th>
+                                    <th>LifeStyle</th>
+                                    <th>Health Conditions</th>
+                                    <th>Date Of Birth</th>
+                                    <th>Status</th>
+                                    <th>Loyalty points</th>
+                                    <th>Age</th>
 
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {searchU && user2.map((user, index) => {
+                                    return <tr key={index}>
+                                        <td>{user.id}</td>
+                                        <td>{user.email}</td>
+                                        <td>{user.name}</td>
+                                        <td>{user.password}</td>
+                                        <td><input onChange={(e) => setNewPW2(e.target.value)} type='text' placeholder="new password" /><button value={user.id} onClick={handleChangePW2}>Change</button></td>
+                                        <td>{user.gender}</td>
+                                        <td>{user.accountType}</td>
+                                        <td>{user.country}</td>
+                                        <td>{user.height}</td>
+                                        <td>{user.weight}</td>
+                                        <td>{user.bmi && user.bmi.toFixed(2)}</td>
+                                        <td>{user.lifestyle}</td>
+                                        <td>{user.conditions}</td>
+                                        <td>{dateFormat(user.dob, "dd/mm/yyyy")}</td>
+                                        <td>{user.premium}</td>
+                                        <td>{user.loyaltypoint}</td>
+                                        <td>{user.age}</td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    {searchU && user2.map((user, index)=>{
-                                        return <tr key={index}>
-                                                    <td>{user.id}</td>
-                                                    <td>{user.email}</td>
-                                                    <td>{user.name}</td>
-                                                    <td>{user.password}</td>
-                                                    <td><input onChange={(e) => setNewPW2(e.target.value)} type='text' placeholder="new password"/><button value={user.id} onClick={handleChangePW2}>Change</button></td>
-                                                    <td>{user.gender}</td>
-                                                    <td>{user.accountType}</td>
-                                                    <td>{user.country}</td>
-                                                    <td>{user.height}</td>
-                                                    <td>{user.weight}</td>
-                                                    <td>{user.bmi && user.bmi.toFixed(2)}</td>
-                                                    <td>{user.lifestyle}</td>
-                                                    <td>{user.conditions}</td>
-                                                    <td>{dateFormat(user.dob, "dd/mm/yyyy")}</td>
-                                                    <td>{user.premium}</td>
-                                                    <td>{user.loyaltypoint}</td>
-                                                    <td>{user.age}</td>
-                                                </tr>
-                                    })}
-                                </tbody>
-                            </table>
+                                })}
+                            </tbody>
+                        </table>
                     </div>}
                 </div>
             </div>
