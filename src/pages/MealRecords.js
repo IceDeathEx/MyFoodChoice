@@ -353,7 +353,7 @@ export const MealRecords = () => {
     }
 
     return (
-        <div>
+        <div className="all">
             <NavBarUser />
             <div className="add-meal-recordMR">
                 <div className="div-3">

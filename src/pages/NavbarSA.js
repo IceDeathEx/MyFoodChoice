@@ -17,6 +17,7 @@ const NavbarSa = () => {
       navigate('/')
     }
     return (
+        <div className="all">
         <div className="NSnavbar-SA">
             <div className="NScarecalories">CARECALORIES.</div>
             <div className="NSframe">
@@ -28,6 +29,7 @@ const NavbarSa = () => {
                 <div className="NStext-wrapper-2">Logout</div>
                 </button>
             </div>
+        </div>
         </div>
     );
 };

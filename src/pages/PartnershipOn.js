@@ -23,7 +23,7 @@ const PartnershipOn = () => {
         navigate('/')
     }
     return (
-        <div>
+        <div className="all">
             <Navbar1 />
 
             <div className="partnership-on">

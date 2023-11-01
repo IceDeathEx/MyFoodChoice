@@ -57,7 +57,7 @@ const MealHistory = () => {
         
     }
     return ( 
-        <div>
+        <div className="all">
             <NavBarUser/>
             <h1>Meal Record</h1>
             <label>Search for record via food name: </label>

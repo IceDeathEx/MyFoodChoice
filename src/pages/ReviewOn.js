@@ -19,7 +19,7 @@ const ReviewOn = () => {
     setisloading(true)
   },[])
   return (
-    <div>
+    <div className="all">
       <Navbar1 />
 
       <div className="review-on-boarding">

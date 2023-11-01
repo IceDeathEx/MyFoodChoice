@@ -44,7 +44,7 @@ const RecipeDetails = () => {
         setimg(recipearr.filter((res)=> res.recipetitle === e.target.value)[0].recipeimage)
     }
     return (
-        <div>
+        <div className="all">
             <NavBarUser />
             {recipeset[0] ? (
                 <div className="recipeDetails">

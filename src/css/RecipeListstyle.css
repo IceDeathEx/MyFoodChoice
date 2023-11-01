@@ -117,9 +117,78 @@
     letter-spacing: -0.96px;
     line-height: 36px;
     position: absolute;
-    top: 154px;
-    width: 686px;
+    top: 70px;
+    width: 800px;
 }
+
+.recom {
+    background-color: #ffffff;
+    border: 2px solid;
+    border-color: #000000;
+    border-radius: 17px;
+    height: 242px;
+    position: relative;
+    width: 228px;
+    top: 100px;
+}
+
+.recom .recomtext-wrapper {
+    color: #000000;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    height: 36px;
+    left: 92px;
+    letter-spacing: 0;
+    line-height: 36px;
+    position: absolute;
+    text-align: center;
+    top: 13px;
+    white-space: nowrap;
+}
+
+.recom .recomframe {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 14px;
+    left: 14px;
+    position: absolute;
+    top: 53px;
+}
+
+.recom .recomgroup {
+    height: 33px;
+    margin-right: -2px;
+    position: relative;
+    width: 202px;
+}
+
+.recom .recomline {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 32px;
+    width: 200px;
+}
+
+.recom .recomdiv {
+    color: #000000;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    left: 9px;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 112px;
+}
+
+
+
 
 .recipe-on-login-sign .text-wrapper-4 {
     color: #000000;
@@ -460,6 +529,23 @@
     top: 1050px;
     width: 482px;
 }
+
+.macroDetails{
+    right: 100px;
+    top: 70px;
+    position: absolute;
+}
+
+.accountselect {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 53px;
+    height: 40px;
+    width: 100px;
+    padding-left: 4px;
+}
+    
 
 :root {
     --button-bold-font-family: "SourceSans Pro-Bold", Helvetica;

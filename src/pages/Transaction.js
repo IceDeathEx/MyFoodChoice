@@ -44,7 +44,7 @@ const Transaction = () => {
         }
     }
     return (
-        <div>
+        <div className="all">
             <NavBarUser/>
             {isLoading ? (
                 <div className="divcss">

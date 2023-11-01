@@ -4,7 +4,9 @@ import NavBarUser from "./NavBarUser";
 import { useNavigate } from "react-router";
 import dateFormat from 'dateformat';
 import { Link } from "react-router-dom";
+import line_4 from "../pics/Line_4.svg";
 import CareCalories from "../server/config/CareCalories";
+import { Line, Circle } from 'rc-progress';
 //import ProgressBar from 'react-bootstrap/ProgressBar';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 const RecipeList = () => {
@@ -76,18 +78,13 @@ const RecipeList = () => {
     }
     // Create dropdown based on the user profiles medical conditions
     return (
-        <div>
+        <div className="all">
             <NavBarUser />
             {upcondition ? (
                 <div className="recipe-on-login-sign">
                     <div className="div">
-                        <div className="text-wrapper-3">don’t worry....</div>
-                        <div className="text-wrapper-4">?</div>
-                        <select className="label" onClick={handleCondition}>
-                            {upcondition.map((data, index) => {
-                                return <option key={index + 1} value={data}>{index + 1}. {data}</option>
-                            })}
-                        </select>
+                        <div className="text-wrapper-3">don’t worry,<br/>  we show the best for you</div>
+                       
                         <div className="overlap">
                             <div className="recipe">
                                 {recipeset.filter((filter) => filter.healthcategory === condition || filter.healthcategory === 'All').slice(0, 6).map((data, index) => {
@@ -138,9 +135,56 @@ const RecipeList = () => {
                         </div>
 
                         <div className="drpbox">
-                            <select className="drpppdown">
-                                <option>Filter1</option>
-                            </select>
+                        
+                        <div className="recom">
+<div className="recomtext-wrapper">List</div>
+<div className="recomframe">
+<div className="recomgroup">
+<img className="recomline" alt="Line" src={line_4} />
+<div className="recomdiv">Encik Tan’s</div>
+</div>
+<div className="recomgroup">
+<img className="recomline" alt="Line" src={line_4} />
+<div className="recomdiv">Encik Tan’s</div>
+</div>
+<div className="recomgroup">
+<img className="recomline" alt="Line" src={line_4}  />
+<div className="recomdiv">Encik Tan’s</div>
+</div>
+<div className="recomgroup">
+<img className="recomline" alt="Line" src={line_4}  />
+<div className="recomdiv">Encik Tan’s</div>
+</div>
+</div>
+</div>
+                            <div className="macroDetails">
+
+                            <select className="accountselect">
+                                <option>Nicholas</option>
+                                <option>Nicholas</option>
+                                <option>Nicholas</option>
+                                <option>Nicholas</option>
+                                </select>
+                                <p>Natrium 70%</p>
+                            <Line percent={70} strokeWidth={4} strokeColor="#FF0000" /> 
+                            <p>Natrium 70%</p>
+                            <Line percent={10} strokeWidth={4} strokeColor="#ADF7b6" />
+                            <p>Natrium 70%</p>
+                            <Line percent={60} strokeWidth={4} strokeColor="#FFEE93" />
+                            <p>Natrium 70%</p>
+                            <Line percent={60} strokeWidth={4} strokeColor="#D3D3D3" />
+                            <p>Natrium 70%</p>
+                            <Line percent={10} strokeWidth={4} strokeColor="#D3D3D3" />
+                            <p>Natrium 70%</p>
+                            <Line percent={10} strokeWidth={4} strokeColor="#D3D3D3" />
+                            <p>Natrium 70%</p>
+                            <Line percent={10} strokeWidth={4} strokeColor="#D3D3D3" />
+                            <p>Natrium 70%</p>
+                            <Line percent={10} strokeWidth={4} strokeColor="#D3D3D3" />
+                            <p>Natrium 70%</p>
+                            <Line percent={10} strokeWidth={4} strokeColor="#D3D3D3" />
+
+                            </div>
                             {/* <ProgressBar now={61.5} label={61.5} />
                             <ProgressBar variant="warning" now={61.5} label={61.5} />
                             <ProgressBar variant="danger" now={199 / 3} label={199 / 3} /> */}

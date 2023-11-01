@@ -297,7 +297,7 @@ const dinnerData = mealcalories.filter((data) => data.meal === 'dinner');
 const snacksData = mealcalories.filter((data) => data.meal === 'snacks');
 
   return (
-    <div>
+    <div className="all">
       <NavBarUser />
       {once && <PopUpModalLogin1 />}
       <div className="frame1">

@@ -29,7 +29,7 @@ const TransactionSA = () => {
         
     }
     return (
-        <div>
+        <div className="all">
             <NavbarSa />
             <div className="transaction">
                 <div className="div">

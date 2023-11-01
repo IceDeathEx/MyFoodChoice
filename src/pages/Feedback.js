@@ -37,7 +37,7 @@ const Feedback = () => {
     setttile(e.target.value)
   }
   return (
-    <div>
+    <div className="all">
       <NavBarUser />
       <div>
         <div className="review">

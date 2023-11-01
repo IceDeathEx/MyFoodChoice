@@ -6,7 +6,7 @@ import icon from '../pics/Icon.png';
 
 const FoodVendor = () => {
     return (
-        <div>
+        <div className="all">
             <NavbarVendor/>
        
         <div className="food-vendor">

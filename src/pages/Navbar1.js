@@ -10,6 +10,7 @@ export const Navbar1 = () => {
         navigate('/signup')
     }
   return (
+    <div className="all">
     <nav className="navbar">
       <div className="frame-ob">
         <div className="logo">CARECALORIES.</div>
@@ -30,6 +31,7 @@ export const Navbar1 = () => {
         </div>
       </div>
     </nav>
+    </div>
   );
 };
 

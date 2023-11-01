@@ -304,7 +304,7 @@ const AccountEdit = () => {
     );
   } else {
     return (
-      <div>
+      <div className="all">
         <NavBarUser />
         {user && userData2[0] ? (
           <div className="account">

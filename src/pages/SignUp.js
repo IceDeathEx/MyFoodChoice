@@ -258,6 +258,7 @@ const SignUp = () => {
 
 
     return (
+      <div className="all">
         <div className="sign-up-pop-up">
     <div className="div">
       <form>
@@ -446,6 +447,7 @@ const SignUp = () => {
       </div>
       </form>
     </div>
+  </div>
   </div>
      );
 }

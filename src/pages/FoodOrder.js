@@ -130,7 +130,7 @@ const FoodOrder = () => {
     
     return (
         
-        <div>
+        <div className="all">
             <NavBarUser/>
             {isLoading ? (
                 <div className="food-order">

@@ -90,6 +90,7 @@ const Login = () => {
     }
 
     return (
+      <div className="all">
         <div className="App">
     <div className="login-pop-up">
       <div className="div"> 
@@ -172,6 +173,7 @@ const Login = () => {
           <img className="img" alt="pic" src={image2}/>
         </div>
       </div>
+    </div>
     </div>
     </div>
       );

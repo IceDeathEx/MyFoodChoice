@@ -146,7 +146,7 @@ const ShoppingCart = () => {
         CareCalories.put(`/api/updatetransactionrecord/${item.transid}`,{transqty: e.target.value})
     }
     return (
-        <div>
+        <div className="all">
             <NavBarUser/>
         {isLoading && totalprice[0] ? (
             <div className="shopping-cart">

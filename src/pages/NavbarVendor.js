@@ -16,6 +16,7 @@ export const NavbarVendor = () => {
       navigate('/')
     }
     return (
+      <div className="all">
         <div className="navbar-vendor">
 <div className="div">
 <div className="carecalories">CARECALORIES.</div>
@@ -36,6 +37,7 @@ export const NavbarVendor = () => {
 <button className="overlap-group" onClick={handleLogout}>
 <div className="text-wrapper-4">Logout</div>
 </button>
+</div>
 </div>
 </div>
 </div>

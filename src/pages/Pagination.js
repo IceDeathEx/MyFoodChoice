@@ -9,7 +9,7 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   }
 
   return (
-  <div>
+  <div className="all">
     <div className="pagination-style">
       {/* <ul className='pagination'> */}
       

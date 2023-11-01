@@ -4,7 +4,7 @@ import { NavbarVendor } from "./NavbarVendor";
 
 const RecipelistVendor = () => {
     return (
-        <div>
+        <div className="all">
             <NavbarVendor/>
 
         <div className="recipelist-vendor">

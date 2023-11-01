@@ -183,7 +183,7 @@ const ManageVendor = () => {
         return passwordRegex.test(password);
     }
     return (
-        <div>
+        <div className="all">
             <NavbarSa />
 
 
@@ -243,7 +243,7 @@ const ManageVendor = () => {
 
 
                         <div className="rectangle-2" >
-                            <table>
+                            <table className="Vendortable">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
@@ -283,11 +283,7 @@ const ManageVendor = () => {
                         </div>
 
                         <div className="frame-10SA">
-                            <button className="div-wrapperSA">
-                                <div className="text-2"><input type='file' placeholder="Choose an image." accept="image/*" onChange={handleUpload} /></div>
-
-                            </button>
-                            <div className="text-wrapper-10"></div>
+                        <input  type='file' placeholder="Choose an image." accept="image/*" onChange={handleUpload} />
                         </div>
                         <div className="frame-11">
                             <input className="label" onChange={handleSearchvendor} placeholder="Search for vendor's email." />
@@ -298,7 +294,7 @@ const ManageVendor = () => {
                     {!toggle && <div className="user">
                         <div className="user-group">
                             <div className="user-text-wrapper">List of User Account</div>
-                            <div className="user-rectangle" />
+                            
                             <div className="user-frame">
                                 <input className="user-label" onChange={findUser} placeholder="Search for user's email" />
                                 <img className="user-icon-magnifying" alt="Icon magnifying" src={glass} />

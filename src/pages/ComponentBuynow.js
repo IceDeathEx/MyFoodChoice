@@ -46,6 +46,7 @@ const ComponentBuynow = () => {
     
 }
   return (
+    <div className="all">
     <div className="frame">
       {foodItems.slice(0,4).map((item, index) => {
           return <div key={index} className={`element-${index + 1}`}>
@@ -72,6 +73,7 @@ const ComponentBuynow = () => {
         </div>
         
       })}
+    </div>
     </div>
   );
 };

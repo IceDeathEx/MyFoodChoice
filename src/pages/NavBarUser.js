@@ -16,6 +16,7 @@ const NavBarUser = () => {
       signOut()
     }
   return (
+    <div className="all">
     <div className="element">
       <div className="care-calories">CARECALORIES.</div>
       <div className="navigation">
@@ -38,6 +39,7 @@ const NavBarUser = () => {
         </div>
       </div>
       
+    </div>
     </div>
   );
 };

@@ -18,12 +18,14 @@ export const PopUpModalLogin2 = () => {
   return (
     <>
     {isVisible && (
+      <div className="all">
     <div className="popup-modal">
         
       <img className="frame" alt="Frame" src={image} />
       <div className="div-wrapper">
         <div className="text-wrapper">Incorrect Username or Password.</div>
       </div>
+    </div>
     </div>
     )}
     </>

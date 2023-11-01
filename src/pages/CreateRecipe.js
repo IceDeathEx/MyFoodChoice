@@ -8,7 +8,7 @@ import { NavbarVendor } from "./NavbarVendor";
 
 const CreaterecipeVendor = () => {
     return (
-        <div>
+        <div className="all">
         <NavbarVendor/>
         <div className="createrecipe-vendor">
             <div className="div">

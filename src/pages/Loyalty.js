@@ -84,7 +84,7 @@ export const Loyalty = () => {
     };
 
   return (
-    <div>
+    <div className="all">
       <NavBarUser/>
       {isLoading ? (
         <div className="loyalty">

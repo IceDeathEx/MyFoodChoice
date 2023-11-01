@@ -6,7 +6,7 @@ import Navbar1 from "./Navbar1";
 
 const AboutUs = () => {
     return (
-        <div>
+        <div className="all">
             <Navbar1/>
        
         <div className="about-us">

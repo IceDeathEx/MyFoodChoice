@@ -19,6 +19,7 @@ export const PopUpModalLogin1 = () => {
   return (
     <>
     {isVisible && (
+      <div className="all">
     <div className="popup-modal">
         
       <img className="frame" alt="Frame" src={image} />
@@ -26,6 +27,8 @@ export const PopUpModalLogin1 = () => {
         <div className="text-wrapper">Account login successful</div>
       </div>
     </div>
+    </div>
+    
     )}
     </>
   );

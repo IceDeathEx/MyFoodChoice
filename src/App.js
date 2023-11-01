@@ -27,6 +27,7 @@ import RecipelistVendor from './pages/RecipelistVendor'
 import FoodVendor from './pages/FoodVendor'
 import ManageVendor from './pages/SAManageVendor'
 import TransactionSA from './pages/TransactionSA'
+import './css/App.css'
 const App = () => {
 
   return (

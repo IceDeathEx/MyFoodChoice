@@ -85,7 +85,7 @@ const handleSearch = (e) =>{
 }
 
   return (
-    <div>
+    <div className="all">
     {!isLoading ? (<div>
       <NavBarUser />
       <div className="healthtips-on-login">

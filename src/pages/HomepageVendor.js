@@ -7,7 +7,7 @@ import { NavbarVendor } from "./NavbarVendor";
 
 const HomepageVendor = () => {
     return (
-        <div>
+        <div className="all">
         <NavbarVendor/>
         
         
