@@ -1,21 +1,66 @@
 {
   "name": "myfoodchoice",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@tensorflow-models/mobilenet": "^1.0.0",
+    "@tensorflow/tfjs": "^1.0.1",
+    "@tensorflow/tfjs-backend-webgl": "^4.11.0",
+    "@tensorflow/tfjs-converter": "^4.11.0",
+    "@tensorflow/tfjs-core": "^4.11.0",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.5.0",
+    "chart.js": "^4.4.0",
+    "cors": "^2.8.5",
+    "dateformat": "^5.0.3",
+    "datepicker": "^0.0.0",
+    "express": "^4.18.2",
+    "http-server": "^14.1.1",
+    "mysql2": "^3.6.0",
+    "rc-progress": "^3.5.1",
+    "react": "^18.2.0",
+    "react-auth-kit": "^2.12.7",
+    "react-chartjs-2": "^5.2.0",
+    "react-circular-progressbar": "^2.1.0",
+    "react-datepicker": "^4.18.0",
+    "react-dom": "^18.2.0",
+    "react-modal": "^3.16.1",
+    "react-rating-stars-component": "^2.2.0",
+    "react-router": "^6.15.0",
+    "react-router-dom": "^6.15.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "mysql": "^2.18.1",
-    "nodemon": "^3.0.1"
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "nodemon": "^3.0.1",
+    "postcss": "^8.4.30",
+    "tailwindcss": "^3.3.3"
   }
 }

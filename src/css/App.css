@@ -1,0 +1,19 @@
+/* @media (max-width: 768px) {
+    .all {
+        zoom: -50%; 
+    }
+  }
+
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .all {
+        zoom: 60%; 
+        }
+  }
+
+  @media (min-width: 1025px) {
+    .all {
+        zoom: 100%; 
+        
+        }
+  }
+*/

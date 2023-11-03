@@ -1,0 +1,277 @@
+.loyalty {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.loyalty .div {
+  background-color: #ffffff;
+  height: 1823px;
+  position: relative;
+  width: 1429px;
+}
+
+.loyalty .text-wrapper {
+  color: #000000;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 48px;
+  font-weight: 700;
+  left: 87px;
+  letter-spacing: -0.72px;
+  line-height: 36px;
+  position: absolute;
+  top: 1481px;
+  width: 265px;
+}
+
+.loyalty .text-wrapper-2 {
+  color: #000000;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 48px;
+  font-weight: 700;
+  left: 90px;
+  letter-spacing: -0.72px;
+  line-height: 36px;
+  position: absolute;
+  top: 1164px;
+  white-space: nowrap;
+}
+
+.loyalty .text-wrapper-3 {
+  color: #000000;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 48px;
+  font-weight: 700;
+  left: 90px;
+  letter-spacing: -0.72px;
+  line-height: 36px;
+  position: absolute;
+  top: 168px;
+  white-space: nowrap;
+}
+
+.loyalty .text-wrapper-4 {
+  color: #000000;
+  font-family: "Montserrat-Bold", Helvetica;
+  font-size: 48px;
+  font-weight: 700;
+  left: 906px;
+  letter-spacing: -0.72px;
+  line-height: 36px;
+  position: absolute;
+  top: 90px;
+  white-space: nowrap;
+}
+
+.loyalty .frame {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px 100px;
+  height: 800px;
+  justify-content: center;
+  left: 62px;
+  position: absolute;
+  top: 315px;
+  width: 1252px;
+}
+
+.loyalty .loyalty-items {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #000000;
+  height: 350px;
+  position: relative;
+  width: 340px;
+}
+.btn {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  font-family: arial, sans-serif;
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.loyalty .button {
+  all: unset;
+  align-items: center;
+  background-color: #000000;
+  border-radius: 8px;
+  box-shadow: 0px 20px 40px #fa62223d, 0px 5px 10px #fd715b38;
+  box-sizing: border-box;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  left: 27px;
+  padding: 21px 48px;
+  position: absolute;
+  top: 275px;
+  width: 283px;
+}
+
+.loyalty .text {
+  color: var(--themewhite);
+  font-family: var(--button-bold-font-family);
+  font-size: var(--button-bold-font-size);
+  font-style: var(--button-bold-font-style);
+  font-weight: var(--button-bold-font-weight);
+  letter-spacing: var(--button-bold-letter-spacing);
+  line-height: var(--button-bold-line-height);
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.loyalty .text-wrapper-5 {
+  color: #000000;
+  font-family: var(--button-bold-font-family);
+  font-size: var(--button-bold-font-size);
+  font-style: var(--button-bold-font-style);
+  font-weight: var(--button-bold-font-weight);
+  left: 27px;
+  letter-spacing: var(--button-bold-letter-spacing);
+  line-height: var(--button-bold-line-height);
+  position: absolute;
+  text-align: center;
+  top: 207px;
+  white-space: nowrap;
+}
+
+.loyalty .text-wrapper-6 {
+  color: #000000;
+  font-family: var(--button-bold-font-family);
+  font-size: var(--button-bold-font-size);
+  font-style: var(--button-bold-font-style);
+  font-weight: var(--button-bold-font-weight);
+  left: 27px;
+  letter-spacing: var(--button-bold-letter-spacing);
+  line-height: var(--button-bold-line-height);
+  position: absolute;
+  text-align: center;
+  top: 234px;
+  white-space: nowrap;
+}
+
+.loyalty .photobox {
+  height: 148px;
+  left: 27px;
+  position: absolute;
+  top: 26px;
+  width: 283px;
+}
+
+.loyalty .div-wrapper {
+  all: unset;
+  align-items: center;
+  background-color: #000000;
+  border-radius: 8px;
+  box-shadow: 0px 20px 40px #fa62223d, 0px 5px 10px #fd715b38;
+  box-sizing: border-box;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  left: 998px;
+  padding: 21px 48px;
+  position: absolute;
+  top: 1419px;
+  width: 316px;
+}
+
+.loyalty .a {
+  color: #000000;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-size: 36px;
+  font-weight: 500;
+  left: 90px;
+  letter-spacing: -0.54px;
+  line-height: 36px;
+  position: absolute;
+  top: 228px;
+  width: 862px;
+}
+
+.loyalty .text-wrapper-7 {
+  color: #000000;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-size: 32px;
+  font-weight: 500;
+  left: 26px;
+  letter-spacing: -0.48px;
+  line-height: 36px;
+  position: absolute;
+  top: 1200px;
+  white-space: nowrap;
+}
+
+.loyalty .text-wrapper-8 {
+  color: #000000;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-size: 36px;
+  font-weight: 500;
+  left: 80px;
+  letter-spacing: -0.54px;
+  line-height: 36px;
+  position: absolute;
+  top: 1300px;
+  white-space: nowrap;
+}
+
+.loyalty .frame-2 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  left: 90px;
+  position: absolute;
+  top: 930px;
+  width: 669px;
+}
+
+.loyalty .frame-3 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 142px;
+  position: relative;
+}
+
+.loyalty .text-wrapper-9 {
+  color: #000000;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  line-height: 36px;
+  margin-top: -1px;
+  position: relative;
+  width: 237px;
+}
+
+.loyalty .text-wrapper-10 {
+  color: #f21616;
+  font-family: "Montserrat-Medium", Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  line-height: 36px;
+  margin-top: -1px;
+  position: relative;
+  text-decoration: underline;
+  width: 164px;
+}
+
+
+:root {
+  --button-bold-font-family: "SourceSans Pro-Bold", Helvetica;
+  --button-bold-font-size: 18px;
+  --button-bold-font-style: normal;
+  --button-bold-font-weight: 700;
+  --button-bold-letter-spacing: 0px;
+  --button-bold-line-height: 100%;
+  --themewhite: rgba(255, 255, 255, 1);
+}

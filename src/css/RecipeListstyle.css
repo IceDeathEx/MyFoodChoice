@@ -1,0 +1,558 @@
+.recipe-on-login-sign {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.recipe-on-login-sign .div {
+    background-color: #ffffff;
+    height: 2011px;
+    position: relative;
+    width: 1567px;
+}
+
+.recipe-on-login-sign .list {
+    height: 254px;
+    left: 80px;
+    position: absolute;
+    top: 188px;
+    width: 231px;
+}
+
+.drpbox {
+    height: 32px;
+    width: 234px;
+}
+
+.drpbox .drpppdown {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 53px;
+    height: 32px;
+    left:1025px;
+    position: fixed;
+    top: 80px;
+    width: 234px;
+    position: absolute;
+    padding-left: 10px;
+}
+
+
+.recipe-on-login-sign .overlap-group {
+    background-color: #ffffff;
+    border: 2px solid;
+    border-color: #000000;
+    border-radius: 17px;
+    box-shadow: 0px 4px 4px #00000040;
+    height: 254px;
+    position: relative;
+    width: 229px;
+}
+
+.recipe-on-login-sign .frame {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 14px;
+    left: 12px;
+    position: absolute;
+    top: 52px;
+}
+
+.recipe-on-login-sign .group {
+    height: 33px;
+    margin-right: -2px;
+    position: relative;
+    width: 202px;
+}
+
+.recipe-on-login-sign .line {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 32px;
+    width: 200px;
+}
+
+.recipe-on-login-sign .text-wrapper {
+    color: #000000;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    left: 9px;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 112px;
+}
+
+.recipe-on-login-sign .text-wrapper-2 {
+    color: #000000;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    height: 37px;
+    left: 67px;
+    letter-spacing: 0;
+    line-height: 36px;
+    position: absolute;
+    text-align: center;
+    top: 13px;
+    white-space: nowrap;
+    width: 92px;
+}
+
+.recipe-on-login-sign .text-wrapper-3 {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 64px;
+    font-weight: 700;
+    left: 373px;
+    letter-spacing: -0.96px;
+    line-height: 36px;
+    position: absolute;
+    top: 70px;
+    width: 800px;
+}
+
+.recom {
+    background-color: #ffffff;
+    border: 2px solid;
+    border-color: #000000;
+    border-radius: 17px;
+    height: 242px;
+    position: relative;
+    width: 228px;
+    top: 100px;
+}
+
+.recom .recomtext-wrapper {
+    color: #000000;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    height: 36px;
+    left: 92px;
+    letter-spacing: 0;
+    line-height: 36px;
+    position: absolute;
+    text-align: center;
+    top: 13px;
+    white-space: nowrap;
+}
+
+.recom .recomframe {
+    align-items: flex-start;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 14px;
+    left: 14px;
+    position: absolute;
+    top: 53px;
+}
+
+.recom .recomgroup {
+    height: 33px;
+    margin-right: -2px;
+    position: relative;
+    width: 202px;
+}
+
+.recom .recomline {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 32px;
+    width: 200px;
+}
+
+.recom .recomdiv {
+    color: #000000;
+    font-family: "Space Grotesk-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    left: 9px;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 112px;
+}
+
+
+
+
+.recipe-on-login-sign .text-wrapper-4 {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 96px;
+    font-weight: 700;
+    left: 940px;
+    letter-spacing: -1.44px;
+    line-height: 36px;
+    position: absolute;
+    top: 70px;
+    width: 94px;
+}
+
+.recipe-on-login-sign .label {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 100px;
+    height: 57px;
+    left: 357px;
+    position: absolute;
+    top: 58px;
+    width: 550px;
+}
+
+.recipe-on-login-sign .overlap {
+    height: 710px;
+    left: 300px;
+    position: absolute;
+    top: 230px;
+    width: 940px;
+}
+.recipe-on-login-sign .div-2 {
+    height: 335px;
+    left: 0;
+    position: absolute;
+    top: 0px;
+    width: 296px;
+}
+
+.recipe-on-login-sign .frame-2 {
+    align-items: center;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 19px;
+    position: relative;
+}
+
+.recipe-on-login-sign .frame-wrapper {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    box-shadow: 0px 4px 4px #00000040, 0px 4px 4px #00000040, 0px 4px 4px #00000040;
+    height: 256px;
+    position: relative;
+    width: 296px;
+}
+
+.recipe-on-login-sign .frame-3 {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    height: 216px;
+    left: 22px;
+    position: relative;
+    top: 24px;
+    width: 254px;
+}
+
+.recipe-on-login-sign .text-wrapper-5 {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    height: 33px;
+    letter-spacing: -0.48px;
+    line-height: 36px;
+    margin-right: -85px;
+    margin-top: -1px;
+    position: relative;
+    white-space: nowrap;
+    width: 339px;
+}
+.progressBar{
+    width:100%;
+    display: block;
+}
+.recipe-on-login-sign .text-wrapper-6 {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 16px;
+    font-weight: 700;
+    height: 33px;
+    letter-spacing: -0.24px;
+    line-height: 36px;
+    position: relative;
+    white-space: nowrap;
+    width: 166px;
+}
+
+.recipe-on-login-sign .text-wrapper-7 {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 14px;
+    font-weight: 700;
+    height: 33px;
+    letter-spacing: -0.24px;
+    line-height: 36px;
+    position: relative;
+    white-space: nowrap;
+    width: 103px;
+}
+.recipe-on-login-sign .text-wrapper-8 {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 14px;
+    font-weight: 700;
+    height: 33px;
+    letter-spacing: -0.24px;
+    line-height: 36px;
+    position: relative;
+    white-space: nowrap;
+    width: 103px;
+}
+
+.recipe-on-login-sign .button {
+    all: unset;
+    align-items: center;
+    background-color: #000000;
+    border-radius: 8px;
+    box-shadow: 0px 20px 40px #fa62223d, 0px 5px 10px #fd715b38;
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 0 auto;
+    gap: 10px;
+    justify-content: center;
+    padding: 21px 48px;
+    position: relative;
+    width: 283.4px;
+    
+}
+
+.recipe-on-login-sign .text {
+    color: var(--themewhite);
+    font-family: var(--button-bold-font-family);
+    font-size: var(--button-bold-font-size);
+    font-style: var(--button-bold-font-style);
+    font-weight: var(--button-bold-font-weight);
+    letter-spacing: var(--button-bold-letter-spacing);
+    line-height: var(--button-bold-line-height);
+    margin-top: -1px;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+    width: fit-content;
+}
+
+.recipe-on-login-sign .div-3 {
+    height: 335px;
+    left: 321px;
+    position: absolute;
+    top: 0;
+    width: 296px;
+}
+
+.recipe-on-login-sign .div-4 {
+    height: 335px;
+    left: 642px;
+    position: absolute;
+    top: 0;
+    width: 296px;
+}
+
+.recipe-on-login-sign .div-5 {
+    height: 335px;
+    left: 2px;
+    position: absolute;
+    top: 371px;
+    width: 296px;
+}
+
+.recipe-on-login-sign .div-6 {
+    height: 335px;
+    left: 323px;
+    position: absolute;
+    top: 371px;
+    width: 296px;
+}
+
+.recipe-on-login-sign .div-7 {
+    height: 335px;
+    left: 644px;
+    position: absolute;
+    top: 371px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-8 {
+    height: 335px;
+    left: 2px;
+    position: absolute;
+    top: 742px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-9 {
+    height: 335px;
+    left: 323px;
+    position: absolute;
+    top: 742px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-10 {
+    height: 335px;
+    left: 644px;
+    position: absolute;
+    top: 742px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-11 {
+    height: 335px;
+    left: 2px;
+    position: absolute;
+    top: 1113px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-12 {
+    height: 335px;
+    left: 323px;
+    position: absolute;
+    top: 1113px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-13 {
+    height: 335px;
+    left: 644px;
+    position: absolute;
+    top: 1113px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-14 {
+    height: 335px;
+    left: 2px;
+    position: absolute;
+    top: 1484px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-15 {
+    height: 335px;
+    left: 323px;
+    position: absolute;
+    top: 1484px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-16 {
+    height: 335px;
+    left: 644px;
+    position: absolute;
+    top: 1484px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-17 {
+    height: 335px;
+    left: 2px;
+    position: absolute;
+    top: 1855px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-18 {
+    height: 335px;
+    left: 323px;
+    position: absolute;
+    top: 1855px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-19 {
+    height: 335px;
+    left: 644px;
+    position: absolute;
+    top: 1855px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-20 {
+    height: 335px;
+    left: 2px;
+    position: absolute;
+    top: 2226px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-21 {
+    height: 335px;
+    left: 323px;
+    position: absolute;
+    top: 2226px;
+    width: 296px;
+}
+.recipe-on-login-sign .div-22 {
+    height: 335px;
+    left: 644px;
+    position: absolute;
+    top: 2226px;
+    width: 296px;
+}
+
+.recipe-on-login-sign .recipe {
+    height: 710px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 940px;
+}
+
+.recipe-on-login-sign .recipe-2 {
+    height: 710px;
+    left: 300px;
+    position: absolute;
+    top: 1174px;
+    width: 940px;
+}
+
+.recipe-on-login-sign .recipe-com {
+    height: 335px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 296px;
+}
+
+.recipe-on-login-sign .text-wrapper-8 {
+    color: #000000;
+    font-family: "Montserrat-Bold", Helvetica;
+    font-size: 64px;
+    font-weight: 700;
+    left: 300px;
+    letter-spacing: -0.96px;
+    line-height: 36px;
+    position: absolute;
+    top: 1050px;
+    width: 482px;
+}
+
+.macroDetails{
+    right: 100px;
+    top: 70px;
+    position: absolute;
+}
+
+.accountselect {
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #000000;
+    border-radius: 53px;
+    height: 40px;
+    width: 100px;
+    padding-left: 4px;
+}
+    
+
+:root {
+    --button-bold-font-family: "SourceSans Pro-Bold", Helvetica;
+    --button-bold-font-size: 18px;
+    --button-bold-font-style: normal;
+    --button-bold-font-weight: 700;
+    --button-bold-letter-spacing: 0px;
+    --button-bold-line-height: 100%;
+    --themewhite: rgba(255, 255, 255, 1);
+  }
