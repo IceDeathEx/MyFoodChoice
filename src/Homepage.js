@@ -17,9 +17,12 @@ import DatePicker from 'react-datepicker';
 import ellipse from '../pics/ellipse-2.png';
 import CareCalories from "../server/config/CareCalories";
 import dateFormat from 'dateformat';
+import { data } from 'autoprefixer';
+import {response} from "express";
 
 const Homepage = () => {
   const [once, setOnce] = useState(false)
+  const [name, setname] = useState('');
   const path = JSON.parse(window.localStorage.getItem('path'));
   const [selectedDate, setSelectedDate] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false);
@@ -39,6 +42,12 @@ const Homepage = () => {
   const [calorielimit, setcalorielimit] =useState();
   const [caloriesTaken, setcaloriesTaken] =useState();
   const [percentage, setPercentage] = useState();
+  const [chartData, setChartData] = useState();
+
+  const [loginStreak, setLoginStreak] = useState();
+  const [loyaltypoint, setloyaltypoint] = useState();
+  const [dailyStreak, setDailyStreak] = useState(0);
+  const [loginDates, setLoginDates] = useState([]);
 
 
 
@@ -49,6 +58,26 @@ const Homepage = () => {
     } else {
       setOnce(false);
     }
+    //Daily streak
+    // Fetch login dates from a data source or local storage
+    const storedLoginDates = JSON.parse(localStorage.getItem('loginDates')) || [];
+
+    // Get the current date in the format yyyy/mm/dd
+    const currentDate1 = dateFormat(new Date(), 'yyyy/mm/dd');
+
+    // Check if the user logged in today
+    const hasLoggedToday = storedLoginDates.includes(currentDate1);
+
+    // If the user logged in today, update the streak
+    if (hasLoggedToday) {
+      setDailyStreak(storedLoginDates.length);
+    } else {
+      // User missed a day, reset the streak
+      setDailyStreak(0);
+    }
+
+    // Update the login dates
+    setLoginDates(storedLoginDates);
 
     const currentDate = new Date();
     const newdates = dateFormat(currentDate, "yyyy/mm/dd")
@@ -119,10 +148,13 @@ const Homepage = () => {
     })
     setupid(1)
 
-     //checkAndUpdateLoginStreak();
+     checkAndUpdateLoginStreak();
   },[]);
   const toggleCalendar = () => {
     setShowCalendar(!showCalendar);
+  };
+  const formatDate = (date) => {
+    return date ? date.toISOString().slice(0, 10) : '';
   };
   const [nameStyles, setNameStyles] = useState([
     { color: '#567710', fontWeight: 'bold' }, { color: 'black', fontWeight: '400' }, { color: 'black', fontWeight: '400' }, { color: 'black', fontWeight: '400' }, { color: 'black', fontWeight: '400' },

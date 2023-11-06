@@ -4,7 +4,7 @@ const baseURL = "http://localhost:3002/"
 
 export default axios.create({
     baseURL,
-}); */
+});
 import axios from "axios";
 
 //const baseURL = "http://localhost:3002/"
@@ -16,4 +16,12 @@ const baseURL = process.env.NODE_ENV === "production"
 
 export default axios.create({
     baseURL,
-});4
+});*/
+
+import axios from "axios";
+
+const baseURL = "http://localhost:3002/"
+
+export default axios.create({
+    baseURL,
+});

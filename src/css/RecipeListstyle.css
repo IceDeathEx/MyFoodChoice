@@ -138,7 +138,7 @@
     font-size: 24px;
     font-weight: 700;
     height: 36px;
-    left: 92px;
+    left: 10px;
     letter-spacing: 0;
     line-height: 36px;
     position: absolute;
@@ -186,9 +186,6 @@
     white-space: nowrap;
     width: 112px;
 }
-
-
-
 
 .recipe-on-login-sign .text-wrapper-4 {
     color: #000000;
@@ -330,7 +327,7 @@
     padding: 21px 48px;
     position: relative;
     width: 283.4px;
-    
+
 }
 
 .recipe-on-login-sign .text {
@@ -530,9 +527,19 @@
     width: 482px;
 }
 
-.macroDetails{
+:root {
+    --button-bold-font-family: "SourceSans Pro-Bold", Helvetica;
+    --button-bold-font-size: 18px;
+    --button-bold-font-style: normal;
+    --button-bold-font-weight: 700;
+    --button-bold-letter-spacing: 0px;
+    --button-bold-line-height: 100%;
+    --themewhite: rgba(255, 255, 255, 1);
+  }
+  .macroDetails{
     right: 100px;
     top: 70px;
+    width: 200px;
     position: absolute;
 }
 
@@ -542,17 +549,15 @@
     border-color: #000000;
     border-radius: 53px;
     height: 40px;
-    width: 100px;
+    width: 150px;
     padding-left: 4px;
 }
-    
-
-:root {
-    --button-bold-font-family: "SourceSans Pro-Bold", Helvetica;
-    --button-bold-font-size: 18px;
-    --button-bold-font-style: normal;
-    --button-bold-font-weight: 700;
-    --button-bold-letter-spacing: 0px;
-    --button-bold-line-height: 100%;
-    --themewhite: rgba(255, 255, 255, 1);
+.btn2 {
+    background: none!important;
+    border: none;
+    padding: 0!important;
+    font-family: arial, sans-serif;
+    color: #069;
+    text-decoration: underline;
+    cursor: pointer;
   }

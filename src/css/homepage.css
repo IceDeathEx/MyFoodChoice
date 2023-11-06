@@ -85,6 +85,50 @@
   top: 72px;
 }
 
+.frame1 .element-10 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 31px;
+  justify-content: center;
+  left: 0px;
+  position: absolute;
+  top: 250px;
+}
+
+.frame1 .element-11 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 31px;
+  justify-content: center;
+  left: 170px;
+  position: absolute;
+  top: 250px;
+}
+
+.frame1 .element-12 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 31px;
+  justify-content: center;
+  left: 340px;
+  position: absolute;
+  top: 250px;
+}
+
+.frame1 .element-13 {
+  align-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 31px;
+  justify-content: center;
+  left: 500px;
+  position: absolute;
+  top: 250px;
+}
+
 .frame1 .img-2 {
   height: 82.28px;
   position: relative;

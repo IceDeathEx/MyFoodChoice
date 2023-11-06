@@ -19,6 +19,17 @@ const RecipeList = () => {
     const navigate = useNavigate()
     const [transaction, settransaction] = useState([])
     const [transactionpaid, settransactionpaid] = useState([])
+    const [userprofile, setuserprofile] = useState([])
+    const [usernutrient, setusernutrient] = useState([])
+    const [usertotalcalories, setusertotalcalories] = useState([])
+    const currentDate = new Date()
+    const [protein, setprotein] = useState([])
+    const [carbohydate, setcarbohydate] = useState([])
+    const [fat, setfat] = useState([])
+    const [satfat, setsatfat] = useState([])
+    const [cholesterol, setcholesterol] = useState([])
+    const [sodium, setsodium] = useState([])
+    const [dietaryfibre, setdietaryfibre] = useState([])
     useEffect(() => {
         //Get the set items are out
         CareCalories.get("/api/getrecipeset")
@@ -30,6 +41,7 @@ const RecipeList = () => {
                 const unique = [...new Set(data.data.map((item) => item.conditions))]
                 setupcondition(unique)
                 setcondition(data.data[0].conditions)
+                setuserprofile(data.data)
             })
         CareCalories.get(`/api/getshoppingcart/${id}`)
             .then((data) => {
@@ -39,6 +51,38 @@ const RecipeList = () => {
             .then((data) => {
                 settransactionpaid(data.data)
             })
+        CareCalories.get(`/api/getmealrecordfullinfo/${id}`, { params: { upid: 1, mrdate: dateFormat(currentDate, 'yyyy/mm/dd') } })
+            .then((data) => {
+                setusernutrient(data.data)
+               // console.log(data.data)
+               if(data.data.length !== 0){
+                setprotein(data.data[0].protein / 500 * 100)
+                setcarbohydate(data.data[0].carbohydate / 500 * 100)
+                setfat(data.data[0].fat / 50 * 100)
+                setsatfat(data.data[0].saturatedfat / 50 * 100)
+                setsodium(data.data[0].sodium / 1000 * 100)
+                setcholesterol(data.data[0].cholesterol / 1000 * 100)
+                setdietaryfibre(data.data[0].dietaryfibre / 20 * 100)
+               }
+               else{
+                setprotein(0)
+                setcarbohydate(0)
+                setfat(0)
+                setsatfat(0)
+                setsodium(0)
+                setcholesterol(0)
+                setdietaryfibre(0)
+               }
+
+            })
+        CareCalories.get(`/api/totalcalories/${id}`, {
+            params:{upid: 1, mrdate: dateFormat(currentDate, 'yyyy/mm/dd')}
+            })
+            .then((data) =>{
+                setusertotalcalories(data.data)
+                //console.log(data.data)
+            })
+
     }, [])
     const handleCondition = (e) => {
         setcondition(e.target.value)
@@ -76,15 +120,55 @@ const RecipeList = () => {
         }
 
     }
-    // Create dropdown based on the user profiles medical conditions
+    const handleUserSwap = (e) => {
+        console.log(e.target.value)
+        CareCalories.get(`/api/getmealrecordfullinfo/${id}`, { params: { upid: e.target.value, mrdate: dateFormat(currentDate, 'yyyy/mm/dd') } })
+            .then((data) => {
+                setusernutrient(data.data)
+               // console.log(data.data)
+               if(data.data.length !==0){
+                setprotein(data.data[0].protein / 500 * 100)
+                setcarbohydate(data.data[0].carbohydate / 500 * 100)
+                setfat(data.data[0].fat / 50 * 100)
+                setsatfat(data.data[0].saturatedfat / 50 * 100)
+                setsodium(data.data[0].sodium / 1000 * 100)
+                setcholesterol(data.data[0].cholesterol / 1000 * 100)
+                setdietaryfibre(data.data[0].dietaryfibre / 20 * 100)
+               }
+               else{
+                setprotein(0)
+                setcarbohydate(0)
+                setfat(0)
+                setsatfat(0)
+                setsodium(0)
+                setcholesterol(0)
+                setdietaryfibre(0)
+               }
+
+            })
+        CareCalories.get(`/api/totalcalories/${id}`, {
+            params:{upid: e.target.value, mrdate: dateFormat(currentDate, 'yyyy/mm/dd')}
+            })
+            .then((data) =>{
+                setusertotalcalories(data.data)
+                //console.log(data.data)
+            })
+
+    }
+    const handleRecc = (e) => {
+        //console.log(userprofile)
+        if(e){
+            setcondition(userprofile.filter((res)=> res.iduserprofile === e)[0].conditions)
+        }
+
+    }
     return (
-        <div className="all">
+        <div>
             <NavBarUser />
             {upcondition ? (
                 <div className="recipe-on-login-sign">
                     <div className="div">
-                        <div className="text-wrapper-3">don’t worry,<br/>  we show the best for you</div>
-                       
+                        <div className="text-wrapper-3">don’t worry,<br />  we show the best for you</div>
                         <div className="overlap">
                             <div className="recipe">
                                 {recipeset.filter((filter) => filter.healthcategory === condition || filter.healthcategory === 'All').slice(0, 6).map((data, index) => {
@@ -135,59 +219,100 @@ const RecipeList = () => {
                         </div>
 
                         <div className="drpbox">
-                        
-                        <div className="recom">
-<div className="recomtext-wrapper">List</div>
-<div className="recomframe">
-<div className="recomgroup">
-<img className="recomline" alt="Line" src={line_4} />
-<div className="recomdiv">Encik Tan’s</div>
-</div>
-<div className="recomgroup">
-<img className="recomline" alt="Line" src={line_4} />
-<div className="recomdiv">Encik Tan’s</div>
-</div>
-<div className="recomgroup">
-<img className="recomline" alt="Line" src={line_4}  />
-<div className="recomdiv">Encik Tan’s</div>
-</div>
-<div className="recomgroup">
-<img className="recomline" alt="Line" src={line_4}  />
-<div className="recomdiv">Encik Tan’s</div>
-</div>
-</div>
-</div>
+                            <div className="recom">
+                                <div className="recomtext-wrapper">Recommendations</div>
+                                <div className="recomframe">
+                                    {userprofile.map((profiles, index) => {
+                                        return <div className="recomgroup" key={index}>
+                                            <img className="recomline" alt="Line" src={line_4} />
+                                            <button onClick={() =>handleRecc(profiles.iduserprofile)} className="btn"><div className="recomdiv">{profiles.name}</div></button>
+                                        </div>
+                                    })}
+                                </div>
+                            </div>
                             <div className="macroDetails">
 
-                            <select className="accountselect">
-                                <option>Nicholas</option>
-                                <option>Nicholas</option>
-                                <option>Nicholas</option>
-                                <option>Nicholas</option>
-                                </select>
-                                <p>Natrium 70%</p>
-                            <Line percent={70} strokeWidth={4} strokeColor="#FF0000" /> 
-                            <p>Natrium 70%</p>
-                            <Line percent={10} strokeWidth={4} strokeColor="#ADF7b6" />
-                            <p>Natrium 70%</p>
-                            <Line percent={60} strokeWidth={4} strokeColor="#FFEE93" />
-                            <p>Natrium 70%</p>
-                            <Line percent={60} strokeWidth={4} strokeColor="#D3D3D3" />
-                            <p>Natrium 70%</p>
-                            <Line percent={10} strokeWidth={4} strokeColor="#D3D3D3" />
-                            <p>Natrium 70%</p>
-                            <Line percent={10} strokeWidth={4} strokeColor="#D3D3D3" />
-                            <p>Natrium 70%</p>
-                            <Line percent={10} strokeWidth={4} strokeColor="#D3D3D3" />
-                            <p>Natrium 70%</p>
-                            <Line percent={10} strokeWidth={4} strokeColor="#D3D3D3" />
-                            <p>Natrium 70%</p>
-                            <Line percent={10} strokeWidth={4} strokeColor="#D3D3D3" />
+                                <select className="accountselect" onChange={handleUserSwap}>
+                                    {userprofile.map((profiles, index) => {
+                                        return <option key={index} value={index+1}>{profiles.name}</option>
+                                    })}
 
+                                </select>
+                                <h1>Daily Avg consumed.</h1>
+
+                                <p>Calories(g): {usertotalcalories[0] ? usertotalcalories[0].kcal.toFixed(0) : 0}/2000 ({usertotalcalories[0] ? usertotalcalories[0].kcal / 2000 * 100 : 0}%)</p>
+                                <Line percent={usertotalcalories[0] ? usertotalcalories[0].kcal / 2000 * 100 : 0} strokeWidth={4} strokeColor={
+                                    usertotalcalories[0] && usertotalcalories[0].kcal / 2000 * 100 >= 100
+                                        ? "#FF0000" // Red if more than 100%
+                                        : usertotalcalories[0] && usertotalcalories[0].kcal / 2000 * 100 >= 90
+                                            ? "#FFBA00" // Orange if 90% or more
+                                            : "#00FF00" // Green for other cases
+                                } />
+
+                                <p>Protein(g): {usernutrient[0] ? usernutrient[0].protein.toFixed(2):0}/500 ({usernutrient[0] ? protein.toFixed(2):0}%)</p>
+                                <Line percent={usernutrient[0] ? usernutrient[0].protein / 500 * 100:0} strokeWidth={4} strokeColor={
+                                    usernutrient[0] && usernutrient[0].protein / 500 * 100 >= 100
+                                        ? "#FF0000" // Red if more than 100%
+                                        : usernutrient[0] && usernutrient[0].protein / 500 * 100 >= 90
+                                            ? "#FFBA00" // Orange if 90% or more
+                                            : "#00FF00" // Green for other cases
+                                } />
+
+                                <p>Carbohydrate(g): {usernutrient[0] ? usernutrient[0].carbohydate.toFixed(2):0}/500 ({usernutrient[0] ? carbohydate.toFixed(2):0}%)</p>
+                                <Line percent={usernutrient[0] ? usernutrient[0].carbohydate / 500 * 100:0} strokeWidth={4} strokeColor={
+                                    usernutrient[0] && usernutrient[0].carbohydate / 500 * 100 >= 100
+                                        ? "#FF0000" // Red if more than 100%
+                                        : usernutrient[0] && usernutrient[0].carbohydate / 500 * 100 >= 90
+                                            ? "#FFBA00" // Orange if 90% or more
+                                            : "#00FF00" // Green for other cases
+                                } />
+
+                                <p>Fat(g): {usernutrient[0] ? usernutrient[0].fat.toFixed(2):0}/50 ({usernutrient[0] ? fat.toFixed(2): 0}%)</p>
+                                <Line percent={usernutrient[0] ? usernutrient[0].fat / 50 * 100:0} strokeWidth={4} strokeColor={
+                                    usernutrient[0] && usernutrient[0].fat / 50 * 10 >= 100
+                                        ? "#FF0000" // Red if more than 100%
+                                        : usernutrient[0] && usernutrient[0].fat / 50 * 10 >= 90
+                                            ? "#FFBA00" // Orange if 90% or more
+                                            : "#00FF00" // Green for other cases
+                                } />
+
+                                <p>Saturated Fat(g): {usernutrient[0] ? usernutrient[0].saturatedfat.toFixed(2):0}/50 ({usernutrient[0] ? satfat.toFixed(2):0}%)</p>
+                                <Line percent={usernutrient[0] ? usernutrient[0].saturatedfat / 50 * 100:0} strokeWidth={4} strokeColor={
+                                    usernutrient[0] && usernutrient[0].saturatedfat / 50 * 100 >= 100
+                                        ? "#FF0000" // Red if more than 100%
+                                        : usernutrient[0] && usernutrient[0].saturatedfat / 50 * 100 >= 90
+                                            ? "#FFBA00" // Orange if 90% or more
+                                            : "#00FF00" // Green for other cases
+                                } />
+
+                                <p>Sodium(mg): {usernutrient[0] ? usernutrient[0].sodium.toFixed(2):0}/1000 ({usernutrient[0] ? sodium.toFixed(2):0}%)</p>
+                                <Line percent={usernutrient[0] ? usernutrient[0].sodium / 1000 * 100:0} strokeWidth={4} strokeColor={
+                                    usernutrient[0] && usernutrient[0].sodium /1000 * 100>= 100
+                                        ? "#FF0000" // Red if more than 100%
+                                        : usernutrient[0] && usernutrient[0].sodium /1000 * 100>= 90
+                                            ? "#FFBA00" // Orange if 90% or more
+                                            : "#00FF00" // Green for other cases
+                                } />
+
+                                <p>Cholesterol(mg): {usernutrient[0] ? usernutrient[0].cholesterol.toFixed(2):0}/1000 ({usernutrient[0] ? cholesterol.toFixed(2):0}%)</p>
+                                <Line percent={usernutrient[0] ? usernutrient[0].cholesterol / 1000 * 100:0} strokeWidth={4} strokeColor={
+                                    usernutrient[0] && usernutrient[0].cholesterol /1000 * 100 >= 100
+                                        ? "#FF0000" // Red if more than 100%
+                                        : usernutrient[0] && usernutrient[0].cholesterol /1000 * 100>= 90
+                                            ? "#FFBA00" // Orange if 90% or more
+                                            : "#00FF00" // Green for other cases
+                                } />
+
+                                <p>Dietary Fibre(g): {usernutrient[0] ? usernutrient[0].dietaryfibre.toFixed(2):0}/20 ({usernutrient[0] ? dietaryfibre.toFixed(2):0}%)</p>
+                                <Line percent={usernutrient[0] ? usernutrient[0].dietaryfibre / 20 * 100:0} strokeWidth={4} strokeColor={
+                                    usernutrient[0] && usernutrient[0].dietaryfibre / 20 * 100>= 100
+                                        ? "#FF0000" // Red if more than 100%
+                                        : usernutrient[0] && usernutrient[0].dietaryfibre / 20 * 100>= 90
+                                            ? "#FFBA00" // Orange if 90% or more
+                                            : "#00FF00" // Green for other cases
+                                } />
                             </div>
-                            {/* <ProgressBar now={61.5} label={61.5} />
-                            <ProgressBar variant="warning" now={61.5} label={61.5} />
-                            <ProgressBar variant="danger" now={199 / 3} label={199 / 3} /> */}
+
                         </div>
                         <div className="recipe-2">
 

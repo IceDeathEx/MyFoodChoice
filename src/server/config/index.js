@@ -487,7 +487,7 @@ app.get("/api/getmealrecord/:id", (req, res) => {
 // Route to get meal record based on ID join other tables
 app.get("/api/getmealrecordfullinfo1/:id", (req, res) => {
   const id = req.params.id;
-  db.query("select * from mealrecord join foodnutrition on mealrecord.foodid = foodnutrition.id join userprofile on userprofile.iduserprofile = mealrecord.upid where mealrecord.uid=? and iduser=?", [id,id], (err, result) => {
+  db.query("select * from mealrecord join foodnutrition on mealrecord.foodid = foodnutrition.id join userprofile on userprofile.iduserprofile = mealrecord.upid where mealrecord.uid=?", id, (err, result) => {
     if (err) {
       console.log(err)
     }
@@ -510,7 +510,7 @@ app.get("/api/totalMealcalories/:id", (req, res) => {
 });
 
 
-// Route to get Total calories 
+// Route to get Total calories
 app.get("/api/totalcalories/:id", (req, res) => {
   const uid = req.params.id;
   const upid = req.query.upid;
@@ -531,7 +531,7 @@ app.get("/api/getmealrecordfullinfo/:id", (req, res) => {
   const mrdate = req.query.mrdate;
 
   db.query(`
-  SELECT uid, upid, SUM(carbohydrate) AS carbohydate , SUM(protein) AS protein, SUM(fat) AS fat, SUM(saturatedfat) AS saturatedfat, SUM(dietaryfibre) AS dietaryfibre, SUM(sodium) AS sodium, SUM(weight) AS weight
+  SELECT uid, upid, SUM(carbohydrate) AS carbohydate , SUM(protein) AS protein, SUM(fat) AS fat, SUM(saturatedfat) AS saturatedfat, SUM(cholesterol) AS cholesterol, SUM(dietaryfibre) AS dietaryfibre, SUM(sodium) AS sodium, SUM(weight) AS weight
   FROM myfoodchoice.mealrecord 
   join foodnutrition on 
   mealrecord.foodid = foodnutrition.id
@@ -571,8 +571,17 @@ app.get("/api/getUserProfiles/:id", (req, res) => {
 app.post('/api/addIdProfile', (req, res) => {
 
   const id = req.body.iduser;
+  const name = req.body.name;
+  const gender = req.body.gender;
+  const height = req.body.height;
+  const weight = req.body.weight;
+  const lifestyle = req.body.lifestyle;
+  const conditions = req.body.conditions;
+  const dob = req.body.dob;
+  const bmi = req.body.bmi;
+  const age = req.body.age;
 
-  db.query("INSERT INTO userprofile (iduser) VALUES (?)", [id], (err, result) => {
+  db.query("INSERT INTO userprofile (iduser, name, dob, height, weight, lifestyle, conditions, gender, bmi, age) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [id ,name, dob, height, weight, lifestyle, conditions, gender, bmi, age], (err, result) => {
     if (err) {
       console.log(err)
     }
@@ -610,7 +619,9 @@ app.post('/api/UserBMItracker/:id', (req, res) => {
 
 // Get user BMI, weight, height for graph
 app.get("/api/UserBMIgraph/:id",(req, res) => {
-  db.query("SELECT * FROM bmitracker;", (err, result) => {
+  const id = req.params.id;
+
+db.query("SELECT * FROM bmitracker WHERE iduser = ?;",id, (err, result) => {
     if (err) {
       console.log(err)
     }
@@ -828,6 +839,123 @@ app.get("/api/getreviews/", (req, res) => {
 // Route to get all transaction with name
 app.get("/api/getalltransactionwithname", (req, res) => {
   db.query("SELECT * FROM myfoodchoice.transaction join user on transaction.uid = user.id; ", (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+
+
+// Route for Vendor to post food (WORKING)
+app.post('/api/postfood', (req, res) => {
+
+  const ofname = req.body.ofname;
+  const ofprice = req.body.ofprice;
+  const ofimg = req.body.ofimg;
+  const ofvendor = req.body.ofvendor;
+
+  db.query("INSERT INTO orderfood (ofname, ofprice, ofimg, ofvendor) VALUES (?, ?, ?, ?)", [ofname, ofprice, ofimg, ofvendor], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  });
+})
+
+// Route to get all food posted by vendor (WORKING)
+app.get('/api/foodItems/:id', (req, res) => {
+
+  const id = req.params.id;
+  db.query("SELECT user.name AS vendor_name, orderfood.ofname AS ofname, orderfood.ofprice, orderfood.ofimg, orderfood.ofid AS ofid FROM `user` INNER JOIN `orderfood` ON user.name = orderfood.ofvendor WHERE user.accountType = 'vendor' AND orderfood.ofvendor = ?;", id, (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+// Route to get all top selling menu (WORKING)
+app.get('/api/topSellingMenu/:id', (req, res) => {
+
+  const id = req.params.id;
+  db.query("SELECT transitemvendor, transitemname, transcategory, SUM(transqty) AS total_transqty FROM transaction WHERE transstatus = 'Paid' AND transcategory = 'Food' AND transitemvendor = ? GROUP BY transitemvendor, transitemname, transcategory;", id, (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+// Route to get all top selling recipes
+app.get('/api/topSellingRecipe/:id', (req, res) => {
+
+  const id = req.params.id;
+  const transitemname = req.body.transitemname
+  db.query("SELECT transitemvendor, transitemname, transcategory, SUM(transqty) AS total_transqty FROM transaction WHERE transstatus = 'Paid' AND transcategory = 'Recipe' AND transitemvendor = ? GROUP BY transitemvendor, transitemname, transcategory;", id, transitemname, (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+// Route to get least selling items
+app.get('/api/leastSellingItem/:id', (req, res) => {
+
+  const id = req.params.id;
+  db.query("SELECT transitemvendor, transitemname, transcategory, SUM(transqty), transitemprice AS total_transqty, ofimg FROM transaction JOIN orderfood ON transitemid = ofid WHERE transstatus = 'Paid' AND transitemvendor = \"?\" GROUP BY transitemvendor, transitemname, transcategory, transitemprice, ofimg ORDER BY SUM(transqty) DESC;", id, (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+
+// Route to get all vendor name from user table
+app.get('/api/getVendorName1/:id', (req, res) => {
+
+  const id = req.params.id;
+  db.query("SELECT * FROM user WHERE id = ?;", id, (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+// Route to delete posted food (WORKING)
+
+app.delete('/api/DeletefoodItems/:ofid', (req, res) => {
+  const ofid = req.params.ofid;
+
+  db.query("DELETE FROM orderfood WHERE ofid = ? ;", [ofid], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  })
+})
+
+// Route to get all vendor name from user table
+app.get('/api/vendordetails/:id', (req, res) => {
+
+  const id = req.params.id;
+  db.query("SELECT * FROM vendor WHERE idvendor = ?;", id, (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+app.get('/api/GetLoginStreak/:id', (req, res) => {
+
+  const id = req.params.id;
+  const date = req.body.date;
+  db.query("SELECT * FROM loginstreak WHERE id = ? AND date = ? ;",[id, date] , (err, result) => {
     if (err) {
       console.log(err)
     }

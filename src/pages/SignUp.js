@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import CareCalories from "../server/config/CareCalories";
+import dateFormat from 'dateformat';
 
 const SignUp = () => {
     const [email, setEmail] = useState(null);
@@ -220,6 +221,12 @@ const SignUp = () => {
           setInvalidAge(true)
           setInvalidAgeMsg('Please enter an age 1 year or older.')
          }else{
+             CareCalories.post(`/api/UserBMItracker/${lastid +1}`, {
+                  height: height,
+                  weight: weight,
+                  bmi: bmi,
+                  iduserprofile: 1,
+             })
          CareCalories.post('/api/signup', {
             email: email,
             name: name,

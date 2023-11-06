@@ -52,7 +52,7 @@
 
 .homepage-vendor .kfc {
     height: 213px;
-    left: -4px;
+    left: -270px;
     object-fit: cover;
     position: absolute;
     top: 0;
@@ -66,6 +66,7 @@
     left: 35px;
     position: absolute;
     top: 341px;
+    border-radius: 20px;
 }
 
 .homepage-vendor .aframe-2 {

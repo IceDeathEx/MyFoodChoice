@@ -1,28 +1,83 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../css/HVstyle.css";
 import foodImage from "../pics/1.png";
 import logoImage from "../pics/kfc.png";
 import { NavbarVendor } from "./NavbarVendor";
+import CareCalories from "../server/config/CareCalories";
 
+//Declare Global array var to store vendorid
+//UseEffect to get the vendorname from table user by id
+//Declare another global variable to store vendor name
+//Another useEffect to get rest of the columns, quantity, price by vendorname
 
 const HomepageVendor = () => {
+     const id = JSON.parse(window.localStorage.getItem("account"));
+     const [topSellingMenu, setTopSellingMenu] = useState([]);
+     const [topSellingRecipe, setTopSellingRecipe] = useState([]);
+     const [leastSellingItem, setleastSellingItem] = useState([]);
+     const [vendorname, setvendorname] = useState(""); // State to store vendor name
+     const [vendordetails, setvendordetails] = useState([]);
+      useEffect(() => {
+        // Make an Axios GET request to fetch top-selling items for each category
+        CareCalories.get(`/api/topSellingMenu/${id}`)
+            .then((response) => {
+                setvendorname(response.data)
+                CareCalories.get(`/api/topSellingRecipe/${id}`). then((response) => {
+                    setTopSellingRecipe(response.data)
+                })
+                CareCalories.get(`/api/topSellingMenu/${id}`). then((response) => {
+                    setTopSellingRecipe(response.data)
+                })
+                CareCalories.get(`/api/vendordetails/${id}`). then((response) => {
+                    setvendordetails(response.data)
+                })
+                setTopSellingMenu(response.data); // Assuming the response contains top-selling data
+            })
+            .catch((error) => {
+                console.error("Error fetching top-selling items: ", error);
+            });
+
+        CareCalories.get(`/api/topSellingRecipe/${id}`)
+            .then((response) => {
+                setTopSellingRecipe(response.data); // Assuming the response contains top-selling data
+            })
+            .catch((error) => {
+                console.error("Error fetching top-selling items: ", error);
+            });
+
+        CareCalories.get(`/api/leastSellingItem/${id}`)
+            .then((response) => {
+                setleastSellingItem(response.data); // Assuming the response contains top-selling data
+            })
+            .catch((error) => {
+                console.error("Error fetching top-selling items: ", error);
+            });
+    }, []);
     return (
-        <div className="all">
+        <div>
         <NavbarVendor/>
-        
-        
+
+
         <div className="homepage-vendor">
         <div className="div">
 <div className="group">
+
 <p className="hi-KFC">
-<span className="text-wrapper">
-Hi,
-<br />
-</span>
-<span className="span">KFC</span>
+  <span className="text-wrapper">
+    Hi,
+    <br />
+  </span>
+  {vendordetails.map((item, index) => (
+    <span className="span" key={index}>
+      {item.vendorname}
+      <img
+        className="kfc"
+        src={item.vendorimg}
+      />
+    </span>
+  ))}
 </p>
-<img className="kfc" alt="Kfc" src={logoImage} />
-</div>
+          </div>
 <div className="aframe">
 <div className="aframe-2">
 <div className="text-wrapper-2">Top Selling Menu</div>

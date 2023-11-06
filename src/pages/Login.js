@@ -8,6 +8,7 @@ import { Link, useLocation } from "react-router-dom";
 import { useSignIn } from 'react-auth-kit'
 import redX from '../pics/icon_circleX.png';
 import CareCalories from "../server/config/CareCalories";
+import dateFormat from "dateformat";
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -27,6 +28,8 @@ const Login = () => {
     //Password empty
     const [isPasswordEmpty, setPasswordEmpty] = useState(false)
     const [PasswordEmptyMsg, setPasswordEmptyMsg] = useState('');
+
+    const currentdate = new Date()
 
     function handleLogin(e){
       //Setting error message to false to prevent it from showing.
@@ -53,6 +56,15 @@ const Login = () => {
           ))
           //Checking if its a user.
           if(res.data.user[0].accountType.toString() === 'user'){
+              CareCalories.get(`/api/GetLoginStreak/${res.data.user[0].id}`, dateFormat(currentdate, "yyyy-mm-dd") )
+                  .then((response) => {
+                      console.log(response.data)
+                      if (response.data.length === 0 ){
+                          CareCalories.post(`/api/updateLoginStreak/${res.data.user[0].id}`, {
+                             date: dateFormat(currentdate, "yyyy-mm-dd")
+                          })
+                      }
+                  })
               navigate('/homepage', {replace: true})
           }
           else if(res.data.user[0].accountType.toString() === 'vendor'){

@@ -160,6 +160,7 @@ const AccountDetails = () => {
 
   if (isFormValid) {
     CareCalories.post("/api/addIdProfile", {
+      iduser: id,
       name: name,
       dob: dob,
       weight: weight,
