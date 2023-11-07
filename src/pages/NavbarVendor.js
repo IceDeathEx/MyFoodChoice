@@ -24,10 +24,6 @@ export const NavbarVendor = () => {
 <Link to="/vendor" className="product">
 <div className="text-wrapper"> Home</div>
 </Link>
-<Link to="/createrecipe"><div className="text-wrapper-2">Create Recipe</div></Link>
-<Link to="/vendorviewrecipe" className="company">
-<div className="text-wrapper-3">View Recipe</div>
-</Link>
 <Link to="/createfoodmenu" className="div-wrapper">
 <div className="text-wrapper">Food Menu</div>
 </Link>

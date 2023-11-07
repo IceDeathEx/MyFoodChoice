@@ -153,7 +153,7 @@
   flex-direction: column;
   gap: 31px;
   justify-content: center;
-  left: 464px;
+  left: 254px;
   position: absolute;
   top: 71px;
 }
@@ -163,7 +163,7 @@
   display: inline-flex;
   flex-direction: column;
   gap: 31px;
-  left: 254px;
+  left: 464px;
   position: absolute;
   top: 72px;
 }

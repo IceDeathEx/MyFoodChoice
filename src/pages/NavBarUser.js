@@ -16,7 +16,7 @@ const NavBarUser = () => {
       signOut()
     }
   return (
-    <div className="all">
+    <div className="allnavbar">
     <div className="element">
       <div className="care-calories">CARECALORIES.</div>
       <div className="navigation">

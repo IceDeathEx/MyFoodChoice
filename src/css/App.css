@@ -17,3 +17,25 @@
         }
   }
 */
+
+@media (max-width: 768px) {
+  .allnavbar {
+      zoom: 120%; 
+      width: 100%;
+      }
+}
+
+@media (max-width: 768px) {
+  .allnavbar {
+      zoom: 120%; 
+      width: 100%;
+      }
+}
+@media (max-width: 768px){
+.all {
+  display: inline;
+  position: absolute;
+  zoom: 40%;
+  text-align: left;
+}
+}

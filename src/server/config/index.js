@@ -286,7 +286,7 @@ db.query("UPDATE userprofile SET  height = ?, weight = ?, lifestyle = ?, conditi
 //Route to Delete user profile
 app.delete('/api/deleteProfile/:iduserprofile',(req,res)=>{
   const id = req.params.iduserprofile;
-  
+
     db.query('DELETE FROM userprofile WHERE iduserprofile = ?', id, (err, result) => {
       if (err) {
         console.log(err);
@@ -880,7 +880,7 @@ app.get('/api/foodItems/:id', (req, res) => {
 app.get('/api/topSellingMenu/:id', (req, res) => {
 
   const id = req.params.id;
-  db.query("SELECT transitemvendor, transitemname, transcategory, SUM(transqty) AS total_transqty FROM transaction WHERE transstatus = 'Paid' AND transcategory = 'Food' AND transitemvendor = ? GROUP BY transitemvendor, transitemname, transcategory;", id, (err, result) => {
+  db.query("SELECT transitemvendor, transitemname, transcategory, SUM(transqty) AS totalqty, transitemprice AS total_transqty, ofimg FROM transaction JOIN orderfood ON transitemid = ofid WHERE transstatus = 'Paid' AND transitemvendor = ? AND transcategory = 'Food' GROUP BY transitemvendor, transitemname, transcategory, transitemprice, ofimg ORDER BY SUM(transqty) DESC;", id, (err, result) => {
     if (err) {
       console.log(err)
     }
@@ -892,8 +892,7 @@ app.get('/api/topSellingMenu/:id', (req, res) => {
 app.get('/api/topSellingRecipe/:id', (req, res) => {
 
   const id = req.params.id;
-  const transitemname = req.body.transitemname
-  db.query("SELECT transitemvendor, transitemname, transcategory, SUM(transqty) AS total_transqty FROM transaction WHERE transstatus = 'Paid' AND transcategory = 'Recipe' AND transitemvendor = ? GROUP BY transitemvendor, transitemname, transcategory;", id, transitemname, (err, result) => {
+  db.query("SELECT transitemvendor, transitemname, transcategory, SUM(transqty) AS totalqty, transitemprice AS total_transqty, ofimg FROM transaction JOIN orderfood ON transitemid = ofid WHERE transstatus = 'Paid' AND transitemvendor = ? AND transcategory = 'Recipe' GROUP BY transitemvendor, transitemname, transcategory, transitemprice, ofimg ORDER BY SUM(transqty) DESC;", id, (err, result) => {
     if (err) {
       console.log(err)
     }
@@ -905,7 +904,7 @@ app.get('/api/topSellingRecipe/:id', (req, res) => {
 app.get('/api/leastSellingItem/:id', (req, res) => {
 
   const id = req.params.id;
-  db.query("SELECT transitemvendor, transitemname, transcategory, SUM(transqty), transitemprice AS total_transqty, ofimg FROM transaction JOIN orderfood ON transitemid = ofid WHERE transstatus = 'Paid' AND transitemvendor = \"?\" GROUP BY transitemvendor, transitemname, transcategory, transitemprice, ofimg ORDER BY SUM(transqty) DESC;", id, (err, result) => {
+  db.query("SELECT transitemvendor, transitemname, transcategory, SUM(transqty) AS totalqty, transitemprice AS total_transqty, ofimg FROM transaction JOIN orderfood ON transitemid = ofid WHERE transstatus = 'Paid' AND transitemvendor = ? GROUP BY transitemvendor, transitemname, transcategory, transitemprice, ofimg ORDER BY SUM(transqty);", id, (err, result) => {
     if (err) {
       console.log(err)
     }
@@ -954,14 +953,26 @@ app.get('/api/vendordetails/:id', (req, res) => {
 app.get('/api/GetLoginStreak/:id', (req, res) => {
 
   const id = req.params.id;
-  const date = req.body.date;
-  db.query("SELECT * FROM loginstreak WHERE id = ? AND date = ? ;",[id, date] , (err, result) => {
+  
+  db.query("SELECT * FROM loginstreak WHERE id = ? ;",[id] , (err, result) => {
     if (err) {
       console.log(err)
     }
     res.send(result)
   });
 });
+
+app.post('/api/updateLoginStreak/:id', (req, res) => {
+
+  const id = req.params.id;
+  const date = req.body.date;
+  db.query("INSERT INTO loginstreak (id, date) VALUES (?, ?)", [id, date], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  });
+})
 
 
 //Listening to PORT 3002

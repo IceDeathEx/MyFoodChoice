@@ -40,6 +40,9 @@ const Homepage = () => {
   const [caloriesTaken, setcaloriesTaken] =useState();
   const [percentage, setPercentage] = useState();
 
+  //Login Streak 
+  
+
 
 
   useEffect(() => {
@@ -50,16 +53,51 @@ const Homepage = () => {
       setOnce(false);
     }
 
+    // CareCalories.get(/api/get)
     const currentDate = new Date();
     const newdates = dateFormat(currentDate, "yyyy/mm/dd")
     //console.log("What is the date format?", newdates)
     setdatecondition(dateFormat(currentDate, "yyyy/mm/dd"))
 
-  // CareCalories.get(`/api/GetLoginStreak/${id}`, {
-  //   date: newdates
-  // }).then((res) => {
-  //       console.log(res.data)
-  //     })
+   CareCalories.get(`/api/GetLoginStreak/${id}`, {
+      date: newdates
+    }).then((res) => {
+          console.log(res.data)
+        })
+      
+        const onedayback = new Date(currentDate);
+        onedayback.setDate(currentDate.getDate() - 1);
+      
+        const twodayback = new Date(currentDate);
+        twodayback.setDate(currentDate.getDate() - 2);
+      
+        const threedayback = new Date(currentDate);
+        threedayback.setDate(currentDate.getDate() - 3);
+      
+        const fourdayback = new Date(currentDate);
+        fourdayback.setDate(currentDate.getDate() - 4);
+      
+        const fivedayback = new Date(currentDate);
+        fivedayback.setDate(currentDate.getDate() - 5);
+      
+        const sixdayback = new Date(currentDate);
+        sixdayback.setDate(currentDate.getDate() - 6);
+        
+        const sevenDayData = [];
+
+        for (let i = 0; i < 7; i++) {
+          const dateToCheck = new Date(currentDate);
+          dateToCheck.setDate(currentDate.getDate() - i);
+      
+          // Filter the data for the specific date
+          const filteredData = res.data.filter((row) => {
+            return row.data === dateFormat(dateToCheck, 'yyyy/mm/dd');
+          });
+      
+          // Add the filtered data to the sevenDayData array
+          sevenDayData.push(filteredData);
+        }
+      
 
     // Fetch user profile based on id
     CareCalories.get(`/api/getUserProfile2/${id}`)
@@ -316,7 +354,7 @@ const snacksData = mealcalories.filter((data) => data.meal === 'snacks');
 
 
   return (
-    <div>
+    <div className='all'>
       <NavBarUser />
       {once && <PopUpModalLogin1 />}
       <div className="frame1">
@@ -334,6 +372,7 @@ const snacksData = mealcalories.filter((data) => data.meal === 'snacks');
             <div className="div-3">
               <div className="element-5">
                 <img className="img-2" alt="Icon circle check"  src={loginStreakDays.includes(getDayOfWeek()) ? imageCheck : imageX} />
+                loginStreak.filter
                 <div className="text-wrapper-22">Monday</div>
               </div>
               <div className="element-6">
