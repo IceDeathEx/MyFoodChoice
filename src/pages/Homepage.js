@@ -102,6 +102,20 @@ const Homepage = () => {
       setfive(res.data.filter((row) => dateFormat(row.date, 'yyyy/mm/dd') === dateFormat(fivedayback, 'yyyy/mm/dd')))
       setsix(res.data.filter((row) => dateFormat(row.date, 'yyyy/mm/dd') === dateFormat(sixdayback, 'yyyy/mm/dd')))
 
+      if(res.data.filter((row) => dateFormat(row.date, 'yyyy/mm/dd') === dateFormat(currentDate, 'yyyy/mm/dd')).length !== 0 && res.data.filter((row) => dateFormat(row.date, 'yyyy/mm/dd') === dateFormat(onedayback, 'yyyy/mm/dd')).length !== 0
+      && res.data.filter((row) =>dateFormat(row.date, 'yyyy/mm/dd') === dateFormat(twodayback, 'yyyy/mm/dd')).length !== 0 && res.data.filter((row) => dateFormat(row.date, 'yyyy/mm/dd') === dateFormat(threedayback, 'yyyy/mm/dd')).length !== 0
+      && res.data.filter((row) => dateFormat(row.date, 'yyyy/mm/dd') === dateFormat(fourdayback, 'yyyy/mm/dd')).length !== 0 && res.data.filter((row) => dateFormat(row.date, 'yyyy/mm/dd') === dateFormat(fivedayback, 'yyyy/mm/dd')).length !== 0
+      && res.data.filter((row) => dateFormat(row.date, 'yyyy/mm/dd') === dateFormat(sixdayback, 'yyyy/mm/dd')).length !== 0){
+        //CareCalories Post into database for that user
+        CareCalories.put(`/api/streakLoyaltyPoints/${id}`,{
+           loyaltypoint: 200
+          //input your variable
+        })
+        alert("200 Points Accumulated!")
+      }
+      else{
+        
+      }
     })
 
 

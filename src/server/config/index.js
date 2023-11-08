@@ -988,6 +988,18 @@ app.post('/api/updateLoginStreak/:id', (req, res) => {
   });
 })
 
+// Route to put login streak loyalty point into user table
+app.put('/api/streakLoyaltyPoints/:id', (req, res) => {
+
+  const id = req.params.id;
+  const loyaltypoint = req.body.loyaltypoint;
+  db.query("update user SET loyaltypoint = loyaltypoint + ? WHERE id=?;", [loyaltypoint, id], (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    console.log(result)
+  });
+});
 
 //Listening to PORT 3002
 app.listen(PORT, () => {
