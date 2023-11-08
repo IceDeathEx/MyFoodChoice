@@ -953,7 +953,21 @@ app.get('/api/vendordetails/:id', (req, res) => {
 app.get('/api/GetLoginStreak/:id', (req, res) => {
 
   const id = req.params.id;
+  const date = req.body.date;
   
+  db.query("SELECT * FROM loginstreak WHERE id = ? AND date = ?;",[id,date] , (err, result) => {
+    if (err) {
+      console.log(err)
+    }
+    res.send(result)
+  });
+});
+
+app.get('/api/GetLoginStreakHome/:id', (req, res) => {
+
+  const id = req.params.id;
+
+
   db.query("SELECT * FROM loginstreak WHERE id = ? ;",[id] , (err, result) => {
     if (err) {
       console.log(err)

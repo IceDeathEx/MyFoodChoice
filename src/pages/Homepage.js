@@ -40,11 +40,31 @@ const Homepage = () => {
   const [caloriesTaken, setcaloriesTaken] =useState();
   const [percentage, setPercentage] = useState();
 
-  //Login Streak 
-  
+   const currentDate = new Date();
+   const newdates = dateFormat(currentDate, "yyyy/mm/dd")
+   const onedaybefore = new Date(currentDate - 86400000)
+   const twodaybefore = new Date(currentDate - 2 * 86400000)
+   const threedaybefore = new Date(currentDate - 3 * 86400000)
+   const fourdaybefore = new Date(currentDate - 4 * 86400000)
+   const fivedaybefore = new Date(currentDate - 5 * 86400000)
+   const sixdaybefore = new Date(currentDate - 6 * 86400000)
 
+   const [zero, setzero] = useState([]);
+   const [one, setone] = useState([]);
+   const [two, settwo] = useState([]);
+   const [three, setthree] = useState([]);
+   const [four, setfour] = useState([]);
+   const [five, setfive] = useState([]);
+   const [six, setsix] = useState([]);
 
+   const onedayback = new Date(currentDate);
+   const twodayback = new Date(currentDate);
+   const threedayback = new Date(currentDate);
+   const fourdayback = new Date(currentDate);
+   const fivedayback = new Date(currentDate);
+   const sixdayback = new Date(currentDate);
 
+   
   useEffect(() => {
     if (path) {
       setOnce(true);
@@ -52,52 +72,41 @@ const Homepage = () => {
     } else {
       setOnce(false);
     }
-
     // CareCalories.get(/api/get)
-    const currentDate = new Date();
-    const newdates = dateFormat(currentDate, "yyyy/mm/dd")
-    //console.log("What is the date format?", newdates)
-    setdatecondition(dateFormat(currentDate, "yyyy/mm/dd"))
+   setdatecondition(dateFormat(currentDate, "yyyy/mm/dd"))
 
-   CareCalories.get(`/api/GetLoginStreak/${id}`, {
-      date: newdates
-    }).then((res) => {
-          console.log(res.data)
-        })
-      
-        const onedayback = new Date(currentDate);
-        onedayback.setDate(currentDate.getDate() - 1);
-      
-        const twodayback = new Date(currentDate);
-        twodayback.setDate(currentDate.getDate() - 2);
-      
-        const threedayback = new Date(currentDate);
-        threedayback.setDate(currentDate.getDate() - 3);
-      
-        const fourdayback = new Date(currentDate);
-        fourdayback.setDate(currentDate.getDate() - 4);
-      
-        const fivedayback = new Date(currentDate);
-        fivedayback.setDate(currentDate.getDate() - 5);
-      
-        const sixdayback = new Date(currentDate);
-        sixdayback.setDate(currentDate.getDate() - 6);
-        
-        const sevenDayData = [];
+    ////console.log("What is the date format?", newdates)
 
-        for (let i = 0; i < 7; i++) {
-          const dateToCheck = new Date(currentDate);
-          dateToCheck.setDate(currentDate.getDate() - i);
+
+   CareCalories.get(`/api/GetLoginStreakHome/${id}`
+    ).then((res) => {
+        //console.log(res.data);
       
-          // Filter the data for the specific date
-          const filteredData = res.data.filter((row) => {
-            return row.data === dateFormat(dateToCheck, 'yyyy/mm/dd');
-          });
+      onedayback.setDate(currentDate.getDate() - 1);
+      ////console.log(dateFormat(onedayback, "yyyy/mm/dd"))
+
       
-          // Add the filtered data to the sevenDayData array
-          sevenDayData.push(filteredData);
-        }
-      
+      twodayback.setDate(currentDate.getDate() - 2);
+      ////console.log(twodayback)
+      threedayback.setDate(currentDate.getDate() - 3);
+      fourdayback.setDate(currentDate.getDate() - 4);
+      fivedayback.setDate(currentDate.getDate() - 5);
+      sixdayback.setDate(currentDate.getDate() - 6);
+
+      // Filter the data for each specific date
+      setzero(res.data.filter((row) => dateFormat(row.date, 'yyyy/mm/dd') === dateFormat(currentDate, 'yyyy/mm/dd')))
+      setone(res.data.filter((row) => dateFormat(row.date, 'yyyy/mm/dd') === dateFormat(onedayback, 'yyyy/mm/dd')))
+      settwo(res.data.filter((row) =>dateFormat(row.date, 'yyyy/mm/dd') === dateFormat(twodayback, 'yyyy/mm/dd')))
+      setthree(res.data.filter((row) => dateFormat(row.date, 'yyyy/mm/dd') === dateFormat(threedayback, 'yyyy/mm/dd')))
+      setfour(res.data.filter((row) => dateFormat(row.date, 'yyyy/mm/dd') === dateFormat(fourdayback, 'yyyy/mm/dd')))
+      setfive(res.data.filter((row) => dateFormat(row.date, 'yyyy/mm/dd') === dateFormat(fivedayback, 'yyyy/mm/dd')))
+      setsix(res.data.filter((row) => dateFormat(row.date, 'yyyy/mm/dd') === dateFormat(sixdayback, 'yyyy/mm/dd')))
+
+    })
+
+
+
+
 
     // Fetch user profile based on id
     CareCalories.get(`/api/getUserProfile2/${id}`)
@@ -109,7 +118,7 @@ const Homepage = () => {
        } else {
          setcalorielimit(2500)
        }
-        //console.log(res.data);
+        ////console.log(res.data);
       })
       .catch((error) => {
         console.error("Error fetching user profile:", error);
@@ -122,7 +131,7 @@ const Homepage = () => {
         setuserprofile2(data.filter((res)=>res.iduserprofile === 1));
         setBMIData(data);
         const graphData = BMIGraphData();
-        //console.log(response.data)
+        ////console.log(response.data)
       })
   .catch((error) => {
       console.error("Error fetching BMI data:", error);
@@ -152,7 +161,7 @@ const Homepage = () => {
           setcalorielimit(calorielimit);
       }
       const percentage = (caloriesTaken / calorielimit) * 100;
-      //console.log(percentage);
+      ////console.log(percentage);
       setPercentage(percentage);
     })
     setupid(1)
@@ -201,8 +210,8 @@ const Homepage = () => {
     })
     .then((res) => {
         setmealData(res.data)
-        console.log(res.data)
-        //console.log(mealData)
+        //console.log(res.data)
+        ////console.log(mealData)
     })
     setLoading(true)
     CareCalories.get(`/api/totalcalories/${id}`, {
@@ -210,8 +219,8 @@ const Homepage = () => {
     })
     .then((res) => {
         settotalmealData(res.data)
-        console.log(res.data)
-       //console.log(mealData)
+        //console.log(res.data)
+       ////console.log(mealData)
     })
 
     CareCalories.get(`/api/totalMealcalories/${id}`, {
@@ -219,8 +228,8 @@ const Homepage = () => {
     })
     .then((res) => {
         setmealcalories(res.data)
-        console.log(res.data)
-       //console.log(mealData)
+        //console.log(res.data)
+       ////console.log(mealData)
     })
 
   }
@@ -233,7 +242,7 @@ const Homepage = () => {
   function handleSubmit(iduserprofile) {
     const selectedData = BMIData.filter((res) => res.iduserprofile === iduserprofile);
     setuserprofile2(selectedData);
-    console.log(userprofile2)
+    //console.log(userprofile2)
   }
 
 
@@ -289,15 +298,15 @@ const Homepage = () => {
 function handleDateChange(date){
   setdatecondition(date)
   setSelectedDate(date)
-  console.log(upid)
+  //console.log(upid)
 
   CareCalories.get(`/api/getmealrecordfullinfo/${id}`, {
       params:{upid: upid, mrdate: dateFormat(date, 'yyyy/mm/dd')}
     })
     .then((res) => {
         setmealData(res.data)
-        console.log(res.data)
-        //console.log(mealData)
+        //console.log(res.data)
+        ////console.log(mealData)
     })
     setLoading(true)
     CareCalories.get(`/api/totalcalories/${id}`, {
@@ -305,8 +314,8 @@ function handleDateChange(date){
     })
     .then((res) => {
         settotalmealData(res.data)
-        console.log(res.data)
-       //console.log(mealData)
+        //console.log(res.data)
+       ////console.log(mealData)
     })
 
     CareCalories.get(`/api/totalMealcalories/${id}`, {
@@ -314,8 +323,8 @@ function handleDateChange(date){
     })
     .then((res) => {
         setmealcalories(res.data)
-        console.log(res.data)
-       //console.log(mealData)
+        //console.log(res.data)
+       ////console.log(mealData)
     })
 
 }
@@ -340,19 +349,6 @@ const snacksData = mealcalories.filter((data) => data.meal === 'snacks');
 
 
 
- const getDayOfWeek = () => {
-    // Create an array of day names from Monday to Sunday
-    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    // Get the current day of the week (0 for Sunday, 1 for Monday, etc.)
-    const currentDayIndex = new Date().getDay();
-
-    // Map the current day index to the corresponding day name
-    return daysOfWeek[currentDayIndex];
-  };
-
-  const loginStreakDays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
-
-
   return (
     <div className='all'>
       <NavBarUser />
@@ -371,33 +367,32 @@ const snacksData = mealcalories.filter((data) => data.meal === 'snacks');
             <div className="rectangle-2">
             <div className="div-3">
               <div className="element-5">
-                <img className="img-2" alt="Icon circle check"  src={loginStreakDays.includes(getDayOfWeek()) ? imageCheck : imageX} />
-                loginStreak.filter
-                <div className="text-wrapper-22">Monday</div>
+                <img className="img-2" alt="Icon circle check"  src={six.length !==0 ? imageCheck : imageX} />
+                <div className="text-wrapper-22">{dateFormat(sixdaybefore, "dd/mm") }</div>
               </div>
               <div className="element-6">
-                <img className="img-2" alt="Icon circle check"  src={loginStreakDays.includes(getDayOfWeek()) ? imageCheck : imageX} />
-                <div className="text-wrapper-22">Tuesday</div>
+                <img className="img-2" alt="Icon circle check"  src={five.length !==0 ? imageCheck : imageX} />
+                <div className="text-wrapper-22">{dateFormat(fivedaybefore, "dd/mm") }</div>
               </div>
               <div className="element-7">
-                <img className="img-2" alt="Icon circle check"  src={loginStreakDays.includes(getDayOfWeek()) ? imageCheck : imageX} />
-                <div className="text-wrapper-23">Wednesday</div>
+                <img className="img-2" alt="Icon circle check"  src={four.length !==0 ? imageCheck : imageX} />
+                <div className="text-wrapper-23">{dateFormat(fourdaybefore, "dd/mm") }</div>
               </div>
               <div className="element-10">
-                <img className="img-2" alt="Icon circle check"  src={loginStreakDays.includes(getDayOfWeek()) ? imageCheck : imageX} />
-                <div className="text-wrapper-23">Thursday</div>
+                <img className="img-2" alt="Icon circle check"  src={three.length !==0 ? imageCheck : imageX} />
+                <div className="text-wrapper-23">{dateFormat(threedaybefore, "dd/mm") }</div>
               </div>
               <div className="element-11">
-                <img className="img-2" alt="Icon circle check"  src={loginStreakDays.includes(getDayOfWeek()) ? imageCheck : imageX} />
-                <div className="text-wrapper-23">Friday</div>
+                <img className="img-2" alt="Icon circle check"  src={two.length !==0 ? imageCheck : imageX} />
+                <div className="text-wrapper-23">{dateFormat(twodaybefore, "dd/mm") }</div>
               </div>
               <div className="element-12">
-                <img className="img-2" alt="Icon circle check"  src={loginStreakDays.includes(getDayOfWeek()) ? imageCheck : imageX} />
-                <div className="text-wrapper-23">Saturday</div>
+                <img className="img-2" alt="Icon circle check"  src={one.length !==0 ? imageCheck : imageX} />
+                <div className="text-wrapper-23">{dateFormat(onedaybefore, "dd/mm") }</div>
               </div>
               <div className="element-13">
-                <img className="img-2" alt="Icon circle check"  src={loginStreakDays.includes(getDayOfWeek()) ? imageCheck : imageX} />
-                <div className="text-wrapper-23">Sunday</div>
+                <img className="img-2" alt="Icon circle check"  src={zero.length !==0 ? imageCheck : imageX} />
+                <div className="text-wrapper-23">{dateFormat(currentDate, "dd/mm")}</div>
               </div>
               <div className="text-wrapper-24">Daily Streak.</div>
             </div>
