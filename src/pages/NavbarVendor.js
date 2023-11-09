@@ -16,8 +16,8 @@ export const NavbarVendor = () => {
       navigate('/')
     }
     return (
-      <div className="all">
-        <div className="navbar-vendor">
+      <div className="allnavbar">
+        <nav className="navbar-vendor">
 <div className="div">
 <div className="carecalories">CARECALORIES.</div>
 <div className="navigation">
@@ -36,7 +36,7 @@ export const NavbarVendor = () => {
 </div>
 </div>
 </div>
-</div>
+</nav>
 </div>
     );
 };

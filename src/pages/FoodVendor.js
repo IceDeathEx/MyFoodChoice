@@ -73,7 +73,6 @@ const FoodVendor = () => {
       ofvendor: name,
     })
       .catch((error) => {
-        // Handle the error if the post request fails
         console.error(error);
       });
   };
@@ -82,7 +81,7 @@ const FoodVendor = () => {
     CareCalories.delete(`/api/DeletefoodItems/${ofid}`)
       .then((response) => {
         alert("Food successfully deleted!");
-        // Reload the page or fetch the updated list of food items
+        navigate("/createfoodmenu")
         window.location.reload();
       })
       .catch((error) => {
@@ -93,7 +92,7 @@ const FoodVendor = () => {
   };
 
   return (
-    <div>
+    <div className="all">
       <NavbarVendor />
 
       <div className="food-vendor">

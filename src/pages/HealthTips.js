@@ -8,12 +8,12 @@ import CareCalories from "../server/config/CareCalories";
 // Styling of the Modal
 const customStyles = {
   content: {
-    top: '50%',
-    left: '50%',
+    top: '2px',
+    left: 'auto',
     right: 'auto',
     bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    margin: '0 auto',
+    transform: 'scale(0.9)',
   },
 };
 
@@ -104,7 +104,7 @@ const handleSearch = (e) =>{
           <Modal isOpen={modalIsOpen} onRequestClose={closeModal} style={customStyles} contentLabel="Example Modal">
             {htData.filter((data) => data.id.toString() === filtered).map((res)=>{
               return  <div className="frame-0" key={res.id}>
-                        <img src={res.image} alt={res.image}/>
+                        <img className='modaledit' src={res.image} alt={res.image}/>
                         <div className="text-wrapper">{dateFormat(res.date, "dddd, mmmm dS, yyyy")}</div>
                         <div className="text-wrapper-2"> <h1>{res.title}</h1></div>
                         <div className="overlap-group"><p className="p">{res.message}</p></div>

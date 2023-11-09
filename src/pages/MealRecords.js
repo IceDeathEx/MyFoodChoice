@@ -118,9 +118,9 @@ export const MealRecords = () => {
         if (filteredSearch3.length > 0 && state.mrUser2.length > 0) {
 
 
-            console.log("do something")
+            //console.log("do something")
             //Do a logic check if time is between certain period so its considered which meal of the day
-            if (time >= 21 && time <= 4) {
+            if (time >= 21 || time <= 4) {
                 //console.log("snacks")
                 meal = 'snacks'
             }
@@ -140,6 +140,9 @@ export const MealRecords = () => {
                 //console.log("dinner")
                 meal = 'dinner'
             }
+            else{
+                //console.log("what happen?")
+            }
             //Do a post to meal record database
             state.mrUser2.map((data) => {
                 CareCalories.post("/api/insertmealrecords", {
@@ -152,7 +155,7 @@ export const MealRecords = () => {
             })
             //Do a post to store the loyalty points 25 pts per meal creation
             if (mealrecord.filter((test) => test.meal === meal && dateFormat(test.date, "yyyy-mm-dd") === dateFormat(today, "yyyy-mm-dd")).length > 0) {
-                console.log("Do nothing")
+                //console.log("Do nothing")
                 navigate("/homepage")
             }
             else {

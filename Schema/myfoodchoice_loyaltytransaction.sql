@@ -30,7 +30,7 @@ CREATE TABLE `loyaltytransaction` (
   `qty` int DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,6 @@ CREATE TABLE `loyaltytransaction` (
 
 LOCK TABLES `loyaltytransaction` WRITE;
 /*!40000 ALTER TABLE `loyaltytransaction` DISABLE KEYS */;
-INSERT INTO `loyaltytransaction` VALUES (4,16,'$20 NTUCC Voucher',2000,1,'2023-10-04 21:32:23'),(5,16,'FitBit Watch',10000,1,'2023-10-06 02:48:19'),(6,16,'$20 NTUCC Voucher',2000,1,'2023-10-06 02:48:19'),(7,16,'FitBit Watch',10000,1,'2023-10-06 23:09:59'),(8,16,'$10 NTUCC Voucher',1000,1,'2023-10-06 23:09:59'),(9,16,'Blue Water Bottle',5000,1,'2023-10-16 08:52:17');
 /*!40000 ALTER TABLE `loyaltytransaction` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-31  0:31:48
+-- Dump completed on 2023-11-10  0:43:16

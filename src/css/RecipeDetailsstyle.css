@@ -20,6 +20,8 @@
     position: absolute;
     top: 114px;
     width: 873px;
+    border-radius: 30px;
+    object-fit: cover; 
 }
 
 .recipeDetails .text-wrapper {

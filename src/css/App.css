@@ -31,6 +31,15 @@
       width: 100%;
       }
 }
+
+@media (max-width: 768px) {
+  .all-on {
+      zoom: 120%; 
+      width: 100%;
+      }
+}
+
+
 @media (max-width: 768px){
 .all {
   display: inline;

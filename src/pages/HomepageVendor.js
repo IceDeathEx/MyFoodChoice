@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "../css/HVstyle.css";
 import foodImage from "../pics/1.png";
+import foodImage2 from "../pics/2.png";
+import foodImage3 from "../pics/3.png";
 import logoImage from "../pics/kfc.png";
 import { NavbarVendor } from "./NavbarVendor";
 import CareCalories from "../server/config/CareCalories";
@@ -62,7 +64,7 @@ const HomepageVendor = () => {
 
             }, []);
     return (
-        <div>
+        <div className="all">
         <NavbarVendor/>
 
 
@@ -116,29 +118,66 @@ const HomepageVendor = () => {
 <div className="aframe-2">
 <div className="text-wrapper-2">Top Selling Recipe</div>
 <div className="frame-3">
-{topSellingRecipe.sort((a, b) => b.orderCount - a.orderCount).slice(0, 6).map((topSellingRecipes, index) => (
-<div key={index} className="frame-4">
-<div className="text-wrapper-3">{index + 1}</div>
+<div className="frame-4">
+<div className="text-wrapper-3">1</div>
 <div className="video-card">
 <div className="frame-5">
 <div className="frame-6">
-<img className="elementaa" alt="elementaa" src={topSellingRecipes.ofimg} />
+<img className="elementaa" alt="elementaa" src={foodImage} />
 </div>
 <div className="title">
-<div className="text-wrapper-4">{topSellingRecipes.transitemname}</div>
+<div className="text-wrapper-4">KFC Chicken Rice</div>
 <div className="info">
 <div className="component">
-<div className="text-wrapper-5">{topSellingRecipes.totalqty}</div>
+<div className="text-wrapper-5">5</div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-))}
+<div className="frame-4">
+<div className="text-wrapper-3">2</div>
+<div className="video-card">
+<div className="frame-5">
+<div className="frame-6">
+<img className="elementaa" alt="elementaa" src={foodImage2} />
+</div>
+<div className="title">
+<div className="text-wrapper-4">Chicken Bucket</div>
+<div className="info">
+<div className="component">
+<div className="text-wrapper-5">2</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div className="frame-4">
+<div className="text-wrapper-3">3</div>
+<div className="video-card">
+<div className="frame-5">
+<div className="frame-6">
+<img className="elementaa" alt="elementaa" src={foodImage3} />
+</div>
+<div className="title">
+<div className="text-wrapper-4">Curry Chicken Rice</div>
+<div className="info">
+<div className="component">
+<div className="text-wrapper-5">1</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 
 </div>
 </div>
+
+
 <div className="cframe-7">
 <div className="text-wrapper-7">Least Selling Items</div>
 <div className="frame-8">

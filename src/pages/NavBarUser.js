@@ -17,16 +17,16 @@ const NavBarUser = () => {
     }
   return (
     <div className="allnavbar">
-    <div className="element">
+    <nav className="element">
       <div className="care-calories">CARECALORIES.</div>
-      <div className="navigation">
+      <ol className="navigation">
         <Link to="/homepage"><div className="home"><div className="text-wrapper">&nbsp;&nbsp;&nbsp;&nbsp;Home</div></div></Link>
         <Link to='/mealrecord'><div className="meal-record"><div className="text-wrapper">Add a Meal</div></div></Link>
         <Link to="/healthtips"><div className="health-tips"><div className="div">Health Tips</div></div></Link>
         <Link to="/recipe"><div className="recipe"><div className="text-wrapper-2">Recipe</div></div></Link>
         <Link to='/feedback'><div className="company"><div className="text-wrapper-3">Review</div></div></Link>
         <Link to='/orderfood/All/page/1'><div className="order-food"><div className="text-wrapper-4">Order Food</div></div></Link>
-      </div>
+      </ol>
       <Link to="/shoppingcart" ><img className="cart" alt="Cart" src={image2} /></Link>
       <div className="dropdown">
         <img className="ellipse dropbtn" alt="Ellipse" src={image} />
@@ -39,7 +39,7 @@ const NavBarUser = () => {
         </div>
       </div>
       
-    </div>
+    </nav>
     </div>
   );
 };

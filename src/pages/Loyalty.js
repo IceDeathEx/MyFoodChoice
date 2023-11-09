@@ -75,9 +75,14 @@ export const Loyalty = () => {
             date : date2
           })
         })
-        navigate('/signup')
+        //navigate('/loyalty')
+        alert("Loyalty Claim is Successful!")
+        window.location.reload()
+        console.log("success")
       }
       else{
+        alert("Not enough Loyalty Points!")
+        console.log("fail")
         setCheckoutCompleted(true);
       }
       

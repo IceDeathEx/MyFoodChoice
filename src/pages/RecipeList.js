@@ -163,7 +163,7 @@ const RecipeList = () => {
 
     }
     return (
-        <div>
+        <div className="all">
             <NavBarUser />
             {upcondition ? (
                 <div className="recipe-on-login-sign">
@@ -240,7 +240,7 @@ const RecipeList = () => {
                                 </select>
                                 <h1>Daily Avg consumed.</h1>
 
-                                <p>Calories(g): {usertotalcalories[0] ? usertotalcalories[0].kcal.toFixed(0) : 0}/2000 ({usertotalcalories[0] ? usertotalcalories[0].kcal / 2000 * 100 : 0}%)</p>
+                                <p>Calories(g): {usertotalcalories[0] ? usertotalcalories[0].kcal.toFixed(0) : 0}/2000 ({usertotalcalories[0] ? (usertotalcalories[0].kcal / 2000 * 100).toFixed(2) : 0}%)</p>
                                 <Line percent={usertotalcalories[0] ? usertotalcalories[0].kcal / 2000 * 100 : 0} strokeWidth={4} strokeColor={
                                     usertotalcalories[0] && usertotalcalories[0].kcal / 2000 * 100 >= 100
                                         ? "#FF0000" // Red if more than 100%

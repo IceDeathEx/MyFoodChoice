@@ -34,10 +34,8 @@ CREATE TABLE `userprofile` (
   `gender` varchar(45) NOT NULL,
   `bmi` float NOT NULL,
   `age` int NOT NULL,
-  PRIMARY KEY (`iduserprofile`,`iduser`,`name`),
-  KEY `iduser_idx` (`iduser`),
-  CONSTRAINT `iduser` FOREIGN KEY (`iduser`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  PRIMARY KEY (`iduserprofile`,`iduser`,`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +44,7 @@ CREATE TABLE `userprofile` (
 
 LOCK TABLES `userprofile` WRITE;
 /*!40000 ALTER TABLE `userprofile` DISABLE KEYS */;
-INSERT INTO `userprofile` VALUES (1,16,'testing','2015-02-10',123,12,'Normal','Not Active(0-1 times a week)','Female',7.93,8),(1,17,'testing2','1990-12-03',171,70,'Normal','Not Active(0-1 times a week)','Male',23.9389,23),(1,46,'testing9','2020-06-26',123,56,'Heart Disease','Active(1-2 times a week)','Female',37.015,3),(2,16,'testing1','2022-02-09',90,90,'Diabetes','Active(1-2 times a week)','Female',111.111,1),(4,16,'testing3','2017-02-09',180,90,'Normal','Active(1-2 times a week)','Male',27.7778,6),(5,16,'testing4','2022-02-09',123,12,'High Blood Pressure','Not Active(0-1 times a week)','Female',7.93,1);
+INSERT INTO `userprofile` VALUES (1,71,'KarenAwesome','2000-11-03',170,65,'Normal','Active(1-2 times a week)','Female',22.4914,23);
 /*!40000 ALTER TABLE `userprofile` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -59,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-31  0:31:48
+-- Dump completed on 2023-11-10  0:43:16

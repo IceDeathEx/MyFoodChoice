@@ -29,7 +29,7 @@ CREATE TABLE `review` (
   `reviewbody` varchar(1000) DEFAULT NULL,
   `uid` int DEFAULT NULL,
   PRIMARY KEY (`idreview`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `review` (
 
 LOCK TABLES `review` WRITE;
 /*!40000 ALTER TABLE `review` DISABLE KEYS */;
-INSERT INTO `review` VALUES (1,4,'The recipe is fantastic','I love the recipe in this website. It is marvelous.',16),(2,5,'Health tips is fabulous','The Health tips section allows me to lose weight a lot of weight.',16),(3,3,'UI is good','The UI of the website is fantastic! Loving it.',16);
+INSERT INTO `review` VALUES (1,4,'The recipe is fantastic','I love the recipe in this website. It is marvelous.',69),(2,5,'Health tips is fabulous','The Health tips section allows me to lose weight a lot of weight.',69),(3,3,'UI is good','The UI of the website is fantastic! Loving it.',69),(7,3,'Feedback for CareCalories','The app is easy to use, however it would be better if there are more functions',70);
 /*!40000 ALTER TABLE `review` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-31  0:31:48
+-- Dump completed on 2023-11-10  0:43:15

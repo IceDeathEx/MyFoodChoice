@@ -301,7 +301,7 @@ const ManageVendor = () => {
 
                             </div>
                         </div>
-                        <table>
+                        <table className="userSAtable">
                             <thead>
                                 <tr>
                                     <th>ID</th>

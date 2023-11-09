@@ -22,6 +22,7 @@ const Transaction = () => {
         CareCalories.get(`/api/gettransactionpaidandunpaid/${id}`)
         .then((data)=>{
             settransaction(data.data.reverse())
+            console.log(data.data)
         })
         setIsLoading(true)
     },[])

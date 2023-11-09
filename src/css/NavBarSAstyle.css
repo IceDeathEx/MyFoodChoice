@@ -16,7 +16,7 @@
     line-height: 20px;
     position: absolute;
     top: 28px;
-    width: 200px;
+    width: 100%;
 }
 
 .NSnavbar-SA .NSframe {
@@ -64,15 +64,19 @@
     flex-direction: column;
     gap: 10px;
     justify-content: center;
-    left: 1313px;
     position: absolute;
     top: 21px;
+    right: 30px;
+    border-radius: 30px;
+    color: #ffffff;
 }
 
 .NSnavbar-SA .NSrectangle {
     height: 38px;
     position: relative;
     width: 138px;
+    border-radius: 30px;
+    color: #ffffff;
 }
 
 .NSnavbar-SA .NStext-wrapper-2 {

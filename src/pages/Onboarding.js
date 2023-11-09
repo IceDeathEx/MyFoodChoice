@@ -13,7 +13,7 @@ const Onboarding = () => {
     }
 
     return (
-        <div className="all">
+        <div className='all'>
             <Navbar1/>
         
         <div className="onboarding">

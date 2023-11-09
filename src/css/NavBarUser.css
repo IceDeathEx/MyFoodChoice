@@ -180,7 +180,7 @@ body {
   box-shadow: 0px 8px 16px 0px rgb(0, 0, 0, 0.2);
   z-index: 99;
   padding-right: 10px;
-  left: 1800px; /* Adjust as needed */
+  left: initial;
   top: 90%; /* Position the dropdown content below the .dropbtn */
   transform: translateX(-25%); /* Translate the dropdown horizontally to align with the ellipse */
 }

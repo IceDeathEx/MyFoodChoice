@@ -446,3 +446,9 @@
     top: 1006px;
     width: 283px;
 }
+
+.pagination-style {
+    background-color: lightcyan;
+    text-decoration-color: white;
+    border-radius: 10px;
+}

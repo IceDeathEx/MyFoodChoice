@@ -17,8 +17,8 @@ const NavbarSa = () => {
       navigate('/')
     }
     return (
-        <div className="all">
-        <div className="NSnavbar-SA">
+        <div className="allnavbar">
+        <nav className="NSnavbar-SA">
             <div className="NScarecalories">CARECALORIES.</div>
             <div className="NSframe">
                 <Link to="/sysadm" className="NStext-wrapper">Manage</Link>
@@ -29,7 +29,7 @@ const NavbarSa = () => {
                 <div className="NStext-wrapper-2">Logout</div>
                 </button>
             </div>
-        </div>
+        </nav>
         </div>
     );
 };

@@ -21,7 +21,7 @@ table, th, td {
 
   table {
     border-collapse: collapse;
-    margin-top: 380px;
+    margin-top: 20px;
   }
 
   .divcss{
@@ -70,4 +70,9 @@ td {
 
   .Vendortable {
     margin-top: -30px;
+  }
+
+  .center {
+    padding-top: 0;
+    margin-top: 25px;
   }

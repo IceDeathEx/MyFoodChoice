@@ -201,7 +201,7 @@ const FoodOrder = () => {
                                             </button>
                                         </div>
                         })}
-                        <Pagination postsPerPage={postsPerPage} totalPosts={totalPosts} paginate={paginate} />
+                        <Pagination className='pagination' postsPerPage={postsPerPage} totalPosts={totalPosts} paginate={paginate} />
                         </div>
                         
                     </div>

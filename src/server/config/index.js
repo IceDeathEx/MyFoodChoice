@@ -487,7 +487,7 @@ app.get("/api/getmealrecord/:id", (req, res) => {
 // Route to get meal record based on ID join other tables
 app.get("/api/getmealrecordfullinfo1/:id", (req, res) => {
   const id = req.params.id;
-  db.query("select * from mealrecord join foodnutrition on mealrecord.foodid = foodnutrition.id join userprofile on userprofile.iduserprofile = mealrecord.upid where mealrecord.uid=?", id, (err, result) => {
+  db.query("select * from mealrecord left join foodnutrition on mealrecord.foodid = foodnutrition.id left join userprofile on userprofile.iduserprofile = mealrecord.upid where mealrecord.uid= ? AND iduser= ?;", [id, id], (err, result) => {
     if (err) {
       console.log(err)
     }
@@ -735,7 +735,7 @@ app.get("/api/gettransactionpaid/:id", (req, res) => {
 // Route to getting all rows for shopping cart that user has paid and unpaid for (WORKING)
 app.get("/api/gettransactionpaidandunpaid/:id", (req, res) => {
   const id = req.params.id;
-  db.query("SELECT * FROM transaction WHERE (uid=? and transstatus='Paid' and transcategory='Recipe') or (uid=? and transstatus='Unpaid' and transcategory='Recipe');", [id,id], (err, result) => {
+  db.query("SELECT * FROM transaction WHERE (uid=? and transstatus='Paid') or (uid=? and transstatus='Unpaid');", [id,id], (err, result) => {
     if (err) {
       console.log(err)
     }

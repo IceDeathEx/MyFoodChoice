@@ -341,3 +341,14 @@
     border-radius: 20px;
   }
   
+
+.modaledit {
+  width: fit-content;
+  height: 300px;
+  margin: 0 auto;
+  text-align: left;
+  align-items: center;
+  border-radius: 20px;
+  
+
+}

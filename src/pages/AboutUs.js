@@ -58,7 +58,7 @@ const AboutUs = () => {
                         </p>
                     </div>
                     <div className="text-wrapper-3">Contact Us</div>
-                    <p className="p">Tel: 6666 7777 | Mobile: 9999 8888 | Email: xxxx@gmail.com</p>
+                    <p className="p">Tel: 6666 7777 | Mobile: 9999 8888 | Email: CareCalories@gmail.com</p>
                 </div>
             </div>
         </div>

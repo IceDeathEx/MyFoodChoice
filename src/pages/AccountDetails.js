@@ -457,11 +457,7 @@ const handleupgrade = () => {
                   </div>
                   <div className="frame-15">
                     <div className="frame-16">
-                    {user[0].premium === "basic" && (
-                        <div className="text-wrapper-11" onClick={handleupgrade}>upgrade</div>
-                        )}
-                      <div className="text-wrapper-4">Account Type</div>
-                      <div className="text-wrapper-5">{user[0].premium}</div>
+                     
                     </div>
                   </div>
                   <img className="ellipse" alt="Ellipse" src={image}/>
