@@ -159,65 +159,69 @@ const AccountDetails = () => {
   }
 
   if (isFormValid) {
-    if(userData.length === 5){
+    if(userData.length === 5){ //you already have 5 profiles
+      console.log(0)
       alert("You have reached your maximum user profiles.")
     }
-    else{
-    for(let i = 0; i < userData.length; i++){
-      if(userData[i].iduserprofile === i + 1){
-        if(i === 3){
-          CareCalories.post("/api/addIdProfile", {
-            iduser: id,
-            iduserprofile: i+2,
-            name: name,
-            dob: dob,
-            weight: weight,
-            height: height,
-            conditions: conditions,
-            lifestyle: lifestyle,
-            gender: gender,
-            age: age,
-            bmi: bmi.toFixed(2)
-          })
-          CareCalories.post(`/api/UserBMItracker/${id}`, {
-            height: height,
-            weight: weight,
-            bmi: bmi.toFixed(2),
-            iduserprofile: i+2,
-       })
-          navigate('/account')
-          alert('successfully created new userprofile')
+    else if(userData[userData.length - 1].iduserprofile === userData.length){ //last element equals to total number of profiles
+      CareCalories.post("/api/addIdProfile", {
+        iduser: id,
+        iduserprofile: userData.length + 1,
+        name: name,
+        dob: dob,
+        weight: weight,
+        height: height,
+        conditions: conditions,
+        lifestyle: lifestyle,
+        gender: gender,
+        age: age,
+        bmi: bmi.toFixed(2)
+      })
+      CareCalories.post(`/api/UserBMItracker/${id}`, {
+        height: height,
+        weight: weight,
+        bmi: bmi.toFixed(2),
+        iduserprofile: userData.length + 1,
+      })
+      navigate('/account')
+      alert('line 187: successfully created new userprofile' + (userData.length + 1))
+    }
+    else { //last element is not equals to total number of profiles; profiles got missing hole inside
+      for(let i = 0; i < userData.length; i++){
+        // for profiles with holes
+        if(userData[i].iduserprofile === i + 1){
+          console.log((i + 1) + "th profile is already taken. skipping.")
         }
-        //Do nothing.
-      }
-      else{
-        CareCalories.post("/api/addIdProfile", {
-          iduser: id,
-          iduserprofile: i+1,
-          name: name,
-          dob: dob,
-          weight: weight,
-          height: height,
-          conditions: conditions,
-          lifestyle: lifestyle,
-          gender: gender,
-          age: age,
-          bmi: bmi.toFixed(2)
-        })
-        CareCalories.post(`/api/UserBMItracker/${id}`, {
-          height: height,
-          weight: weight,
-          bmi: bmi.toFixed(2),
-          iduserprofile: i+1,
-     })
-        navigate('/account')
-        alert('successfully created new userprofile')
+        else{
+          console.log("test123")
+            CareCalories.post("/api/addIdProfile", {
+              iduser: id,
+              iduserprofile: i+1,
+              name: name,
+              dob: dob,
+              weight: weight,
+              height: height,
+              conditions: conditions,
+              lifestyle: lifestyle,
+              gender: gender,
+              age: age,
+              bmi: bmi.toFixed(2)
+            })
+            CareCalories.post(`/api/UserBMItracker/${id}`, {
+              height: height,
+              weight: weight,
+              bmi: bmi.toFixed(2),
+              iduserprofile: i+1,
+            })
+            navigate('/account')
+            alert('line 217: successfully created new userprofile' + (i + 1))
+            i += 10
+          }
       }
     }
   }
-    
-  }
-};
+}
+;
   
   const DeleteProfile = () => {
   CareCalories.delete(`/api/deleteProfile/${userData2[0].iduserprofile}`)
