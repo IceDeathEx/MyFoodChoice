@@ -184,7 +184,8 @@ const AccountDetails = () => {
         iduserprofile: userData.length + 1,
       })
       navigate('/account')
-      alert('line 187: successfully created new userprofile' + (userData.length + 1))
+      alert('Successfully created new userprofile' + (userData.length + 1))
+      window.location.reload()
     }
     else { //last element is not equals to total number of profiles; profiles got missing hole inside
       for(let i = 0; i < userData.length; i++){
@@ -193,7 +194,7 @@ const AccountDetails = () => {
           console.log((i + 1) + "th profile is already taken. skipping.")
         }
         else{
-          console.log("test123")
+          //console.log("test123")
             CareCalories.post("/api/addIdProfile", {
               iduser: id,
               iduserprofile: i+1,
@@ -214,8 +215,9 @@ const AccountDetails = () => {
               iduserprofile: i+1,
             })
             navigate('/account')
-            alert('line 217: successfully created new userprofile' + (i + 1))
+            alert('Successfully created new userprofile' + (i + 1))
             i += 10
+            window.location.reload()
           }
       }
     }
