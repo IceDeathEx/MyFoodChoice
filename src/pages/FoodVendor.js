@@ -80,15 +80,16 @@ const FoodVendor = () => {
   const handleDelete = (ofid) => {
     CareCalories.delete(`/api/DeletefoodItems/${ofid}`)
       .then((response) => {
-        alert("Food successfully deleted!");
-        navigate("/createfoodmenu")
-        window.location.reload();
+        
       })
       .catch((error) => {
         // Handle the error if the delete request fails
         console.error(error);
       });
     // console.log (orderid)
+         alert("Food successfully deleted!");
+        navigate("/createfoodmenu")
+        window.location.reload();
   };
 
   return (
