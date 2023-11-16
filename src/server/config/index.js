@@ -569,8 +569,9 @@ app.get("/api/getUserProfiles/:id", (req, res) => {
 
 // Route to add user profile id(Working)
 app.post('/api/addIdProfile', (req, res) => {
-
+  
   const id = req.body.iduser;
+  const iduserprofile = req.body.iduserprofile;
   const name = req.body.name;
   const gender = req.body.gender;
   const height = req.body.height;
@@ -581,7 +582,7 @@ app.post('/api/addIdProfile', (req, res) => {
   const bmi = req.body.bmi;
   const age = req.body.age;
 
-  db.query("INSERT INTO userprofile (iduser, name, dob, height, weight, lifestyle, conditions, gender, bmi, age) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [id ,name, dob, height, weight, lifestyle, conditions, gender, bmi, age], (err, result) => {
+  db.query("INSERT INTO userprofile (iduserprofile, iduser, name, dob, height, weight, lifestyle, conditions, gender, bmi, age) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", [iduserprofile, id ,name, dob, height, weight, lifestyle, conditions, gender, bmi, age], (err, result) => {
     if (err) {
       console.log(err)
     }

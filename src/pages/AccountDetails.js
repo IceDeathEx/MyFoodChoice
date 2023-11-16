@@ -67,7 +67,7 @@ const AccountDetails = () => {
       //console.log("I am Loading data")
       //console.log(res.data)
       setuserdata2(res.data);
-      console.log()
+      //console.log(res.data)
 
       setUserProfiles(profiles);
       setisLoading(false);
@@ -159,95 +159,66 @@ const AccountDetails = () => {
   }
 
   if (isFormValid) {
-    CareCalories.post("/api/addIdProfile", {
-      iduser: id,
-      name: name,
-      dob: dob,
-      weight: weight,
-      height: height,
-      conditions: conditions,
-      lifestyle: lifestyle,
-      gender: gender,
-      age: age,
-      bmi: bmi.toFixed(2),
-    })
-      .then((response) => {
-        console.log("Profile added successfully");
-        handleModalClose();
-        setName("");
-        setDob("");
-        setWeight("");
-        setHeight("");
-        setConditions("Normal");
-        setLifestyle("Active(1-2 times a week)");
-        setGender("Male");
-      })
-      .catch((error) => {
-        console.error("Error adding profile:", error);
-      });
-  }
-};
-  const handleChange = (e) => {
-    if (userProfiles.length === 5) {
-      alert("You can't add more profiles. The maximum limit is 5.");
-    } else {
-      const {name, value} = e.target;
-
-      if (name) {
-        setemptyName(false);
+    if(userData.length === 5){
+      alert("You have reached your maximum user profiles.")
+    }
+    else{
+    for(let i = 0; i < userData.length; i++){
+      if(userData[i].iduserprofile === i + 1){
+        if(i === 3){
+          CareCalories.post("/api/addIdProfile", {
+            iduser: id,
+            iduserprofile: i+2,
+            name: name,
+            dob: dob,
+            weight: weight,
+            height: height,
+            conditions: conditions,
+            lifestyle: lifestyle,
+            gender: gender,
+            age: age,
+            bmi: bmi.toFixed(2)
+          })
+          CareCalories.post(`/api/UserBMItracker/${id}`, {
+            height: height,
+            weight: weight,
+            bmi: bmi.toFixed(2),
+            iduserprofile: i+2,
+       })
+          navigate('/account')
+          alert('successfully created new userprofile')
+        }
+        //Do nothing.
       }
-      else {
-          setemptyName(true)
-          setEmptyNameMsg('Please type in your name')
-        //  console.log(5)
-        }
-      if (dob){
-          setemptydob(false)
-          //console.log(16)
-        }
-        else{
-          setemptydob(true)
-          //console.log(17)
-          setemptydobMsg('Please indicate date of birth.')
-        }
-        if(height < 1 || height === null){
-          setemptyHeight(true)
-          setEmptyHeightMsg('Please indicate a valid height value')
-          //console.log(18)
-        }
-        else{
-          setemptyHeight(false)
-          //console.log(19)
-        }
-        if(weight < 1 || weight === null){
-          setemptyWeight(true)
-          setEmptyWeightMsg('Please indicate a valid weight value')
-          //console.log(20)
-        }
-        else{
-          setemptyWeight(false)
-          //console.log(21)
-        }
-
-
-
-      for (let i = 0; i < userProfiles.length; i++) {
-        if (userProfiles[i].iduserprofile === i + 1) {
-          alert("You can't add more profiles. The maximum limit is 5.");
-        } else {
-          setuserprofileid(i + 1);
-          CareCalories.post("/api/addIdProfile", )
-              .then((response) => {
-                console.log('Successfully added iduserprofile:', response.data);
-              })
-              .catch((error) => {
-                console.error('Error adding iduserprofile:', error);
-              });
-          break;
-        }
+      else{
+        CareCalories.post("/api/addIdProfile", {
+          iduser: id,
+          iduserprofile: i+1,
+          name: name,
+          dob: dob,
+          weight: weight,
+          height: height,
+          conditions: conditions,
+          lifestyle: lifestyle,
+          gender: gender,
+          age: age,
+          bmi: bmi.toFixed(2)
+        })
+        CareCalories.post(`/api/UserBMItracker/${id}`, {
+          height: height,
+          weight: weight,
+          bmi: bmi.toFixed(2),
+          iduserprofile: i+1,
+     })
+        navigate('/account')
+        alert('successfully created new userprofile')
       }
     }
-  };
+  }
+    
+  }
+};
+  
   const DeleteProfile = () => {
   CareCalories.delete(`/api/deleteProfile/${userData2[0].iduserprofile}`)
     .then((response) => {

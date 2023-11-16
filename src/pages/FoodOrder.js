@@ -158,7 +158,18 @@ const FoodOrder = () => {
                                             <div className="image-title">
                                                 <div className="rectangle-wrapper">
                                                     <img className="rectangle" alt="Rectangle" src={data.ofimg} />
+                                                    <div class="middle">
+                                                         <div class="detailsmac">
+                                                            <div>Calories: 150kcal</div>
+                                                            <div>Protein: 15g</div>
+                                                            <div>Carbs: 17g</div>
+                                                            <div>Fat: 19g</div>
+
+
+                                                         </div>
+                                                             </div>
                                                 </div>
+
                                                 <div className="name-location-price">
                                                     <div className="name-location">
                                                         <div className="name">{data.ofname}</div>

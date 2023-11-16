@@ -206,7 +206,7 @@ const ShoppingCart = () => {
                     </div>
                     )}
                 </div>
-                {transaction.map((item, index)=>{
+                {transaction && transaction.map((item, index)=>{
                     if(item.transcategory === 'Recipe' || item.transcategory === 'Upgrade'){
                         return <div className={`overlap-0${index+1}`} key={index+1}>
                     <div className="text-wrapper-16">{item.transitemname}<br/>{item.transitemvendor}</div>

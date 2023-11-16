@@ -163,6 +163,7 @@ const Homepage = () => {
     })
     .then((res) => {
         settotalmealData(res.data)
+        //console.log(res.data)
     })
 
     CareCalories.get(`/api/totalMealcalories/${id}`, {
@@ -242,7 +243,8 @@ const Homepage = () => {
     })
     .then((res) => {
         setmealcalories(res.data)
-        //console.log(res.data)
+        
+        console.log(res.data)
        ////console.log(mealData)
     })
 

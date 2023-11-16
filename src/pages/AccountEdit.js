@@ -133,7 +133,7 @@ const AccountEdit = () => {
 }
   if (iduserprofile === 1) {
     return (
-      <div>
+      <div className="all">
         <NavBarUser />
         {user && userData2[0] ? (
           <div className="account">

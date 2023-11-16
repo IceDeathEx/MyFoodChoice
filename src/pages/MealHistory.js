@@ -31,7 +31,6 @@ const MealHistory = () => {
         
     },[])
     const handleMealRecordName = (e) =>{
-        if(mealrecorddb.length === 0){
             setcondition2(e.target.value)
             if(e.target.value === ''){
                 //Do nothing
@@ -39,20 +38,16 @@ const MealHistory = () => {
             else{
                 setmealrecorddb3(mealrecorddb.filter((res)=> res.name === condition1 && res.fname.toLowerCase().includes(e.target.value.toLowerCase())))
             }
-        }
         
     }
     const handleUPChange = (e) =>{
-        if(mealrecorddb.length === 0){
             setcondition1(e.target.value)
             if(condition2 === ''){
                 setmealrecorddb3(mealrecorddb.filter((res)=> res.name === e.target.value))
-
             }
             else{
                 setmealrecorddb3(mealrecorddb.filter((res)=> res.name === e.target.value && res.fname.toLowerCase().includes(condition2.toLowerCase())))
             }
-        }
         
         
     }
@@ -90,7 +85,7 @@ const MealHistory = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {/* !filtermealrecord &&  */mealrecorddb3.reverse().map((data, index)=>{
+                    {mealrecorddb3.reverse().map((data, index)=>{
                         return  <tr key={index+1}>
                                     <td>{index+1}</td>
                                     <td>{data.fname}</td>
